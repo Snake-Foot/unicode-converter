@@ -1726,6 +1726,539 @@ case "font-indic-siyaq":
 
 
     /* ================================= */
+    /* 空白・不可視文字の判定 */
+    /* ================================= */
+
+    const knownInvisibleCodePoints =
+      new Set([
+        0x115F,
+        0x1160,
+        0x2800,
+        0x3164,
+        0xFFA0
+      ]);
+
+
+    function isInvisibleCharacter(
+      codePoint,
+      character
+    ) {
+
+      if (
+        knownInvisibleCodePoints.has(
+          codePoint
+        )
+      ) {
+        return true;
+      }
+
+
+      if (
+        /\p{Default_Ignorable_Code_Point}/u
+          .test(
+            character
+          )
+      ) {
+        return true;
+      }
+
+
+      return false;
+    }
+
+
+    /* ================================= */
+    /* 実際の描画状態を調べる */
+    /* ================================= */
+
+    const glyphCanvas =
+      document.createElement(
+        "canvas"
+      );
+
+
+    glyphCanvas.width =
+      220;
+
+
+    glyphCanvas.height =
+      220;
+
+
+    const glyphContext =
+      glyphCanvas.getContext(
+        "2d",
+        {
+          willReadFrequently:
+            true
+        }
+      );
+
+
+    function getGlyphSignature(
+      character,
+      fontFamily
+    ) {
+
+      glyphContext.clearRect(
+        0,
+        0,
+        glyphCanvas.width,
+        glyphCanvas.height
+      );
+
+
+      glyphContext.font =
+        `100px ${fontFamily}`;
+
+
+      glyphContext.textBaseline =
+        "alphabetic";
+
+
+      glyphContext.fillStyle =
+        "#000";
+
+
+      glyphContext.fillText(
+        character,
+        40,
+        150
+      );
+
+
+      const imageData =
+        glyphContext.getImageData(
+          0,
+          0,
+          glyphCanvas.width,
+          glyphCanvas.height
+        );
+
+
+      const data =
+        imageData.data;
+
+
+      let ink =
+        0;
+
+
+      let hash =
+        2166136261;
+
+
+      for (
+        let i = 3;
+        i < data.length;
+        i += 4
+      ) {
+
+        const alpha =
+          data[i];
+
+
+        if (
+          alpha > 0
+        ) {
+          ink++;
+        }
+
+
+        hash ^=
+          alpha;
+
+
+        hash =
+          Math.imul(
+            hash,
+            16777619
+          );
+
+      }
+
+
+      return {
+        ink,
+        hash:
+          hash >>> 0
+      };
+    }
+
+
+    function isRenderedBlank(
+      character,
+      fontFamily
+    ) {
+
+      const signature =
+        getGlyphSignature(
+          character,
+          fontFamily
+        );
+
+
+      return (
+        signature.ink === 0
+      );
+    }
+
+
+    /*
+      □ や三本線など、
+      フォントに文字がない時に
+      ブラウザが表示する代替字形を検出する。
+
+      「絶対に完全」ではないが、
+      未割り当て文字を同じフォントで描画して比較することで
+      かなり高い確率で判別できる。
+    */
+
+    function looksLikeMissingGlyph(
+      character,
+      fontFamily
+    ) {
+
+      const target =
+        getGlyphSignature(
+          character,
+          fontFamily
+        );
+
+
+      if (
+        target.ink === 0
+      ) {
+        return false;
+      }
+
+
+      const missing1 =
+        getGlyphSignature(
+          String.fromCodePoint(
+            0x10FFFF
+          ),
+          fontFamily
+        );
+
+
+      const missing2 =
+        getGlyphSignature(
+          String.fromCodePoint(
+            0x0378
+          ),
+          fontFamily
+        );
+
+
+      const matches1 =
+        missing1.ink > 0
+        &&
+        target.ink ===
+          missing1.ink
+        &&
+        target.hash ===
+          missing1.hash;
+
+
+      const matches2 =
+        missing2.ink > 0
+        &&
+        target.ink ===
+          missing2.ink
+        &&
+        target.hash ===
+          missing2.hash;
+
+
+      return (
+        matches1 ||
+        matches2
+      );
+    }
+
+
+    /* ================================= */
+    /* 小さすぎる字形の自動補正 */
+    /* ================================= */
+
+    function getGlyphScaleFactor(
+      element,
+      codePoint,
+      character
+    ) {
+
+      /*
+        今回は問題が確認されている
+        Egyptian Hieroglyphs Extended-A
+        だけ補正する。
+      */
+
+      if (
+        codePoint < 0x13460 ||
+        codePoint > 0x143FF
+      ) {
+        return 1;
+      }
+
+
+      const style =
+        getComputedStyle(
+          element
+        );
+
+
+      const fontFamily =
+        style.fontFamily;
+
+
+      glyphContext.font =
+        `100px ${fontFamily}`;
+
+
+      const metrics =
+        glyphContext.measureText(
+          character
+        );
+
+
+      const width =
+        Math.abs(
+          metrics.actualBoundingBoxLeft
+        )
+        +
+        Math.abs(
+          metrics.actualBoundingBoxRight
+        );
+
+
+      const height =
+        Math.abs(
+          metrics.actualBoundingBoxAscent
+        )
+        +
+        Math.abs(
+          metrics.actualBoundingBoxDescent
+        );
+
+
+      const size =
+        Math.max(
+          width,
+          height
+        );
+
+
+      if (
+        !Number.isFinite(
+          size
+        )
+        ||
+        size <= 0
+      ) {
+        return 1;
+      }
+
+
+      /*
+        普通の大きさなら変更しない。
+      */
+
+      if (
+        size >= 52
+      ) {
+        return 1;
+      }
+
+
+      /*
+        小さいものだけ、
+        最大辺がだいたい65になるまで拡大。
+      */
+
+      const scale =
+        65 /
+        size;
+
+
+      return Math.min(
+        5,
+        Math.max(
+          1,
+          scale
+        )
+      );
+    }
+
+
+    function applyGlyphScale(
+      element,
+      codePoint,
+      character
+    ) {
+
+      const scale =
+        getGlyphScaleFactor(
+          element,
+          codePoint,
+          character
+        );
+
+
+      if (
+        scale <= 1.05
+      ) {
+        return;
+      }
+
+
+      element.style.transform =
+        `scale(${scale})`;
+
+
+      element.style.transformOrigin =
+        "center";
+
+
+      /*
+        横の文字との重なり防止。
+      */
+
+      const margin =
+        Math.min(
+          1,
+          (
+            scale - 1
+          ) * 0.25
+        );
+
+
+      element.style.marginLeft =
+        `${margin}em`;
+
+
+      element.style.marginRight =
+        `${margin}em`;
+    }
+
+
+    function applyDailyGlyphScale(
+      element,
+      codePoint,
+      character
+    ) {
+
+      const scale =
+        getGlyphScaleFactor(
+          element,
+          codePoint,
+          character
+        );
+
+
+      if (
+        scale <= 1.05
+      ) {
+        return;
+      }
+
+
+      const baseSize =
+        window.matchMedia(
+          "(max-width: 520px)"
+        ).matches
+          ? 78
+          : 92;
+
+
+      const newSize =
+        Math.min(
+          260,
+          baseSize *
+          scale
+        );
+
+
+      element.style.fontSize =
+        `${newSize}px`;
+    }
+
+
+    /* ================================= */
+    /* 表示状態ラベル */
+    /* ================================= */
+
+    function makeStatusSpan(
+      text
+    ) {
+
+      const span =
+        document.createElement(
+          "span"
+        );
+
+
+      span.textContent =
+        text;
+
+
+      span.style.display =
+        "inline-flex";
+
+
+      span.style.alignItems =
+        "center";
+
+
+      span.style.margin =
+        "4px 6px";
+
+
+      span.style.padding =
+        "4px 8px";
+
+
+      span.style.borderRadius =
+        "7px";
+
+
+      span.style.background =
+        "#eeeeee";
+
+
+      span.style.color =
+        "#666";
+
+
+      span.style.fontFamily =
+        '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+
+
+      span.style.fontSize =
+        "13px";
+
+
+      span.style.fontWeight =
+        "500";
+
+
+      span.style.lineHeight =
+        "1.3";
+
+
+      span.style.verticalAlign =
+        "middle";
+
+
+      span.style.whiteSpace =
+        "nowrap";
+
+
+      return span;
+    }
+
+
+    /* ================================= */
     /* ランダムUnicode生成 */
     /* ================================= */
 
@@ -1793,6 +2326,20 @@ case "font-indic-siyaq":
         String.fromCodePoint(
           codePoint
         );
+
+
+      /*
+        空白・不可視文字を除外
+      */
+
+      if (
+        isInvisibleCharacter(
+          codePoint,
+          character
+        )
+      ) {
+        return false;
+      }
 
 
       if (
@@ -1906,11 +2453,6 @@ case "font-indic-siyaq":
         ];
 
 
-      /*
-        同じ内容を
-        連続保存しない
-      */
-
       if (
         currentValue === lastValue
       ) {
@@ -1922,11 +2464,6 @@ case "font-indic-siyaq":
         currentValue
       );
 
-
-      /*
-        履歴が増えすぎないように
-        最大50件
-      */
 
       if (
         unicodeHistory.length > 50
@@ -1975,10 +2512,6 @@ case "font-indic-siyaq":
     function generateRandomUnicode(
       count
     ) {
-
-      /*
-        生成前の状態を保存
-      */
 
       saveUnicodeHistory();
 
@@ -2114,6 +2647,38 @@ case "font-indic-siyaq":
           );
 
 
+        /*
+          Unicodeとしては有効だが、
+          本来見えない文字
+        */
+
+        if (
+          isInvisibleCharacter(
+            codePoint,
+            character
+          )
+        ) {
+
+          const status =
+            makeStatusSpan(
+              "不可視: U+" +
+              codePoint
+                .toString(
+                  16
+                )
+                .toUpperCase()
+            );
+
+
+          charOutput.appendChild(
+            status
+          );
+
+
+          continue;
+        }
+
+
         const fontClass =
           getFontClass(
             codePoint
@@ -2157,6 +2722,10 @@ case "font-indic-siyaq":
         );
 
 
+        /*
+          Webフォントがある場合
+        */
+
         if (
           fontNames.length > 0
         ) {
@@ -2181,6 +2750,91 @@ case "font-indic-siyaq":
                   "loading-character"
                 );
 
+
+                const style =
+                  getComputedStyle(
+                    span
+                  );
+
+
+                const fontFamily =
+                  style.fontFamily;
+
+
+                /*
+                  本当に何も描画されない
+                */
+
+                if (
+                  isRenderedBlank(
+                    character,
+                    fontFamily
+                  )
+                ) {
+
+                  const replacement =
+                    makeStatusSpan(
+                      "空白: U+" +
+                      codePoint
+                        .toString(
+                          16
+                        )
+                        .toUpperCase()
+                    );
+
+
+                  span.replaceWith(
+                    replacement
+                  );
+
+
+                  return;
+                }
+
+
+                /*
+                  □ / 三本線などの
+                  Missing Glyph
+                */
+
+                if (
+                  looksLikeMissingGlyph(
+                    character,
+                    fontFamily
+                  )
+                ) {
+
+                  const replacement =
+                    makeStatusSpan(
+                      "未対応: U+" +
+                      codePoint
+                        .toString(
+                          16
+                        )
+                        .toUpperCase()
+                    );
+
+
+                  span.replaceWith(
+                    replacement
+                  );
+
+
+                  return;
+                }
+
+
+                /*
+                  表示できたが
+                  極端に小さい場合
+                */
+
+                applyGlyphScale(
+                  span,
+                  codePoint,
+                  character
+                );
+
               }
             );
 
@@ -2188,6 +2842,70 @@ case "font-indic-siyaq":
           promises.push(
             promise
           );
+
+        } else {
+
+          /*
+            専用Webフォントを使わない文字も
+            描画結果を確認する。
+          */
+
+          const style =
+            getComputedStyle(
+              span
+            );
+
+
+          const fontFamily =
+            style.fontFamily;
+
+
+          if (
+            isRenderedBlank(
+              character,
+              fontFamily
+            )
+          ) {
+
+            const replacement =
+              makeStatusSpan(
+                "空白: U+" +
+                codePoint
+                  .toString(
+                    16
+                  )
+                  .toUpperCase()
+              );
+
+
+            span.replaceWith(
+              replacement
+            );
+
+
+          } else if (
+            looksLikeMissingGlyph(
+              character,
+              fontFamily
+            )
+          ) {
+
+            const replacement =
+              makeStatusSpan(
+                "未対応: U+" +
+                codePoint
+                  .toString(
+                    16
+                  )
+                  .toUpperCase()
+              );
+
+
+            span.replaceWith(
+              replacement
+            );
+
+          }
 
         }
       }
@@ -2350,6 +3068,26 @@ case "font-indic-siyaq":
 
     async function loadDailyCharacter() {
 
+      /*
+        前回の自動拡大をリセット
+      */
+
+      dailyCharacter.style.fontSize =
+        "";
+
+
+      dailyCharacter.style.transform =
+        "";
+
+
+      dailyCharacter.style.marginLeft =
+        "";
+
+
+      dailyCharacter.style.marginRight =
+        "";
+
+
       dailyCharacter.className =
         "character loading-character";
 
@@ -2508,8 +3246,32 @@ case "font-indic-siyaq":
           " loading-character";
 
 
-        dailyCharacter.textContent =
-          character;
+        /*
+          不可視文字なら
+          文字そのものではなく表示する
+        */
+
+        if (
+          isInvisibleCharacter(
+            codePoint,
+            character
+          )
+        ) {
+
+          dailyCharacter.className =
+            "character font-normal";
+
+
+          dailyCharacter.textContent =
+            "不可視";
+
+
+        } else {
+
+          dailyCharacter.textContent =
+            character;
+
+        }
 
 
         dailyCode.textContent =
@@ -2535,10 +3297,83 @@ case "font-indic-siyaq":
           );
 
 
-        await waitForCharacterFont(
-          codePoint,
-          character
-        );
+        if (
+          !isInvisibleCharacter(
+            codePoint,
+            character
+          )
+        ) {
+
+          await waitForCharacterFont(
+            codePoint,
+            character
+          );
+
+
+          const style =
+            getComputedStyle(
+              dailyCharacter
+            );
+
+
+          const fontFamily =
+            style.fontFamily;
+
+
+          /*
+            完全に空白だった場合
+          */
+
+          if (
+            isRenderedBlank(
+              character,
+              fontFamily
+            )
+          ) {
+
+            dailyCharacter.className =
+              "character font-normal";
+
+
+            dailyCharacter.textContent =
+              "空白";
+
+
+          /*
+            □ / 三本線
+          */
+
+          } else if (
+            looksLikeMissingGlyph(
+              character,
+              fontFamily
+            )
+          ) {
+
+            dailyCharacter.className =
+              "character font-normal";
+
+
+            dailyCharacter.textContent =
+              "未対応";
+
+
+          } else {
+
+            /*
+              Egyptian Extended-Aの
+              小さい字形を自動拡大
+            */
+
+            applyDailyGlyphScale(
+              dailyCharacter,
+              codePoint,
+              character
+            );
+
+          }
+
+        }
 
 
         dailyCharacter
