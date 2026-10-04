@@ -10,11 +10,11 @@
 
   <title>文字 ⇄ Unicode 変換</title>
 
-  <!-- Google Fonts -->
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
   >
+
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
@@ -113,36 +113,28 @@
     main {
       width: 100%;
 
-      max-width:
-        760px;
+      max-width: 760px;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
     }
 
     h1 {
       margin:
         0 0 24px;
 
-      text-align:
-        center;
+      text-align: center;
 
-      font-size:
-        28px;
+      font-size: 28px;
     }
 
     .box {
-      margin-bottom:
-        20px;
+      margin-bottom: 20px;
 
-      padding:
-        20px;
+      padding: 20px;
 
-      background:
-        white;
+      background: white;
 
-      border-radius:
-        18px;
+      border-radius: 18px;
 
       box-shadow:
         0 2px 12px
@@ -158,89 +150,67 @@
       margin:
         0 0 14px;
 
-      font-size:
-        19px;
+      font-size: 19px;
     }
 
     textarea,
     input {
-      width:
-        100%;
+      width: 100%;
 
-      padding:
-        14px;
+      padding: 14px;
 
       border:
         1px solid
         #d2d2d7;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      background:
-        #fff;
+      background: #fff;
 
-      color:
-        #1d1d1f;
+      color: #1d1d1f;
 
       font: inherit;
 
-      font-size:
-        17px;
+      font-size: 17px;
 
-      outline:
-        none;
+      outline: none;
     }
 
     textarea {
-      min-height:
-        100px;
+      min-height: 100px;
 
-      resize:
-        vertical;
+      resize: vertical;
     }
 
     textarea:focus,
     input:focus {
-      border-color:
-        #007aff;
+      border-color: #007aff;
     }
 
     .hint {
-      margin-top:
-        8px;
+      margin-top: 8px;
 
-      color:
-        #777;
+      color: #777;
 
-      font-size:
-        13px;
+      font-size: 13px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
     }
 
     .result {
-      min-height:
-        62px;
+      min-height: 62px;
 
-      margin-top:
-        14px;
+      margin-top: 14px;
 
-      padding:
-        14px;
+      padding: 14px;
 
-      background:
-        #f5f5f7;
+      background: #f5f5f7;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      overflow-wrap:
-        anywhere;
+      overflow-wrap: anywhere;
 
-      line-height:
-        1.7;
+      line-height: 1.7;
     }
 
     .unicode-result {
@@ -251,68 +221,89 @@
         Monaco,
         monospace;
 
-      font-size:
-        16px;
+      font-size: 16px;
     }
 
     .character-result {
-      min-height:
-        90px;
+      min-height: 90px;
 
-      font-size:
-        48px;
+      font-size: 48px;
 
-      line-height:
-        1.4;
+      line-height: 1.4;
     }
 
     .character-span {
-      position:
-        relative;
+      position: relative;
 
-      display:
-        inline-flex;
+      display: inline-flex;
 
-      min-width:
-        1em;
+      min-width: 1em;
 
-      min-height:
-        1.3em;
+      min-height: 1.3em;
 
-      align-items:
-        center;
+      align-items: center;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      vertical-align:
-        middle;
+      vertical-align: middle;
+    }
+
+    /*
+      無効なUnicodeだけ
+      小さく表示
+    */
+
+    .invalid-unicode {
+      display: inline-flex;
+
+      align-items: center;
+
+      margin:
+        4px 6px;
+
+      padding:
+        4px 8px;
+
+      border-radius: 7px;
+
+      background: #ffecec;
+
+      color: #c62828;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      line-height: 1.3;
+
+      vertical-align: middle;
+
+      white-space: nowrap;
     }
 
     button {
-      margin-top:
-        12px;
+      margin-top: 12px;
 
       padding:
         10px 16px;
 
-      border:
-        0;
+      border: 0;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      background:
-        #e8e8ed;
+      background: #e8e8ed;
 
-      color:
-        #1d1d1f;
+      color: #1d1d1f;
 
-      font:
-        inherit;
+      font: inherit;
 
-      cursor:
-        pointer;
+      cursor: pointer;
     }
 
     button:active {
@@ -325,20 +316,16 @@
     /* ------------------------- */
 
     #dailyCharacterBox {
-      margin-bottom:
-        22px;
+      margin-bottom: 22px;
 
       padding:
         24px 20px;
 
-      background:
-        white;
+      background: white;
 
-      border-radius:
-        20px;
+      border-radius: 20px;
 
-      text-align:
-        center;
+      text-align: center;
 
       box-shadow:
         0 2px 14px
@@ -351,48 +338,35 @@
     }
 
     #dailyTitle {
-      margin-bottom:
-        12px;
+      margin-bottom: 12px;
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      font-weight:
-        600;
+      font-weight: 600;
 
-      color:
-        #666;
+      color: #666;
     }
 
     #dailyCharacter {
-      position:
-        relative;
+      position: relative;
 
-      display:
-        flex;
+      display: flex;
 
-      width:
-        100%;
+      width: 100%;
 
-      min-height:
-        130px;
+      min-height: 130px;
 
-      align-items:
-        center;
+      align-items: center;
 
-      justify-content:
-        center;
+      justify-content: center;
 
-      font-size:
-        92px;
+      font-size: 92px;
 
-      line-height:
-        1.2;
+      line-height: 1.2;
     }
 
     #dailyCode {
-      margin-top:
-        6px;
+      margin-top: 6px;
 
       font-family:
         ui-monospace,
@@ -401,40 +375,31 @@
         Monaco,
         monospace;
 
-      font-size:
-        17px;
+      font-size: 17px;
 
-      color:
-        #555;
+      color: #555;
     }
 
     #dailyResearch {
-      margin-top:
-        14px;
+      margin-top: 14px;
     }
 
     #dailyResearchLink {
-      color:
-        #007aff;
+      color: #007aff;
 
-      text-decoration:
-        none;
+      text-decoration: none;
 
-      font-size:
-        15px;
+      font-size: 15px;
     }
 
     #dailyResearchLink:hover {
-      text-decoration:
-        underline;
+      text-decoration: underline;
     }
 
     #dailyResearchLink.disabled {
-      opacity:
-        0;
+      opacity: 0;
 
-      pointer-events:
-        none;
+      pointer-events: none;
     }
 
     /* ------------------------- */
@@ -509,31 +474,24 @@
     /* ------------------------- */
 
     .loading-character {
-      position:
-        relative;
+      position: relative;
 
       color:
         transparent !important;
     }
 
     .loading-character::after {
-      content:
-        "";
+      content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
-      width:
-        28px;
+      width: 28px;
 
-      height:
-        28px;
+      height: 28px;
 
-      top:
-        50%;
+      top: 50%;
 
-      left:
-        50%;
+      left: 50%;
 
       margin:
         -14px 0
@@ -556,8 +514,7 @@
           0.9
         );
 
-      border-radius:
-        50%;
+      border-radius: 50%;
 
       animation:
         spinner 0.8s
@@ -582,26 +539,25 @@
       }
 
       h1 {
-        font-size:
-          24px;
+        font-size: 24px;
       }
 
       .box {
-        padding:
-          17px;
+        padding: 17px;
       }
 
       #dailyCharacter {
-        min-height:
-          115px;
+        min-height: 115px;
 
-        font-size:
-          78px;
+        font-size: 78px;
       }
 
       .character-result {
-        font-size:
-          42px;
+        font-size: 42px;
+      }
+
+      .invalid-unicode {
+        font-size: 12px;
       }
     }
   </style>
@@ -792,10 +748,7 @@
       codePoint
     ) {
 
-      /*
-        Kawi
-        U+11F00–U+11F5F
-      */
+      /* Kawi */
 
       if (
         codePoint >= 0x11F00 &&
@@ -805,10 +758,7 @@
       }
 
 
-      /*
-        Toto
-        U+1E290–U+1E2BF
-      */
+      /* Toto */
 
       if (
         codePoint >= 0x1E290 &&
@@ -818,13 +768,7 @@
       }
 
 
-      /*
-        新しいTangut文字
-
-        ローカルの
-        tangut-extended.woff2
-        を使用
-      */
+      /* Tangut Extended */
 
       if (
         (
@@ -846,14 +790,7 @@
       }
 
 
-      /*
-        Tangut Iteration Mark
-
-        U+16FE0
-
-        Tangut本体とは
-        別ブロックに存在する
-      */
+      /* Tangut Iteration Mark */
 
       if (
         codePoint === 0x16FE0
@@ -862,9 +799,7 @@
       }
 
 
-      /*
-        Tangut 本体
-      */
+      /* Tangut */
 
       if (
         (
@@ -881,10 +816,7 @@
       }
 
 
-      /*
-        Nüshu Iteration Mark
-        U+16FE1
-      */
+      /* Nüshu Iteration Mark */
 
       if (
         codePoint === 0x16FE1
@@ -893,11 +825,7 @@
       }
 
 
-      /*
-        Nüshu
-
-        U+1B170–U+1B2FF
-      */
+      /* Nüshu */
 
       if (
         codePoint >= 0x1B170 &&
@@ -907,11 +835,7 @@
       }
 
 
-      /*
-        Khitan Small Script
-
-        U+18B00–U+18CFF
-      */
+      /* Khitan Small Script */
 
       if (
         codePoint >= 0x18B00 &&
@@ -921,9 +845,7 @@
       }
 
 
-      /*
-        Cuneiform
-      */
+      /* Cuneiform */
 
       if (
         (
@@ -945,12 +867,7 @@
       }
 
 
-      /*
-        Egyptian Hieroglyphs
-
-        通常領域 +
-        Extended-A
-      */
+      /* Egyptian Hieroglyphs */
 
       if (
         (
@@ -967,12 +884,7 @@
       }
 
 
-      /*
-        CJK Unified
-        Ideographs Extensions
-
-        U+20000–U+323AF
-      */
+      /* CJK Extensions */
 
       if (
         codePoint >= 0x20000 &&
@@ -987,7 +899,7 @@
 
 
     /* ================================= */
-    /* CSSクラス → 実際のフォント名 */
+    /* Webフォント名 */
     /* ================================= */
 
     function getWebFontName(
@@ -998,6 +910,7 @@
         getFontClass(
           codePoint
         );
+
 
       switch (
         fontClass
@@ -1037,7 +950,7 @@
 
 
     /* ================================= */
-    /* フォント読み込み待機 */
+    /* フォント待機 */
     /* ================================= */
 
     function sleep(
@@ -1067,10 +980,6 @@
           codePoint
         );
 
-      /*
-        特別なフォントが
-        不要な文字
-      */
 
       if (
         !fontName
@@ -1078,11 +987,6 @@
         return;
       }
 
-
-      /*
-        Font Loading APIが
-        ないブラウザ
-      */
 
       if (
         !document.fonts
@@ -1105,12 +1009,6 @@
               `72px "${fontName}"`,
               character
             ),
-
-            /*
-              ネットワークなどで
-              永遠にぐるぐるに
-              ならないようにする
-            */
 
             sleep(
               5000
@@ -1141,6 +1039,7 @@
 
       const text =
         charInput.value;
+
 
       if (
         text.length === 0
@@ -1173,6 +1072,7 @@
                 )
                 .toUpperCase()
             );
+
           }
         );
 
@@ -1195,6 +1095,7 @@
       let value =
         token.trim();
 
+
       if (
         value.length === 0
       ) {
@@ -1207,6 +1108,7 @@
           /^U\+/i,
           ""
         );
+
 
       value =
         value.replace(
@@ -1248,11 +1150,6 @@
       }
 
 
-      /*
-        UTF-16サロゲート領域は
-        Unicode scalar valueではない
-      */
-
       if (
         codePoint >= 0xD800 &&
         codePoint <= 0xDFFF
@@ -1265,6 +1162,10 @@
     }
 
 
+    /* ================================= */
+    /* Unicode → 文字 */
+    /* ================================= */
+
     let unicodeRun =
       0;
 
@@ -1273,6 +1174,7 @@
 
       const currentRun =
         ++unicodeRun;
+
 
       const raw =
         unicodeInput.value.trim();
@@ -1299,7 +1201,15 @@
           );
 
 
-      const codePoints =
+      charOutput.className =
+        "result character-result";
+
+
+      charOutput.textContent =
+        "";
+
+
+      const promises =
         [];
 
 
@@ -1313,51 +1223,53 @@
           );
 
 
+        /*
+          無効なものだけ
+          小さい表示にする
+
+          他の有効な文字は
+          そのまま処理を続行
+        */
+
         if (
           codePoint === null
         ) {
 
-          charOutput.className =
-            "result character-result";
+          const errorSpan =
+            document.createElement(
+              "span"
+            );
 
-          charOutput.textContent =
-            "無効なUnicodeです";
 
-          return;
+          errorSpan.className =
+            "invalid-unicode";
+
+
+          errorSpan.textContent =
+            "無効: " +
+            token;
+
+
+          charOutput.appendChild(
+            errorSpan
+          );
+
+
+          continue;
         }
 
-
-        codePoints.push(
-          codePoint
-        );
-      }
-
-
-      charOutput.className =
-        "result character-result";
-
-      charOutput.textContent =
-        "";
-
-
-      const promises =
-        [];
-
-
-      for (
-        const codePoint
-        of codePoints
-      ) {
 
         const character =
           String.fromCodePoint(
             codePoint
           );
 
+
         const fontClass =
           getFontClass(
             codePoint
           );
+
 
         const span =
           document.createElement(
@@ -1429,7 +1341,6 @@
           );
 
         }
-
       }
 
 
@@ -1477,11 +1388,14 @@
 
         unicodeRun++;
 
+
         unicodeInput.value =
           "";
 
+
         charOutput.textContent =
           "";
+
 
         unicodeInput.focus();
 
@@ -1554,11 +1468,14 @@
       dailyCharacter.className =
         "character loading-character";
 
+
       dailyCharacter.textContent =
         "?";
 
+
       dailyCode.textContent =
         "読み込み中…";
+
 
       dailyResearchLink
         .classList
@@ -1566,17 +1483,12 @@
           "disabled"
         );
 
+
       dailyResearchLink.href =
         "#";
 
 
       try {
-
-        /*
-          ?t= を付けて
-          daily.jsonのキャッシュを
-          強制回避
-        */
 
         const response =
           await fetch(
@@ -1617,11 +1529,6 @@
             Boolean
           );
 
-
-        /*
-          JSTの日付が
-          今日と一致する方を使う
-        */
 
         const entry =
           entries.find(
@@ -1734,10 +1641,6 @@
           hex;
 
 
-        /*
-          Google検索
-        */
-
         const searchQuery =
           character
           +
@@ -1755,11 +1658,6 @@
             searchQuery
           );
 
-
-        /*
-          必要なWebフォントが
-          読み終わるまで待つ
-        */
 
         await waitForCharacterFont(
           codePoint,
@@ -1804,20 +1702,22 @@
     }
 
 
-    /* 最初に読み込む */
+    /* ================================= */
+    /* 起動 */
+    /* ================================= */
 
     loadDailyCharacter();
 
 
-    /*
-      ページを開きっぱなしでも
-      JST 0:00をまたいだら
-      今日の文字を更新
-    */
-
     let lastJSTDate =
       getJSTDateString();
 
+
+    /*
+      開きっぱなしでも
+      JST 0:00をまたいだら
+      今日の一文字を更新
+    */
 
     setInterval(
       () => {
@@ -1833,6 +1733,7 @@
 
           lastJSTDate =
             now;
+
 
           loadDailyCharacter();
 
