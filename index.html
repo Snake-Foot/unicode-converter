@@ -99,6 +99,18 @@
     rel="stylesheet"
   >
 
+  <!-- Math -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap"
+  rel="stylesheet"
+>
+
+<!-- Indic Siyaq Numbers -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+Indic+Siyaq+Numbers&display=swap"
+  rel="stylesheet"
+>
+
   <style>
 
     /* ================================= */
@@ -661,6 +673,57 @@
         sans-serif;
     }
 
+    .font-math {
+  font-family:
+    "Noto Sans Math",
+    sans-serif;
+}
+
+
+.font-indic-siyaq {
+  font-family:
+    "Noto Sans Indic Siyaq Numbers",
+    sans-serif;
+}
+
+
+/*
+  「空白なのか分からない」
+  状態を避けるための表示
+*/
+
+.invisible-unicode {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin:
+    4px 6px;
+
+  padding:
+    4px 8px;
+
+  border-radius: 7px;
+
+  background: #eeeeee;
+
+  color: #666;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 13px;
+
+  line-height: 1.3;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
 
     .font-cjk-ext {
       font-family:
@@ -1111,18 +1174,23 @@
 
 
       if (
-        (
-          codePoint >= 0x17000 &&
-          codePoint <= 0x187F7
-        )
-        ||
-        (
-          codePoint >= 0x18D00 &&
-          codePoint <= 0x18D08
-        )
-      ) {
-        return "font-tangut";
-      }
+  (
+    codePoint >= 0x17000 &&
+    codePoint <= 0x187F7
+  )
+  ||
+  (
+    codePoint >= 0x18800 &&
+    codePoint <= 0x18AFF
+  )
+  ||
+  (
+    codePoint >= 0x18D00 &&
+    codePoint <= 0x18D08
+  )
+) {
+  return "font-tangut";
+}
 
 
       if (
