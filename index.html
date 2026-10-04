@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -12,26 +14,89 @@
 
 
   <!--
-    Unicode 17.0 全体をカバーする予備フォント。
+    Google Fonts
 
-    普通の文字では使わず、
-    端末標準フォントで表示できない文字だけ
-    Essenfont にフォールバックする。
+    Toto
+    Kawi
+    通常のTangut
   -->
+
   <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&family=Noto+Serif+Tangut&family=Noto+Serif+Toto&display=swap"
     rel="stylesheet"
-    href="https://essenfont.github.io/fonts.css"
   >
 
 
   <style>
 
+
+    /* ==================================================
+       U+187F8 ～ U+187FF など
+       新しいTangut文字用
+
+       後で同じフォルダに
+
+       tangut-extended.woff2
+
+       を置く。
+    ================================================== */
+
+    @font-face {
+
+      font-family: "Tangut Extended";
+
+      src:
+        url("./tangut-extended.woff2")
+        format("woff2");
+
+      font-display: swap;
+
+    }
+
+
+
+    /* ==================================================
+       激レア漢字用
+    ================================================== */
+
+    @font-face {
+
+      font-family: "BabelStone Han";
+
+      src:
+        url("https://www.babelstone.co.uk/Fonts/WOFF/BabelStoneHan.woff2")
+        format("woff2");
+
+      font-display: swap;
+
+    }
+
+
+
+    /* ==================================================
+       基本UI
+    ================================================== */
+
     * {
+
       box-sizing: border-box;
+
     }
 
 
     body {
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -41,31 +106,56 @@
         sans-serif;
 
       max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
 
-      background: white;
-      color: black;
+      margin:
+        40px auto;
+
+      padding:
+        0 20px;
+
+      color:
+        #000;
+
+      background:
+        #fff;
+
     }
 
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 40px;
+
+      font-size:
+        36px;
+
+      margin-bottom:
+        40px;
+
     }
 
 
     h2 {
-      font-size: 26px;
-      margin-top: 40px;
-      margin-bottom: 20px;
+
+      font-size:
+        26px;
+
+      margin-top:
+        40px;
+
+      margin-bottom:
+        20px;
+
     }
+
 
 
     textarea,
     input {
-      width: 100%;
-      box-sizing: border-box;
+
+      width:
+        100%;
+
+      padding:
+        16px;
 
       font-family:
         -apple-system,
@@ -75,138 +165,300 @@
         "Yu Gothic",
         sans-serif;
 
-      font-size: 22px;
+      font-size:
+        22px;
 
-      padding: 16px;
+      border:
+        1px solid #ccc;
 
-      border: 1px solid #cccccc;
-      border-radius: 12px;
+      border-radius:
+        12px;
 
-      outline: none;
+      background:
+        #fff;
 
-      background: white;
+      outline:
+        none;
 
-      margin-bottom: 18px;
+      margin-bottom:
+        18px;
+
     }
 
 
     textarea {
-      min-height: 120px;
-      resize: vertical;
+
+      min-height:
+        120px;
+
+      resize:
+        vertical;
+
     }
 
-
-    textarea:focus,
-    input:focus {
-      border-color: #888888;
-    }
 
 
     .output {
-      width: 100%;
 
-      min-height: 100px;
+      width:
+        100%;
 
-      background: #eeeeee;
+      min-height:
+        110px;
 
-      border-radius: 14px;
+      padding:
+        25px;
 
-      padding: 25px;
+      background:
+        #eee;
 
-      margin-bottom: 40px;
+      border-radius:
+        14px;
 
-      white-space: pre-wrap;
+      margin-bottom:
+        20px;
 
-      overflow-wrap: anywhere;
+      overflow-wrap:
+        anywhere;
+
     }
 
 
-    /* -------------------------
-       文字 → Unicode
-    ------------------------- */
 
-    #unicodeOutput {
+    /* ==================================================
+       普通の文章
+    ================================================== */
+
+    .message {
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
         "Hiragino Sans",
-        "Yu Gothic",
         sans-serif;
 
-      font-size: 22px;
-      line-height: 1.8;
+      font-size:
+        22px;
+
     }
 
 
-    /* -------------------------
-       Unicode → 文字
 
-       順番が重要。
+    /* ==================================================
+       実際の文字
+    ================================================== */
 
-       1. iPhone / Mac の標準フォント
-       2. 標準絵文字
-       3. Essenfont
+    .character {
 
-       Essenfont は最後の手段。
-    ------------------------- */
+      display:
+        inline-block;
 
-    #charOutput:not(.message) {
-      font-family:
+      font-size:
+        64px;
 
-        -apple-system,
-        BlinkMacSystemFont,
-        "Helvetica Neue",
-        "Hiragino Sans",
-        "Yu Gothic",
+      line-height:
+        1.4;
 
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
+      margin-right:
+        8px;
 
-        "Essenfont",
-
-        sans-serif;
-
-      font-size: 64px;
-
-      line-height: 1.4;
-
-      min-height: 120px;
     }
+
 
 
     /*
-      「ここに文字が表示されます」
-      「正しいUnicodeを入力してください」
-
-      などは絶対に普通のフォント。
+      普通の文字
     */
 
-    #charOutput.message {
+    .font-normal {
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
         "Hiragino Sans",
-        "Yu Gothic",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
         sans-serif;
 
-      font-size: 22px;
-
-      line-height: 1.6;
     }
+
+
+
+    /*
+      Toto
+
+      U+1E290 ～ U+1E2BF
+    */
+
+    .font-toto {
+
+      font-family:
+        "Noto Serif Toto",
+        sans-serif;
+
+    }
+
+
+
+    /*
+      Kawi
+
+      U+11F00 ～ U+11F5F
+    */
+
+    .font-kawi {
+
+      font-family:
+        "Noto Sans Kawi",
+        sans-serif;
+
+    }
+
+
+
+    /*
+      普通のTangut
+    */
+
+    .font-tangut {
+
+      font-family:
+        "Noto Serif Tangut",
+        serif;
+
+    }
+
+
+
+    /*
+      Unicode 17などの
+      新しいTangut文字
+    */
+
+    .font-tangut-extended {
+
+      font-family:
+        "Tangut Extended",
+        "Noto Serif Tangut",
+        serif;
+
+    }
+
+
+
+    /*
+      珍しい漢字
+    */
+
+    .font-han {
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Sans",
+        "BabelStone Han",
+        serif;
+
+    }
+
+
+
+    /* ==================================================
+       文字 → Unicode
+    ================================================== */
+
+    .unicode-row {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      margin:
+        8px 0;
+
+    }
+
+
+    .unicode-row .character {
+
+      font-size:
+        36px;
+
+      min-width:
+        60px;
+
+    }
+
+
+    .code {
+
+      font-family:
+        ui-monospace,
+        "SFMono-Regular",
+        Menlo,
+        monospace;
+
+      font-size:
+        20px;
+
+    }
+
+
+
+    /* ==================================================
+       注意表示
+    ================================================== */
+
+    #extendedWarning {
+
+      display:
+        none;
+
+      padding:
+        14px;
+
+      margin-top:
+        10px;
+
+      border-radius:
+        10px;
+
+      background:
+        #fff4cc;
+
+      font-size:
+        15px;
+
+      line-height:
+        1.5;
+
+    }
+
 
 
     .hint {
-      color: #777777;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      margin-top: -25px;
-      margin-bottom: 30px;
+      color:
+        #777;
+
+      margin-bottom:
+        30px;
+
     }
 
+
   </style>
+
 </head>
 
 
@@ -220,9 +472,9 @@
 
 
 
-  <!-- =========================
+  <!-- ==================================================
        文字 → Unicode
-  ========================== -->
+  =================================================== -->
 
 
   <h2>
@@ -232,22 +484,22 @@
 
   <textarea
     id="charInput"
-    placeholder="例：組 🐝 𓀀"
+    placeholder="例：組 🐝 𑼒"
   ></textarea>
 
 
   <div
     id="unicodeOutput"
-    class="output"
+    class="output message"
   >
     ここにUnicodeが表示されます
   </div>
 
 
 
-  <!-- =========================
+  <!-- ==================================================
        Unicode → 文字
-  ========================== -->
+  =================================================== -->
 
 
   <h2>
@@ -258,7 +510,7 @@
   <input
     id="unicodeInput"
     type="text"
-    placeholder="例：7D44 / 1F41D / 187FF"
+    placeholder="例：187FF 1E290 11F12"
   >
 
 
@@ -270,91 +522,355 @@
   </div>
 
 
+  <div id="extendedWarning">
+
+    新しいTangut文字です。
+    tangut-extended.woff2 が読み込まれていない場合は
+    正しく表示されないことがあります。
+
+  </div>
+
+
   <div class="hint">
-    U+187FF、187FF、0x187FF のどれでもOK。
-    複数ならスペースやカンマで区切れます。
+
+    U+1E290、1E290、0x1E290 のどれでもOK。
+    複数ならスペース・カンマ区切り。
+
   </div>
 
 
 
   <script>
 
+
     const charInput =
-      document.getElementById("charInput");
+      document.getElementById(
+        "charInput"
+      );
+
 
     const unicodeInput =
-      document.getElementById("unicodeInput");
+      document.getElementById(
+        "unicodeInput"
+      );
+
 
     const unicodeOutput =
-      document.getElementById("unicodeOutput");
+      document.getElementById(
+        "unicodeOutput"
+      );
+
 
     const charOutput =
-      document.getElementById("charOutput");
+      document.getElementById(
+        "charOutput"
+      );
+
+
+    const extendedWarning =
+      document.getElementById(
+        "extendedWarning"
+      );
 
 
 
-    /* =========================
+    /* ==================================================
+       Unicode番号から使用フォントを決める
+    ================================================== */
+
+    function getFontClass(codePoint) {
+
+
+      /*
+        Kawi
+      */
+
+      if (
+        codePoint >= 0x11F00 &&
+        codePoint <= 0x11F5F
+      ) {
+
+        return "font-kawi";
+
+      }
+
+
+
+      /*
+        Toto
+      */
+
+      if (
+        codePoint >= 0x1E290 &&
+        codePoint <= 0x1E2BF
+      ) {
+
+        return "font-toto";
+
+      }
+
+
+
+      /*
+        Unicode 17で追加された
+        新しいTangut
+
+        U+187F8～U+187FF
+      */
+
+      if (
+        codePoint >= 0x187F8 &&
+        codePoint <= 0x187FF
+      ) {
+
+        return "font-tangut-extended";
+
+      }
+
+
+
+      /*
+        Tangut Supplement 新規部分
+      */
+
+      if (
+        codePoint >= 0x18D09 &&
+        codePoint <= 0x18D1E
+      ) {
+
+        return "font-tangut-extended";
+
+      }
+
+
+
+      /*
+        Tangut Components Supplement
+      */
+
+      if (
+        codePoint >= 0x18D80 &&
+        codePoint <= 0x18DFF
+      ) {
+
+        return "font-tangut-extended";
+
+      }
+
+
+
+      /*
+        通常Tangut
+      */
+
+      if (
+        (
+          codePoint >= 0x17000 &&
+          codePoint <= 0x187F7
+        ) ||
+
+        (
+          codePoint >= 0x18800 &&
+          codePoint <= 0x18AFF
+        ) ||
+
+        (
+          codePoint >= 0x18D00 &&
+          codePoint <= 0x18D08
+        )
+      ) {
+
+        return "font-tangut";
+
+      }
+
+
+
+      /*
+        CJK拡張領域
+      */
+
+      if (
+        (
+          codePoint >= 0x20000 &&
+          codePoint <= 0x323AF
+        )
+      ) {
+
+        return "font-han";
+
+      }
+
+
+
+      /*
+        それ以外
+      */
+
+      return "font-normal";
+
+    }
+
+
+
+    /* ==================================================
+       文字span作成
+    ================================================== */
+
+    function createCharacterSpan(
+      character,
+      codePoint
+    ) {
+
+
+      const span =
+        document.createElement(
+          "span"
+        );
+
+
+      span.classList.add(
+        "character"
+      );
+
+
+      span.classList.add(
+        getFontClass(
+          codePoint
+        )
+      );
+
+
+      span.textContent =
+        character;
+
+
+      return span;
+
+    }
+
+
+
+    /* ==================================================
        文字 → Unicode
-    ========================== */
+    ================================================== */
 
     charInput.addEventListener(
       "input",
       function () {
 
+
         const text =
           charInput.value;
 
 
-        if (text === "") {
+        unicodeOutput.innerHTML =
+          "";
+
+
+        if (
+          text === ""
+        ) {
+
+
+          unicodeOutput.className =
+            "output message";
+
 
           unicodeOutput.textContent =
             "ここにUnicodeが表示されます";
 
+
           return;
+
         }
 
 
-        const result =
-          Array
-            .from(text)
-
-            .map(
-              function (character) {
-
-                const code =
-                  character
-                    .codePointAt(0)
-                    .toString(16)
-                    .toUpperCase();
+        unicodeOutput.className =
+          "output";
 
 
-                return (
-                  character +
-                  " → U+" +
-                  code
+        Array
+          .from(text)
+
+          .forEach(
+            function (character) {
+
+
+              const codePoint =
+                character
+                  .codePointAt(0);
+
+
+              const hex =
+                codePoint
+                  .toString(16)
+                  .toUpperCase();
+
+
+              const row =
+                document.createElement(
+                  "div"
                 );
 
-              }
-            )
 
-            .join("\n");
+              row.className =
+                "unicode-row";
 
 
-        unicodeOutput.textContent =
-          result;
+              const characterSpan =
+                createCharacterSpan(
+                  character,
+                  codePoint
+                );
+
+
+              const codeSpan =
+                document.createElement(
+                  "span"
+                );
+
+
+              codeSpan.className =
+                "code";
+
+
+              codeSpan.textContent =
+                "U+" + hex;
+
+
+              row.appendChild(
+                characterSpan
+              );
+
+
+              row.appendChild(
+                codeSpan
+              );
+
+
+              unicodeOutput.appendChild(
+                row
+              );
+
+
+            }
+          );
+
 
       }
     );
 
 
 
-    /* =========================
+    /* ==================================================
        Unicode → 文字
-    ========================== */
+    ================================================== */
 
     unicodeInput.addEventListener(
       "input",
-      function () {
+      async function () {
+
 
         const text =
           unicodeInput
@@ -362,20 +878,34 @@
             .trim();
 
 
-        if (text === "") {
+        charOutput.innerHTML =
+          "";
 
-          charOutput
-            .classList
-            .add("message");
+
+        extendedWarning.style.display =
+          "none";
+
+
+        if (
+          text === ""
+        ) {
+
+
+          charOutput.className =
+            "output message";
+
 
           charOutput.textContent =
             "ここに文字が表示されます";
 
+
           return;
+
         }
 
 
         try {
+
 
           const codes =
             text
@@ -389,6 +919,7 @@
               .map(
                 function (code) {
 
+
                   return code
 
                     .replace(
@@ -401,91 +932,158 @@
                       ""
                     );
 
+
                 }
               );
 
 
-          const characters =
-            codes.map(
-              function (code) {
+
+          charOutput.className =
+            "output";
 
 
-                /*
-                  16進数かチェック
-                */
-
-                if (
-                  !/^[0-9A-F]+$/i
-                    .test(code)
-                ) {
-
-                  throw new Error(
-                    "invalid"
-                  );
-
-                }
+          let usesExtendedTangut =
+            false;
 
 
-                const number =
-                  parseInt(
-                    code,
-                    16
-                  );
+
+          for (
+            const code of codes
+          ) {
 
 
-                /*
-                  Unicode範囲外
-                */
+            if (
+              !/^[0-9A-F]+$/i
+                .test(code)
+            ) {
 
-                if (
-                  number < 0 ||
-                  number > 0x10FFFF
-                ) {
+              throw new Error();
 
-                  throw new Error(
-                    "range"
-                  );
-
-                }
+            }
 
 
-                /*
-                  サロゲート領域
-                */
 
-                if (
-                  number >= 0xD800 &&
-                  number <= 0xDFFF
-                ) {
-
-                  throw new Error(
-                    "surrogate"
-                  );
-
-                }
+            const codePoint =
+              parseInt(
+                code,
+                16
+              );
 
 
-                return (
-                  String.fromCodePoint(
-                    number
-                  )
-                );
 
-              }
+            if (
+              codePoint < 0 ||
+
+              codePoint >
+                0x10FFFF ||
+
+              (
+                codePoint >=
+                  0xD800 &&
+
+                codePoint <=
+                  0xDFFF
+              )
+            ) {
+
+              throw new Error();
+
+            }
+
+
+
+            const character =
+              String.fromCodePoint(
+                codePoint
+              );
+
+
+
+            const span =
+              createCharacterSpan(
+                character,
+                codePoint
+              );
+
+
+            charOutput.appendChild(
+              span
             );
 
 
+
+            if (
+
+              (
+                codePoint >=
+                  0x187F8 &&
+
+                codePoint <=
+                  0x187FF
+              )
+
+              ||
+
+              (
+                codePoint >=
+                  0x18D09 &&
+
+                codePoint <=
+                  0x18D1E
+              )
+
+              ||
+
+              (
+                codePoint >=
+                  0x18D80 &&
+
+                codePoint <=
+                  0x18DFF
+              )
+
+            ) {
+
+              usesExtendedTangut =
+                true;
+
+            }
+
+
+          }
+
+
+
           /*
-            文字表示モードへ
+            新しいTangutを使った場合
           */
 
-          charOutput
-            .classList
-            .remove("message");
+          if (
+            usesExtendedTangut
+          ) {
 
 
-          charOutput.textContent =
-            characters.join("");
+            try {
+
+
+              await document.fonts.load(
+                '64px "Tangut Extended"'
+              );
+
+
+            }
+
+            catch (error) {
+
+
+              extendedWarning.style.display =
+                "block";
+
+
+            }
+
+
+          }
 
 
         }
@@ -494,21 +1092,24 @@
         catch (error) {
 
 
-          charOutput
-            .classList
-            .add("message");
+          charOutput.className =
+            "output message";
 
 
           charOutput.textContent =
             "正しいUnicodeを入力してください";
 
+
         }
+
 
       }
     );
+
 
   </script>
 
 
 </body>
+
 </html>
