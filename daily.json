@@ -1,5 +1,12 @@
 {
-  "date": "2026-10-05",
-  "codePoint": "8725",
-  "character": "蜥"
+  "current": {
+    "date": "2026-10-04",
+    "codePoint": "XXXXX",
+    "character": "…"
+  },
+  "next": {
+    "date": "2026-10-05",
+    "codePoint": "8725",
+    "character": "蜥"
+  }
 }
