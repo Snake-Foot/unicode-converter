@@ -34,6 +34,31 @@ const dailyResearchLink =
 
 
 /* =========================================
+   Unicode Scope DOM
+========================================= */
+
+const unicodeScope =
+  document.getElementById(
+    "unicodeScope"
+  );
+
+const unicodeScopeRing =
+  document.getElementById(
+    "unicodeScopeRing"
+  );
+
+const unicodeScopeGlyph =
+  document.getElementById(
+    "unicodeScopeGlyph"
+  );
+
+const unicodeScopeCode =
+  document.getElementById(
+    "unicodeScopeCode"
+  );
+
+
+/* =========================================
    Helper
 ========================================= */
 
@@ -111,7 +136,8 @@ function getFontClass(
   /* Tangut iteration mark */
 
   if (
-    codePoint === 0x16FE0
+    codePoint ===
+    0x16FE0
   ) {
     return "font-tangut";
   }
@@ -145,7 +171,8 @@ function getFontClass(
   /* Nüshu iteration mark */
 
   if (
-    codePoint === 0x16FE1
+    codePoint ===
+    0x16FE1
   ) {
     return "font-nushu";
   }
@@ -190,12 +217,7 @@ function getFontClass(
   }
 
 
-  /*
-    Egyptian Hieroglyphs Extended-A
-
-    UniHieroglyphicaを
-    最優先で使用する。
-  */
+  /* Egyptian Extended-A */
 
   if (
     inRange(
@@ -208,7 +230,7 @@ function getFontClass(
   }
 
 
-  /* Egyptian Hieroglyphs */
+  /* Egyptian */
 
   if (
     inRange(
@@ -221,7 +243,7 @@ function getFontClass(
   }
 
 
-  /* Anatolian Hieroglyphs */
+  /* Anatolian */
 
   if (
     inRange(
@@ -260,11 +282,7 @@ function getFontClass(
   }
 
 
-  /*
-    Byzantine Musical Symbols
-    Musical Symbols
-    Ancient Greek Musical Notation
-  */
+  /* Musical */
 
   if (
     inRange(
@@ -290,7 +308,7 @@ function getFontClass(
   }
 
 
-  /* Indic Siyaq Numbers */
+  /* Indic Siyaq */
 
   if (
     inRange(
@@ -303,7 +321,7 @@ function getFontClass(
   }
 
 
-  /* Arabic Mathematical Alphabetic Symbols */
+  /* Arabic Mathematical */
 
   if (
     inRange(
@@ -316,11 +334,7 @@ function getFontClass(
   }
 
 
-  /*
-    Symbols for Legacy Computing Supplement
-
-    BabelStone Pseudographicaを優先。
-  */
+  /* Legacy Computing Supplement */
 
   if (
     inRange(
@@ -333,11 +347,7 @@ function getFontClass(
   }
 
 
-  /*
-    Noto Sans Symbols 2 Local
-
-    Phaistos Disc
-  */
+  /* Phaistos Disc */
 
   if (
     inRange(
@@ -376,10 +386,7 @@ function getFontClass(
   }
 
 
-  /*
-    Miscellaneous Symbols
-    and Pictographs
-  */
+  /* Misc Symbols + Pictographs */
 
   if (
     inRange(
@@ -431,7 +438,7 @@ function getFontClass(
   }
 
 
-  /* Symbols for Legacy Computing */
+  /* Legacy Computing */
 
   if (
     inRange(
@@ -444,11 +451,7 @@ function getFontClass(
   }
 
 
-  /*
-    CJK Compatibility Ideographs
-
-    今まで範囲外だったFA7Aなど。
-  */
+  /* CJK Compatibility */
 
   if (
     inRange(
@@ -553,12 +556,6 @@ function getWebFontNames(
       ];
 
 
-    /*
-      新フォントを最優先。
-      Egyptology Extendedは
-      フォールバックとして残す。
-    */
-
     case "font-egyptian-extended":
       return [
         "UniHieroglyphica",
@@ -597,20 +594,12 @@ function getWebFontNames(
       ];
 
 
-    /*
-      ローカル最新版を最優先。
-    */
-
     case "font-symbols2":
       return [
         "Noto Sans Symbols 2 Local",
         "Noto Sans Symbols 2"
       ];
 
-
-    /*
-      Legacy Supplement専用。
-    */
 
     case "font-legacy-supp":
       return [
@@ -653,24 +642,30 @@ function getWebFontNames(
 function sleep(
   milliseconds
 ) {
+
   return new Promise(
     (resolve) => {
+
       setTimeout(
         resolve,
         milliseconds
       );
+
     }
   );
 }
 
 
 function yieldToBrowser() {
+
   return new Promise(
     (resolve) => {
+
       setTimeout(
         resolve,
         0
       );
+
     }
   );
 }
@@ -692,7 +687,8 @@ async function waitForCharacterFont(
 
 
   if (
-    fontNames.length === 0
+    fontNames.length ===
+    0
   ) {
     return;
   }
@@ -1021,7 +1017,8 @@ function analyseGlyphPixels(
 
 
   if (
-    inkPixels === 0
+    inkPixels ===
+    0
   ) {
 
     result = {
@@ -1064,10 +1061,6 @@ function analyseGlyphPixels(
     result
   );
 
-
-  /*
-    キャッシュ肥大化防止
-  */
 
   if (
     glyphAnalysisCache.size >
@@ -1124,9 +1117,11 @@ function sameGlyphSignature(
 ) {
 
   if (
-    first.inkPixels === 0
+    first.inkPixels ===
+    0
     ||
-    second.inkPixels === 0
+    second.inkPixels ===
+    0
   ) {
     return false;
   }
@@ -1158,7 +1153,8 @@ function looksLikeMissingGlyph(
 
 
   if (
-    target.inkPixels === 0
+    target.inkPixels ===
+    0
   ) {
     return false;
   }
@@ -1197,7 +1193,7 @@ function looksLikeMissingGlyph(
 
 
 /* =========================================
-   Egyptian Extended-A auto scaling
+   Egyptian auto scaling
 ========================================= */
 
 function getGlyphScaleFactor(
@@ -1205,11 +1201,6 @@ function getGlyphScaleFactor(
   character,
   fontFamily
 ) {
-
-  /*
-    Egyptian Extended-Aだけ
-    自動補正。
-  */
 
   if (
     !inRange(
@@ -1231,7 +1222,8 @@ function getGlyphScaleFactor(
 
 
   if (
-    analysis.inkPixels === 0
+    analysis.inkPixels ===
+    0
   ) {
     return 1;
   }
@@ -1244,14 +1236,9 @@ function getGlyphScaleFactor(
     );
 
 
-  /*
-    UniHieroglyphicaで
-    最初から正常サイズなら
-    補正しない。
-  */
-
   if (
-    largestSide >= 62
+    largestSide >=
+    62
   ) {
     return 1;
   }
@@ -1298,7 +1285,8 @@ function applyGlyphScale(
 
 
   if (
-    scale <= 1.05
+    scale <=
+    1.05
   ) {
     return;
   }
@@ -1311,11 +1299,6 @@ function applyGlyphScale(
   inner.style.transformOrigin =
     "center center";
 
-
-  /*
-    巨大な縦余白を
-    作らないよう固定。
-  */
 
   wrapper.style.minWidth =
     "1.45em";
@@ -1360,7 +1343,8 @@ function applyDailyGlyphScale(
 
 
   if (
-    scale <= 1.05
+    scale <=
+    1.05
   ) {
     return;
   }
@@ -1415,7 +1399,8 @@ function convertCharacters() {
 
 
   if (
-    text.length === 0
+    text.length ===
+    0
   ) {
 
     unicodeOutput.textContent =
@@ -1437,8 +1422,12 @@ function convertCharacters() {
           "U+"
           +
           character
-            .codePointAt(0)
-            .toString(16)
+            .codePointAt(
+              0
+            )
+            .toString(
+              16
+            )
             .toUpperCase()
         );
 
@@ -1498,18 +1487,22 @@ function parseUnicodeToken(
 
 
   if (
-    codePoint < 0
+    codePoint <
+    0
     ||
-    codePoint > 0x10FFFF
+    codePoint >
+    0x10FFFF
   ) {
     return null;
   }
 
 
   if (
-    codePoint >= 0xD800
+    codePoint >=
+      0xD800
     &&
-    codePoint <= 0xDFFF
+    codePoint <=
+      0xDFFF
   ) {
     return null;
   }
@@ -1578,9 +1571,11 @@ function isUsableRandomCharacter(
 ) {
 
   if (
-    codePoint >= 0xD800
+    codePoint >=
+      0xD800
     &&
-    codePoint <= 0xDFFF
+    codePoint <=
+      0xDFFF
   ) {
     return false;
   }
@@ -1814,7 +1809,9 @@ function generateRandomUnicode(
       "U+"
       +
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase()
     );
   }
@@ -1901,8 +1898,12 @@ async function convertUnicode() {
     "";
 
 
+  hideUnicodeScope();
+
+
   if (
-    raw.length === 0
+    raw.length ===
+    0
   ) {
     return;
   }
@@ -1919,13 +1920,9 @@ async function convertUnicode() {
 
 
   for (
-    const token of tokens
+    const token
+    of tokens
   ) {
-
-    /*
-      新しい入力が来たら
-      古い描画処理を中止。
-    */
 
     if (
       currentRun !==
@@ -1942,7 +1939,8 @@ async function convertUnicode() {
 
 
     if (
-      codePoint === null
+      codePoint ===
+      null
     ) {
 
       const error =
@@ -1981,11 +1979,11 @@ async function convertUnicode() {
 
     const hex =
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase();
 
-
-    /* Invisible */
 
     if (
       isInvisibleCharacter(
@@ -2042,11 +2040,6 @@ async function convertUnicode() {
     );
 
 
-    /*
-      iPhone Safariへ
-      操作時間を返す。
-    */
-
     await yieldToBrowser();
 
 
@@ -2090,8 +2083,6 @@ async function convertUnicode() {
       .fontFamily;
 
 
-    /* Blank */
-
     if (
       isRenderedBlank(
         character,
@@ -2115,8 +2106,6 @@ async function convertUnicode() {
     }
 
 
-    /* Missing glyph */
-
     if (
       looksLikeMissingGlyph(
         character,
@@ -2139,8 +2128,6 @@ async function convertUnicode() {
       continue;
     }
 
-
-    /* Egyptian size correction */
 
     applyGlyphScale(
       wrapper,
@@ -2169,10 +2156,6 @@ unicodeInput.addEventListener(
   "input",
   () => {
 
-    /*
-      まず古い解析を止める。
-    */
-
     unicodeRun++;
 
 
@@ -2181,15 +2164,15 @@ unicodeInput.addEventListener(
     );
 
 
-    /*
-      入力停止300ms後に変換。
-    */
+    hideUnicodeScope();
+
 
     unicodeInputTimer =
       setTimeout(
         convertUnicode,
         300
       );
+
   }
 );
 
@@ -2236,7 +2219,11 @@ clearChar.addEventListener(
       "";
 
 
+    hideUnicodeScope();
+
+
     charInput.focus();
+
   }
 );
 
@@ -2261,7 +2248,11 @@ clearUnicode.addEventListener(
       "";
 
 
+    hideUnicodeScope();
+
+
     unicodeInput.focus();
+
   }
 );
 
@@ -2427,14 +2418,18 @@ async function loadDailyCharacter() {
         codePoint
       )
       ||
-      codePoint < 0
+      codePoint <
+        0
       ||
-      codePoint > 0x10FFFF
+      codePoint >
+        0x10FFFF
       ||
       (
-        codePoint >= 0xD800
+        codePoint >=
+          0xD800
         &&
-        codePoint <= 0xDFFF
+        codePoint <=
+          0xDFFF
       )
     ) {
 
@@ -2452,7 +2447,9 @@ async function loadDailyCharacter() {
 
     const hex =
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase();
 
 
@@ -2644,6 +2641,999 @@ async function loadDailyCharacter() {
 
 
 /* =========================================
+   Unicode Scope
+========================================= */
+
+let currentScopeCode =
+  "";
+
+
+let currentScopeCharacter =
+  "";
+
+
+let scopePointerStart =
+  null;
+
+
+/* =========================================
+   Scope hide
+========================================= */
+
+function hideUnicodeScope() {
+
+  if (
+    !unicodeScope
+  ) {
+    return;
+  }
+
+
+  unicodeScope
+    .classList
+    .remove(
+      "visible"
+    );
+
+
+  unicodeScope
+    .setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+
+  currentScopeCode =
+    "";
+
+
+  currentScopeCharacter =
+    "";
+}
+
+
+/* =========================================
+   Text node characters
+========================================= */
+
+function getCharacterPieces(
+  text
+) {
+
+  const pieces =
+    [];
+
+
+  let utf16Index =
+    0;
+
+
+  for (
+    const character
+    of text
+  ) {
+
+    const start =
+      utf16Index;
+
+
+    utf16Index +=
+      character.length;
+
+
+    pieces.push(
+      {
+        character,
+
+        start,
+
+        end:
+          utf16Index
+      }
+    );
+  }
+
+
+  return pieces;
+}
+
+
+/* =========================================
+   One character rectangle
+========================================= */
+
+function getCharacterRect(
+  textNode,
+  piece
+) {
+
+  try {
+
+    const range =
+      document.createRange();
+
+
+    range.setStart(
+      textNode,
+      piece.start
+    );
+
+
+    range.setEnd(
+      textNode,
+      piece.end
+    );
+
+
+    const rect =
+      range.getBoundingClientRect();
+
+
+    if (
+      rect.width <=
+        0
+      &&
+      rect.height <=
+        0
+    ) {
+
+      return null;
+    }
+
+
+    return rect;
+
+  } catch (
+    error
+  ) {
+
+    return null;
+  }
+}
+
+
+/* =========================================
+   Nearest character from tap point
+========================================= */
+
+function getCharacterFromPoint(
+  x,
+  y
+) {
+
+  let textNode =
+    null;
+
+
+  let offset =
+    0;
+
+
+  /*
+    Safari / Chrome
+  */
+
+  if (
+    document.caretRangeFromPoint
+  ) {
+
+    const range =
+      document.caretRangeFromPoint(
+        x,
+        y
+      );
+
+
+    if (
+      range
+    ) {
+
+      textNode =
+        range.startContainer;
+
+
+      offset =
+        range.startOffset;
+    }
+  }
+
+
+  /*
+    Firefox
+  */
+
+  else if (
+    document.caretPositionFromPoint
+  ) {
+
+    const position =
+      document.caretPositionFromPoint(
+        x,
+        y
+      );
+
+
+    if (
+      position
+    ) {
+
+      textNode =
+        position.offsetNode;
+
+
+      offset =
+        position.offset;
+    }
+  }
+
+
+  if (
+    !textNode
+  ) {
+    return null;
+  }
+
+
+  /*
+    Elementが返ってきた場合
+    子TextNodeを探す
+  */
+
+  if (
+    textNode.nodeType ===
+    Node.ELEMENT_NODE
+  ) {
+
+    const child =
+      textNode.childNodes[
+        Math.min(
+          offset,
+          textNode.childNodes.length -
+          1
+        )
+      ];
+
+
+    if (
+      child
+      &&
+      child.nodeType ===
+        Node.TEXT_NODE
+    ) {
+
+      textNode =
+        child;
+
+
+      offset =
+        Math.min(
+          offset,
+          textNode.data.length
+        );
+
+    } else {
+
+      return null;
+    }
+  }
+
+
+  if (
+    textNode.nodeType !==
+    Node.TEXT_NODE
+  ) {
+    return null;
+  }
+
+
+  const text =
+    textNode.data;
+
+
+  if (
+    !text
+    ||
+    text.trim() ===
+      ""
+  ) {
+    return null;
+  }
+
+
+  const pieces =
+    getCharacterPieces(
+      text
+    );
+
+
+  if (
+    pieces.length ===
+    0
+  ) {
+    return null;
+  }
+
+
+  let best =
+    null;
+
+
+  let bestDistance =
+    Infinity;
+
+
+  /*
+    タップ周辺だけでなく
+    TextNode内の全文字を調べる。
+
+    タイトルなどでも
+    正確に1文字を選びやすくする。
+  */
+
+  for (
+    const piece
+    of pieces
+  ) {
+
+    /*
+      空白文字はスコープ対象外
+    */
+
+    if (
+      /^\s+$/u.test(
+        piece.character
+      )
+    ) {
+      continue;
+    }
+
+
+    const rect =
+      getCharacterRect(
+        textNode,
+        piece
+      );
+
+
+    if (
+      !rect
+    ) {
+      continue;
+    }
+
+
+    /*
+      文字矩形を少し拡張して
+      タップ判定しやすくする。
+    */
+
+    const padding =
+      7;
+
+
+    const inside =
+      x >=
+        rect.left -
+        padding
+      &&
+      x <=
+        rect.right +
+        padding
+      &&
+      y >=
+        rect.top -
+        padding
+      &&
+      y <=
+        rect.bottom +
+        padding;
+
+
+    const centerX =
+      rect.left +
+      rect.width /
+      2;
+
+
+    const centerY =
+      rect.top +
+      rect.height /
+      2;
+
+
+    const distance =
+      Math.hypot(
+        x -
+        centerX,
+        y -
+        centerY
+      );
+
+
+    if (
+      inside
+      &&
+      distance <
+      bestDistance
+    ) {
+
+      bestDistance =
+        distance;
+
+
+      best = {
+        character:
+          piece.character,
+
+        rect,
+
+        textNode
+      };
+    }
+  }
+
+
+  return best;
+}
+
+
+/* =========================================
+   Scope show
+========================================= */
+
+function showUnicodeScope(
+  result
+) {
+
+  if (
+    !unicodeScope
+    ||
+    !unicodeScopeGlyph
+    ||
+    !unicodeScopeCode
+  ) {
+    return;
+  }
+
+
+  const character =
+    result.character;
+
+
+  const codePoint =
+    character
+      .codePointAt(
+        0
+      );
+
+
+  const code =
+    "U+"
+    +
+    codePoint
+      .toString(
+        16
+      )
+      .toUpperCase()
+      .padStart(
+        4,
+        "0"
+      );
+
+
+  currentScopeCharacter =
+    character;
+
+
+  currentScopeCode =
+    code;
+
+
+  unicodeScopeGlyph.textContent =
+    character;
+
+
+  unicodeScopeCode.textContent =
+    code;
+
+
+  unicodeScopeCode.setAttribute(
+    "aria-label",
+    `${code} をコピー`
+  );
+
+
+  /*
+    タップした文字と同じフォントを
+    スコープ内でも使う
+  */
+
+  const parentElement =
+    result.textNode
+      .parentElement;
+
+
+  if (
+    parentElement
+  ) {
+
+    const style =
+      getComputedStyle(
+        parentElement
+      );
+
+
+    unicodeScopeGlyph.style.fontFamily =
+      style.fontFamily;
+
+
+    unicodeScopeGlyph.style.fontWeight =
+      style.fontWeight;
+
+
+    unicodeScopeGlyph.style.fontStyle =
+      style.fontStyle;
+  }
+
+
+  const rect =
+    result.rect;
+
+
+  let centerX =
+    rect.left +
+    rect.width /
+    2;
+
+
+  let centerY =
+    rect.top +
+    rect.height /
+    2;
+
+
+  /*
+    左右端からはみ出さない
+  */
+
+  centerX =
+    Math.max(
+      42,
+      Math.min(
+        window.innerWidth -
+        42,
+        centerX
+      )
+    );
+
+
+  /*
+    上端からも少し離す
+  */
+
+  centerY =
+    Math.max(
+      42,
+      centerY
+    );
+
+
+  unicodeScope.style.left =
+    centerX +
+    "px";
+
+
+  unicodeScope.style.top =
+    centerY +
+    "px";
+
+
+  /*
+    基本はスコープの下
+  */
+
+  let codeTop =
+    40;
+
+
+  /*
+    画面下に近い場合は
+    Unicodeコードを上側へ
+  */
+
+  if (
+    centerY +
+    95 >
+    window.innerHeight
+  ) {
+
+    codeTop =
+      -52;
+  }
+
+
+  unicodeScope.style.setProperty(
+    "--code-top",
+    codeTop +
+    "px"
+  );
+
+
+  unicodeScope
+    .classList
+    .add(
+      "visible"
+    );
+
+
+  unicodeScope
+    .setAttribute(
+      "aria-hidden",
+      "false"
+    );
+}
+
+
+/* =========================================
+   Copy Scope Unicode
+========================================= */
+
+async function copyScopeCode() {
+
+  if (
+    !currentScopeCode
+  ) {
+    return;
+  }
+
+
+  const code =
+    currentScopeCode;
+
+
+  try {
+
+    if (
+      navigator.clipboard
+      &&
+      navigator.clipboard.writeText
+    ) {
+
+      await navigator.clipboard.writeText(
+        code
+      );
+
+    } else {
+
+      throw new Error(
+        "Clipboard API unavailable"
+      );
+    }
+
+  } catch (
+    error
+  ) {
+
+    const textarea =
+      document.createElement(
+        "textarea"
+      );
+
+
+    textarea.value =
+      code;
+
+
+    textarea.setAttribute(
+      "readonly",
+      ""
+    );
+
+
+    textarea.style.position =
+      "fixed";
+
+
+    textarea.style.left =
+      "-9999px";
+
+
+    textarea.style.top =
+      "-9999px";
+
+
+    document.body.appendChild(
+      textarea
+    );
+
+
+    textarea.select();
+
+
+    try {
+
+      document.execCommand(
+        "copy"
+      );
+
+    } catch (
+      copyError
+    ) {
+
+      console.warn(
+        "Copy failed:",
+        copyError
+      );
+    }
+
+
+    textarea.remove();
+  }
+
+
+  unicodeScopeCode.textContent =
+    "コピーしました ✓";
+
+
+  setTimeout(
+    () => {
+
+      if (
+        currentScopeCode ===
+        code
+      ) {
+
+        unicodeScopeCode.textContent =
+          code;
+      }
+
+    },
+    900
+  );
+}
+
+
+/* =========================================
+   Native selection cleanup
+========================================= */
+
+function clearNativeSelection() {
+
+  const selection =
+    window.getSelection();
+
+
+  if (
+    selection
+  ) {
+
+    selection.removeAllRanges();
+  }
+}
+
+
+/* =========================================
+   Scope pointer detection
+========================================= */
+
+document.addEventListener(
+  "pointerdown",
+  (event) => {
+
+    /*
+      スコープ自身の操作なら無視
+    */
+
+    if (
+      event.target.closest(
+        "#unicodeScope"
+      )
+    ) {
+      return;
+    }
+
+
+    scopePointerStart = {
+      x:
+        event.clientX,
+
+      y:
+        event.clientY
+    };
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+document.addEventListener(
+  "pointerup",
+  (event) => {
+
+    /*
+      スコープ自身なら無視
+    */
+
+    if (
+      event.target.closest(
+        "#unicodeScope"
+      )
+    ) {
+      return;
+    }
+
+
+    if (
+      !scopePointerStart
+    ) {
+      return;
+    }
+
+
+    const movement =
+      Math.hypot(
+        event.clientX -
+        scopePointerStart.x,
+
+        event.clientY -
+        scopePointerStart.y
+      );
+
+
+    scopePointerStart =
+      null;
+
+
+    /*
+      スクロール・スワイプは
+      文字タップ扱いにしない
+    */
+
+    if (
+      movement >
+      12
+    ) {
+      return;
+    }
+
+
+    /*
+      ボタン・リンク・入力欄は
+      普通の操作を優先
+    */
+
+    if (
+      event.target.closest(
+        "button, a, input, textarea, select"
+      )
+    ) {
+
+      hideUnicodeScope();
+
+      return;
+    }
+
+
+    const result =
+      getCharacterFromPoint(
+        event.clientX,
+        event.clientY
+      );
+
+
+    if (
+      !result
+    ) {
+
+      hideUnicodeScope();
+
+      clearNativeSelection();
+
+      return;
+    }
+
+
+    clearNativeSelection();
+
+
+    showUnicodeScope(
+      result
+    );
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+/* =========================================
+   Prevent native text selection after tap
+========================================= */
+
+document.addEventListener(
+  "selectionchange",
+  () => {
+
+    if (
+      unicodeScope
+      &&
+      unicodeScope.classList.contains(
+        "visible"
+      )
+    ) {
+
+      clearNativeSelection();
+    }
+
+  }
+);
+
+
+/* =========================================
+   Scope copy button
+========================================= */
+
+if (
+  unicodeScopeCode
+) {
+
+  unicodeScopeCode.addEventListener(
+    "pointerdown",
+    (event) => {
+
+      event.stopPropagation();
+
+    }
+  );
+
+
+  unicodeScopeCode.addEventListener(
+    "pointerup",
+    (event) => {
+
+      event.stopPropagation();
+
+    }
+  );
+
+
+  unicodeScopeCode.addEventListener(
+    "click",
+    (event) => {
+
+      event.stopPropagation();
+
+
+      copyScopeCode();
+
+    }
+  );
+}
+
+
+/* =========================================
+   Scope close conditions
+========================================= */
+
+window.addEventListener(
+  "scroll",
+  hideUnicodeScope,
+  {
+    passive: true
+  }
+);
+
+
+window.addEventListener(
+  "resize",
+  hideUnicodeScope
+);
+
+
+/* =========================================
    Startup
 ========================================= */
 
@@ -2673,436 +3663,12 @@ setInterval(
         now;
 
 
+      hideUnicodeScope();
+
+
       loadDailyCharacter();
     }
 
   },
   60000
 );
-
-/* =========================================
-   Selected text → Unicode popup
-========================================= */
-
-const selectionUnicodePopup =
-  document.getElementById(
-    "selectionUnicodePopup"
-  );
-
-
-function textToUnicodeCodes(
-  text
-) {
-
-  const characters =
-    Array.from(
-      text
-    );
-
-
-  const maximum =
-    40;
-
-
-  const codes =
-    characters
-      .slice(
-        0,
-        maximum
-      )
-      .map(
-        (character) => {
-
-          return (
-            "U+"
-            +
-            character
-              .codePointAt(0)
-              .toString(16)
-              .toUpperCase()
-              .padStart(
-                4,
-                "0"
-              )
-          );
-
-        }
-      );
-
-
-  if (
-    characters.length >
-    maximum
-  ) {
-
-    codes.push(
-      "…"
-    );
-  }
-
-
-  return codes.join(
-    "  "
-  );
-}
-
-
-function hideSelectionUnicodePopup() {
-
-  selectionUnicodePopup
-    .classList
-    .remove(
-      "visible"
-    );
-
-
-  selectionUnicodePopup
-    .setAttribute(
-      "aria-hidden",
-      "true"
-    );
-}
-
-
-function showSelectionUnicodePopup(
-  text,
-  rect
-) {
-
-  if (
-    !text
-  ) {
-
-    hideSelectionUnicodePopup();
-
-    return;
-  }
-
-
-  selectionUnicodePopup.textContent =
-    textToUnicodeCodes(
-      text
-    );
-
-
-  selectionUnicodePopup
-    .classList
-    .add(
-      "visible"
-    );
-
-
-  selectionUnicodePopup
-    .setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-
-  /*
-    まず選択範囲の
-    中央・下に置く
-  */
-
-  let left =
-    rect.left +
-    rect.width / 2;
-
-
-  let top =
-    rect.bottom +
-    9;
-
-
-  selectionUnicodePopup.style.left =
-    left + "px";
-
-
-  selectionUnicodePopup.style.top =
-    top + "px";
-
-
-  /*
-    画面外にはみ出さないよう調整
-  */
-
-  const popupRect =
-    selectionUnicodePopup
-      .getBoundingClientRect();
-
-
-  const margin =
-    8;
-
-
-  if (
-    popupRect.left <
-    margin
-  ) {
-
-    left +=
-      margin -
-      popupRect.left;
-  }
-
-
-  if (
-    popupRect.right >
-    window.innerWidth -
-    margin
-  ) {
-
-    left -=
-      popupRect.right -
-      (
-        window.innerWidth -
-        margin
-      );
-  }
-
-
-  /*
-    下に入らない場合は
-    選択範囲の上へ
-  */
-
-  if (
-    popupRect.bottom >
-    window.innerHeight -
-    margin
-  ) {
-
-    top =
-      rect.top -
-      popupRect.height -
-      9;
-  }
-
-
-  selectionUnicodePopup.style.left =
-    left + "px";
-
-
-  selectionUnicodePopup.style.top =
-    top + "px";
-}
-
-
-/* =========================================
-   Normal page text selection
-========================================= */
-
-function updatePageSelectionUnicode() {
-
-  const selection =
-    window.getSelection();
-
-
-  if (
-    !selection
-    ||
-    selection.rangeCount === 0
-    ||
-    selection.isCollapsed
-  ) {
-
-    hideSelectionUnicodePopup();
-
-    return;
-  }
-
-
-  const text =
-    selection.toString();
-
-
-  if (
-    text.length === 0
-  ) {
-
-    hideSelectionUnicodePopup();
-
-    return;
-  }
-
-
-  const range =
-    selection.getRangeAt(
-      0
-    );
-
-
-  const rect =
-    range.getBoundingClientRect();
-
-
-  if (
-    rect.width === 0
-    &&
-    rect.height === 0
-  ) {
-
-    hideSelectionUnicodePopup();
-
-    return;
-  }
-
-
-  showSelectionUnicodePopup(
-    text,
-    rect
-  );
-}
-
-
-document.addEventListener(
-  "selectionchange",
-  () => {
-
-    requestAnimationFrame(
-      updatePageSelectionUnicode
-    );
-
-  }
-);
-
-
-/* =========================================
-   Input / textarea selection
-========================================= */
-
-function updateFormSelectionUnicode(
-  element
-) {
-
-  const start =
-    element.selectionStart;
-
-
-  const end =
-    element.selectionEnd;
-
-
-  if (
-    typeof start !==
-      "number"
-    ||
-    typeof end !==
-      "number"
-    ||
-    start === end
-  ) {
-
-    return;
-  }
-
-
-  const text =
-    element.value.slice(
-      start,
-      end
-    );
-
-
-  if (
-    !text
-  ) {
-    return;
-  }
-
-
-  const rect =
-    element.getBoundingClientRect();
-
-
-  /*
-    input / textarea内では
-    選択部分の正確な座標取得が
-    ブラウザによって難しいので、
-    入力欄の下中央に表示
-  */
-
-  showSelectionUnicodePopup(
-    text,
-    {
-      left:
-        rect.left,
-
-      right:
-        rect.right,
-
-      top:
-        rect.top,
-
-      bottom:
-        rect.bottom,
-
-      width:
-        rect.width,
-
-      height:
-        rect.height
-    }
-  );
-}
-
-
-document
-  .querySelectorAll(
-    "input, textarea"
-  )
-  .forEach(
-    (element) => {
-
-      element.addEventListener(
-        "select",
-        () => {
-
-          updateFormSelectionUnicode(
-            element
-          );
-
-        }
-      );
-
-
-      element.addEventListener(
-        "pointerup",
-        () => {
-
-          setTimeout(
-            () => {
-
-              updateFormSelectionUnicode(
-                element
-              );
-
-            },
-            0
-          );
-
-        }
-      );
-
-    }
-  );
-
-
-/* =========================================
-   Hide when appropriate
-========================================= */
-
-window.addEventListener(
-  "scroll",
-  hideSelectionUnicodePopup,
-  {
-    passive: true
-  }
-);
-
-
-window.addEventListener(
-  "resize",
-  hideSelectionUnicodePopup
-);
-
