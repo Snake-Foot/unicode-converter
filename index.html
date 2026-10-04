@@ -13,10 +13,6 @@
   <title>文字 ⇄ Unicode</title>
 
 
-  <!-- ==================================================
-       Google Fonts
-  ================================================== -->
-
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -34,50 +30,39 @@
   >
 
 
-
   <style>
-
-
-    /* ==================================================
-       特殊フォント
-    ================================================== */
-
-
-    /* 新しいTangut */
 
     @font-face {
 
-      font-family: "Tangut Extended";
+      font-family:
+        "Tangut Extended";
 
       src:
         url("./tangut-extended.woff2")
         format("woff2");
 
-      font-display: swap;
+      font-display:
+        swap;
 
     }
 
-
-
-    /* 激レア漢字 */
 
     @font-face {
 
-      font-family: "BabelStone Han";
+      font-family:
+        "BabelStone Han";
 
       src:
-        url("https://www.babelstone.co.uk/Fonts/WOFF/BabelStoneHan.woff2")
+        url(
+          "https://www.babelstone.co.uk/Fonts/WOFF/BabelStoneHan.woff2"
+        )
         format("woff2");
 
-      font-display: swap;
+      font-display:
+        swap;
 
     }
 
-
-
-    /* ==================================================
-       基本
-    ================================================== */
 
     * {
       box-sizing: border-box;
@@ -127,7 +112,6 @@
     }
 
 
-
     textarea,
     input {
 
@@ -135,7 +119,8 @@
 
       padding: 16px;
 
-      font-family:
+      font:
+        22px
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
@@ -143,26 +128,31 @@
         "Yu Gothic",
         sans-serif;
 
-      font-size: 22px;
+      border:
+        1px solid #ccc;
 
-      border: 1px solid #ccc;
+      border-radius:
+        12px;
 
-      border-radius: 12px;
+      background:
+        #fff;
 
-      background: #fff;
+      outline:
+        none;
 
-      outline: none;
-
-      margin-bottom: 18px;
+      margin-bottom:
+        18px;
 
     }
 
 
     textarea {
 
-      min-height: 120px;
+      min-height:
+        120px;
 
-      resize: vertical;
+      resize:
+        vertical;
 
     }
 
@@ -170,15 +160,11 @@
     textarea:focus,
     input:focus {
 
-      border-color: #888;
+      border-color:
+        #888;
 
     }
 
-
-
-    /* ==================================================
-       出力欄
-    ================================================== */
 
     .output {
 
@@ -194,50 +180,47 @@
 
       margin-bottom: 20px;
 
-      overflow-wrap: anywhere;
+      overflow-wrap:
+        anywhere;
 
     }
 
 
-
     .message {
 
-      font-family:
+      font:
+        22px
         -apple-system,
         BlinkMacSystemFont,
         "Helvetica Neue",
         "Hiragino Sans",
         sans-serif;
 
-      font-size: 22px;
-
     }
 
-
-
-    /* ==================================================
-       実際の文字
-    ================================================== */
 
     .character {
 
-      display: inline-block;
+      display:
+        inline-block;
 
-      position: relative;
+      position:
+        relative;
 
-      font-size: 64px;
+      font-size:
+        64px;
 
-      line-height: 1.4;
+      line-height:
+        1.4;
 
-      margin-right: 8px;
+      margin-right:
+        8px;
 
-      vertical-align: middle;
+      vertical-align:
+        middle;
 
     }
 
-
-
-    /* 普通 */
 
     .font-normal {
 
@@ -253,9 +236,6 @@
     }
 
 
-
-    /* Toto */
-
     .font-toto {
 
       font-family:
@@ -264,9 +244,6 @@
 
     }
 
-
-
-    /* Kawi */
 
     .font-kawi {
 
@@ -277,9 +254,6 @@
     }
 
 
-
-    /* Tangut */
-
     .font-tangut {
 
       font-family:
@@ -288,9 +262,6 @@
 
     }
 
-
-
-    /* 新Tangut */
 
     .font-tangut-extended {
 
@@ -301,9 +272,6 @@
 
     }
 
-
-
-    /* 珍しい漢字 */
 
     .font-han {
 
@@ -317,18 +285,18 @@
     }
 
 
-
-    /* ==================================================
-       読み込み中ぐるぐる
-    ================================================== */
+    /* 読み込み中 */
 
     .loading-character {
 
-      color: transparent !important;
+      color:
+        transparent !important;
 
-      min-width: 70px;
+      min-width:
+        70px;
 
-      min-height: 70px;
+      min-height:
+        70px;
 
     }
 
@@ -337,25 +305,35 @@
 
       content: "";
 
-      position: absolute;
+      position:
+        absolute;
 
-      width: 36px;
+      width:
+        36px;
 
-      height: 36px;
+      height:
+        36px;
 
-      top: 50%;
+      top:
+        50%;
 
-      left: 50%;
+      left:
+        50%;
 
-      margin-left: -18px;
+      margin-left:
+        -18px;
 
-      margin-top: -18px;
+      margin-top:
+        -18px;
 
-      border: 4px solid #ccc;
+      border:
+        4px solid #ccc;
 
-      border-top-color: #444;
+      border-top-color:
+        #444;
 
-      border-radius: 50%;
+      border-radius:
+        50%;
 
       animation:
         unicode-spin
@@ -369,26 +347,15 @@
     @keyframes unicode-spin {
 
       from {
-
-        transform:
-          rotate(0deg);
-
+        transform: rotate(0deg);
       }
 
       to {
-
-        transform:
-          rotate(360deg);
-
+        transform: rotate(360deg);
       }
 
     }
 
-
-
-    /* ==================================================
-       文字 → Unicode
-    ================================================== */
 
     .unicode-row {
 
@@ -416,21 +383,15 @@
 
     .code {
 
-      font-family:
+      font:
+        20px
         ui-monospace,
         "SFMono-Regular",
         Menlo,
         monospace;
 
-      font-size: 20px;
-
     }
 
-
-
-    /* ==================================================
-       注意
-    ================================================== */
 
     #extendedWarning {
 
@@ -462,114 +423,130 @@
     }
 
 
-
-    /* ==================================================
-       今日の一文字
-    ================================================== */
+    /* 今日の一文字 */
 
     #dailyCharacterBox {
 
-      text-align: center;
+      text-align:
+        center;
 
-      background: #f3f3f3;
+      background:
+        #f3f3f3;
 
-      border-radius: 24px;
+      border-radius:
+        24px;
 
-      padding: 30px 20px;
+      padding:
+        30px 20px;
 
-      margin-bottom: 45px;
+      margin-bottom:
+        45px;
 
     }
 
 
     #dailyTitle {
 
-      font-size: 18px;
+      font-size:
+        18px;
 
-      font-weight: bold;
+      font-weight:
+        bold;
 
-      color: #666;
+      color:
+        #666;
 
-      margin-bottom: 15px;
+      margin-bottom:
+        15px;
 
     }
 
 
     #dailyCharacter {
 
-      font-size: 120px;
+      font-size:
+        120px;
 
-      line-height: 1.25;
+      line-height:
+        1.25;
 
-      min-width: 150px;
+      min-width:
+        150px;
 
-      min-height: 150px;
+      min-height:
+        150px;
 
-      margin-right: 0;
+      margin-right:
+        0;
 
     }
 
 
     #dailyCharacter.loading-character::after {
 
-      width: 54px;
+      width:
+        54px;
 
-      height: 54px;
+      height:
+        54px;
 
-      margin-left: -27px;
+      margin-left:
+        -27px;
 
-      margin-top: -27px;
+      margin-top:
+        -27px;
 
-      border-width: 5px;
+      border-width:
+        5px;
 
     }
 
 
     #dailyCode {
 
-      font-family:
+      font:
+        18px
         ui-monospace,
         "SFMono-Regular",
         Menlo,
         monospace;
 
-      font-size: 18px;
+      color:
+        #777;
 
-      color: #777;
-
-      margin-top: 10px;
+      margin-top:
+        10px;
 
     }
 
 
-
-    /* ==================================================
-       この文字について調べる
-    ================================================== */
-
     #dailyResearch {
 
-      margin-top: 16px;
+      margin-top:
+        16px;
 
     }
 
 
     #dailyResearchLink {
 
-      display: inline-block;
+      display:
+        inline-block;
 
-      font-size: 16px;
+      font-size:
+        16px;
 
-      color: #0066cc;
+      color:
+        #0066cc;
 
-      text-decoration: none;
+      text-decoration:
+        none;
 
-      padding: 8px 12px;
+      padding:
+        8px 12px;
 
-      border-radius: 10px;
-
-      transition:
-        background 0.15s ease;
+      border-radius:
+        10px;
 
     }
 
@@ -577,7 +554,12 @@
     #dailyResearchLink:hover {
 
       background:
-        rgba(0, 102, 204, 0.08);
+        rgba(
+          0,
+          102,
+          204,
+          0.08
+        );
 
       text-decoration:
         underline;
@@ -587,52 +569,38 @@
 
     #dailyResearchLink.disabled {
 
-      opacity: 0.4;
+      opacity:
+        0.4;
 
-      pointer-events: none;
+      pointer-events:
+        none;
 
     }
-
 
   </style>
 
 </head>
 
 
-
 <body>
 
 
-  <!-- ==================================================
-       今日の一文字
-  ================================================== -->
-
   <section id="dailyCharacterBox">
 
-
     <div id="dailyTitle">
-
       今日の一文字
-
     </div>
-
 
     <div
       id="dailyCharacter"
       class="character loading-character"
     >
-
       ?
-
     </div>
-
 
     <div id="dailyCode">
-
       読み込み中…
-
     </div>
-
 
     <div id="dailyResearch">
 
@@ -643,34 +611,21 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
         この文字について調べる
-
       </a>
 
     </div>
 
-
   </section>
 
 
-
   <h1>
-
     文字 ⇄ Unicode
-
   </h1>
 
 
-
-  <!-- ==================================================
-       文字 → Unicode
-  ================================================== -->
-
   <h2>
-
     文字 → Unicode
-
   </h2>
 
 
@@ -684,21 +639,12 @@
     id="unicodeOutput"
     class="output message"
   >
-
     ここにUnicodeが表示されます
-
   </div>
 
 
-
-  <!-- ==================================================
-       Unicode → 文字
-  ================================================== -->
-
   <h2>
-
     Unicode → 文字
-
   </h2>
 
 
@@ -713,16 +659,15 @@
     id="charOutput"
     class="output message"
   >
-
     ここに文字が表示されます
-
   </div>
 
 
   <div id="extendedWarning">
 
     新しいTangut文字です。
-    tangut-extended.woff2 が読み込まれていない場合は
+    tangut-extended.woff2 が
+    読み込まれていない場合は
     正しく表示されないことがあります。
 
   </div>
@@ -730,61 +675,49 @@
 
   <div class="hint">
 
-    U+1E290、1E290、0x1E290 のどれでもOK。
+    U+1E290、1E290、0x1E290 の
+    どれでもOK。
     複数ならスペース・カンマ区切り。
 
   </div>
 
 
-
   <script>
-
-
-    /* ==================================================
-       要素
-    ================================================== */
 
     const charInput =
       document.getElementById(
         "charInput"
       );
 
-
     const unicodeInput =
       document.getElementById(
         "unicodeInput"
       );
-
 
     const unicodeOutput =
       document.getElementById(
         "unicodeOutput"
       );
 
-
     const charOutput =
       document.getElementById(
         "charOutput"
       );
-
 
     const extendedWarning =
       document.getElementById(
         "extendedWarning"
       );
 
-
     const dailyCharacter =
       document.getElementById(
         "dailyCharacter"
       );
 
-
     const dailyCode =
       document.getElementById(
         "dailyCode"
       );
-
 
     const dailyResearchLink =
       document.getElementById(
@@ -792,78 +725,49 @@
       );
 
 
-
-    /* ==================================================
-       フォント判定
-    ================================================== */
-
     function getFontClass(
       codePoint
     ) {
-
-
-      /* Kawi */
 
       if (
         codePoint >= 0x11F00 &&
         codePoint <= 0x11F5F
       ) {
-
         return "font-kawi";
-
       }
 
-
-
-      /* Toto */
 
       if (
         codePoint >= 0x1E290 &&
         codePoint <= 0x1E2BF
       ) {
-
         return "font-toto";
-
       }
 
-
-
-      /* Unicode 17 Tangut */
 
       if (
         codePoint >= 0x187F8 &&
         codePoint <= 0x187FF
       ) {
-
         return "font-tangut-extended";
-
       }
-
 
 
       if (
         codePoint >= 0x18D09 &&
         codePoint <= 0x18D1E
       ) {
-
         return "font-tangut-extended";
-
       }
-
 
 
       if (
         codePoint >= 0x18D80 &&
         codePoint <= 0x18DFF
       ) {
-
         return "font-tangut-extended";
-
       }
 
-
-
-      /* 通常Tangut */
 
       if (
 
@@ -887,24 +791,16 @@
         )
 
       ) {
-
         return "font-tangut";
-
       }
 
-
-
-      /* CJK拡張 */
 
       if (
         codePoint >= 0x20000 &&
         codePoint <= 0x323AF
       ) {
-
         return "font-han";
-
       }
-
 
 
       return "font-normal";
@@ -912,15 +808,9 @@
     }
 
 
-
-    /* ==================================================
-       使用Webフォント
-    ================================================== */
-
     function getWebFontName(
       codePoint
     ) {
-
 
       const fontClass =
         getFontClass(
@@ -932,9 +822,7 @@
         fontClass ===
         "font-kawi"
       ) {
-
         return "Noto Sans Kawi";
-
       }
 
 
@@ -942,9 +830,7 @@
         fontClass ===
         "font-toto"
       ) {
-
         return "Noto Serif Toto";
-
       }
 
 
@@ -952,9 +838,7 @@
         fontClass ===
         "font-tangut"
       ) {
-
         return "Noto Serif Tangut";
-
       }
 
 
@@ -962,9 +846,7 @@
         fontClass ===
         "font-tangut-extended"
       ) {
-
         return "Tangut Extended";
-
       }
 
 
@@ -972,9 +854,7 @@
         fontClass ===
         "font-han"
       ) {
-
         return "BabelStone Han";
-
       }
 
 
@@ -983,16 +863,10 @@
     }
 
 
-
-    /* ==================================================
-       フォント読み込み
-    ================================================== */
-
     async function waitForCharacterFont(
       codePoint,
       character
     ) {
-
 
       const fontName =
         getWebFontName(
@@ -1000,46 +874,29 @@
         );
 
 
-      if (
-        fontName === null
-      ) {
-
+      if (!fontName) {
         return;
-
       }
-
-
-
-      const fontPromise =
-        document.fonts.load(
-          `64px "${fontName}"`,
-          character
-        );
-
-
-      /*
-        最大3秒待つ
-      */
-
-      const timeoutPromise =
-        new Promise(
-          function (resolve) {
-
-            setTimeout(
-              resolve,
-              3000
-            );
-
-          }
-        );
 
 
       try {
 
         await Promise.race(
           [
-            fontPromise,
-            timeoutPromise
+
+            document.fonts.load(
+              `64px "${fontName}"`,
+              character
+            ),
+
+            new Promise(
+              (resolve) =>
+                setTimeout(
+                  resolve,
+                  3000
+                )
+            )
+
           ]
         );
 
@@ -1054,18 +911,22 @@
 
       }
 
-
     }
 
 
+    /*
+      文字 → Unicode
+    */
 
-    /* ==================================================
-       文字 → Unicode
-    ================================================== */
+    let charRun = 0;
+
 
     charInput.addEventListener(
       "input",
-      async function () {
+      async () => {
+
+        const run =
+          ++charRun;
 
 
         const text =
@@ -1076,34 +937,33 @@
           "";
 
 
-        if (
-          text === ""
-        ) {
-
+        if (!text) {
 
           unicodeOutput.className =
             "output message";
 
-
           unicodeOutput.textContent =
             "ここにUnicodeが表示されます";
-
 
           return;
 
         }
 
 
-
         unicodeOutput.className =
           "output";
-
 
 
         for (
           const character
           of Array.from(text)
         ) {
+
+          if (
+            run !== charRun
+          ) {
+            return;
+          }
 
 
           const codePoint =
@@ -1116,7 +976,6 @@
               .toUpperCase();
 
 
-
           const row =
             document.createElement(
               "div"
@@ -1127,33 +986,22 @@
             "unicode-row";
 
 
-
           const characterSpan =
             document.createElement(
               "span"
             );
 
 
-          characterSpan.classList.add(
-            "character"
-          );
-
-
-          characterSpan.classList.add(
+          characterSpan.className =
+            "character " +
             getFontClass(
               codePoint
-            )
-          );
-
-
-          characterSpan.classList.add(
-            "loading-character"
-          );
+            ) +
+            " loading-character";
 
 
           characterSpan.textContent =
             character;
-
 
 
           const codeSpan =
@@ -1170,13 +1018,8 @@
             "U+" + hex;
 
 
-
-          row.appendChild(
-            characterSpan
-          );
-
-
-          row.appendChild(
+          row.append(
+            characterSpan,
             codeSpan
           );
 
@@ -1186,33 +1029,44 @@
           );
 
 
-
           await waitForCharacterFont(
             codePoint,
             character
           );
 
 
-          characterSpan.classList.remove(
-            "loading-character"
-          );
+          if (
+            run !== charRun
+          ) {
+            return;
+          }
 
+
+          characterSpan
+            .classList
+            .remove(
+              "loading-character"
+            );
 
         }
-
 
       }
     );
 
 
+    /*
+      Unicode → 文字
+    */
 
-    /* ==================================================
-       Unicode → 文字
-    ================================================== */
+    let unicodeRun = 0;
+
 
     unicodeInput.addEventListener(
       "input",
-      async function () {
+      async () => {
+
+        const run =
+          ++unicodeRun;
 
 
         const text =
@@ -1229,57 +1083,39 @@
           "none";
 
 
-        if (
-          text === ""
-        ) {
-
+        if (!text) {
 
           charOutput.className =
             "output message";
 
-
           charOutput.textContent =
             "ここに文字が表示されます";
-
 
           return;
 
         }
 
 
-
         try {
-
 
           const codes =
             text
-
               .split(
                 /[\s,、/]+/
               )
-
               .filter(Boolean)
-
               .map(
-                function (code) {
-
-
-                  return code
-
+                (code) =>
+                  code
                     .replace(
                       /^U\+/i,
                       ""
                     )
-
                     .replace(
                       /^0x/i,
                       ""
-                    );
-
-
-                }
+                    )
               );
-
 
 
           charOutput.className =
@@ -1290,21 +1126,24 @@
             false;
 
 
-
           for (
-            const code of codes
+            const code
+            of codes
           ) {
+
+            if (
+              run !== unicodeRun
+            ) {
+              return;
+            }
 
 
             if (
               !/^[0-9A-F]+$/i
                 .test(code)
             ) {
-
               throw new Error();
-
             }
-
 
 
             const codePoint =
@@ -1312,7 +1151,6 @@
                 code,
                 16
               );
-
 
 
             if (
@@ -1323,19 +1161,13 @@
                 0x10FFFF ||
 
               (
-                codePoint >=
-                  0xD800 &&
-
-                codePoint <=
-                  0xDFFF
+                codePoint >= 0xD800 &&
+                codePoint <= 0xDFFF
               )
 
             ) {
-
               throw new Error();
-
             }
-
 
 
             const character =
@@ -1344,28 +1176,18 @@
               );
 
 
-
             const span =
               document.createElement(
                 "span"
               );
 
 
-            span.classList.add(
-              "character"
-            );
-
-
-            span.classList.add(
+            span.className =
+              "character " +
               getFontClass(
                 codePoint
-              )
-            );
-
-
-            span.classList.add(
-              "loading-character"
-            );
+              ) +
+              " loading-character";
 
 
             span.textContent =
@@ -1377,417 +1199,134 @@
             );
 
 
-
             await waitForCharacterFont(
               codePoint,
               character
             );
 
 
-            span.classList.remove(
-              "loading-character"
-            );
+            if (
+              run !== unicodeRun
+            ) {
+              return;
+            }
 
+
+            span
+              .classList
+              .remove(
+                "loading-character"
+              );
 
 
             if (
 
               (
-                codePoint >=
-                  0x187F8 &&
-
-                codePoint <=
-                  0x187FF
+                codePoint >= 0x187F8 &&
+                codePoint <= 0x187FF
               )
 
               ||
 
               (
-                codePoint >=
-                  0x18D09 &&
-
-                codePoint <=
-                  0x18D1E
+                codePoint >= 0x18D09 &&
+                codePoint <= 0x18D1E
               )
 
               ||
 
               (
-                codePoint >=
-                  0x18D80 &&
-
-                codePoint <=
-                  0x18DFF
+                codePoint >= 0x18D80 &&
+                codePoint <= 0x18DFF
               )
 
             ) {
 
-
               usesExtendedTangut =
                 true;
 
-
             }
 
-
           }
-
 
 
           if (
             usesExtendedTangut
           ) {
 
-
             extendedWarning.style.display =
               "block";
 
-
           }
-
 
         }
 
-
-
-        catch (error) {
-
+        catch {
 
           charOutput.className =
             "output message";
 
-
           charOutput.textContent =
             "正しいUnicodeを入力してください";
 
-
         }
-
 
       }
     );
 
 
+    /*
+      日本時間の日付
+    */
 
-    /* ==================================================
-       今日の日付
-    ================================================== */
+    function getJSTDateString() {
 
-    function getTodayString() {
+      const parts =
+        new Intl.DateTimeFormat(
+          "en-US",
+          {
+            timeZone:
+              "Asia/Tokyo",
 
+            year:
+              "numeric",
 
-      const now =
-        new Date();
+            month:
+              "2-digit",
 
-
-      const year =
-        now.getFullYear();
-
-
-      const month =
-        String(
-          now.getMonth() + 1
-        ).padStart(
-          2,
-          "0"
+            day:
+              "2-digit"
+          }
+        )
+        .formatToParts(
+          new Date()
         );
 
 
-      const day =
-        String(
-          now.getDate()
-        ).padStart(
-          2,
-          "0"
-        );
+      const part =
+        (type) =>
+          parts.find(
+            (p) =>
+              p.type === type
+          )?.value;
 
 
       return (
-        year +
+        part("year") +
         "-" +
-        month +
+        part("month") +
         "-" +
-        day
+        part("day")
       );
 
     }
 
 
-
-    /* ==================================================
-       日付 → 数値
-    ================================================== */
-
-    function hashDate(
-      text
-    ) {
-
-
-      let hash =
-        2166136261;
-
-
-      for (
-        let i = 0;
-        i < text.length;
-        i++
-      ) {
-
-
-        hash ^=
-          text.charCodeAt(i);
-
-
-        hash =
-          Math.imul(
-            hash,
-            16777619
-          );
-
-
-      }
-
-
-      return hash >>> 0;
-
-    }
-
-
-
-    /* ==================================================
-       疑似乱数
-    ================================================== */
-
-    function createRandom(
-      seed
-    ) {
-
-
-      return function () {
-
-
-        seed +=
-          0x6D2B79F5;
-
-
-        let t =
-          seed;
-
-
-        t =
-          Math.imul(
-            t ^ (t >>> 15),
-            t | 1
-          );
-
-
-        t ^=
-          t +
-          Math.imul(
-            t ^ (t >>> 7),
-            t | 61
-          );
-
-
-        return (
-          (
-            t ^
-            (t >>> 14)
-          ) >>> 0
-        ) / 4294967296;
-
-
-      };
-
-    }
-
-
-
-    /* ==================================================
-       今日の一文字として使用可能か
-    ================================================== */
-
-    function isUsableCharacter(
-      codePoint
-    ) {
-
-
-      /*
-        サロゲート
-      */
-
-      if (
-        codePoint >= 0xD800 &&
-        codePoint <= 0xDFFF
-      ) {
-
-        return false;
-
-      }
-
-
-
-      const character =
-        String.fromCodePoint(
-          codePoint
-        );
-
-
-
-      /*
-        未割り当て
-      */
-
-      if (
-        !/\p{Assigned}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      /*
-        制御文字
-      */
-
-      if (
-        /\p{Cc}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      /*
-        書式制御
-      */
-
-      if (
-        /\p{Cf}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      /*
-        私用領域
-      */
-
-      if (
-        /\p{Co}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      /*
-        結合文字
-      */
-
-      if (
-        /\p{M}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      /*
-        空白系
-      */
-
-      if (
-        /\p{Z}/u.test(
-          character
-        )
-      ) {
-
-        return false;
-
-      }
-
-
-
-      return true;
-
-    }
-
-
-
-    /* ==================================================
-       Unicode全域からランダム抽選
-    ================================================== */
-
-    function getRandomUnicodeCharacter(
-      random
-    ) {
-
-
-      while (
-        true
-      ) {
-
-
-        const codePoint =
-          Math.floor(
-            random() *
-            0x110000
-          );
-
-
-
-        if (
-          isUsableCharacter(
-            codePoint
-          )
-        ) {
-
-
-          return codePoint;
-
-
-        }
-
-
-      }
-
-
-    }
-
-
-
-    /* ==================================================
-       今日の一文字
-    ================================================== */
-
-    async function updateDailyCharacter() {
-
-
-      /*
-        読み込み開始
-      */
+    /*
+      daily.json を読む
+    */
+
+    async function loadDailyCharacter() {
 
       dailyCharacter.className =
         "character loading-character";
@@ -1801,180 +1340,223 @@
         "読み込み中…";
 
 
-      dailyResearchLink.classList.add(
-        "disabled"
-      );
+      dailyResearchLink
+        .classList
+        .add(
+          "disabled"
+        );
 
 
       dailyResearchLink.href =
         "#";
 
 
+      try {
 
-      /*
-        日付から今日の文字を決める
-      */
-
-      const today =
-        getTodayString();
-
-
-      const seed =
-        hashDate(
-          today
-        );
-
-
-      const random =
-        createRandom(
-          seed
-        );
-
-
-      const codePoint =
-        getRandomUnicodeCharacter(
-          random
-        );
-
-
-      const character =
-        String.fromCodePoint(
-          codePoint
-        );
-
-
-      const hex =
-        codePoint
-          .toString(16)
-          .toUpperCase();
-
-
-
-      /*
-        フォント設定
-      */
-
-      dailyCharacter.className =
-        "character " +
-        getFontClass(
-          codePoint
-        ) +
-        " loading-character";
-
-
-      dailyCharacter.textContent =
-        character;
-
-
-
-      dailyCode.textContent =
-        "U+" + hex;
-
-
-
-      /*
-        検索リンク作成
-
-        実際のURLは長いが、
-        表示は
-        「この文字について調べる」
-        のまま。
-      */
-
-      const searchQuery =
-        character +
-        " U+" +
-        hex +
-        " Unicode";
-
-
-      dailyResearchLink.href =
-        "https://www.google.com/search?q=" +
-        encodeURIComponent(
-          searchQuery
-        );
-
-
-
-      /*
-        フォント読み込み
-      */
-
-      await waitForCharacterFont(
-        codePoint,
-        character
-      );
-
-
-
-      /*
-        完了
-      */
-
-      dailyCharacter.classList.remove(
-        "loading-character"
-      );
-
-
-      dailyResearchLink.classList.remove(
-        "disabled"
-      );
-
-
-    }
-
-
-
-    /* ==================================================
-       初回
-    ================================================== */
-
-    updateDailyCharacter();
-
-
-
-    /* ==================================================
-       日付変更監視
-    ================================================== */
-
-    let lastDailyDate =
-      getTodayString();
-
-
-    setInterval(
-      function () {
-
-
-        const today =
-          getTodayString();
-
+        const response =
+          await fetch(
+            "./daily.json?t=" +
+            Date.now(),
+            {
+              cache:
+                "no-store"
+            }
+          );
 
 
         if (
-          today !==
-          lastDailyDate
+          !response.ok
         ) {
+          throw new Error(
+            "daily.json load failed"
+          );
+        }
 
 
-          lastDailyDate =
-            today;
+        const data =
+          await response.json();
 
 
-          updateDailyCharacter();
+        const today =
+          getJSTDateString();
 
+
+        const entries =
+          [
+            data.current,
+            data.next
+          ].filter(Boolean);
+
+
+        /*
+          今日の日付と
+          完全一致するものだけ使う
+        */
+
+        const entry =
+          entries.find(
+            (item) =>
+              item.date === today
+          );
+
+
+        if (!entry) {
+
+          throw new Error(
+            "today entry not found"
+          );
 
         }
 
 
+        const codePoint =
+          parseInt(
+            entry.codePoint,
+            16
+          );
+
+
+        if (
+          !Number.isInteger(
+            codePoint
+          )
+        ) {
+
+          throw new Error(
+            "invalid code point"
+          );
+
+        }
+
+
+        const character =
+          String.fromCodePoint(
+            codePoint
+          );
+
+
+        const hex =
+          codePoint
+            .toString(16)
+            .toUpperCase();
+
+
+        dailyCharacter.className =
+          "character " +
+          getFontClass(
+            codePoint
+          ) +
+          " loading-character";
+
+
+        dailyCharacter.textContent =
+          character;
+
+
+        dailyCode.textContent =
+          "U+" + hex;
+
+
+        const searchQuery =
+          character +
+          " U+" +
+          hex +
+          " Unicode";
+
+
+        dailyResearchLink.href =
+          "https://www.google.com/search?q=" +
+          encodeURIComponent(
+            searchQuery
+          );
+
+
+        await waitForCharacterFont(
+          codePoint,
+          character
+        );
+
+
+        dailyCharacter
+          .classList
+          .remove(
+            "loading-character"
+          );
+
+
+        dailyResearchLink
+          .classList
+          .remove(
+            "disabled"
+          );
+
+      }
+
+      catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        dailyCharacter.className =
+          "character font-normal";
+
+
+        dailyCharacter.textContent =
+          "？";
+
+
+        dailyCode.textContent =
+          "更新待ち";
+
+      }
+
+    }
+
+
+    /*
+      ページ表示時
+    */
+
+    loadDailyCharacter();
+
+
+    /*
+      開きっぱなしでも
+      日本時間0:00を跨いだら
+      nextへ切り替える
+    */
+
+    let lastJSTDate =
+      getJSTDateString();
+
+
+    setInterval(
+      () => {
+
+        const now =
+          getJSTDateString();
+
+
+        if (
+          now !==
+          lastJSTDate
+        ) {
+
+          lastJSTDate =
+            now;
+
+          loadDailyCharacter();
+
+        }
+
       },
 
       60000
-
     );
 
-
   </script>
-
 
 </body>
 
