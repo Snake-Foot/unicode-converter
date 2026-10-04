@@ -1265,11 +1265,11 @@
 
 
       if (
-        codePoint >= 0x1D000 &&
-        codePoint <= 0x1D0FF
-      ) {
-        return "font-music";
-      }
+  codePoint >= 0x1D000 &&
+  codePoint <= 0x1D24F
+) {
+  return "font-music";
+}
 
 
       if (
@@ -1286,6 +1286,56 @@
       ) {
         return "font-symbols2";
       }
+
+      /*
+  Indic Siyaq Numbers
+*/
+
+if (
+  codePoint >= 0x1EC70 &&
+  codePoint <= 0x1ECBF
+) {
+  return "font-indic-siyaq";
+}
+
+
+/*
+  Arabic Mathematical
+  Alphabetic Symbols
+*/
+
+if (
+  codePoint >= 0x1EE00 &&
+  codePoint <= 0x1EEFF
+) {
+  return "font-math";
+}
+
+
+/*
+  Symbols for
+  Legacy Computing Supplement
+*/
+
+if (
+  codePoint >= 0x1CC00 &&
+  codePoint <= 0x1CEBF
+) {
+  return "font-symbols2";
+}
+
+
+/*
+  Symbols for
+  Legacy Computing
+*/
+
+if (
+  codePoint >= 0x1FB00 &&
+  codePoint <= 0x1FBFF
+) {
+  return "font-symbols2";
+}
 
 
       if (
@@ -1423,6 +1473,17 @@
           return [
             "Noto Sans Symbols 2"
           ];
+
+        case "font-math":
+  return [
+    "Noto Sans Math"
+  ];
+
+
+case "font-indic-siyaq":
+  return [
+    "Noto Sans Indic Siyaq Numbers"
+  ];
 
 
         case "font-cjk-ext":
