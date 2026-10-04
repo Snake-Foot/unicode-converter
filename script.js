@@ -2679,3 +2679,430 @@ setInterval(
   },
   60000
 );
+
+/* =========================================
+   Selected text → Unicode popup
+========================================= */
+
+const selectionUnicodePopup =
+  document.getElementById(
+    "selectionUnicodePopup"
+  );
+
+
+function textToUnicodeCodes(
+  text
+) {
+
+  const characters =
+    Array.from(
+      text
+    );
+
+
+  const maximum =
+    40;
+
+
+  const codes =
+    characters
+      .slice(
+        0,
+        maximum
+      )
+      .map(
+        (character) => {
+
+          return (
+            "U+"
+            +
+            character
+              .codePointAt(0)
+              .toString(16)
+              .toUpperCase()
+              .padStart(
+                4,
+                "0"
+              )
+          );
+
+        }
+      );
+
+
+  if (
+    characters.length >
+    maximum
+  ) {
+
+    codes.push(
+      "…"
+    );
+  }
+
+
+  return codes.join(
+    "  "
+  );
+}
+
+
+function hideSelectionUnicodePopup() {
+
+  selectionUnicodePopup
+    .classList
+    .remove(
+      "visible"
+    );
+
+
+  selectionUnicodePopup
+    .setAttribute(
+      "aria-hidden",
+      "true"
+    );
+}
+
+
+function showSelectionUnicodePopup(
+  text,
+  rect
+) {
+
+  if (
+    !text
+  ) {
+
+    hideSelectionUnicodePopup();
+
+    return;
+  }
+
+
+  selectionUnicodePopup.textContent =
+    textToUnicodeCodes(
+      text
+    );
+
+
+  selectionUnicodePopup
+    .classList
+    .add(
+      "visible"
+    );
+
+
+  selectionUnicodePopup
+    .setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+  /*
+    まず選択範囲の
+    中央・下に置く
+  */
+
+  let left =
+    rect.left +
+    rect.width / 2;
+
+
+  let top =
+    rect.bottom +
+    9;
+
+
+  selectionUnicodePopup.style.left =
+    left + "px";
+
+
+  selectionUnicodePopup.style.top =
+    top + "px";
+
+
+  /*
+    画面外にはみ出さないよう調整
+  */
+
+  const popupRect =
+    selectionUnicodePopup
+      .getBoundingClientRect();
+
+
+  const margin =
+    8;
+
+
+  if (
+    popupRect.left <
+    margin
+  ) {
+
+    left +=
+      margin -
+      popupRect.left;
+  }
+
+
+  if (
+    popupRect.right >
+    window.innerWidth -
+    margin
+  ) {
+
+    left -=
+      popupRect.right -
+      (
+        window.innerWidth -
+        margin
+      );
+  }
+
+
+  /*
+    下に入らない場合は
+    選択範囲の上へ
+  */
+
+  if (
+    popupRect.bottom >
+    window.innerHeight -
+    margin
+  ) {
+
+    top =
+      rect.top -
+      popupRect.height -
+      9;
+  }
+
+
+  selectionUnicodePopup.style.left =
+    left + "px";
+
+
+  selectionUnicodePopup.style.top =
+    top + "px";
+}
+
+
+/* =========================================
+   Normal page text selection
+========================================= */
+
+function updatePageSelectionUnicode() {
+
+  const selection =
+    window.getSelection();
+
+
+  if (
+    !selection
+    ||
+    selection.rangeCount === 0
+    ||
+    selection.isCollapsed
+  ) {
+
+    hideSelectionUnicodePopup();
+
+    return;
+  }
+
+
+  const text =
+    selection.toString();
+
+
+  if (
+    text.length === 0
+  ) {
+
+    hideSelectionUnicodePopup();
+
+    return;
+  }
+
+
+  const range =
+    selection.getRangeAt(
+      0
+    );
+
+
+  const rect =
+    range.getBoundingClientRect();
+
+
+  if (
+    rect.width === 0
+    &&
+    rect.height === 0
+  ) {
+
+    hideSelectionUnicodePopup();
+
+    return;
+  }
+
+
+  showSelectionUnicodePopup(
+    text,
+    rect
+  );
+}
+
+
+document.addEventListener(
+  "selectionchange",
+  () => {
+
+    requestAnimationFrame(
+      updatePageSelectionUnicode
+    );
+
+  }
+);
+
+
+/* =========================================
+   Input / textarea selection
+========================================= */
+
+function updateFormSelectionUnicode(
+  element
+) {
+
+  const start =
+    element.selectionStart;
+
+
+  const end =
+    element.selectionEnd;
+
+
+  if (
+    typeof start !==
+      "number"
+    ||
+    typeof end !==
+      "number"
+    ||
+    start === end
+  ) {
+
+    return;
+  }
+
+
+  const text =
+    element.value.slice(
+      start,
+      end
+    );
+
+
+  if (
+    !text
+  ) {
+    return;
+  }
+
+
+  const rect =
+    element.getBoundingClientRect();
+
+
+  /*
+    input / textarea内では
+    選択部分の正確な座標取得が
+    ブラウザによって難しいので、
+    入力欄の下中央に表示
+  */
+
+  showSelectionUnicodePopup(
+    text,
+    {
+      left:
+        rect.left,
+
+      right:
+        rect.right,
+
+      top:
+        rect.top,
+
+      bottom:
+        rect.bottom,
+
+      width:
+        rect.width,
+
+      height:
+        rect.height
+    }
+  );
+}
+
+
+document
+  .querySelectorAll(
+    "input, textarea"
+  )
+  .forEach(
+    (element) => {
+
+      element.addEventListener(
+        "select",
+        () => {
+
+          updateFormSelectionUnicode(
+            element
+          );
+
+        }
+      );
+
+
+      element.addEventListener(
+        "pointerup",
+        () => {
+
+          setTimeout(
+            () => {
+
+              updateFormSelectionUnicode(
+                element
+              );
+
+            },
+            0
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+/* =========================================
+   Hide when appropriate
+========================================= */
+
+window.addEventListener(
+  "scroll",
+  hideSelectionUnicodePopup,
+  {
+    passive: true
+  }
+);
+
+
+window.addEventListener(
+  "resize",
+  hideSelectionUnicodePopup
+);
+
