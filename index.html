@@ -112,9 +112,7 @@
 
     main {
       width: 100%;
-
       max-width: 760px;
-
       margin: 0 auto;
     }
 
@@ -309,6 +307,29 @@
     button:active {
       transform:
         scale(0.98);
+    }
+
+    /* ------------------------- */
+    /* ランダム生成ボタン */
+    /* ------------------------- */
+
+    .random-buttons {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 10px;
+    }
+
+    .random-button {
+      margin-top: 0;
+
+      padding:
+        8px 12px;
+
+      font-size: 14px;
     }
 
     /* ------------------------- */
@@ -559,6 +580,12 @@
       .invalid-unicode {
         font-size: 12px;
       }
+
+      .random-button {
+        flex: 1;
+
+        min-width: 95px;
+      }
     }
   </style>
 </head>
@@ -671,6 +698,38 @@
         U+1E290 / 1E290 /
         0x1E290 に対応。
         複数入力は空白・改行・カンマで区切れます。
+      </div>
+
+      <!-- ランダム生成 -->
+
+      <div
+        class="random-buttons"
+      >
+
+        <button
+          type="button"
+          class="random-button"
+          data-random-count="5"
+        >
+          ランダム5個
+        </button>
+
+        <button
+          type="button"
+          class="random-button"
+          data-random-count="10"
+        >
+          ランダム10個
+        </button>
+
+        <button
+          type="button"
+          class="random-button"
+          data-random-count="100"
+        >
+          ランダム100個
+        </button>
+
       </div>
 
       <div
@@ -1064,6 +1123,7 @@
                 0
               );
 
+
             return (
               "U+" +
               codePoint
@@ -1163,6 +1223,253 @@
 
 
     /* ================================= */
+    /* ランダムUnicode生成 */
+    /* ================================= */
+
+    /*
+      0 ～ max - 1 の整数を
+      crypto.getRandomValues()で
+      偏りなく生成
+    */
+
+    function secureRandomInteger(
+      max
+    ) {
+
+      const range =
+        0x100000000;
+
+
+      const limit =
+        Math.floor(
+          range /
+          max
+        ) * max;
+
+
+      const array =
+        new Uint32Array(
+          1
+        );
+
+
+      while (
+        true
+      ) {
+
+        crypto.getRandomValues(
+          array
+        );
+
+
+        const value =
+          array[0];
+
+
+        if (
+          value < limit
+        ) {
+
+          return (
+            value %
+            max
+          );
+
+        }
+      }
+    }
+
+
+    /*
+      今日の一文字と
+      同じ除外条件
+    */
+
+    function isUsableRandomCharacter(
+      codePoint
+    ) {
+
+      /*
+        サロゲート
+      */
+
+      if (
+        codePoint >= 0xD800 &&
+        codePoint <= 0xDFFF
+      ) {
+        return false;
+      }
+
+
+      const character =
+        String.fromCodePoint(
+          codePoint
+        );
+
+
+      /*
+        未割り当て
+      */
+
+      if (
+        !/\p{Assigned}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      /*
+        制御文字
+      */
+
+      if (
+        /\p{Cc}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      /*
+        書式制御文字
+      */
+
+      if (
+        /\p{Cf}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      /*
+        私用領域
+      */
+
+      if (
+        /\p{Co}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      /*
+        結合文字
+      */
+
+      if (
+        /\p{M}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      /*
+        空白・区切り
+      */
+
+      if (
+        /\p{Z}/u.test(
+          character
+        )
+      ) {
+        return false;
+      }
+
+
+      return true;
+    }
+
+
+    /*
+      使用可能なものが出るまで
+      Unicode全域から抽選
+    */
+
+    function generateRandomCodePoint() {
+
+      while (
+        true
+      ) {
+
+        const codePoint =
+          secureRandomInteger(
+            0x110000
+          );
+
+
+        if (
+          isUsableRandomCharacter(
+            codePoint
+          )
+        ) {
+
+          return codePoint;
+
+        }
+      }
+    }
+
+
+    /*
+      指定個数のUnicodeを
+      入力欄へ入れる
+    */
+
+    function generateRandomUnicode(
+      count
+    ) {
+
+      const values =
+        [];
+
+
+      for (
+        let i = 0;
+        i < count;
+        i++
+      ) {
+
+        const codePoint =
+          generateRandomCodePoint();
+
+
+        values.push(
+          "U+" +
+          codePoint
+            .toString(
+              16
+            )
+            .toUpperCase()
+        );
+
+      }
+
+
+      unicodeInput.value =
+        values.join(
+          " "
+        );
+
+
+      /*
+        入れた瞬間に
+        自動変換
+      */
+
+      convertUnicode();
+    }
+
+
+    /* ================================= */
     /* Unicode → 文字 */
     /* ================================= */
 
@@ -1225,10 +1532,10 @@
 
         /*
           無効なものだけ
-          小さい表示にする
+          小さく表示
 
-          他の有効な文字は
-          そのまま処理を続行
+          他の文字は
+          そのまま続行
         */
 
         if (
@@ -1364,6 +1671,38 @@
       "input",
       convertUnicode
     );
+
+
+    /*
+      ランダム生成ボタン
+    */
+
+    document
+      .querySelectorAll(
+        "[data-random-count]"
+      )
+      .forEach(
+        (button) => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const count =
+                Number(
+                  button.dataset.randomCount
+                );
+
+
+              generateRandomUnicode(
+                count
+              );
+
+            }
+          );
+
+        }
+      );
 
 
     clearChar.addEventListener(
