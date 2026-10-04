@@ -456,6 +456,43 @@
 
     }
 
+    /* =========================
+   今日の一文字
+========================= */
+
+#dailyCharacterBox {
+  text-align: center;
+  background: #f3f3f3;
+  border-radius: 24px;
+  padding: 30px 20px;
+  margin-bottom: 45px;
+}
+
+#dailyTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+#dailyCharacter {
+  font-size: 120px;
+  line-height: 1.25;
+  min-height: 150px;
+}
+
+#dailyCode {
+  font-family:
+    ui-monospace,
+    "SFMono-Regular",
+    Menlo,
+    monospace;
+
+  font-size: 18px;
+  color: #777;
+  margin-top: 10px;
+}
+
 
   </style>
 
@@ -464,6 +501,12 @@
 
 
 <body>
+  
+  <section id="dailyCharacterBox">
+  <div id="dailyTitle">今日の一文字</div>
+  <div id="dailyCharacter">?</div>
+  <div id="dailyCode">U+?????</div>
+</section>
 
 
   <h1>
@@ -1105,6 +1148,399 @@
 
       }
     );
+    /* ==================================================
+   今日の一文字
+   Unicode全域から完全ランダム
+================================================== */
+
+const dailyCharacter =
+  document.getElementById("dailyCharacter");
+
+const dailyCode =
+  document.getElementById("dailyCode");
+
+
+/*
+  今日の日付
+  ローカル時間基準
+*/
+
+function getTodayString() {
+
+  const now = new Date();
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    String(
+      now.getMonth() + 1
+    ).padStart(2, "0");
+
+  const day =
+    String(
+      now.getDate()
+    ).padStart(2, "0");
+
+  return (
+    year +
+    "-" +
+    month +
+    "-" +
+    day
+  );
+}
+
+
+
+/*
+  日付文字列 → 32bitの種
+*/
+
+function hashDate(text) {
+
+  let hash =
+    2166136261;
+
+  for (
+    let i = 0;
+    i < text.length;
+    i++
+  ) {
+
+    hash ^=
+      text.charCodeAt(i);
+
+    hash =
+      Math.imul(
+        hash,
+        16777619
+      );
+
+  }
+
+  return hash >>> 0;
+}
+
+
+
+/*
+  日付から決まる疑似乱数生成器
+
+  同じ日
+  → 同じ乱数列
+
+  翌日
+  → 全く別の乱数列
+*/
+
+function createRandom(seed) {
+
+  return function () {
+
+    seed +=
+      0x6D2B79F5;
+
+    let t =
+      seed;
+
+    t =
+      Math.imul(
+        t ^ (t >>> 15),
+        t | 1
+      );
+
+    t ^=
+      t +
+      Math.imul(
+        t ^ (t >>> 7),
+        t | 61
+      );
+
+    return (
+      (
+        t ^
+        (t >>> 14)
+      ) >>> 0
+    ) / 4294967296;
+
+  };
+
+}
+
+
+
+/*
+  「今日の一文字」として使えるか判定
+
+  候補リストではなく、
+  Unicodeの性質だけを見る。
+*/
+
+function isUsableCharacter(codePoint) {
+
+  /*
+    サロゲート領域
+    Unicode scalar valueではない
+  */
+
+  if (
+    codePoint >= 0xD800 &&
+    codePoint <= 0xDFFF
+  ) {
+
+    return false;
+
+  }
+
+
+  const character =
+    String.fromCodePoint(
+      codePoint
+    );
+
+
+  /*
+    未割り当て文字を除外
+  */
+
+  if (
+    !/\p{Assigned}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  /*
+    制御文字
+  */
+
+  if (
+    /\p{Cc}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  /*
+    書式制御文字
+  */
+
+  if (
+    /\p{Cf}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  /*
+    私用領域
+
+    Unicodeとして字形が
+    定義されていないため除外
+  */
+
+  if (
+    /\p{Co}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  /*
+    結合文字
+
+    単独では形が分かりにくいので除外
+  */
+
+  if (
+    /\p{M}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  /*
+    改行系セパレータ
+  */
+
+  if (
+    /\p{Zl}|\p{Zp}/u.test(
+      character
+    )
+  ) {
+
+    return false;
+
+  }
+
+
+  return true;
+}
+
+
+
+/*
+  Unicode全域から抽選
+*/
+
+function getRandomUnicodeCharacter(
+  random
+) {
+
+  while (true) {
+
+    /*
+      Unicode最大値は
+
+      U+10FFFF
+
+      なので候補数は
+      0x110000
+    */
+
+    const codePoint =
+      Math.floor(
+        random() *
+        0x110000
+      );
+
+
+    if (
+      isUsableCharacter(
+        codePoint
+      )
+    ) {
+
+      return codePoint;
+
+    }
+
+  }
+
+}
+
+
+
+/*
+  今日の一文字を決める
+*/
+
+function updateDailyCharacter() {
+
+  const today =
+    getTodayString();
+
+
+  const seed =
+    hashDate(
+      today
+    );
+
+
+  const random =
+    createRandom(
+      seed
+    );
+
+
+  const codePoint =
+    getRandomUnicodeCharacter(
+      random
+    );
+
+
+  const character =
+    String.fromCodePoint(
+      codePoint
+    );
+
+
+  /*
+    これまで作った
+    Unicode範囲別フォント判定を利用
+  */
+
+  dailyCharacter.className =
+    getFontClass(
+      codePoint
+    );
+
+
+  dailyCharacter.textContent =
+    character;
+
+
+  dailyCode.textContent =
+    "U+" +
+    codePoint
+      .toString(16)
+      .toUpperCase();
+
+}
+
+
+
+/*
+  最初に表示
+*/
+
+updateDailyCharacter();
+
+
+
+/*
+  開きっぱなしでも
+  日付が変われば更新
+*/
+
+let lastDailyDate =
+  getTodayString();
+
+
+setInterval(
+  function () {
+
+    const today =
+      getTodayString();
+
+
+    if (
+      today !==
+      lastDailyDate
+    ) {
+
+      lastDailyDate =
+        today;
+
+      updateDailyCharacter();
+
+    }
+
+  },
+
+  60000
+);
 
 
   </script>
