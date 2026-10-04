@@ -6,30 +6,68 @@ const dailyPath =
   path.join(process.cwd(), "daily.json");
 
 
-function getJSTDateString(offsetDays = 0) {
+/* ================================= */
+/* 見えないUnicode */
+/* ================================= */
+
+const knownInvisibleCodePoints =
+  new Set([
+    0x115F,
+    0x1160,
+    0x2800,
+    0x3164,
+    0xFFA0
+  ]);
+
+
+/* ================================= */
+/* JST日付 */
+/* ================================= */
+
+function getJSTDateString(
+  offsetDays = 0
+) {
 
   const date =
     new Date(
       Date.now() +
-      offsetDays * 24 * 60 * 60 * 1000
+      offsetDays *
+      24 *
+      60 *
+      60 *
+      1000
     );
+
 
   const parts =
     new Intl.DateTimeFormat(
       "en-US",
       {
-        timeZone: "Asia/Tokyo",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit"
+        timeZone:
+          "Asia/Tokyo",
+
+        year:
+          "numeric",
+
+        month:
+          "2-digit",
+
+        day:
+          "2-digit"
       }
-    ).formatToParts(date);
+    )
+    .formatToParts(
+      date
+    );
+
 
   const part =
     (type) =>
       parts.find(
-        (p) => p.type === type
+        (p) =>
+          p.type === type
       )?.value;
+
 
   return (
     part("year") +
@@ -41,7 +79,59 @@ function getJSTDateString(offsetDays = 0) {
 }
 
 
-function isUsableCharacter(codePoint) {
+/* ================================= */
+/* 不可視文字判定 */
+/* ================================= */
+
+function isInvisibleCharacter(
+  codePoint,
+  character
+) {
+
+  /*
+    見た目が空白になることで
+    知られている文字
+  */
+
+  if (
+    knownInvisibleCodePoints.has(
+      codePoint
+    )
+  ) {
+    return true;
+  }
+
+
+  /*
+    Unicodeが
+    通常表示しないと定義している文字
+  */
+
+  if (
+    /\p{Default_Ignorable_Code_Point}/u
+      .test(
+        character
+      )
+  ) {
+    return true;
+  }
+
+
+  return false;
+}
+
+
+/* ================================= */
+/* ランダム対象として使えるか */
+/* ================================= */
+
+function isUsableCharacter(
+  codePoint
+) {
+
+  /*
+    サロゲート領域
+  */
 
   if (
     codePoint >= 0xD800 &&
@@ -50,40 +140,124 @@ function isUsableCharacter(codePoint) {
     return false;
   }
 
+
   const character =
-    String.fromCodePoint(codePoint);
+    String.fromCodePoint(
+      codePoint
+    );
 
-  if (!/\p{Assigned}/u.test(character)) {
+
+  /*
+    空白・不可視文字
+  */
+
+  if (
+    isInvisibleCharacter(
+      codePoint,
+      character
+    )
+  ) {
     return false;
   }
 
-  if (/\p{Cc}/u.test(character)) {
+
+  /*
+    未割り当て文字
+  */
+
+  if (
+    !/\p{Assigned}/u
+      .test(
+        character
+      )
+  ) {
     return false;
   }
 
-  if (/\p{Cf}/u.test(character)) {
+
+  /*
+    制御文字
+  */
+
+  if (
+    /\p{Cc}/u
+      .test(
+        character
+      )
+  ) {
     return false;
   }
 
-  if (/\p{Co}/u.test(character)) {
+
+  /*
+    Format文字
+  */
+
+  if (
+    /\p{Cf}/u
+      .test(
+        character
+      )
+  ) {
     return false;
   }
 
-  if (/\p{M}/u.test(character)) {
+
+  /*
+    私用領域
+  */
+
+  if (
+    /\p{Co}/u
+      .test(
+        character
+      )
+  ) {
     return false;
   }
 
-  if (/\p{Z}/u.test(character)) {
+
+  /*
+    結合文字
+  */
+
+  if (
+    /\p{M}/u
+      .test(
+        character
+      )
+  ) {
     return false;
   }
+
+
+  /*
+    空白・区切り文字
+  */
+
+  if (
+    /\p{Z}/u
+      .test(
+        character
+      )
+  ) {
+    return false;
+  }
+
 
   return true;
 }
 
 
+/* ================================= */
+/* ランダムUnicode */
+/* ================================= */
+
 function randomCodePoint() {
 
-  while (true) {
+  while (
+    true
+  ) {
 
     const codePoint =
       crypto.randomInt(
@@ -91,20 +265,31 @@ function randomCodePoint() {
         0x110000
       );
 
-    if (
-      isUsableCharacter(codePoint)
-    ) {
-      return codePoint;
-    }
 
+    if (
+      isUsableCharacter(
+        codePoint
+      )
+    ) {
+
+      return codePoint;
+
+    }
   }
 }
 
 
-function makeEntry(date) {
+/* ================================= */
+/* daily.json用エントリー生成 */
+/* ================================= */
+
+function makeEntry(
+  date
+) {
 
   const codePoint =
     randomCodePoint();
+
 
   return {
     date: date,
@@ -121,6 +306,10 @@ function makeEntry(date) {
   };
 }
 
+
+/* ================================= */
+/* 既存daily.json読み込み */
+/* ================================= */
 
 function readExisting() {
 
@@ -144,13 +333,21 @@ function readExisting() {
 }
 
 
-function findByDate(data, date) {
+/* ================================= */
+/* 指定日の既存エントリー検索 */
+/* ================================= */
+
+function findByDate(
+  data,
+  date
+) {
 
   return (
     [
       data.current,
       data.next
-    ].find(
+    ]
+    .find(
       (entry) => {
 
         if (
@@ -160,12 +357,20 @@ function findByDate(data, date) {
           return false;
         }
 
+
         if (
-          typeof entry.codePoint !== "string" ||
-          !/^[0-9A-F]+$/i.test(entry.codePoint)
+          typeof
+            entry.codePoint !==
+            "string"
+          ||
+          !/^[0-9A-F]+$/i
+            .test(
+              entry.codePoint
+            )
         ) {
           return false;
         }
+
 
         const codePoint =
           parseInt(
@@ -173,16 +378,46 @@ function findByDate(data, date) {
             16
           );
 
+
         if (
-          codePoint < 0 ||
-          codePoint > 0x10FFFF ||
-          (
-            codePoint >= 0xD800 &&
-            codePoint <= 0xDFFF
+          !Number.isInteger(
+            codePoint
           )
         ) {
           return false;
         }
+
+
+        if (
+          codePoint < 0 ||
+          codePoint > 0x10FFFF
+        ) {
+          return false;
+        }
+
+
+        if (
+          codePoint >= 0xD800 &&
+          codePoint <= 0xDFFF
+        ) {
+          return false;
+        }
+
+
+        /*
+          既存の日付データでも、
+          現在の抽選条件に合わない文字なら
+          使い回さず再抽選する。
+        */
+
+        if (
+          !isUsableCharacter(
+            codePoint
+          )
+        ) {
+          return false;
+        }
+
 
         return true;
       }
@@ -193,15 +428,29 @@ function findByDate(data, date) {
 }
 
 
+/* ================================= */
+/* 今日・明日 */
+/* ================================= */
+
 const oldData =
   readExisting();
 
+
 const today =
-  getJSTDateString(0);
+  getJSTDateString(
+    0
+  );
+
 
 const tomorrow =
-  getJSTDateString(1);
+  getJSTDateString(
+    1
+  );
 
+
+/* ================================= */
+/* 今日 */
+/* ================================= */
 
 const current =
   findByDate(
@@ -209,8 +458,14 @@ const current =
     today
   )
   ||
-  makeEntry(today);
+  makeEntry(
+    today
+  );
 
+
+/* ================================= */
+/* 明日 */
+/* ================================= */
 
 const next =
   findByDate(
@@ -218,8 +473,14 @@ const next =
     tomorrow
   )
   ||
-  makeEntry(tomorrow);
+  makeEntry(
+    tomorrow
+  );
 
+
+/* ================================= */
+/* 保存 */
+/* ================================= */
 
 const newData = {
   current,
@@ -233,7 +494,9 @@ fs.writeFileSync(
     newData,
     null,
     2
-  ) + "\n",
+  )
+  +
+  "\n",
   "utf8"
 );
 
