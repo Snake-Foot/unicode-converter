@@ -1,1 +1,625 @@
+/* =========================================
+   Local fonts
+========================================= */
 
+@font-face {
+  font-family: "Tangut Extended";
+  src: url("./tangut-extended.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plangothic P1";
+  src: url("./fonts/PlangothicP1-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plangothic P2";
+  src: url("./fonts/PlangothicP2-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Egyptology Extended";
+  src: url("./fonts/EgyptologyExtended.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BabelStone Han";
+  src: url("https://babelstone.co.uk/Fonts/WOFF/BabelStoneHan.woff")
+    format("woff");
+  font-display: swap;
+}
+
+
+/* =========================================
+   Base
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px 60px;
+  background: #f5f5f7;
+  color: #1d1d1f;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+main {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 28px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 19px;
+}
+
+
+/* =========================================
+   Boxes
+========================================= */
+
+.box {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 18px;
+
+  box-shadow:
+    0 2px 12px
+    rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   Input
+========================================= */
+
+textarea,
+input {
+  width: 100%;
+  padding: 14px;
+
+  border:
+    1px solid
+    #d2d2d7;
+
+  border-radius: 12px;
+
+  background: #fff;
+  color: #1d1d1f;
+
+  font: inherit;
+  font-size: 17px;
+
+  outline: none;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #007aff;
+}
+
+.hint {
+  margin-top: 8px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   Results
+========================================= */
+
+.result {
+  min-height: 62px;
+  margin-top: 14px;
+  padding: 14px;
+
+  background: #f5f5f7;
+
+  border-radius: 12px;
+
+  overflow-wrap: anywhere;
+
+  line-height: 1.7;
+}
+
+.unicode-result {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    monospace;
+
+  font-size: 16px;
+}
+
+.character-result {
+  min-height: 90px;
+  font-size: 48px;
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   Character wrapper
+========================================= */
+
+.character-span {
+  position: relative;
+
+  display: inline-flex;
+
+  min-width: 1em;
+  min-height: 1.3em;
+
+  align-items: center;
+  justify-content: center;
+
+  vertical-align: middle;
+
+  margin: 0 0.04em;
+}
+
+.glyph-inner {
+  display: inline-block;
+
+  transform-origin: center center;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   Invalid / status labels
+========================================= */
+
+.invalid-unicode,
+.character-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin: 4px 6px;
+
+  padding: 4px 8px;
+
+  border-radius: 7px;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.3;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+}
+
+.invalid-unicode {
+  background: #ffecec;
+  color: #c62828;
+}
+
+.character-status {
+  background: #eeeeee;
+  color: #666;
+}
+
+
+/* =========================================
+   Buttons
+========================================= */
+
+button {
+  margin-top: 12px;
+
+  padding: 10px 16px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #e8e8ed;
+  color: #1d1d1f;
+
+  font: inherit;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.15s,
+    transform 0.05s;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+
+/* =========================================
+   Random controls
+========================================= */
+
+.random-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.random-button,
+.back-button {
+  margin-top: 0;
+
+  padding: 8px 12px;
+
+  font-size: 14px;
+}
+
+.back-button {
+  background: #dddde2;
+}
+
+
+/* =========================================
+   Daily character
+========================================= */
+
+#dailyCharacterBox {
+  margin-bottom: 22px;
+
+  padding: 24px 20px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow:
+    0 2px 14px
+    rgba(0, 0, 0, 0.07);
+}
+
+#dailyTitle {
+  margin-bottom: 12px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #666;
+}
+
+#dailyCharacter {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+  min-height: 130px;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 92px;
+
+  line-height: 1.2;
+
+  overflow: visible;
+}
+
+.daily-glyph-inner {
+  display: inline-block;
+
+  line-height: 1;
+
+  transform-origin: center center;
+}
+
+#dailyCode {
+  margin-top: 6px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    monospace;
+
+  font-size: 17px;
+
+  color: #555;
+}
+
+#dailyResearch {
+  margin-top: 14px;
+}
+
+#dailyResearchLink {
+  color: #007aff;
+
+  text-decoration: none;
+
+  font-size: 15px;
+}
+
+#dailyResearchLink:hover {
+  text-decoration: underline;
+}
+
+#dailyResearchLink.disabled {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   Unicode fonts
+========================================= */
+
+.font-normal {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.font-kawi {
+  font-family:
+    "Noto Sans Kawi",
+    sans-serif;
+}
+
+.font-toto {
+  font-family:
+    "Noto Serif Toto",
+    serif;
+}
+
+.font-tangut {
+  font-family:
+    "Noto Serif Tangut",
+    serif;
+}
+
+.font-tangut-extended {
+  font-family:
+    "Tangut Extended",
+    "Noto Serif Tangut",
+    serif;
+}
+
+.font-nushu {
+  font-family:
+    "Noto Sans Nushu",
+    sans-serif;
+}
+
+.font-khitan {
+  font-family:
+    "Noto Serif Khitan Small Script",
+    serif;
+}
+
+.font-cuneiform {
+  font-family:
+    "Noto Sans Cuneiform",
+    sans-serif;
+}
+
+.font-egyptian {
+  font-family:
+    "Noto Sans Egyptian Hieroglyphs",
+    sans-serif;
+}
+
+.font-egyptian-extended {
+  font-family:
+    "Egyptology Extended",
+    "Noto Sans Egyptian Hieroglyphs",
+    serif;
+}
+
+.font-anatolian {
+  font-family:
+    "Noto Sans Anatolian Hieroglyphs",
+    sans-serif;
+}
+
+.font-tangsa {
+  font-family:
+    "Noto Sans Tangsa",
+    sans-serif;
+}
+
+.font-nandinagari {
+  font-family:
+    "Noto Sans Nandinagari",
+    sans-serif;
+}
+
+.font-music {
+  font-family:
+    "Noto Music",
+    sans-serif;
+}
+
+.font-signwriting {
+  font-family:
+    "Noto Sans SignWriting",
+    sans-serif;
+}
+
+.font-symbols2 {
+  font-family:
+    "Noto Sans Symbols 2",
+    sans-serif;
+}
+
+.font-math {
+  font-family:
+    "Noto Sans Math",
+    sans-serif;
+}
+
+.font-indic-siyaq {
+  font-family:
+    "Noto Sans Indic Siyaq Numbers",
+    sans-serif;
+}
+
+.font-cjk-ext {
+  font-family:
+    "Plangothic P1",
+    "Plangothic P2",
+    "BabelStone Han",
+    serif;
+}
+
+
+/* =========================================
+   Loading spinner
+========================================= */
+
+.loading-character {
+  position: relative;
+
+  color: transparent !important;
+}
+
+.loading-character::after {
+  content: "";
+
+  position: absolute;
+
+  width: 28px;
+  height: 28px;
+
+  top: 50%;
+  left: 50%;
+
+  margin:
+    -14px 0
+    0 -14px;
+
+  border:
+    3px solid
+    rgba(120, 120, 120, 0.25);
+
+  border-top-color:
+    rgba(80, 80, 80, 0.9);
+
+  border-radius: 50%;
+
+  animation:
+    spinner 0.8s
+    linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================
+   Credit
+========================================= */
+
+.font-credit {
+  margin-top: 8px;
+
+  text-align: center;
+
+  color: #888;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 520px) {
+
+  body {
+    padding:
+      18px 12px
+      50px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .box {
+    padding: 17px;
+  }
+
+  #dailyCharacter {
+    min-height: 115px;
+    font-size: 78px;
+  }
+
+  .character-result {
+    font-size: 42px;
+  }
+
+  .invalid-unicode,
+  .character-status {
+    font-size: 12px;
+  }
+
+  .random-button {
+    flex: 1;
+    min-width: 95px;
+  }
+
+  .back-button {
+    min-width: 80px;
+  }
+}
