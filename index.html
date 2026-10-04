@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>文字 ⇄ Unicode</title>
+
+
+  <!--
+    Unicode 17.0 全体をカバーする予備フォント。
+
+    普通の文字では使わず、
+    端末標準フォントで表示できない文字だけ
+    Essenfont にフォールバックする。
+  -->
+  <link
+    rel="stylesheet"
+    href="https://essenfont.github.io/fonts.css"
+  >
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+
+      background: white;
+      color: black;
+    }
+
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+
+    h2 {
+      font-size: 26px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+
+    textarea,
+    input {
+      width: 100%;
+      box-sizing: border-box;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+
+      font-size: 22px;
+
+      padding: 16px;
+
+      border: 1px solid #cccccc;
+      border-radius: 12px;
+
+      outline: none;
+
+      background: white;
+
+      margin-bottom: 18px;
+    }
+
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+
+    textarea:focus,
+    input:focus {
+      border-color: #888888;
+    }
+
+
+    .output {
+      width: 100%;
+
+      min-height: 100px;
+
+      background: #eeeeee;
+
+      border-radius: 14px;
+
+      padding: 25px;
+
+      margin-bottom: 40px;
+
+      white-space: pre-wrap;
+
+      overflow-wrap: anywhere;
+    }
+
+
+    /* -------------------------
+       文字 → Unicode
+    ------------------------- */
+
+    #unicodeOutput {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+
+      font-size: 22px;
+      line-height: 1.8;
+    }
+
+
+    /* -------------------------
+       Unicode → 文字
+
+       順番が重要。
+
+       1. iPhone / Mac の標準フォント
+       2. 標準絵文字
+       3. Essenfont
+
+       Essenfont は最後の手段。
+    ------------------------- */
+
+    #charOutput:not(.message) {
+      font-family:
+
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+
+        "Essenfont",
+
+        sans-serif;
+
+      font-size: 64px;
+
+      line-height: 1.4;
+
+      min-height: 120px;
+    }
+
+
+    /*
+      「ここに文字が表示されます」
+      「正しいUnicodeを入力してください」
+
+      などは絶対に普通のフォント。
+    */
+
+    #charOutput.message {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+
+      font-size: 22px;
+
+      line-height: 1.6;
+    }
+
+
+    .hint {
+      color: #777777;
+
+      font-size: 14px;
+
+      margin-top: -25px;
+      margin-bottom: 30px;
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+
+
+  <h1>
+    文字 ⇄ Unicode
+  </h1>
+
+
+
+  <!-- =========================
+       文字 → Unicode
+  ========================== -->
+
+
+  <h2>
+    文字 → Unicode
+  </h2>
+
+
+  <textarea
+    id="charInput"
+    placeholder="例：組 🐝 𓀀"
+  ></textarea>
+
+
+  <div
+    id="unicodeOutput"
+    class="output"
+  >
+    ここにUnicodeが表示されます
+  </div>
+
+
+
+  <!-- =========================
+       Unicode → 文字
+  ========================== -->
+
+
+  <h2>
+    Unicode → 文字
+  </h2>
+
+
+  <input
+    id="unicodeInput"
+    type="text"
+    placeholder="例：7D44 / 1F41D / 187FF"
+  >
+
+
+  <div
+    id="charOutput"
+    class="output message"
+  >
+    ここに文字が表示されます
+  </div>
+
+
+  <div class="hint">
+    U+187FF、187FF、0x187FF のどれでもOK。
+    複数ならスペースやカンマで区切れます。
+  </div>
+
+
+
+  <script>
+
+    const charInput =
+      document.getElementById("charInput");
+
+    const unicodeInput =
+      document.getElementById("unicodeInput");
+
+    const unicodeOutput =
+      document.getElementById("unicodeOutput");
+
+    const charOutput =
+      document.getElementById("charOutput");
+
+
+
+    /* =========================
+       文字 → Unicode
+    ========================== */
+
+    charInput.addEventListener(
+      "input",
+      function () {
+
+        const text =
+          charInput.value;
+
+
+        if (text === "") {
+
+          unicodeOutput.textContent =
+            "ここにUnicodeが表示されます";
+
+          return;
+        }
+
+
+        const result =
+          Array
+            .from(text)
+
+            .map(
+              function (character) {
+
+                const code =
+                  character
+                    .codePointAt(0)
+                    .toString(16)
+                    .toUpperCase();
+
+
+                return (
+                  character +
+                  " → U+" +
+                  code
+                );
+
+              }
+            )
+
+            .join("\n");
+
+
+        unicodeOutput.textContent =
+          result;
+
+      }
+    );
+
+
+
+    /* =========================
+       Unicode → 文字
+    ========================== */
+
+    unicodeInput.addEventListener(
+      "input",
+      function () {
+
+        const text =
+          unicodeInput
+            .value
+            .trim();
+
+
+        if (text === "") {
+
+          charOutput
+            .classList
+            .add("message");
+
+          charOutput.textContent =
+            "ここに文字が表示されます";
+
+          return;
+        }
+
+
+        try {
+
+          const codes =
+            text
+
+              .split(
+                /[\s,、/]+/
+              )
+
+              .filter(Boolean)
+
+              .map(
+                function (code) {
+
+                  return code
+
+                    .replace(
+                      /^U\+/i,
+                      ""
+                    )
+
+                    .replace(
+                      /^0x/i,
+                      ""
+                    );
+
+                }
+              );
+
+
+          const characters =
+            codes.map(
+              function (code) {
+
+
+                /*
+                  16進数かチェック
+                */
+
+                if (
+                  !/^[0-9A-F]+$/i
+                    .test(code)
+                ) {
+
+                  throw new Error(
+                    "invalid"
+                  );
+
+                }
+
+
+                const number =
+                  parseInt(
+                    code,
+                    16
+                  );
+
+
+                /*
+                  Unicode範囲外
+                */
+
+                if (
+                  number < 0 ||
+                  number > 0x10FFFF
+                ) {
+
+                  throw new Error(
+                    "range"
+                  );
+
+                }
+
+
+                /*
+                  サロゲート領域
+                */
+
+                if (
+                  number >= 0xD800 &&
+                  number <= 0xDFFF
+                ) {
+
+                  throw new Error(
+                    "surrogate"
+                  );
+
+                }
+
+
+                return (
+                  String.fromCodePoint(
+                    number
+                  )
+                );
+
+              }
+            );
+
+
+          /*
+            文字表示モードへ
+          */
+
+          charOutput
+            .classList
+            .remove("message");
+
+
+          charOutput.textContent =
+            characters.join("");
+
+
+        }
+
+
+        catch (error) {
+
+
+          charOutput
+            .classList
+            .add("message");
+
+
+          charOutput.textContent =
+            "正しいUnicodeを入力してください";
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>
