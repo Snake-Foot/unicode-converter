@@ -1,8 +1,48 @@
 const fs = require("fs");
+const path = require("path");
 const crypto = require("crypto");
 
+const dailyPath =
+  path.join(process.cwd(), "daily.json");
+
+
+function getJSTDateString(offsetDays = 0) {
+
+  const date =
+    new Date(
+      Date.now() +
+      offsetDays * 24 * 60 * 60 * 1000
+    );
+
+  const parts =
+    new Intl.DateTimeFormat(
+      "en-US",
+      {
+        timeZone: "Asia/Tokyo",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }
+    ).formatToParts(date);
+
+  const part =
+    (type) =>
+      parts.find(
+        (p) => p.type === type
+      )?.value;
+
+  return (
+    part("year") +
+    "-" +
+    part("month") +
+    "-" +
+    part("day")
+  );
+}
+
+
 function isUsableCharacter(codePoint) {
-  // サロゲート
+
   if (
     codePoint >= 0xD800 &&
     codePoint <= 0xDFFF
@@ -13,32 +53,26 @@ function isUsableCharacter(codePoint) {
   const character =
     String.fromCodePoint(codePoint);
 
-  // 未割り当て
   if (!/\p{Assigned}/u.test(character)) {
     return false;
   }
 
-  // 制御文字
   if (/\p{Cc}/u.test(character)) {
     return false;
   }
 
-  // 書式制御
   if (/\p{Cf}/u.test(character)) {
     return false;
   }
 
-  // 私用領域
   if (/\p{Co}/u.test(character)) {
     return false;
   }
 
-  // 結合文字
   if (/\p{M}/u.test(character)) {
     return false;
   }
 
-  // 空白系
   if (/\p{Z}/u.test(character)) {
     return false;
   }
@@ -48,89 +82,131 @@ function isUsableCharacter(codePoint) {
 
 
 function randomCodePoint() {
+
   while (true) {
-    const randomNumber =
-      crypto.randomInt(0, 0x110000);
+
+    const codePoint =
+      crypto.randomInt(
+        0,
+        0x110000
+      );
 
     if (
-      isUsableCharacter(randomNumber)
+      isUsableCharacter(codePoint)
     ) {
-      return randomNumber;
+      return codePoint;
     }
+
   }
 }
 
 
-function getTomorrowInJST() {
-  const now = new Date();
+function makeEntry(date) {
 
-  const jstNow =
-    new Date(
-      now.toLocaleString(
-        "en-US",
-        {
-          timeZone: "Asia/Tokyo"
-        }
+  const codePoint =
+    randomCodePoint();
+
+  return {
+    date: date,
+
+    codePoint:
+      codePoint
+        .toString(16)
+        .toUpperCase(),
+
+    character:
+      String.fromCodePoint(
+        codePoint
+      )
+  };
+}
+
+
+function readExisting() {
+
+  try {
+
+    return JSON.parse(
+      fs.readFileSync(
+        dailyPath,
+        "utf8"
       )
     );
 
-  jstNow.setDate(
-    jstNow.getDate() + 1
-  );
+  } catch {
 
-  const year =
-    jstNow.getFullYear();
+    return {
+      current: null,
+      next: null
+    };
 
-  const month =
-    String(
-      jstNow.getMonth() + 1
-    ).padStart(2, "0");
+  }
+}
 
-  const day =
-    String(
-      jstNow.getDate()
-    ).padStart(2, "0");
+
+function findByDate(data, date) {
 
   return (
-    year +
-    "-" +
-    month +
-    "-" +
-    day
+    [
+      data.current,
+      data.next
+    ].find(
+      (entry) =>
+        entry &&
+        entry.date === date
+    )
+    ||
+    null
   );
 }
 
 
-const codePoint =
-  randomCodePoint();
+const oldData =
+  readExisting();
 
-const character =
-  String.fromCodePoint(
-    codePoint
-  );
+const today =
+  getJSTDateString(0);
 
-const hex =
-  codePoint
-    .toString(16)
-    .toUpperCase();
+const tomorrow =
+  getJSTDateString(1);
 
-const data = {
-  date: getTomorrowInJST(),
-  codePoint: hex,
-  character: character
+
+const current =
+  findByDate(
+    oldData,
+    today
+  )
+  ||
+  makeEntry(today);
+
+
+const next =
+  findByDate(
+    oldData,
+    tomorrow
+  )
+  ||
+  makeEntry(tomorrow);
+
+
+const newData = {
+  current,
+  next
 };
 
+
 fs.writeFileSync(
-  "daily.json",
+  dailyPath,
   JSON.stringify(
-    data,
+    newData,
     null,
     2
   ) + "\n",
   "utf8"
 );
 
+
 console.log(
-  "Generated daily character:",
-  data
+  "Updated daily.json:",
+  newData
 );
