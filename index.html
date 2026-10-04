@@ -13,13 +13,7 @@
   <title>文字 ⇄ Unicode</title>
 
 
-  <!--
-    Google Fonts
-
-    Toto
-    Kawi
-    通常のTangut
-  -->
+  <!-- 特殊文字用Google Fonts -->
 
   <link
     rel="preconnect"
@@ -42,14 +36,7 @@
 
 
     /* ==================================================
-       U+187F8 ～ U+187FF など
        新しいTangut文字用
-
-       後で同じフォルダに
-
-       tangut-extended.woff2
-
-       を置く。
     ================================================== */
 
     @font-face {
@@ -89,9 +76,7 @@
     ================================================== */
 
     * {
-
       box-sizing: border-box;
-
     }
 
 
@@ -107,42 +92,33 @@
 
       max-width: 700px;
 
-      margin:
-        40px auto;
+      margin: 40px auto;
 
-      padding:
-        0 20px;
+      padding: 0 20px;
 
-      color:
-        #000;
+      color: #000;
 
-      background:
-        #fff;
+      background: #fff;
 
     }
 
 
     h1 {
 
-      font-size:
-        36px;
+      font-size: 36px;
 
-      margin-bottom:
-        40px;
+      margin-bottom: 40px;
 
     }
 
 
     h2 {
 
-      font-size:
-        26px;
+      font-size: 26px;
 
-      margin-top:
-        40px;
+      margin-top: 40px;
 
-      margin-bottom:
-        20px;
+      margin-bottom: 20px;
 
     }
 
@@ -151,11 +127,9 @@
     textarea,
     input {
 
-      width:
-        100%;
+      width: 100%;
 
-      padding:
-        16px;
+      padding: 16px;
 
       font-family:
         -apple-system,
@@ -165,34 +139,26 @@
         "Yu Gothic",
         sans-serif;
 
-      font-size:
-        22px;
+      font-size: 22px;
 
-      border:
-        1px solid #ccc;
+      border: 1px solid #ccc;
 
-      border-radius:
-        12px;
+      border-radius: 12px;
 
-      background:
-        #fff;
+      background: #fff;
 
-      outline:
-        none;
+      outline: none;
 
-      margin-bottom:
-        18px;
+      margin-bottom: 18px;
 
     }
 
 
     textarea {
 
-      min-height:
-        120px;
+      min-height: 120px;
 
-      resize:
-        vertical;
+      resize: vertical;
 
     }
 
@@ -200,26 +166,19 @@
 
     .output {
 
-      width:
-        100%;
+      width: 100%;
 
-      min-height:
-        110px;
+      min-height: 110px;
 
-      padding:
-        25px;
+      padding: 25px;
 
-      background:
-        #eee;
+      background: #eee;
 
-      border-radius:
-        14px;
+      border-radius: 14px;
 
-      margin-bottom:
-        20px;
+      margin-bottom: 20px;
 
-      overflow-wrap:
-        anywhere;
+      overflow-wrap: anywhere;
 
     }
 
@@ -238,8 +197,7 @@
         "Hiragino Sans",
         sans-serif;
 
-      font-size:
-        22px;
+      font-size: 22px;
 
     }
 
@@ -251,25 +209,19 @@
 
     .character {
 
-      display:
-        inline-block;
+      display: inline-block;
 
-      font-size:
-        64px;
+      font-size: 64px;
 
-      line-height:
-        1.4;
+      line-height: 1.4;
 
-      margin-right:
-        8px;
+      margin-right: 8px;
 
     }
 
 
 
-    /*
-      普通の文字
-    */
+    /* 普通の文字 */
 
     .font-normal {
 
@@ -286,11 +238,7 @@
 
 
 
-    /*
-      Toto
-
-      U+1E290 ～ U+1E2BF
-    */
+    /* Toto */
 
     .font-toto {
 
@@ -302,11 +250,7 @@
 
 
 
-    /*
-      Kawi
-
-      U+11F00 ～ U+11F5F
-    */
+    /* Kawi */
 
     .font-kawi {
 
@@ -318,9 +262,7 @@
 
 
 
-    /*
-      普通のTangut
-    */
+    /* 通常Tangut */
 
     .font-tangut {
 
@@ -332,10 +274,7 @@
 
 
 
-    /*
-      Unicode 17などの
-      新しいTangut文字
-    */
+    /* 新しいTangut */
 
     .font-tangut-extended {
 
@@ -348,9 +287,7 @@
 
 
 
-    /*
-      珍しい漢字
-    */
+    /* 珍しい漢字 */
 
     .font-han {
 
@@ -371,28 +308,22 @@
 
     .unicode-row {
 
-      display:
-        flex;
+      display: flex;
 
-      align-items:
-        center;
+      align-items: center;
 
-      gap:
-        15px;
+      gap: 15px;
 
-      margin:
-        8px 0;
+      margin: 8px 0;
 
     }
 
 
     .unicode-row .character {
 
-      font-size:
-        36px;
+      font-size: 36px;
 
-      min-width:
-        60px;
+      min-width: 60px;
 
     }
 
@@ -405,8 +336,7 @@
         Menlo,
         monospace;
 
-      font-size:
-        20px;
+      font-size: 20px;
 
     }
 
@@ -418,26 +348,19 @@
 
     #extendedWarning {
 
-      display:
-        none;
+      display: none;
 
-      padding:
-        14px;
+      padding: 14px;
 
-      margin-top:
-        10px;
+      margin-top: 10px;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
-      background:
-        #fff4cc;
+      background: #fff4cc;
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
 
     }
 
@@ -445,53 +368,76 @@
 
     .hint {
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      color:
-        #777;
+      color: #777;
 
-      margin-bottom:
-        30px;
+      margin-bottom: 30px;
 
     }
 
-    /* =========================
-   今日の一文字
-========================= */
 
-#dailyCharacterBox {
-  text-align: center;
-  background: #f3f3f3;
-  border-radius: 24px;
-  padding: 30px 20px;
-  margin-bottom: 45px;
-}
 
-#dailyTitle {
-  font-size: 18px;
-  font-weight: bold;
-  color: #666;
-  margin-bottom: 15px;
-}
+    /* ==================================================
+       今日の一文字
+    ================================================== */
 
-#dailyCharacter {
-  font-size: 120px;
-  line-height: 1.25;
-  min-height: 150px;
-}
+    #dailyCharacterBox {
 
-#dailyCode {
-  font-family:
-    ui-monospace,
-    "SFMono-Regular",
-    Menlo,
-    monospace;
+      text-align: center;
 
-  font-size: 18px;
-  color: #777;
-  margin-top: 10px;
-}
+      background: #f3f3f3;
+
+      border-radius: 24px;
+
+      padding: 30px 20px;
+
+      margin-bottom: 45px;
+
+    }
+
+
+    #dailyTitle {
+
+      font-size: 18px;
+
+      font-weight: bold;
+
+      color: #666;
+
+      margin-bottom: 15px;
+
+    }
+
+
+    #dailyCharacter {
+
+      font-size: 120px;
+
+      line-height: 1.25;
+
+      min-height: 150px;
+
+      margin-right: 0;
+
+    }
+
+
+    #dailyCode {
+
+      font-family:
+        ui-monospace,
+        "SFMono-Regular",
+        Menlo,
+        monospace;
+
+      font-size: 18px;
+
+      color: #777;
+
+      margin-top: 10px;
+
+    }
 
 
   </style>
@@ -501,12 +447,31 @@
 
 
 <body>
-  
+
+
+  <!-- ==================================================
+       今日の一文字
+  =================================================== -->
+
   <section id="dailyCharacterBox">
-  <div id="dailyTitle">今日の一文字</div>
-  <div id="dailyCharacter">?</div>
-  <div id="dailyCode">U+?????</div>
-</section>
+
+    <div id="dailyTitle">
+      今日の一文字
+    </div>
+
+    <div
+      id="dailyCharacter"
+      class="character font-normal"
+    >
+      ?
+    </div>
+
+    <div id="dailyCode">
+      U+?????
+    </div>
+
+  </section>
+
 
 
   <h1>
@@ -587,33 +552,23 @@
 
 
     const charInput =
-      document.getElementById(
-        "charInput"
-      );
+      document.getElementById("charInput");
 
 
     const unicodeInput =
-      document.getElementById(
-        "unicodeInput"
-      );
+      document.getElementById("unicodeInput");
 
 
     const unicodeOutput =
-      document.getElementById(
-        "unicodeOutput"
-      );
+      document.getElementById("unicodeOutput");
 
 
     const charOutput =
-      document.getElementById(
-        "charOutput"
-      );
+      document.getElementById("charOutput");
 
 
     const extendedWarning =
-      document.getElementById(
-        "extendedWarning"
-      );
+      document.getElementById("extendedWarning");
 
 
 
@@ -624,9 +579,7 @@
     function getFontClass(codePoint) {
 
 
-      /*
-        Kawi
-      */
+      /* Kawi */
 
       if (
         codePoint >= 0x11F00 &&
@@ -639,9 +592,7 @@
 
 
 
-      /*
-        Toto
-      */
+      /* Toto */
 
       if (
         codePoint >= 0x1E290 &&
@@ -654,12 +605,7 @@
 
 
 
-      /*
-        Unicode 17で追加された
-        新しいTangut
-
-        U+187F8～U+187FF
-      */
+      /* 新しいTangut */
 
       if (
         codePoint >= 0x187F8 &&
@@ -672,9 +618,7 @@
 
 
 
-      /*
-        Tangut Supplement 新規部分
-      */
+      /* Tangut Supplement */
 
       if (
         codePoint >= 0x18D09 &&
@@ -687,9 +631,7 @@
 
 
 
-      /*
-        Tangut Components Supplement
-      */
+      /* Tangut Components Supplement */
 
       if (
         codePoint >= 0x18D80 &&
@@ -702,25 +644,29 @@
 
 
 
-      /*
-        通常Tangut
-      */
+      /* 通常Tangut */
 
       if (
+
         (
           codePoint >= 0x17000 &&
           codePoint <= 0x187F7
-        ) ||
+        )
+
+        ||
 
         (
           codePoint >= 0x18800 &&
           codePoint <= 0x18AFF
-        ) ||
+        )
+
+        ||
 
         (
           codePoint >= 0x18D00 &&
           codePoint <= 0x18D08
         )
+
       ) {
 
         return "font-tangut";
@@ -729,15 +675,11 @@
 
 
 
-      /*
-        CJK拡張領域
-      */
+      /* CJK拡張領域 */
 
       if (
-        (
-          codePoint >= 0x20000 &&
-          codePoint <= 0x323AF
-        )
+        codePoint >= 0x20000 &&
+        codePoint <= 0x323AF
       ) {
 
         return "font-han";
@@ -745,10 +687,6 @@
       }
 
 
-
-      /*
-        それ以外
-      */
 
       return "font-normal";
 
@@ -767,9 +705,7 @@
 
 
       const span =
-        document.createElement(
-          "span"
-        );
+        document.createElement("span");
 
 
       span.classList.add(
@@ -778,9 +714,7 @@
 
 
       span.classList.add(
-        getFontClass(
-          codePoint
-        )
+        getFontClass(codePoint)
       );
 
 
@@ -841,8 +775,7 @@
 
 
               const codePoint =
-                character
-                  .codePointAt(0);
+                character.codePointAt(0);
 
 
               const hex =
@@ -852,9 +785,7 @@
 
 
               const row =
-                document.createElement(
-                  "div"
-                );
+                document.createElement("div");
 
 
               row.className =
@@ -869,9 +800,7 @@
 
 
               const codeSpan =
-                document.createElement(
-                  "span"
-                );
+                document.createElement("span");
 
 
               codeSpan.className =
@@ -980,7 +909,6 @@
               );
 
 
-
           charOutput.className =
             "output";
 
@@ -1015,18 +943,16 @@
 
 
             if (
+
               codePoint < 0 ||
 
-              codePoint >
-                0x10FFFF ||
+              codePoint > 0x10FFFF ||
 
               (
-                codePoint >=
-                  0xD800 &&
-
-                codePoint <=
-                  0xDFFF
+                codePoint >= 0xD800 &&
+                codePoint <= 0xDFFF
               )
+
             ) {
 
               throw new Error();
@@ -1058,31 +984,22 @@
             if (
 
               (
-                codePoint >=
-                  0x187F8 &&
-
-                codePoint <=
-                  0x187FF
+                codePoint >= 0x187F8 &&
+                codePoint <= 0x187FF
               )
 
               ||
 
               (
-                codePoint >=
-                  0x18D09 &&
-
-                codePoint <=
-                  0x18D1E
+                codePoint >= 0x18D09 &&
+                codePoint <= 0x18D1E
               )
 
               ||
 
               (
-                codePoint >=
-                  0x18D80 &&
-
-                codePoint <=
-                  0x18DFF
+                codePoint >= 0x18D80 &&
+                codePoint <= 0x18DFF
               )
 
             ) {
@@ -1096,10 +1013,6 @@
           }
 
 
-
-          /*
-            新しいTangutを使った場合
-          */
 
           if (
             usesExtendedTangut
@@ -1148,399 +1061,424 @@
 
       }
     );
+
+
+
     /* ==================================================
-   今日の一文字
-   Unicode全域から完全ランダム
-================================================== */
+       今日の一文字
+       Unicode全域から抽選
+    ================================================== */
 
-const dailyCharacter =
-  document.getElementById("dailyCharacter");
 
-const dailyCode =
-  document.getElementById("dailyCode");
-
-
-/*
-  今日の日付
-  ローカル時間基準
-*/
-
-function getTodayString() {
-
-  const now = new Date();
-
-  const year =
-    now.getFullYear();
-
-  const month =
-    String(
-      now.getMonth() + 1
-    ).padStart(2, "0");
-
-  const day =
-    String(
-      now.getDate()
-    ).padStart(2, "0");
-
-  return (
-    year +
-    "-" +
-    month +
-    "-" +
-    day
-  );
-}
-
-
-
-/*
-  日付文字列 → 32bitの種
-*/
-
-function hashDate(text) {
-
-  let hash =
-    2166136261;
-
-  for (
-    let i = 0;
-    i < text.length;
-    i++
-  ) {
-
-    hash ^=
-      text.charCodeAt(i);
-
-    hash =
-      Math.imul(
-        hash,
-        16777619
-      );
-
-  }
-
-  return hash >>> 0;
-}
-
-
-
-/*
-  日付から決まる疑似乱数生成器
-
-  同じ日
-  → 同じ乱数列
-
-  翌日
-  → 全く別の乱数列
-*/
-
-function createRandom(seed) {
-
-  return function () {
-
-    seed +=
-      0x6D2B79F5;
-
-    let t =
-      seed;
-
-    t =
-      Math.imul(
-        t ^ (t >>> 15),
-        t | 1
-      );
-
-    t ^=
-      t +
-      Math.imul(
-        t ^ (t >>> 7),
-        t | 61
-      );
-
-    return (
-      (
-        t ^
-        (t >>> 14)
-      ) >>> 0
-    ) / 4294967296;
-
-  };
-
-}
-
-
-
-/*
-  「今日の一文字」として使えるか判定
-
-  候補リストではなく、
-  Unicodeの性質だけを見る。
-*/
-
-function isUsableCharacter(codePoint) {
-
-  /*
-    サロゲート領域
-    Unicode scalar valueではない
-  */
-
-  if (
-    codePoint >= 0xD800 &&
-    codePoint <= 0xDFFF
-  ) {
-
-    return false;
-
-  }
-
-
-  const character =
-    String.fromCodePoint(
-      codePoint
-    );
-
-
-  /*
-    未割り当て文字を除外
-  */
-
-  if (
-    !/\p{Assigned}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  /*
-    制御文字
-  */
-
-  if (
-    /\p{Cc}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  /*
-    書式制御文字
-  */
-
-  if (
-    /\p{Cf}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  /*
-    私用領域
-
-    Unicodeとして字形が
-    定義されていないため除外
-  */
-
-  if (
-    /\p{Co}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  /*
-    結合文字
-
-    単独では形が分かりにくいので除外
-  */
-
-  if (
-    /\p{M}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  /*
-    改行系セパレータ
-  */
-
-  if (
-    /\p{Zl}|\p{Zp}/u.test(
-      character
-    )
-  ) {
-
-    return false;
-
-  }
-
-
-  return true;
-}
-
-
-
-/*
-  Unicode全域から抽選
-*/
-
-function getRandomUnicodeCharacter(
-  random
-) {
-
-  while (true) {
-
-    /*
-      Unicode最大値は
-
-      U+10FFFF
-
-      なので候補数は
-      0x110000
-    */
-
-    const codePoint =
-      Math.floor(
-        random() *
-        0x110000
+    const dailyCharacter =
+      document.getElementById(
+        "dailyCharacter"
       );
 
 
-    if (
-      isUsableCharacter(
-        codePoint
-      )
-    ) {
+    const dailyCode =
+      document.getElementById(
+        "dailyCode"
+      );
 
-      return codePoint;
+
+
+    /* 今日の日付 */
+
+    function getTodayString() {
+
+
+      const now =
+        new Date();
+
+
+      const year =
+        now.getFullYear();
+
+
+      const month =
+        String(
+          now.getMonth() + 1
+        ).padStart(
+          2,
+          "0"
+        );
+
+
+      const day =
+        String(
+          now.getDate()
+        ).padStart(
+          2,
+          "0"
+        );
+
+
+      return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+      );
 
     }
 
-  }
-
-}
 
 
+    /* 日付 → 数値 */
 
-/*
-  今日の一文字を決める
-*/
-
-function updateDailyCharacter() {
-
-  const today =
-    getTodayString();
+    function hashDate(text) {
 
 
-  const seed =
-    hashDate(
-      today
-    );
+      let hash =
+        2166136261;
 
 
-  const random =
-    createRandom(
-      seed
-    );
+      for (
+        let i = 0;
+        i < text.length;
+        i++
+      ) {
 
 
-  const codePoint =
-    getRandomUnicodeCharacter(
+        hash ^=
+          text.charCodeAt(i);
+
+
+        hash =
+          Math.imul(
+            hash,
+            16777619
+          );
+
+
+      }
+
+
+      return hash >>> 0;
+
+    }
+
+
+
+    /* 疑似乱数生成器 */
+
+    function createRandom(seed) {
+
+
+      return function () {
+
+
+        seed +=
+          0x6D2B79F5;
+
+
+        let t =
+          seed;
+
+
+        t =
+          Math.imul(
+            t ^ (t >>> 15),
+            t | 1
+          );
+
+
+        t ^=
+          t +
+          Math.imul(
+            t ^ (t >>> 7),
+            t | 61
+          );
+
+
+        return (
+          (
+            t ^
+            (t >>> 14)
+          ) >>> 0
+        ) / 4294967296;
+
+
+      };
+
+    }
+
+
+
+    /* ==================================================
+       今日の一文字として使えるか
+    ================================================== */
+
+    function isUsableCharacter(
+      codePoint
+    ) {
+
+
+      /* サロゲート */
+
+      if (
+        codePoint >= 0xD800 &&
+        codePoint <= 0xDFFF
+      ) {
+
+        return false;
+
+      }
+
+
+
+      const character =
+        String.fromCodePoint(
+          codePoint
+        );
+
+
+
+      /* 未割り当て */
+
+      if (
+        !/\p{Assigned}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      /* 制御文字 */
+
+      if (
+        /\p{Cc}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      /* 書式制御 */
+
+      if (
+        /\p{Cf}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      /* 私用領域 */
+
+      if (
+        /\p{Co}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      /* 結合文字 */
+
+      if (
+        /\p{M}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      /*
+        空白・改行などの
+        Separatorも除外
+      */
+
+      if (
+        /\p{Z}/u.test(
+          character
+        )
+      ) {
+
+        return false;
+
+      }
+
+
+
+      return true;
+
+    }
+
+
+
+    /* ==================================================
+       Unicode全域からランダム選択
+    ================================================== */
+
+    function getRandomUnicodeCharacter(
       random
-    );
+    ) {
 
 
-  const character =
-    String.fromCodePoint(
-      codePoint
-    );
+      while (true) {
 
 
-  /*
-    これまで作った
-    Unicode範囲別フォント判定を利用
-  */
-
-  dailyCharacter.className =
-    getFontClass(
-      codePoint
-    );
+        const codePoint =
+          Math.floor(
+            random() *
+            0x110000
+          );
 
 
-  dailyCharacter.textContent =
-    character;
+        if (
+          isUsableCharacter(
+            codePoint
+          )
+        ) {
 
 
-  dailyCode.textContent =
-    "U+" +
-    codePoint
-      .toString(16)
-      .toUpperCase();
-
-}
+          return codePoint;
 
 
+        }
 
-/*
-  最初に表示
-*/
 
-updateDailyCharacter();
+      }
+
+
+    }
 
 
 
-/*
-  開きっぱなしでも
-  日付が変われば更新
-*/
+    /* ==================================================
+       今日の一文字を表示
+    ================================================== */
 
-let lastDailyDate =
-  getTodayString();
+    function updateDailyCharacter() {
 
 
-setInterval(
-  function () {
+      const today =
+        getTodayString();
 
-    const today =
+
+      const seed =
+        hashDate(
+          today
+        );
+
+
+      const random =
+        createRandom(
+          seed
+        );
+
+
+      const codePoint =
+        getRandomUnicodeCharacter(
+          random
+        );
+
+
+      const character =
+        String.fromCodePoint(
+          codePoint
+        );
+
+
+
+      /*
+        修正版。
+
+        characterクラスと
+        専用フォントクラスの
+        両方を付ける。
+      */
+
+      dailyCharacter.className =
+        "character " +
+        getFontClass(
+          codePoint
+        );
+
+
+
+      dailyCharacter.textContent =
+        character;
+
+
+
+      dailyCode.textContent =
+        "U+" +
+        codePoint
+          .toString(16)
+          .toUpperCase();
+
+
+    }
+
+
+
+    /* 最初に表示 */
+
+    updateDailyCharacter();
+
+
+
+    /* ==================================================
+       日付が変わったら自動更新
+    ================================================== */
+
+    let lastDailyDate =
       getTodayString();
 
 
-    if (
-      today !==
-      lastDailyDate
-    ) {
+    setInterval(
+      function () {
 
-      lastDailyDate =
-        today;
 
-      updateDailyCharacter();
+        const today =
+          getTodayString();
 
-    }
 
-  },
+        if (
+          today !==
+          lastDailyDate
+        ) {
 
-  60000
-);
+
+          lastDailyDate =
+            today;
+
+
+          updateDailyCharacter();
+
+
+        }
+
+
+      },
+
+      60000
+
+    );
 
 
   </script>
