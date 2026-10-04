@@ -901,27 +901,166 @@ button:disabled {
 }
 
 /* =========================================
-   Selection Unicode popup
+   Unicode Scope
 ========================================= */
 
-#selectionUnicodePopup {
+#unicodeScope {
+  --code-top: 42px;
+
   position: fixed;
 
-  z-index: 9999;
+  z-index: 10000;
 
   display: none;
 
-  max-width: min(90vw, 620px);
+  left: 0;
 
-  padding: 7px 11px;
+  top: 0;
 
-  background: rgba(30, 30, 32, 0.92);
+  width: 0;
+
+  height: 0;
+
+  pointer-events: none;
+}
+
+
+#unicodeScope.visible {
+  display: block;
+}
+
+
+/* 丸いスコープ */
+
+#unicodeScopeRing {
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 60px;
+
+  height: 60px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    2px solid
+    rgba(
+      30,
+      30,
+      32,
+      0.75
+    );
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  box-shadow:
+    0 5px 22px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  pointer-events: none;
+
+  animation:
+    unicodeScopeAppear
+    0.14s
+    ease-out;
+}
+
+
+/* スコープ内の文字 */
+
+#unicodeScopeGlyph {
+  display: block;
+
+  font-size: 32px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  transform:
+    scale(1.15);
+
+  transform-origin:
+    center;
+}
+
+
+/* Unicodeコード */
+
+#unicodeScopeCode {
+  position: absolute;
+
+  left: 0;
+
+  top:
+    var(
+      --code-top
+    );
+
+  transform:
+    translateX(
+      -50%
+    );
+
+  margin: 0;
+
+  padding:
+    8px 12px;
+
+  border: 0;
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      30,
+      30,
+      32,
+      0.94
+    );
 
   color: white;
 
-  border-radius: 9px;
-
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 4px 18px
+    rgba(
+      0,
+      0,
+      0,
+      0.2
+    );
 
   font-family:
     ui-monospace,
@@ -932,23 +1071,53 @@ button:disabled {
 
   font-size: 13px;
 
-  line-height: 1.45;
+  font-weight: 600;
 
-  text-align: center;
+  line-height: 1;
 
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 
-  pointer-events: none;
+  cursor: pointer;
+
+  pointer-events: auto;
 
   user-select: none;
 
-  transform: translateX(-50%);
+  -webkit-user-select: none;
 
-  backdrop-filter: blur(8px);
-
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-tap-highlight-color:
+    transparent;
 }
 
-#selectionUnicodePopup.visible {
-  display: block;
+
+#unicodeScopeCode:active {
+  transform:
+    translateX(-50%)
+    scale(0.94);
+}
+
+
+@keyframes unicodeScopeAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.72);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+  }
 }
