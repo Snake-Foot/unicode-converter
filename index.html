@@ -63,7 +63,48 @@
     rel="stylesheet"
   >
 
+  <!-- Anatolian Hieroglyphs -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Anatolian+Hieroglyphs&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tangsa -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tangsa&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Nandinagari -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Nandinagari&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Byzantine Music -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Music&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- SignWriting -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SignWriting&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
+
+    /* ================================= */
+    /* ローカルフォント */
+    /* ================================= */
+
     @font-face {
       font-family: "Tangut Extended";
 
@@ -73,6 +114,40 @@
 
       font-display: swap;
     }
+
+
+    @font-face {
+      font-family: "Plangothic P1";
+
+      src:
+        url("./fonts/PlangothicP1-Regular.woff2")
+        format("woff2");
+
+      font-display: swap;
+    }
+
+
+    @font-face {
+      font-family: "Plangothic P2";
+
+      src:
+        url("./fonts/PlangothicP2-Regular.woff2")
+        format("woff2");
+
+      font-display: swap;
+    }
+
+
+    @font-face {
+      font-family: "Egyptology Extended";
+
+      src:
+        url("./fonts/EgyptologyExtended.woff2")
+        format("woff2");
+
+      font-display: swap;
+    }
+
 
     @font-face {
       font-family: "BabelStone Han";
@@ -86,9 +161,11 @@
       font-display: swap;
     }
 
+
     * {
       box-sizing: border-box;
     }
+
 
     body {
       margin: 0;
@@ -97,11 +174,9 @@
         24px 16px
         60px;
 
-      background:
-        #f5f5f7;
+      background: #f5f5f7;
 
-      color:
-        #1d1d1f;
+      color: #1d1d1f;
 
       font-family:
         -apple-system,
@@ -110,11 +185,15 @@
         sans-serif;
     }
 
+
     main {
       width: 100%;
+
       max-width: 760px;
+
       margin: 0 auto;
     }
+
 
     h1 {
       margin:
@@ -124,6 +203,7 @@
 
       font-size: 28px;
     }
+
 
     .box {
       margin-bottom: 20px;
@@ -144,12 +224,14 @@
         );
     }
 
+
     h2 {
       margin:
         0 0 14px;
 
       font-size: 19px;
     }
+
 
     textarea,
     input {
@@ -174,16 +256,19 @@
       outline: none;
     }
 
+
     textarea {
       min-height: 100px;
 
       resize: vertical;
     }
 
+
     textarea:focus,
     input:focus {
       border-color: #007aff;
     }
+
 
     .hint {
       margin-top: 8px;
@@ -194,6 +279,7 @@
 
       line-height: 1.5;
     }
+
 
     .result {
       min-height: 62px;
@@ -211,6 +297,7 @@
       line-height: 1.7;
     }
 
+
     .unicode-result {
       font-family:
         ui-monospace,
@@ -222,6 +309,7 @@
       font-size: 16px;
     }
 
+
     .character-result {
       min-height: 90px;
 
@@ -229,6 +317,7 @@
 
       line-height: 1.4;
     }
+
 
     .character-span {
       position: relative;
@@ -246,10 +335,10 @@
       vertical-align: middle;
     }
 
-    /*
-      無効なUnicodeだけ
-      小さく表示
-    */
+
+    /* ================================= */
+    /* 無効なUnicode */
+    /* ================================= */
 
     .invalid-unicode {
       display: inline-flex;
@@ -285,6 +374,7 @@
       white-space: nowrap;
     }
 
+
     button {
       margin-top: 12px;
 
@@ -302,16 +392,29 @@
       font: inherit;
 
       cursor: pointer;
+
+      transition:
+        opacity 0.15s,
+        transform 0.05s;
     }
 
-    button:active {
+
+    button:active:not(:disabled) {
       transform:
         scale(0.98);
     }
 
-    /* ------------------------- */
-    /* ランダム生成ボタン */
-    /* ------------------------- */
+
+    button:disabled {
+      opacity: 0.35;
+
+      cursor: default;
+    }
+
+
+    /* ================================= */
+    /* ランダム操作 */
+    /* ================================= */
 
     .random-buttons {
       display: flex;
@@ -323,7 +426,9 @@
       margin-top: 10px;
     }
 
-    .random-button {
+
+    .random-button,
+    .back-button {
       margin-top: 0;
 
       padding:
@@ -332,9 +437,15 @@
       font-size: 14px;
     }
 
-    /* ------------------------- */
+
+    .back-button {
+      background: #ddddE2;
+    }
+
+
+    /* ================================= */
     /* 今日の一文字 */
-    /* ------------------------- */
+    /* ================================= */
 
     #dailyCharacterBox {
       margin-bottom: 22px;
@@ -358,6 +469,7 @@
         );
     }
 
+
     #dailyTitle {
       margin-bottom: 12px;
 
@@ -367,6 +479,7 @@
 
       color: #666;
     }
+
 
     #dailyCharacter {
       position: relative;
@@ -386,6 +499,7 @@
       line-height: 1.2;
     }
 
+
     #dailyCode {
       margin-top: 6px;
 
@@ -401,9 +515,11 @@
       color: #555;
     }
 
+
     #dailyResearch {
       margin-top: 14px;
     }
+
 
     #dailyResearchLink {
       color: #007aff;
@@ -413,9 +529,11 @@
       font-size: 15px;
     }
 
+
     #dailyResearchLink:hover {
       text-decoration: underline;
     }
+
 
     #dailyResearchLink.disabled {
       opacity: 0;
@@ -423,9 +541,10 @@
       pointer-events: none;
     }
 
-    /* ------------------------- */
+
+    /* ================================= */
     /* フォント */
-    /* ------------------------- */
+    /* ================================= */
 
     .font-normal {
       font-family:
@@ -435,11 +554,13 @@
         sans-serif;
     }
 
+
     .font-kawi {
       font-family:
         "Noto Sans Kawi",
         sans-serif;
     }
+
 
     .font-toto {
       font-family:
@@ -447,11 +568,13 @@
         serif;
     }
 
+
     .font-tangut {
       font-family:
         "Noto Serif Tangut",
         serif;
     }
+
 
     .font-tangut-extended {
       font-family:
@@ -460,11 +583,13 @@
         serif;
     }
 
+
     .font-nushu {
       font-family:
         "Noto Sans Nushu",
         sans-serif;
     }
+
 
     .font-khitan {
       font-family:
@@ -472,11 +597,13 @@
         serif;
     }
 
+
     .font-cuneiform {
       font-family:
         "Noto Sans Cuneiform",
         sans-serif;
     }
+
 
     .font-egyptian {
       font-family:
@@ -484,15 +611,69 @@
         sans-serif;
     }
 
+
+    .font-egyptian-extended {
+      font-family:
+        "Egyptology Extended",
+        "Noto Sans Egyptian Hieroglyphs",
+        serif;
+    }
+
+
+    .font-anatolian {
+      font-family:
+        "Noto Sans Anatolian Hieroglyphs",
+        sans-serif;
+    }
+
+
+    .font-tangsa {
+      font-family:
+        "Noto Sans Tangsa",
+        sans-serif;
+    }
+
+
+    .font-nandinagari {
+      font-family:
+        "Noto Sans Nandinagari",
+        sans-serif;
+    }
+
+
+    .font-music {
+      font-family:
+        "Noto Music",
+        sans-serif;
+    }
+
+
+    .font-signwriting {
+      font-family:
+        "Noto Sans SignWriting",
+        sans-serif;
+    }
+
+
+    .font-symbols2 {
+      font-family:
+        "Noto Sans Symbols 2",
+        sans-serif;
+    }
+
+
     .font-cjk-ext {
       font-family:
+        "Plangothic P1",
+        "Plangothic P2",
         "BabelStone Han",
         serif;
     }
 
-    /* ------------------------- */
-    /* フォント読み込み中 */
-    /* ------------------------- */
+
+    /* ================================= */
+    /* 読み込み中 */
+    /* ================================= */
 
     .loading-character {
       position: relative;
@@ -500,6 +681,7 @@
       color:
         transparent !important;
     }
+
 
     .loading-character::after {
       content: "";
@@ -542,6 +724,7 @@
         linear infinite;
     }
 
+
     @keyframes spinner {
       to {
         transform:
@@ -549,23 +732,41 @@
       }
     }
 
+
+    .font-credit {
+      margin-top: 8px;
+
+      text-align: center;
+
+      color: #888;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+
     @media (
       max-width:
       520px
     ) {
+
       body {
         padding:
           18px 12px
           50px;
       }
 
+
       h1 {
         font-size: 24px;
       }
 
+
       .box {
         padding: 17px;
       }
+
 
       #dailyCharacter {
         min-height: 115px;
@@ -573,22 +774,32 @@
         font-size: 78px;
       }
 
+
       .character-result {
         font-size: 42px;
       }
 
+
       .invalid-unicode {
         font-size: 12px;
       }
+
 
       .random-button {
         flex: 1;
 
         min-width: 95px;
       }
+
+
+      .back-button {
+        min-width: 80px;
+      }
     }
+
   </style>
 </head>
+
 
 <body>
 
@@ -597,6 +808,7 @@
     <h1>
       文字 ⇄ Unicode
     </h1>
+
 
     <!-- 今日の一文字 -->
 
@@ -610,6 +822,7 @@
         今日の一文字
       </div>
 
+
       <div
         id="dailyCharacter"
         class="
@@ -620,15 +833,18 @@
         ?
       </div>
 
+
       <div
         id="dailyCode"
       >
         読み込み中…
       </div>
 
+
       <div
         id="dailyResearch"
       >
+
         <a
           id="dailyResearchLink"
           class="disabled"
@@ -638,6 +854,7 @@
         >
           この文字について調べる
         </a>
+
       </div>
 
     </section>
@@ -653,10 +870,12 @@
         文字 → Unicode
       </h2>
 
+
       <textarea
         id="charInput"
         placeholder="文字を入力"
       ></textarea>
+
 
       <div
         id="unicodeOutput"
@@ -665,6 +884,7 @@
           unicode-result
         "
       ></div>
+
 
       <button
         id="clearChar"
@@ -686,11 +906,13 @@
         Unicode → 文字
       </h2>
 
+
       <input
         id="unicodeInput"
         type="text"
         placeholder="例: 1E290 または U+1E290"
       >
+
 
       <div
         class="hint"
@@ -700,11 +922,20 @@
         複数入力は空白・改行・カンマで区切れます。
       </div>
 
-      <!-- ランダム生成 -->
 
       <div
         class="random-buttons"
       >
+
+        <button
+          id="backUnicode"
+          type="button"
+          class="back-button"
+          disabled
+        >
+          ← 戻る
+        </button>
+
 
         <button
           type="button"
@@ -714,6 +945,7 @@
           ランダム5個
         </button>
 
+
         <button
           type="button"
           class="random-button"
@@ -721,6 +953,7 @@
         >
           ランダム10個
         </button>
+
 
         <button
           type="button"
@@ -732,6 +965,7 @@
 
       </div>
 
+
       <div
         id="charOutput"
         class="
@@ -739,6 +973,7 @@
           character-result
         "
       ></div>
+
 
       <button
         id="clearUnicode"
@@ -749,49 +984,74 @@
 
     </section>
 
+
+    <div
+      class="font-credit"
+    >
+      Fonts:
+      Noto Fonts /
+      Plangothic Project /
+      Egyptology Extended
+    </div>
+
   </main>
 
 
   <script>
+
     const charInput =
       document.getElementById(
         "charInput"
       );
+
 
     const unicodeInput =
       document.getElementById(
         "unicodeInput"
       );
 
+
     const unicodeOutput =
       document.getElementById(
         "unicodeOutput"
       );
+
 
     const charOutput =
       document.getElementById(
         "charOutput"
       );
 
+
     const clearChar =
       document.getElementById(
         "clearChar"
       );
+
 
     const clearUnicode =
       document.getElementById(
         "clearUnicode"
       );
 
+
+    const backUnicode =
+      document.getElementById(
+        "backUnicode"
+      );
+
+
     const dailyCharacter =
       document.getElementById(
         "dailyCharacter"
       );
 
+
     const dailyCode =
       document.getElementById(
         "dailyCode"
       );
+
 
     const dailyResearchLink =
       document.getElementById(
@@ -807,8 +1067,6 @@
       codePoint
     ) {
 
-      /* Kawi */
-
       if (
         codePoint >= 0x11F00 &&
         codePoint <= 0x11F5F
@@ -817,8 +1075,6 @@
       }
 
 
-      /* Toto */
-
       if (
         codePoint >= 0x1E290 &&
         codePoint <= 0x1E2BF
@@ -826,8 +1082,6 @@
         return "font-toto";
       }
 
-
-      /* Tangut Extended */
 
       if (
         (
@@ -849,16 +1103,12 @@
       }
 
 
-      /* Tangut Iteration Mark */
-
       if (
         codePoint === 0x16FE0
       ) {
         return "font-tangut";
       }
 
-
-      /* Tangut */
 
       if (
         (
@@ -875,16 +1125,12 @@
       }
 
 
-      /* Nüshu Iteration Mark */
-
       if (
         codePoint === 0x16FE1
       ) {
         return "font-nushu";
       }
 
-
-      /* Nüshu */
 
       if (
         codePoint >= 0x1B170 &&
@@ -894,8 +1140,6 @@
       }
 
 
-      /* Khitan Small Script */
-
       if (
         codePoint >= 0x18B00 &&
         codePoint <= 0x18CFF
@@ -904,50 +1148,97 @@
       }
 
 
-      /* Cuneiform */
-
       if (
-        (
-          codePoint >= 0x12000 &&
-          codePoint <= 0x123FF
-        )
-        ||
-        (
-          codePoint >= 0x12400 &&
-          codePoint <= 0x1247F
-        )
-        ||
-        (
-          codePoint >= 0x12480 &&
-          codePoint <= 0x1254F
-        )
+        codePoint >= 0x12000 &&
+        codePoint <= 0x1254F
       ) {
         return "font-cuneiform";
       }
 
 
-      /* Egyptian Hieroglyphs */
+      if (
+        codePoint >= 0x13460 &&
+        codePoint <= 0x143FF
+      ) {
+        return "font-egyptian-extended";
+      }
+
 
       if (
-        (
-          codePoint >= 0x13000 &&
-          codePoint <= 0x1345F
-        )
-        ||
-        (
-          codePoint >= 0x13460 &&
-          codePoint <= 0x143FF
-        )
+        codePoint >= 0x13000 &&
+        codePoint <= 0x1345F
       ) {
         return "font-egyptian";
       }
 
 
-      /* CJK Extensions */
+      if (
+        codePoint >= 0x14400 &&
+        codePoint <= 0x1467F
+      ) {
+        return "font-anatolian";
+      }
+
+
+      if (
+        codePoint >= 0x16A70 &&
+        codePoint <= 0x16ACF
+      ) {
+        return "font-tangsa";
+      }
+
+
+      if (
+        codePoint >= 0x119A0 &&
+        codePoint <= 0x119FF
+      ) {
+        return "font-nandinagari";
+      }
+
+
+      if (
+        codePoint >= 0x1D000 &&
+        codePoint <= 0x1D0FF
+      ) {
+        return "font-music";
+      }
+
+
+      if (
+        codePoint >= 0x1D800 &&
+        codePoint <= 0x1DAAF
+      ) {
+        return "font-signwriting";
+      }
+
+
+      if (
+        codePoint >= 0x10E60 &&
+        codePoint <= 0x10E7F
+      ) {
+        return "font-symbols2";
+      }
+
 
       if (
         codePoint >= 0x20000 &&
-        codePoint <= 0x323AF
+        codePoint <= 0x2EE5F
+      ) {
+        return "font-cjk-ext";
+      }
+
+
+      if (
+        codePoint >= 0x2F800 &&
+        codePoint <= 0x2FA1F
+      ) {
+        return "font-cjk-ext";
+      }
+
+
+      if (
+        codePoint >= 0x30000 &&
+        codePoint <= 0x3347F
       ) {
         return "font-cjk-ext";
       }
@@ -961,7 +1252,7 @@
     /* Webフォント名 */
     /* ================================= */
 
-    function getWebFontName(
+    function getWebFontNames(
       codePoint
     ) {
 
@@ -976,34 +1267,106 @@
       ) {
 
         case "font-kawi":
-          return "Noto Sans Kawi";
+          return [
+            "Noto Sans Kawi"
+          ];
+
 
         case "font-toto":
-          return "Noto Serif Toto";
+          return [
+            "Noto Serif Toto"
+          ];
+
 
         case "font-tangut":
-          return "Noto Serif Tangut";
+          return [
+            "Noto Serif Tangut"
+          ];
+
 
         case "font-tangut-extended":
-          return "Tangut Extended";
+          return [
+            "Tangut Extended",
+            "Noto Serif Tangut"
+          ];
+
 
         case "font-nushu":
-          return "Noto Sans Nushu";
+          return [
+            "Noto Sans Nushu"
+          ];
+
 
         case "font-khitan":
-          return "Noto Serif Khitan Small Script";
+          return [
+            "Noto Serif Khitan Small Script"
+          ];
+
 
         case "font-cuneiform":
-          return "Noto Sans Cuneiform";
+          return [
+            "Noto Sans Cuneiform"
+          ];
+
 
         case "font-egyptian":
-          return "Noto Sans Egyptian Hieroglyphs";
+          return [
+            "Noto Sans Egyptian Hieroglyphs"
+          ];
+
+
+        case "font-egyptian-extended":
+          return [
+            "Egyptology Extended"
+          ];
+
+
+        case "font-anatolian":
+          return [
+            "Noto Sans Anatolian Hieroglyphs"
+          ];
+
+
+        case "font-tangsa":
+          return [
+            "Noto Sans Tangsa"
+          ];
+
+
+        case "font-nandinagari":
+          return [
+            "Noto Sans Nandinagari"
+          ];
+
+
+        case "font-music":
+          return [
+            "Noto Music"
+          ];
+
+
+        case "font-signwriting":
+          return [
+            "Noto Sans SignWriting"
+          ];
+
+
+        case "font-symbols2":
+          return [
+            "Noto Sans Symbols 2"
+          ];
+
 
         case "font-cjk-ext":
-          return "BabelStone Han";
+          return [
+            "Plangothic P1",
+            "Plangothic P2",
+            "BabelStone Han"
+          ];
+
 
         default:
-          return null;
+          return [];
       }
     }
 
@@ -1034,14 +1397,14 @@
       character
     ) {
 
-      const fontName =
-        getWebFontName(
+      const fontNames =
+        getWebFontNames(
           codePoint
         );
 
 
       if (
-        !fontName
+        fontNames.length === 0
       ) {
         return;
       }
@@ -1061,16 +1424,28 @@
 
       try {
 
+        const fontLoads =
+          fontNames.map(
+            (fontName) => {
+
+              return document.fonts.load(
+                `72px "${fontName}"`,
+                character
+              );
+
+            }
+          );
+
+
         await Promise.race(
           [
 
-            document.fonts.load(
-              `72px "${fontName}"`,
-              character
+            Promise.allSettled(
+              fontLoads
             ),
 
             sleep(
-              5000
+              6000
             )
 
           ]
@@ -1082,7 +1457,6 @@
 
         console.warn(
           "Font loading failed:",
-          fontName,
           error
         );
 
@@ -1226,12 +1600,6 @@
     /* ランダムUnicode生成 */
     /* ================================= */
 
-    /*
-      0 ～ max - 1 の整数を
-      crypto.getRandomValues()で
-      偏りなく生成
-    */
-
     function secureRandomInteger(
       max
     ) {
@@ -1280,18 +1648,9 @@
     }
 
 
-    /*
-      今日の一文字と
-      同じ除外条件
-    */
-
     function isUsableRandomCharacter(
       codePoint
     ) {
-
-      /*
-        サロゲート
-      */
 
       if (
         codePoint >= 0xD800 &&
@@ -1307,10 +1666,6 @@
         );
 
 
-      /*
-        未割り当て
-      */
-
       if (
         !/\p{Assigned}/u.test(
           character
@@ -1319,10 +1674,6 @@
         return false;
       }
 
-
-      /*
-        制御文字
-      */
 
       if (
         /\p{Cc}/u.test(
@@ -1333,10 +1684,6 @@
       }
 
 
-      /*
-        書式制御文字
-      */
-
       if (
         /\p{Cf}/u.test(
           character
@@ -1345,10 +1692,6 @@
         return false;
       }
 
-
-      /*
-        私用領域
-      */
 
       if (
         /\p{Co}/u.test(
@@ -1359,10 +1702,6 @@
       }
 
 
-      /*
-        結合文字
-      */
-
       if (
         /\p{M}/u.test(
           character
@@ -1371,10 +1710,6 @@
         return false;
       }
 
-
-      /*
-        空白・区切り
-      */
 
       if (
         /\p{Z}/u.test(
@@ -1388,11 +1723,6 @@
       return true;
     }
 
-
-    /*
-      使用可能なものが出るまで
-      Unicode全域から抽選
-    */
 
     function generateRandomCodePoint() {
 
@@ -1419,14 +1749,110 @@
     }
 
 
-    /*
-      指定個数のUnicodeを
-      入力欄へ入れる
-    */
+    /* ================================= */
+    /* 戻る履歴 */
+    /* ================================= */
+
+    const unicodeHistory =
+      [];
+
+
+    function updateBackButton() {
+
+      backUnicode.disabled =
+        unicodeHistory.length === 0;
+
+    }
+
+
+    function saveUnicodeHistory() {
+
+      const currentValue =
+        unicodeInput.value;
+
+
+      const lastValue =
+        unicodeHistory[
+          unicodeHistory.length - 1
+        ];
+
+
+      /*
+        同じ内容を
+        連続保存しない
+      */
+
+      if (
+        currentValue === lastValue
+      ) {
+        return;
+      }
+
+
+      unicodeHistory.push(
+        currentValue
+      );
+
+
+      /*
+        履歴が増えすぎないように
+        最大50件
+      */
+
+      if (
+        unicodeHistory.length > 50
+      ) {
+
+        unicodeHistory.shift();
+
+      }
+
+
+      updateBackButton();
+    }
+
+
+    function goBackUnicode() {
+
+      if (
+        unicodeHistory.length === 0
+      ) {
+        return;
+      }
+
+
+      unicodeRun++;
+
+
+      const previousValue =
+        unicodeHistory.pop();
+
+
+      unicodeInput.value =
+        previousValue;
+
+
+      updateBackButton();
+
+
+      convertUnicode();
+    }
+
+
+    /* ================================= */
+    /* ランダム生成 */
+    /* ================================= */
 
     function generateRandomUnicode(
       count
     ) {
+
+      /*
+        生成前の状態を保存
+      */
+
+      saveUnicodeHistory();
+
 
       const values =
         [];
@@ -1459,11 +1885,6 @@
           " "
         );
 
-
-      /*
-        入れた瞬間に
-        自動変換
-      */
 
       convertUnicode();
     }
@@ -1530,14 +1951,6 @@
           );
 
 
-        /*
-          無効なものだけ
-          小さく表示
-
-          他の文字は
-          そのまま続行
-        */
-
         if (
           codePoint === null
         ) {
@@ -1578,6 +1991,12 @@
           );
 
 
+        const fontNames =
+          getWebFontNames(
+            codePoint
+          );
+
+
         const span =
           document.createElement(
             "span"
@@ -1593,14 +2012,8 @@
           character;
 
 
-        const specialFont =
-          getWebFontName(
-            codePoint
-          );
-
-
         if (
-          specialFont
+          fontNames.length > 0
         ) {
 
           span.classList.add(
@@ -1616,7 +2029,7 @@
 
 
         if (
-          specialFont
+          fontNames.length > 0
         ) {
 
           const promise =
@@ -1658,7 +2071,7 @@
 
 
     /* ================================= */
-    /* 入力イベント */
+    /* イベント */
     /* ================================= */
 
     charInput.addEventListener(
@@ -1672,10 +2085,6 @@
       convertUnicode
     );
 
-
-    /*
-      ランダム生成ボタン
-    */
 
     document
       .querySelectorAll(
@@ -1705,6 +2114,12 @@
       );
 
 
+    backUnicode.addEventListener(
+      "click",
+      goBackUnicode
+    );
+
+
     clearChar.addEventListener(
       "click",
       () => {
@@ -1712,8 +2127,10 @@
         charInput.value =
           "";
 
+
         unicodeOutput.textContent =
           "";
+
 
         charInput.focus();
 
@@ -1743,7 +2160,7 @@
 
 
     /* ================================= */
-    /* JSTの日付 */
+    /* JST日付 */
     /* ================================= */
 
     function getJSTDateString() {
@@ -1892,16 +2309,7 @@
           entry.codePoint
           !==
           "string"
-        ) {
-
-          throw new Error(
-            "invalid code point"
-          );
-
-        }
-
-
-        if (
+          ||
           !/^[0-9A-F]+$/i.test(
             entry.codePoint
           )
@@ -2045,18 +2453,15 @@
     /* 起動 */
     /* ================================= */
 
+    updateBackButton();
+
+
     loadDailyCharacter();
 
 
     let lastJSTDate =
       getJSTDateString();
 
-
-    /*
-      開きっぱなしでも
-      JST 0:00をまたいだら
-      今日の一文字を更新
-    */
 
     setInterval(
       () => {
