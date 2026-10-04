@@ -151,9 +151,41 @@ function findByDate(data, date) {
       data.current,
       data.next
     ].find(
-      (entry) =>
-        entry &&
-        entry.date === date
+      (entry) => {
+
+        if (
+          !entry ||
+          entry.date !== date
+        ) {
+          return false;
+        }
+
+        if (
+          typeof entry.codePoint !== "string" ||
+          !/^[0-9A-F]+$/i.test(entry.codePoint)
+        ) {
+          return false;
+        }
+
+        const codePoint =
+          parseInt(
+            entry.codePoint,
+            16
+          );
+
+        if (
+          codePoint < 0 ||
+          codePoint > 0x10FFFF ||
+          (
+            codePoint >= 0xD800 &&
+            codePoint <= 0xDFFF
+          )
+        ) {
+          return false;
+        }
+
+        return true;
+      }
     )
     ||
     null
