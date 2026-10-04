@@ -38,9 +38,6 @@ const dailyResearchLink =
 ========================================= */
 
 function getFontClass(codePoint) {
-
-  /* Kawi */
-
   if (
     codePoint >= 0x11F00 &&
     codePoint <= 0x11F5F
@@ -48,18 +45,12 @@ function getFontClass(codePoint) {
     return "font-kawi";
   }
 
-
-  /* Toto */
-
   if (
     codePoint >= 0x1E290 &&
     codePoint <= 0x1E2BF
   ) {
     return "font-toto";
   }
-
-
-  /* Tangut Extended */
 
   if (
     (
@@ -80,20 +71,11 @@ function getFontClass(codePoint) {
     return "font-tangut-extended";
   }
 
-
-  /* Tangut Iteration Mark */
-
   if (
     codePoint === 0x16FE0
   ) {
     return "font-tangut";
   }
-
-
-  /*
-    Tangut +
-    Tangut Components
-  */
 
   if (
     (
@@ -114,17 +96,11 @@ function getFontClass(codePoint) {
     return "font-tangut";
   }
 
-
-  /* Nüshu iteration mark */
-
   if (
     codePoint === 0x16FE1
   ) {
     return "font-nushu";
   }
-
-
-  /* Nüshu */
 
   if (
     codePoint >= 0x1B170 &&
@@ -133,18 +109,12 @@ function getFontClass(codePoint) {
     return "font-nushu";
   }
 
-
-  /* Khitan */
-
   if (
     codePoint >= 0x18B00 &&
     codePoint <= 0x18CFF
   ) {
     return "font-khitan";
   }
-
-
-  /* Cuneiform */
 
   if (
     codePoint >= 0x12000 &&
@@ -153,18 +123,12 @@ function getFontClass(codePoint) {
     return "font-cuneiform";
   }
 
-
-  /* Egyptian Hieroglyphs Extended-A */
-
   if (
     codePoint >= 0x13460 &&
     codePoint <= 0x143FF
   ) {
     return "font-egyptian-extended";
   }
-
-
-  /* Egyptian Hieroglyphs */
 
   if (
     codePoint >= 0x13000 &&
@@ -173,18 +137,12 @@ function getFontClass(codePoint) {
     return "font-egyptian";
   }
 
-
-  /* Anatolian Hieroglyphs */
-
   if (
     codePoint >= 0x14400 &&
     codePoint <= 0x1467F
   ) {
     return "font-anatolian";
   }
-
-
-  /* Tangsa */
 
   if (
     codePoint >= 0x16A70 &&
@@ -193,22 +151,12 @@ function getFontClass(codePoint) {
     return "font-tangsa";
   }
 
-
-  /* Nandinagari */
-
   if (
     codePoint >= 0x119A0 &&
     codePoint <= 0x119FF
   ) {
     return "font-nandinagari";
   }
-
-
-  /*
-    Byzantine Musical Symbols
-    Musical Symbols
-    Ancient Greek Musical Notation
-  */
 
   if (
     codePoint >= 0x1D000 &&
@@ -217,18 +165,12 @@ function getFontClass(codePoint) {
     return "font-music";
   }
 
-
-  /* SignWriting */
-
   if (
     codePoint >= 0x1D800 &&
     codePoint <= 0x1DAAF
   ) {
     return "font-signwriting";
   }
-
-
-  /* Rumi Numeral Symbols */
 
   if (
     codePoint >= 0x10E60 &&
@@ -237,18 +179,12 @@ function getFontClass(codePoint) {
     return "font-symbols2";
   }
 
-
-  /* Indic Siyaq Numbers */
-
   if (
     codePoint >= 0x1EC70 &&
     codePoint <= 0x1ECBF
   ) {
     return "font-indic-siyaq";
   }
-
-
-  /* Arabic Mathematical Alphabetic Symbols */
 
   if (
     codePoint >= 0x1EE00 &&
@@ -257,18 +193,12 @@ function getFontClass(codePoint) {
     return "font-math";
   }
 
-
-  /* Symbols for Legacy Computing Supplement */
-
   if (
     codePoint >= 0x1CC00 &&
     codePoint <= 0x1CEBF
   ) {
     return "font-symbols2";
   }
-
-
-  /* Symbols for Legacy Computing */
 
   if (
     codePoint >= 0x1FB00 &&
@@ -277,16 +207,12 @@ function getFontClass(codePoint) {
     return "font-symbols2";
   }
 
-
-  /* CJK Extensions */
-
   if (
     codePoint >= 0x20000 &&
     codePoint <= 0x2EE5F
   ) {
     return "font-cjk-ext";
   }
-
 
   if (
     codePoint >= 0x2F800 &&
@@ -295,14 +221,12 @@ function getFontClass(codePoint) {
     return "font-cjk-ext";
   }
 
-
   if (
     codePoint >= 0x30000 &&
     codePoint <= 0x3347F
   ) {
     return "font-cjk-ext";
   }
-
 
   return "font-normal";
 }
@@ -313,30 +237,23 @@ function getFontClass(codePoint) {
 ========================================= */
 
 function getWebFontNames(codePoint) {
-
-  const fontClass =
-    getFontClass(codePoint);
-
-
-  switch (fontClass) {
-
+  switch (
+    getFontClass(codePoint)
+  ) {
     case "font-kawi":
       return [
         "Noto Sans Kawi"
       ];
-
 
     case "font-toto":
       return [
         "Noto Serif Toto"
       ];
 
-
     case "font-tangut":
       return [
         "Noto Serif Tangut"
       ];
-
 
     case "font-tangut-extended":
       return [
@@ -344,84 +261,70 @@ function getWebFontNames(codePoint) {
         "Noto Serif Tangut"
       ];
 
-
     case "font-nushu":
       return [
         "Noto Sans Nushu"
       ];
-
 
     case "font-khitan":
       return [
         "Noto Serif Khitan Small Script"
       ];
 
-
     case "font-cuneiform":
       return [
         "Noto Sans Cuneiform"
       ];
-
 
     case "font-egyptian":
       return [
         "Noto Sans Egyptian Hieroglyphs"
       ];
 
-
     case "font-egyptian-extended":
       return [
         "Egyptology Extended"
       ];
-
 
     case "font-anatolian":
       return [
         "Noto Sans Anatolian Hieroglyphs"
       ];
 
-
     case "font-tangsa":
       return [
         "Noto Sans Tangsa"
       ];
-
 
     case "font-nandinagari":
       return [
         "Noto Sans Nandinagari"
       ];
 
-
     case "font-music":
       return [
         "Noto Music"
       ];
-
 
     case "font-signwriting":
       return [
         "Noto Sans SignWriting"
       ];
 
-
     case "font-symbols2":
       return [
         "Noto Sans Symbols 2"
       ];
-
 
     case "font-math":
       return [
         "Noto Sans Math"
       ];
 
-
     case "font-indic-siyaq":
       return [
         "Noto Sans Indic Siyaq Numbers"
       ];
-
 
     case "font-cjk-ext":
       return [
@@ -430,7 +333,6 @@ function getWebFontNames(codePoint) {
         "BabelStone Han"
       ];
 
-
     default:
       return [];
   }
@@ -438,36 +340,29 @@ function getWebFontNames(codePoint) {
 
 
 /* =========================================
-   Sleep
+   Font loading
 ========================================= */
 
 function sleep(milliseconds) {
-
   return new Promise(
     (resolve) => {
-
       setTimeout(
         resolve,
         milliseconds
       );
-
     }
   );
 }
 
 
-/* =========================================
-   Font loading
-========================================= */
-
 async function waitForCharacterFont(
   codePoint,
   character
 ) {
-
   const fontNames =
-    getWebFontNames(codePoint);
-
+    getWebFontNames(
+      codePoint
+    );
 
   if (
     fontNames.length === 0
@@ -475,19 +370,17 @@ async function waitForCharacterFont(
     return;
   }
 
-
   if (
     !document.fonts
   ) {
-
-    await sleep(800);
+    await sleep(
+      800
+    );
 
     return;
   }
 
-
   try {
-
     const loads =
       fontNames.map(
         (fontName) =>
@@ -498,21 +391,24 @@ async function waitForCharacterFont(
           )
       );
 
-
     await Promise.race(
       [
-        Promise.allSettled(loads),
-        sleep(6000)
+        Promise.allSettled(
+          loads
+        ),
+
+        sleep(
+          6000
+        )
       ]
     );
-
-  } catch (error) {
-
+  } catch (
+    error
+  ) {
     console.warn(
       "Font loading failed:",
       error
     );
-
   }
 }
 
@@ -535,7 +431,6 @@ function isInvisibleCharacter(
   codePoint,
   character
 ) {
-
   if (
     knownInvisibleCodePoints.has(
       codePoint
@@ -544,25 +439,23 @@ function isInvisibleCharacter(
     return true;
   }
 
-
   try {
-
     if (
       /\p{Default_Ignorable_Code_Point}/u
-        .test(character)
+        .test(
+          character
+        )
     ) {
       return true;
     }
-
-  } catch (error) {
-
+  } catch (
+    error
+  ) {
     console.warn(
-      "Default_Ignorable check unavailable",
+      "Default_Ignorable check unavailable:",
       error
     );
-
   }
-
 
   return false;
 }
@@ -573,7 +466,9 @@ function isInvisibleCharacter(
 ========================================= */
 
 const glyphCanvas =
-  document.createElement("canvas");
+  document.createElement(
+    "canvas"
+  );
 
 
 glyphCanvas.width =
@@ -588,7 +483,8 @@ const glyphContext =
   glyphCanvas.getContext(
     "2d",
     {
-      willReadFrequently: true
+      willReadFrequently:
+        true
     }
   );
 
@@ -598,14 +494,11 @@ function analyseGlyphPixels(
   fontFamily,
   fontSize = 120
 ) {
-
   const width =
     glyphCanvas.width;
 
-
   const height =
     glyphCanvas.height;
-
 
   glyphContext.clearRect(
     0,
@@ -614,33 +507,22 @@ function analyseGlyphPixels(
     height
   );
 
-
   glyphContext.save();
-
 
   glyphContext.fillStyle =
     "#000";
 
-
   glyphContext.textBaseline =
     "alphabetic";
-
 
   glyphContext.font =
     `${fontSize}px ${fontFamily}`;
 
-
-  /*
-    十分余裕を持った位置に描画
-  */
-
   const x =
     80;
 
-
   const y =
     240;
-
 
   glyphContext.fillText(
     character,
@@ -648,9 +530,7 @@ function analyseGlyphPixels(
     y
   );
 
-
   glyphContext.restore();
-
 
   const imageData =
     glyphContext.getImageData(
@@ -660,47 +540,37 @@ function analyseGlyphPixels(
       height
     );
 
-
   const data =
     imageData.data;
-
 
   let inkPixels =
     0;
 
-
   let minX =
     width;
-
 
   let minY =
     height;
 
-
   let maxX =
     -1;
-
 
   let maxY =
     -1;
 
-
   let hash =
     2166136261;
-
 
   for (
     let py = 0;
     py < height;
     py++
   ) {
-
     for (
       let px = 0;
       px < width;
       px++
     ) {
-
       const index =
         (
           py *
@@ -710,22 +580,13 @@ function analyseGlyphPixels(
         4 +
         3;
 
-
       const alpha =
         data[index];
-
-
-      /*
-        アンチエイリアスの極薄部分は
-        ほぼ無視
-      */
 
       if (
         alpha > 8
       ) {
-
         inkPixels++;
-
 
         if (
           px < minX
@@ -733,13 +594,11 @@ function analyseGlyphPixels(
           minX = px;
         }
 
-
         if (
           px > maxX
         ) {
           maxX = px;
         }
-
 
         if (
           py < minY
@@ -747,48 +606,41 @@ function analyseGlyphPixels(
           minY = py;
         }
 
-
         if (
           py > maxY
         ) {
           maxY = py;
         }
-
       }
-
 
       hash ^=
         alpha;
-
 
       hash =
         Math.imul(
           hash,
           16777619
         );
-
     }
-
   }
-
 
   if (
     inkPixels === 0
   ) {
-
     return {
-      inkPixels: 0,
+      inkPixels:
+        0,
 
-      width: 0,
+      width:
+        0,
 
-      height: 0,
+      height:
+        0,
 
       hash:
         hash >>> 0
     };
-
   }
-
 
   return {
     inkPixels,
@@ -810,39 +662,30 @@ function analyseGlyphPixels(
 
 
 /* =========================================
-   Blank glyph detection
+   Blank / missing glyph detection
 ========================================= */
 
 function isRenderedBlank(
   character,
   fontFamily
 ) {
-
   const analysis =
     analyseGlyphPixels(
       character,
       fontFamily
     );
 
-
   return (
-    analysis.inkPixels === 0
+    analysis.inkPixels ===
+    0
   );
 }
 
-
-/* =========================================
-   Missing glyph detection
-
-   □ / 三本線 / tofuを
-   未割り当てコードポイントの描画と比較
-========================================= */
 
 function sameGlyphSignature(
   first,
   second
 ) {
-
   if (
     first.inkPixels === 0 ||
     second.inkPixels === 0
@@ -850,13 +693,15 @@ function sameGlyphSignature(
     return false;
   }
 
-
   return (
-    first.hash === second.hash
+    first.hash ===
+      second.hash
     &&
-    first.width === second.width
+    first.width ===
+      second.width
     &&
-    first.height === second.height
+    first.height ===
+      second.height
   );
 }
 
@@ -865,24 +710,17 @@ function looksLikeMissingGlyph(
   character,
   fontFamily
 ) {
-
   const target =
     analyseGlyphPixels(
       character,
       fontFamily
     );
 
-
   if (
     target.inkPixels === 0
   ) {
     return false;
   }
-
-
-  /*
-    Unicode未割り当て領域を基準にする
-  */
 
   const missingA =
     analyseGlyphPixels(
@@ -892,7 +730,6 @@ function looksLikeMissingGlyph(
       fontFamily
     );
 
-
   const missingB =
     analyseGlyphPixels(
       String.fromCodePoint(
@@ -900,7 +737,6 @@ function looksLikeMissingGlyph(
       ),
       fontFamily
     );
-
 
   return (
     sameGlyphSignature(
@@ -918,9 +754,6 @@ function looksLikeMissingGlyph(
 
 /* =========================================
    Tiny glyph detection / scaling
-
-   measureText()ではなく
-   実際の黒いピクセル範囲を測る
 ========================================= */
 
 function getGlyphScaleFactor(
@@ -928,10 +761,10 @@ function getGlyphScaleFactor(
   character,
   fontFamily
 ) {
-
   /*
-    現在、強い自動補正を行うのは
-    Egyptian Hieroglyphs Extended-A。
+    極小問題が確認されている
+    Egyptian Hieroglyphs Extended-Aだけ
+    自動補正する。
   */
 
   if (
@@ -941,7 +774,6 @@ function getGlyphScaleFactor(
     return 1;
   }
 
-
   const analysis =
     analyseGlyphPixels(
       character,
@@ -949,13 +781,11 @@ function getGlyphScaleFactor(
       120
     );
 
-
   if (
     analysis.inkPixels === 0
   ) {
     return 1;
   }
-
 
   const largestSide =
     Math.max(
@@ -963,22 +793,11 @@ function getGlyphScaleFactor(
       analysis.height
     );
 
-
-  /*
-    正常な字形なら補正なし
-  */
-
   if (
     largestSide >= 62
   ) {
     return 1;
   }
-
-
-  /*
-    120pxで描いた時に
-    最大辺がおよそ82pxになるよう補正。
-  */
 
   const scale =
     82 /
@@ -986,12 +805,6 @@ function getGlyphScaleFactor(
       largestSide,
       1
     );
-
-
-  /*
-    前回の5倍では足りなかったので、
-    最大14倍まで許可。
-  */
 
   return Math.min(
     14,
@@ -1004,7 +817,7 @@ function getGlyphScaleFactor(
 
 
 /* =========================================
-   Scale normal result glyph
+   Scale result glyph
 ========================================= */
 
 function applyGlyphScale(
@@ -1013,14 +826,13 @@ function applyGlyphScale(
   codePoint,
   character
 ) {
-
   const style =
-    getComputedStyle(inner);
-
+    getComputedStyle(
+      inner
+    );
 
   const fontFamily =
     style.fontFamily;
-
 
   const scale =
     getGlyphScaleFactor(
@@ -1029,58 +841,38 @@ function applyGlyphScale(
       fontFamily
     );
 
-
   if (
     scale <= 1.05
   ) {
     return;
   }
 
+  /*
+    字形だけを拡大する。
+    wrapperの高さを拡大率に比例させないことで、
+    巨大な縦余白ができるのを防ぐ。
+  */
 
   inner.style.transform =
     `scale(${scale})`;
 
-
-  /*
-    周囲の文字と重なりにくくする。
-  */
-
-  const extraWidth =
-    Math.min(
-      4,
-      1 +
-      (
-        scale - 1
-      ) *
-      0.35
-    );
-
-
-  const extraHeight =
-    Math.min(
-      4,
-      1.3 +
-      (
-        scale - 1
-      ) *
-      0.28
-    );
-
+  inner.style.transformOrigin =
+    "center center";
 
   wrapper.style.minWidth =
-    `${extraWidth}em`;
-
+    "1.45em";
 
   wrapper.style.minHeight =
-    `${extraHeight}em`;
-
+    "1.55em";
 
   wrapper.style.marginLeft =
-    "0.08em";
-
+    "0.16em";
 
   wrapper.style.marginRight =
-    "0.08em";
+    "0.16em";
+
+  wrapper.style.overflow =
+    "visible";
 }
 
 
@@ -1093,14 +885,13 @@ function applyDailyGlyphScale(
   codePoint,
   character
 ) {
-
   const style =
-    getComputedStyle(inner);
-
+    getComputedStyle(
+      inner
+    );
 
   const fontFamily =
     style.fontFamily;
-
 
   const scale =
     getGlyphScaleFactor(
@@ -1109,18 +900,11 @@ function applyDailyGlyphScale(
       fontFamily
     );
 
-
   if (
     scale <= 1.05
   ) {
     return;
   }
-
-
-  /*
-    「今日の一文字」は
-    少し控えめに上限を設定
-  */
 
   const dailyScale =
     Math.min(
@@ -1128,33 +912,31 @@ function applyDailyGlyphScale(
       scale
     );
 
-
   inner.style.transform =
     `scale(${dailyScale})`;
+
+  inner.style.transformOrigin =
+    "center center";
 }
 
 
 /* =========================================
-   Status span
+   Status label
 ========================================= */
 
 function makeStatusSpan(
   text
 ) {
-
   const span =
     document.createElement(
       "span"
     );
 
-
   span.className =
     "character-status";
 
-
   span.textContent =
     text;
-
 
   return span;
 }
@@ -1165,48 +947,50 @@ function makeStatusSpan(
 ========================================= */
 
 function convertCharacters() {
-
   const text =
     charInput.value;
-
 
   if (
     text.length === 0
   ) {
-
     unicodeOutput.textContent =
       "";
 
     return;
   }
 
-
   unicodeOutput.textContent =
-    Array.from(text)
-      .map(
-        (character) =>
+    Array.from(
+      text
+    )
+    .map(
+      (character) =>
 
-          "U+" +
-          character
-            .codePointAt(0)
-            .toString(16)
-            .toUpperCase()
-      )
-      .join(" ");
+        "U+" +
+        character
+          .codePointAt(
+            0
+          )
+          .toString(
+            16
+          )
+          .toUpperCase()
+    )
+    .join(
+      " "
+    );
 }
 
 
 /* =========================================
-   Unicode token parser
+   Unicode parser
 ========================================= */
 
 function parseUnicodeToken(
   token
 ) {
-
   let value =
     token.trim();
-
 
   if (
     value.length === 0
@@ -1214,13 +998,11 @@ function parseUnicodeToken(
     return null;
   }
 
-
   value =
     value.replace(
       /^U\+/i,
       ""
     );
-
 
   value =
     value.replace(
@@ -1228,21 +1010,20 @@ function parseUnicodeToken(
       ""
     );
 
-
   if (
     !/^[0-9A-F]+$/i
-      .test(value)
+      .test(
+        value
+      )
   ) {
     return null;
   }
-
 
   const codePoint =
     parseInt(
       value,
       16
     );
-
 
   if (
     !Number.isInteger(
@@ -1252,7 +1033,6 @@ function parseUnicodeToken(
     return null;
   }
 
-
   if (
     codePoint < 0 ||
     codePoint > 0x10FFFF
@@ -1260,14 +1040,12 @@ function parseUnicodeToken(
     return null;
   }
 
-
   if (
     codePoint >= 0xD800 &&
     codePoint <= 0xDFFF
   ) {
     return null;
   }
-
 
   return codePoint;
 }
@@ -1280,43 +1058,39 @@ function parseUnicodeToken(
 function secureRandomInteger(
   max
 ) {
-
   const range =
     0x100000000;
-
 
   const limit =
     Math.floor(
       range /
       max
-    ) *
+    )
+    *
     max;
 
-
   const values =
-    new Uint32Array(1);
+    new Uint32Array(
+      1
+    );
 
-
-  while (true) {
-
+  while (
+    true
+  ) {
     crypto.getRandomValues(
       values
     );
 
-
     const value =
       values[0];
-
 
     if (
       value < limit
     ) {
-
       return (
         value %
         max
       );
-
     }
   }
 }
@@ -1329,7 +1103,6 @@ function secureRandomInteger(
 function isUsableRandomCharacter(
   codePoint
 ) {
-
   if (
     codePoint >= 0xD800 &&
     codePoint <= 0xDFFF
@@ -1337,12 +1110,10 @@ function isUsableRandomCharacter(
     return false;
   }
 
-
   const character =
     String.fromCodePoint(
       codePoint
     );
-
 
   if (
     isInvisibleCharacter(
@@ -1353,49 +1124,54 @@ function isUsableRandomCharacter(
     return false;
   }
 
-
   if (
     !/\p{Assigned}/u
-      .test(character)
+      .test(
+        character
+      )
   ) {
     return false;
   }
-
 
   if (
-    /\p{Cc}/u.test(character)
+    /\p{Cc}/u.test(
+      character
+    )
   ) {
     return false;
   }
-
 
   if (
-    /\p{Cf}/u.test(character)
+    /\p{Cf}/u.test(
+      character
+    )
   ) {
     return false;
   }
-
 
   if (
-    /\p{Co}/u.test(character)
+    /\p{Co}/u.test(
+      character
+    )
   ) {
     return false;
   }
-
 
   if (
-    /\p{M}/u.test(character)
+    /\p{M}/u.test(
+      character
+    )
   ) {
     return false;
   }
-
 
   if (
-    /\p{Z}/u.test(character)
+    /\p{Z}/u.test(
+      character
+    )
   ) {
     return false;
   }
-
 
   return true;
 }
@@ -1406,23 +1182,20 @@ function isUsableRandomCharacter(
 ========================================= */
 
 function generateRandomCodePoint() {
-
-  while (true) {
-
+  while (
+    true
+  ) {
     const codePoint =
       secureRandomInteger(
         0x110000
       );
-
 
     if (
       isUsableRandomCharacter(
         codePoint
       )
     ) {
-
       return codePoint;
-
     }
   }
 }
@@ -1437,67 +1210,58 @@ const unicodeHistory =
 
 
 function updateBackButton() {
-
   backUnicode.disabled =
-    unicodeHistory.length === 0;
+    unicodeHistory.length ===
+    0;
 }
 
 
 function saveUnicodeHistory() {
-
   const currentValue =
     unicodeInput.value;
 
-
   const previousValue =
     unicodeHistory[
-      unicodeHistory.length - 1
+      unicodeHistory.length -
+      1
     ];
 
-
   if (
-    currentValue === previousValue
+    currentValue ===
+    previousValue
   ) {
     return;
   }
-
 
   unicodeHistory.push(
     currentValue
   );
 
-
   if (
-    unicodeHistory.length > 50
+    unicodeHistory.length >
+    50
   ) {
-
     unicodeHistory.shift();
-
   }
-
 
   updateBackButton();
 }
 
 
 function goBackUnicode() {
-
   if (
-    unicodeHistory.length === 0
+    unicodeHistory.length ===
+    0
   ) {
     return;
   }
 
-
   unicodeRun++;
-
 
   unicodeInput.value =
     unicodeHistory.pop();
 
-
   updateBackButton();
-
 
   convertUnicode();
 }
@@ -1510,56 +1274,50 @@ function goBackUnicode() {
 function generateRandomUnicode(
   count
 ) {
-
   saveUnicodeHistory();
-
 
   const values =
     [];
-
 
   for (
     let index = 0;
     index < count;
     index++
   ) {
-
     const codePoint =
       generateRandomCodePoint();
-
 
     values.push(
       "U+" +
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase()
     );
-
   }
 
-
   unicodeInput.value =
-    values.join(" ");
-
+    values.join(
+      " "
+    );
 
   convertUnicode();
 }
 
 
 /* =========================================
-   Build one glyph element
+   Create glyph element
 ========================================= */
 
 function createGlyphElement(
   codePoint,
   character
 ) {
-
   const wrapper =
     document.createElement(
       "span"
     );
-
 
   wrapper.className =
     "character-span " +
@@ -1567,25 +1325,20 @@ function createGlyphElement(
       codePoint
     );
 
-
   const inner =
     document.createElement(
       "span"
     );
 
-
   inner.className =
     "glyph-inner";
-
 
   inner.textContent =
     character;
 
-
   wrapper.appendChild(
     inner
   );
-
 
   return {
     wrapper,
@@ -1603,22 +1356,17 @@ let unicodeRun =
 
 
 async function convertUnicode() {
-
   const currentRun =
     ++unicodeRun;
-
 
   const raw =
     unicodeInput.value.trim();
 
-
   charOutput.className =
     "result character-result";
 
-
   charOutput.textContent =
     "";
-
 
   if (
     raw.length === 0
@@ -1626,74 +1374,59 @@ async function convertUnicode() {
     return;
   }
 
-
   const tokens =
     raw
-      .split(/[\s,]+/)
-      .filter(Boolean);
-
+      .split(
+        /[\s,]+/
+      )
+      .filter(
+        Boolean
+      );
 
   const promises =
     [];
 
-
   for (
     const token of tokens
   ) {
-
     const codePoint =
       parseUnicodeToken(
         token
       );
 
-
-    /*
-      Invalid Unicode
-    */
-
     if (
       codePoint === null
     ) {
-
       const error =
         document.createElement(
           "span"
         );
 
-
       error.className =
         "invalid-unicode";
-
 
       error.textContent =
         "無効: " +
         token;
 
-
       charOutput.appendChild(
         error
       );
 
-
       continue;
     }
-
 
     const character =
       String.fromCodePoint(
         codePoint
       );
 
-
     const hex =
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase();
-
-
-    /*
-      Intentionally invisible
-    */
 
     if (
       isInvisibleCharacter(
@@ -1701,7 +1434,6 @@ async function convertUnicode() {
         character
       )
     ) {
-
       charOutput.appendChild(
         makeStatusSpan(
           "不可視: U+" +
@@ -1709,10 +1441,8 @@ async function convertUnicode() {
         )
       );
 
-
       continue;
     }
-
 
     const {
       wrapper,
@@ -1723,43 +1453,33 @@ async function convertUnicode() {
         character
       );
 
-
     const fontNames =
       getWebFontNames(
         codePoint
       );
 
-
     if (
       fontNames.length > 0
     ) {
-
       wrapper.classList.add(
         "loading-character"
       );
-
     }
-
 
     charOutput.appendChild(
       wrapper
     );
 
-
     const render =
       async () => {
-
         if (
           fontNames.length > 0
         ) {
-
           await waitForCharacterFont(
             codePoint,
             character
           );
-
         }
-
 
         if (
           currentRun !==
@@ -1768,25 +1488,17 @@ async function convertUnicode() {
           return;
         }
 
-
         wrapper.classList.remove(
           "loading-character"
         );
-
 
         const style =
           getComputedStyle(
             inner
           );
 
-
         const fontFamily =
           style.fontFamily;
-
-
-        /*
-          Truly blank
-        */
 
         if (
           isRenderedBlank(
@@ -1794,7 +1506,6 @@ async function convertUnicode() {
             fontFamily
           )
         ) {
-
           wrapper.replaceWith(
             makeStatusSpan(
               "空白: U+" +
@@ -1802,14 +1513,8 @@ async function convertUnicode() {
             )
           );
 
-
           return;
         }
-
-
-        /*
-          Missing glyph / tofu / three lines
-        */
 
         if (
           looksLikeMissingGlyph(
@@ -1817,7 +1522,6 @@ async function convertUnicode() {
             fontFamily
           )
         ) {
-
           wrapper.replaceWith(
             makeStatusSpan(
               "未対応: U+" +
@@ -1825,15 +1529,8 @@ async function convertUnicode() {
             )
           );
 
-
           return;
         }
-
-
-        /*
-          Real glyph exists.
-          Apply automatic Egyptian scaling.
-        */
 
         applyGlyphScale(
           wrapper,
@@ -1843,12 +1540,10 @@ async function convertUnicode() {
         );
       };
 
-
     promises.push(
       render()
     );
   }
-
 
   await Promise.all(
     promises
@@ -1878,23 +1573,20 @@ document
   )
   .forEach(
     (button) => {
-
       button.addEventListener(
         "click",
         () => {
-
           const count =
             Number(
-              button.dataset.randomCount
+              button.dataset
+                .randomCount
             );
-
 
           generateRandomUnicode(
             count
           );
         }
       );
-
     }
   );
 
@@ -1908,14 +1600,11 @@ backUnicode.addEventListener(
 clearChar.addEventListener(
   "click",
   () => {
-
     charInput.value =
       "";
 
-
     unicodeOutput.textContent =
       "";
-
 
     charInput.focus();
   }
@@ -1925,17 +1614,13 @@ clearChar.addEventListener(
 clearUnicode.addEventListener(
   "click",
   () => {
-
     unicodeRun++;
-
 
     unicodeInput.value =
       "";
 
-
     charOutput.textContent =
       "";
-
 
     unicodeInput.focus();
   }
@@ -1947,7 +1632,6 @@ clearUnicode.addEventListener(
 ========================================= */
 
 function getJSTDateString() {
-
   const parts =
     new Intl.DateTimeFormat(
       "en-US",
@@ -1969,22 +1653,31 @@ function getJSTDateString() {
       new Date()
     );
 
-
   const part =
     (type) =>
 
       parts.find(
         (item) =>
-          item.type === type
+          item.type ===
+          type
       )?.value;
 
-
   return (
-    part("year") +
-    "-" +
-    part("month") +
-    "-" +
-    part("day")
+    part(
+      "year"
+    )
+    +
+    "-"
+    +
+    part(
+      "month"
+    )
+    +
+    "-"
+    +
+    part(
+      "day"
+    )
   );
 }
 
@@ -1994,70 +1687,62 @@ function getJSTDateString() {
 ========================================= */
 
 async function loadDailyCharacter() {
-
   dailyCharacter.className =
     "character loading-character";
-
 
   dailyCharacter.textContent =
     "?";
 
-
   dailyCode.textContent =
     "読み込み中…";
 
-
   dailyResearchLink
     .classList
-    .add("disabled");
-
+    .add(
+      "disabled"
+    );
 
   dailyResearchLink.href =
     "#";
 
-
   try {
-
     const response =
       await fetch(
         "./daily.json?t=" +
         Date.now(),
         {
-          cache: "no-store"
+          cache:
+            "no-store"
         }
       );
-
 
     if (
       !response.ok
     ) {
-
       throw new Error(
         "daily.json load failed"
       );
-
     }
-
 
     const data =
       await response.json();
 
-
     const today =
       getJSTDateString();
-
 
     const entry =
       [
         data.current,
         data.next
       ]
-      .filter(Boolean)
+      .filter(
+        Boolean
+      )
       .find(
         (item) =>
-          item.date === today
+          item.date ===
+          today
       );
-
 
     if (
       !entry
@@ -2071,20 +1756,16 @@ async function loadDailyCharacter() {
           entry.codePoint
         )
     ) {
-
       throw new Error(
         "today entry not found"
       );
-
     }
-
 
     const codePoint =
       parseInt(
         entry.codePoint,
         16
       );
-
 
     if (
       !Number.isInteger(
@@ -2100,30 +1781,26 @@ async function loadDailyCharacter() {
         codePoint <= 0xDFFF
       )
     ) {
-
       throw new Error(
         "invalid code point"
       );
-
     }
-
 
     const character =
       String.fromCodePoint(
         codePoint
       );
 
-
     const hex =
       codePoint
-        .toString(16)
+        .toString(
+          16
+        )
         .toUpperCase();
-
 
     dailyCode.textContent =
       "U+" +
       hex;
-
 
     const searchQuery =
       character +
@@ -2131,17 +1808,11 @@ async function loadDailyCharacter() {
       hex +
       " Unicode";
 
-
     dailyResearchLink.href =
       "https://www.google.com/search?q=" +
       encodeURIComponent(
         searchQuery
       );
-
-
-    /*
-      Invisible
-    */
 
     if (
       isInvisibleCharacter(
@@ -2149,27 +1820,20 @@ async function loadDailyCharacter() {
         character
       )
     ) {
-
       dailyCharacter.className =
         "character font-normal";
-
 
       dailyCharacter.textContent =
         "不可視";
 
-
       dailyResearchLink
         .classList
-        .remove("disabled");
-
+        .remove(
+          "disabled"
+        );
 
       return;
     }
-
-
-    /*
-      Set font class
-    */
 
     dailyCharacter.className =
       "character " +
@@ -2178,49 +1842,36 @@ async function loadDailyCharacter() {
       ) +
       " loading-character";
 
-
     dailyCharacter.textContent =
       "";
-
 
     const inner =
       document.createElement(
         "span"
       );
 
-
     inner.className =
       "daily-glyph-inner";
-
 
     inner.textContent =
       character;
 
-
     dailyCharacter.appendChild(
       inner
     );
-
 
     await waitForCharacterFont(
       codePoint,
       character
     );
 
-
     const style =
       getComputedStyle(
         inner
       );
 
-
     const fontFamily =
       style.fontFamily;
-
-
-    /*
-      Blank
-    */
 
     if (
       isRenderedBlank(
@@ -2228,27 +1879,20 @@ async function loadDailyCharacter() {
         fontFamily
       )
     ) {
-
       dailyCharacter.className =
         "character font-normal";
-
 
       dailyCharacter.textContent =
         "空白";
 
-
       dailyResearchLink
         .classList
-        .remove("disabled");
-
+        .remove(
+          "disabled"
+        );
 
       return;
     }
-
-
-    /*
-      Missing
-    */
 
     if (
       looksLikeMissingGlyph(
@@ -2256,27 +1900,20 @@ async function loadDailyCharacter() {
         fontFamily
       )
     ) {
-
       dailyCharacter.className =
         "character font-normal";
-
 
       dailyCharacter.textContent =
         "未対応";
 
-
       dailyResearchLink
         .classList
-        .remove("disabled");
-
+        .remove(
+          "disabled"
+        );
 
       return;
     }
-
-
-    /*
-      Real glyph
-    */
 
     dailyCharacter
       .classList
@@ -2284,39 +1921,32 @@ async function loadDailyCharacter() {
         "loading-character"
       );
 
-
     applyDailyGlyphScale(
       inner,
       codePoint,
       character
     );
 
-
     dailyResearchLink
       .classList
       .remove(
         "disabled"
       );
-
-
-  } catch (error) {
-
+  } catch (
+    error
+  ) {
     console.error(
       error
     );
 
-
     dailyCharacter.className =
       "character font-normal";
-
 
     dailyCharacter.textContent =
       "？";
 
-
     dailyCode.textContent =
       "更新待ち";
-
   }
 }
 
@@ -2327,34 +1957,25 @@ async function loadDailyCharacter() {
 
 updateBackButton();
 
-
 loadDailyCharacter();
-
 
 let lastJSTDate =
   getJSTDateString();
 
-
 setInterval(
   () => {
-
     const now =
       getJSTDateString();
-
 
     if (
       now !==
       lastJSTDate
     ) {
-
       lastJSTDate =
         now;
 
-
       loadDailyCharacter();
-
     }
-
   },
   60000
 );
