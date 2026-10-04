@@ -53,7 +53,7 @@
 
 
 /* =========================================
-   NEW: UniHieroglyphica
+   UniHieroglyphica
    Egyptian Hieroglyphs Extended-A
 ========================================= */
 
@@ -69,7 +69,7 @@
 
 
 /* =========================================
-   NEW: BabelStone Pseudographica
+   BabelStone Pseudographica
    Legacy Computing Supplement
 ========================================= */
 
@@ -85,7 +85,7 @@
 
 
 /* =========================================
-   NEW: Local Noto Sans Symbols 2
+   Local Noto Sans Symbols 2
 ========================================= */
 
 @font-face {
@@ -894,11 +894,6 @@ button:disabled {
   }
 }
 
-.back-button {
-  min-width: 80px;
-}
-
-}
 
 /* =========================================
    Unicode Scope
@@ -930,7 +925,9 @@ button:disabled {
 }
 
 
-/* 丸いスコープ */
+/* =========================================
+   Scope ring
+========================================= */
 
 #unicodeScopeRing {
   position: absolute;
@@ -943,17 +940,17 @@ button:disabled {
 
   height: 60px;
 
-  transform:
-    translate(
-      -50%,
-      -50%
-    );
-
   display: flex;
 
   align-items: center;
 
   justify-content: center;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
 
   border:
     2px solid
@@ -971,7 +968,7 @@ button:disabled {
       255,
       255,
       255,
-      0.82
+      0.84
     );
 
   box-shadow:
@@ -998,10 +995,16 @@ button:disabled {
 }
 
 
-/* スコープ内の文字 */
+/* =========================================
+   Scope glyph
+========================================= */
 
 #unicodeScopeGlyph {
   display: block;
+
+  max-width: 48px;
+
+  max-height: 48px;
 
   font-size: 32px;
 
@@ -1013,11 +1016,15 @@ button:disabled {
     scale(1.15);
 
   transform-origin:
-    center;
+    center center;
+
+  pointer-events: none;
 }
 
 
-/* Unicodeコード */
+/* =========================================
+   Unicode copy button
+========================================= */
 
 #unicodeScopeCode {
   position: absolute;
@@ -1087,6 +1094,10 @@ button:disabled {
 
   -webkit-tap-highlight-color:
     transparent;
+
+  transition:
+    transform 0.08s,
+    opacity 0.08s;
 }
 
 
@@ -1096,6 +1107,10 @@ button:disabled {
     scale(0.94);
 }
 
+
+/* =========================================
+   Scope animation
+========================================= */
 
 @keyframes unicodeScopeAppear {
 
@@ -1109,6 +1124,7 @@ button:disabled {
       )
       scale(0.72);
   }
+
 
   to {
     opacity: 1;
