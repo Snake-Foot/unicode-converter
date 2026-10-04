@@ -13,7 +13,9 @@
   <title>文字 ⇄ Unicode</title>
 
 
-  <!-- 特殊文字用Google Fonts -->
+  <!-- ==================================================
+       Google Fonts
+  ================================================== -->
 
   <link
     rel="preconnect"
@@ -32,12 +34,16 @@
   >
 
 
+
   <style>
 
 
     /* ==================================================
-       新しいTangut文字用
+       特殊フォント
     ================================================== */
+
+
+    /* 新しいTangut */
 
     @font-face {
 
@@ -53,9 +59,7 @@
 
 
 
-    /* ==================================================
-       激レア漢字用
-    ================================================== */
+    /* 激レア漢字 */
 
     @font-face {
 
@@ -72,7 +76,7 @@
 
 
     /* ==================================================
-       基本UI
+       基本
     ================================================== */
 
     * {
@@ -163,6 +167,18 @@
     }
 
 
+    textarea:focus,
+    input:focus {
+
+      border-color: #888;
+
+    }
+
+
+
+    /* ==================================================
+       出力欄
+    ================================================== */
 
     .output {
 
@@ -183,10 +199,6 @@
     }
 
 
-
-    /* ==================================================
-       普通の文章
-    ================================================== */
 
     .message {
 
@@ -211,17 +223,21 @@
 
       display: inline-block;
 
+      position: relative;
+
       font-size: 64px;
 
       line-height: 1.4;
 
       margin-right: 8px;
 
+      vertical-align: middle;
+
     }
 
 
 
-    /* 普通の文字 */
+    /* 普通 */
 
     .font-normal {
 
@@ -262,7 +278,7 @@
 
 
 
-    /* 通常Tangut */
+    /* Tangut */
 
     .font-tangut {
 
@@ -274,7 +290,7 @@
 
 
 
-    /* 新しいTangut */
+    /* 新Tangut */
 
     .font-tangut-extended {
 
@@ -303,6 +319,74 @@
 
 
     /* ==================================================
+       読み込み中ぐるぐる
+    ================================================== */
+
+    .loading-character {
+
+      color: transparent !important;
+
+      min-width: 70px;
+
+      min-height: 70px;
+
+    }
+
+
+    .loading-character::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 36px;
+
+      height: 36px;
+
+      top: 50%;
+
+      left: 50%;
+
+      margin-left: -18px;
+
+      margin-top: -18px;
+
+      border: 4px solid #ccc;
+
+      border-top-color: #444;
+
+      border-radius: 50%;
+
+      animation:
+        unicode-spin
+        0.75s
+        linear
+        infinite;
+
+    }
+
+
+    @keyframes unicode-spin {
+
+      from {
+
+        transform:
+          rotate(0deg);
+
+      }
+
+      to {
+
+        transform:
+          rotate(360deg);
+
+      }
+
+    }
+
+
+
+    /* ==================================================
        文字 → Unicode
     ================================================== */
 
@@ -313,6 +397,8 @@
       align-items: center;
 
       gap: 15px;
+
+      min-height: 60px;
 
       margin: 8px 0;
 
@@ -343,7 +429,7 @@
 
 
     /* ==================================================
-       注意表示
+       注意
     ================================================== */
 
     #extendedWarning {
@@ -363,7 +449,6 @@
       line-height: 1.5;
 
     }
-
 
 
     .hint {
@@ -416,9 +501,26 @@
 
       line-height: 1.25;
 
+      min-width: 150px;
+
       min-height: 150px;
 
       margin-right: 0;
+
+    }
+
+
+    #dailyCharacter.loading-character::after {
+
+      width: 54px;
+
+      height: 54px;
+
+      margin-left: -27px;
+
+      margin-top: -27px;
+
+      border-width: 5px;
 
     }
 
@@ -440,6 +542,58 @@
     }
 
 
+
+    /* ==================================================
+       この文字について調べる
+    ================================================== */
+
+    #dailyResearch {
+
+      margin-top: 16px;
+
+    }
+
+
+    #dailyResearchLink {
+
+      display: inline-block;
+
+      font-size: 16px;
+
+      color: #0066cc;
+
+      text-decoration: none;
+
+      padding: 8px 12px;
+
+      border-radius: 10px;
+
+      transition:
+        background 0.15s ease;
+
+    }
+
+
+    #dailyResearchLink:hover {
+
+      background:
+        rgba(0, 102, 204, 0.08);
+
+      text-decoration:
+        underline;
+
+    }
+
+
+    #dailyResearchLink.disabled {
+
+      opacity: 0.4;
+
+      pointer-events: none;
+
+    }
+
+
   </style>
 
 </head>
@@ -451,42 +605,72 @@
 
   <!-- ==================================================
        今日の一文字
-  =================================================== -->
+  ================================================== -->
 
   <section id="dailyCharacterBox">
 
+
     <div id="dailyTitle">
+
       今日の一文字
+
     </div>
+
 
     <div
       id="dailyCharacter"
-      class="character font-normal"
+      class="character loading-character"
     >
+
       ?
+
     </div>
 
+
     <div id="dailyCode">
-      U+?????
+
+      読み込み中…
+
     </div>
+
+
+    <div id="dailyResearch">
+
+      <a
+        id="dailyResearchLink"
+        class="disabled"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        この文字について調べる
+
+      </a>
+
+    </div>
+
 
   </section>
 
 
 
   <h1>
+
     文字 ⇄ Unicode
+
   </h1>
 
 
 
   <!-- ==================================================
        文字 → Unicode
-  =================================================== -->
-
+  ================================================== -->
 
   <h2>
+
     文字 → Unicode
+
   </h2>
 
 
@@ -500,18 +684,21 @@
     id="unicodeOutput"
     class="output message"
   >
+
     ここにUnicodeが表示されます
+
   </div>
 
 
 
   <!-- ==================================================
        Unicode → 文字
-  =================================================== -->
-
+  ================================================== -->
 
   <h2>
+
     Unicode → 文字
+
   </h2>
 
 
@@ -526,7 +713,9 @@
     id="charOutput"
     class="output message"
   >
+
     ここに文字が表示されます
+
   </div>
 
 
@@ -551,32 +740,66 @@
   <script>
 
 
+    /* ==================================================
+       要素
+    ================================================== */
+
     const charInput =
-      document.getElementById("charInput");
+      document.getElementById(
+        "charInput"
+      );
 
 
     const unicodeInput =
-      document.getElementById("unicodeInput");
+      document.getElementById(
+        "unicodeInput"
+      );
 
 
     const unicodeOutput =
-      document.getElementById("unicodeOutput");
+      document.getElementById(
+        "unicodeOutput"
+      );
 
 
     const charOutput =
-      document.getElementById("charOutput");
+      document.getElementById(
+        "charOutput"
+      );
 
 
     const extendedWarning =
-      document.getElementById("extendedWarning");
+      document.getElementById(
+        "extendedWarning"
+      );
+
+
+    const dailyCharacter =
+      document.getElementById(
+        "dailyCharacter"
+      );
+
+
+    const dailyCode =
+      document.getElementById(
+        "dailyCode"
+      );
+
+
+    const dailyResearchLink =
+      document.getElementById(
+        "dailyResearchLink"
+      );
 
 
 
     /* ==================================================
-       Unicode番号から使用フォントを決める
+       フォント判定
     ================================================== */
 
-    function getFontClass(codePoint) {
+    function getFontClass(
+      codePoint
+    ) {
 
 
       /* Kawi */
@@ -605,7 +828,7 @@
 
 
 
-      /* 新しいTangut */
+      /* Unicode 17 Tangut */
 
       if (
         codePoint >= 0x187F8 &&
@@ -618,8 +841,6 @@
 
 
 
-      /* Tangut Supplement */
-
       if (
         codePoint >= 0x18D09 &&
         codePoint <= 0x18D1E
@@ -630,8 +851,6 @@
       }
 
 
-
-      /* Tangut Components Supplement */
 
       if (
         codePoint >= 0x18D80 &&
@@ -675,7 +894,7 @@
 
 
 
-      /* CJK拡張領域 */
+      /* CJK拡張 */
 
       if (
         codePoint >= 0x20000 &&
@@ -695,34 +914,146 @@
 
 
     /* ==================================================
-       文字span作成
+       使用Webフォント
     ================================================== */
 
-    function createCharacterSpan(
-      character,
+    function getWebFontName(
       codePoint
     ) {
 
 
-      const span =
-        document.createElement("span");
+      const fontClass =
+        getFontClass(
+          codePoint
+        );
 
 
-      span.classList.add(
-        "character"
-      );
+      if (
+        fontClass ===
+        "font-kawi"
+      ) {
+
+        return "Noto Sans Kawi";
+
+      }
 
 
-      span.classList.add(
-        getFontClass(codePoint)
-      );
+      if (
+        fontClass ===
+        "font-toto"
+      ) {
+
+        return "Noto Serif Toto";
+
+      }
 
 
-      span.textContent =
-        character;
+      if (
+        fontClass ===
+        "font-tangut"
+      ) {
+
+        return "Noto Serif Tangut";
+
+      }
 
 
-      return span;
+      if (
+        fontClass ===
+        "font-tangut-extended"
+      ) {
+
+        return "Tangut Extended";
+
+      }
+
+
+      if (
+        fontClass ===
+        "font-han"
+      ) {
+
+        return "BabelStone Han";
+
+      }
+
+
+      return null;
+
+    }
+
+
+
+    /* ==================================================
+       フォント読み込み
+    ================================================== */
+
+    async function waitForCharacterFont(
+      codePoint,
+      character
+    ) {
+
+
+      const fontName =
+        getWebFontName(
+          codePoint
+        );
+
+
+      if (
+        fontName === null
+      ) {
+
+        return;
+
+      }
+
+
+
+      const fontPromise =
+        document.fonts.load(
+          `64px "${fontName}"`,
+          character
+        );
+
+
+      /*
+        最大3秒待つ
+      */
+
+      const timeoutPromise =
+        new Promise(
+          function (resolve) {
+
+            setTimeout(
+              resolve,
+              3000
+            );
+
+          }
+        );
+
+
+      try {
+
+        await Promise.race(
+          [
+            fontPromise,
+            timeoutPromise
+          ]
+        );
+
+      }
+
+      catch (error) {
+
+        console.log(
+          "Font load error:",
+          fontName
+        );
+
+      }
+
 
     }
 
@@ -734,7 +1065,7 @@
 
     charInput.addEventListener(
       "input",
-      function () {
+      async function () {
 
 
         const text =
@@ -763,71 +1094,111 @@
         }
 
 
+
         unicodeOutput.className =
           "output";
 
 
-        Array
-          .from(text)
 
-          .forEach(
-            function (character) {
-
-
-              const codePoint =
-                character.codePointAt(0);
+        for (
+          const character
+          of Array.from(text)
+        ) {
 
 
-              const hex =
-                codePoint
-                  .toString(16)
-                  .toUpperCase();
+          const codePoint =
+            character.codePointAt(0);
 
 
-              const row =
-                document.createElement("div");
+          const hex =
+            codePoint
+              .toString(16)
+              .toUpperCase();
 
 
-              row.className =
-                "unicode-row";
+
+          const row =
+            document.createElement(
+              "div"
+            );
 
 
-              const characterSpan =
-                createCharacterSpan(
-                  character,
-                  codePoint
-                );
+          row.className =
+            "unicode-row";
 
 
-              const codeSpan =
-                document.createElement("span");
+
+          const characterSpan =
+            document.createElement(
+              "span"
+            );
 
 
-              codeSpan.className =
-                "code";
-
-
-              codeSpan.textContent =
-                "U+" + hex;
-
-
-              row.appendChild(
-                characterSpan
-              );
-
-
-              row.appendChild(
-                codeSpan
-              );
-
-
-              unicodeOutput.appendChild(
-                row
-              );
-
-
-            }
+          characterSpan.classList.add(
+            "character"
           );
+
+
+          characterSpan.classList.add(
+            getFontClass(
+              codePoint
+            )
+          );
+
+
+          characterSpan.classList.add(
+            "loading-character"
+          );
+
+
+          characterSpan.textContent =
+            character;
+
+
+
+          const codeSpan =
+            document.createElement(
+              "span"
+            );
+
+
+          codeSpan.className =
+            "code";
+
+
+          codeSpan.textContent =
+            "U+" + hex;
+
+
+
+          row.appendChild(
+            characterSpan
+          );
+
+
+          row.appendChild(
+            codeSpan
+          );
+
+
+          unicodeOutput.appendChild(
+            row
+          );
+
+
+
+          await waitForCharacterFont(
+            codePoint,
+            character
+          );
+
+
+          characterSpan.classList.remove(
+            "loading-character"
+          );
+
+
+        }
 
 
       }
@@ -876,6 +1247,7 @@
         }
 
 
+
         try {
 
 
@@ -907,6 +1279,7 @@
 
                 }
               );
+
 
 
           charOutput.className =
@@ -946,11 +1319,15 @@
 
               codePoint < 0 ||
 
-              codePoint > 0x10FFFF ||
+              codePoint >
+                0x10FFFF ||
 
               (
-                codePoint >= 0xD800 &&
-                codePoint <= 0xDFFF
+                codePoint >=
+                  0xD800 &&
+
+                codePoint <=
+                  0xDFFF
               )
 
             ) {
@@ -969,10 +1346,30 @@
 
 
             const span =
-              createCharacterSpan(
-                character,
-                codePoint
+              document.createElement(
+                "span"
               );
+
+
+            span.classList.add(
+              "character"
+            );
+
+
+            span.classList.add(
+              getFontClass(
+                codePoint
+              )
+            );
+
+
+            span.classList.add(
+              "loading-character"
+            );
+
+
+            span.textContent =
+              character;
 
 
             charOutput.appendChild(
@@ -981,31 +1378,54 @@
 
 
 
+            await waitForCharacterFont(
+              codePoint,
+              character
+            );
+
+
+            span.classList.remove(
+              "loading-character"
+            );
+
+
+
             if (
 
               (
-                codePoint >= 0x187F8 &&
-                codePoint <= 0x187FF
+                codePoint >=
+                  0x187F8 &&
+
+                codePoint <=
+                  0x187FF
               )
 
               ||
 
               (
-                codePoint >= 0x18D09 &&
-                codePoint <= 0x18D1E
+                codePoint >=
+                  0x18D09 &&
+
+                codePoint <=
+                  0x18D1E
               )
 
               ||
 
               (
-                codePoint >= 0x18D80 &&
-                codePoint <= 0x18DFF
+                codePoint >=
+                  0x18D80 &&
+
+                codePoint <=
+                  0x18DFF
               )
 
             ) {
 
+
               usesExtendedTangut =
                 true;
+
 
             }
 
@@ -1019,30 +1439,15 @@
           ) {
 
 
-            try {
-
-
-              await document.fonts.load(
-                '64px "Tangut Extended"'
-              );
-
-
-            }
-
-            catch (error) {
-
-
-              extendedWarning.style.display =
-                "block";
-
-
-            }
+            extendedWarning.style.display =
+              "block";
 
 
           }
 
 
         }
+
 
 
         catch (error) {
@@ -1065,25 +1470,8 @@
 
 
     /* ==================================================
-       今日の一文字
-       Unicode全域から抽選
+       今日の日付
     ================================================== */
-
-
-    const dailyCharacter =
-      document.getElementById(
-        "dailyCharacter"
-      );
-
-
-    const dailyCode =
-      document.getElementById(
-        "dailyCode"
-      );
-
-
-
-    /* 今日の日付 */
 
     function getTodayString() {
 
@@ -1126,9 +1514,13 @@
 
 
 
-    /* 日付 → 数値 */
+    /* ==================================================
+       日付 → 数値
+    ================================================== */
 
-    function hashDate(text) {
+    function hashDate(
+      text
+    ) {
 
 
       let hash =
@@ -1162,9 +1554,13 @@
 
 
 
-    /* 疑似乱数生成器 */
+    /* ==================================================
+       疑似乱数
+    ================================================== */
 
-    function createRandom(seed) {
+    function createRandom(
+      seed
+    ) {
 
 
       return function () {
@@ -1208,7 +1604,7 @@
 
 
     /* ==================================================
-       今日の一文字として使えるか
+       今日の一文字として使用可能か
     ================================================== */
 
     function isUsableCharacter(
@@ -1216,7 +1612,9 @@
     ) {
 
 
-      /* サロゲート */
+      /*
+        サロゲート
+      */
 
       if (
         codePoint >= 0xD800 &&
@@ -1236,7 +1634,9 @@
 
 
 
-      /* 未割り当て */
+      /*
+        未割り当て
+      */
 
       if (
         !/\p{Assigned}/u.test(
@@ -1250,7 +1650,9 @@
 
 
 
-      /* 制御文字 */
+      /*
+        制御文字
+      */
 
       if (
         /\p{Cc}/u.test(
@@ -1264,7 +1666,9 @@
 
 
 
-      /* 書式制御 */
+      /*
+        書式制御
+      */
 
       if (
         /\p{Cf}/u.test(
@@ -1278,7 +1682,9 @@
 
 
 
-      /* 私用領域 */
+      /*
+        私用領域
+      */
 
       if (
         /\p{Co}/u.test(
@@ -1292,7 +1698,9 @@
 
 
 
-      /* 結合文字 */
+      /*
+        結合文字
+      */
 
       if (
         /\p{M}/u.test(
@@ -1307,8 +1715,7 @@
 
 
       /*
-        空白・改行などの
-        Separatorも除外
+        空白系
       */
 
       if (
@@ -1330,7 +1737,7 @@
 
 
     /* ==================================================
-       Unicode全域からランダム選択
+       Unicode全域からランダム抽選
     ================================================== */
 
     function getRandomUnicodeCharacter(
@@ -1338,7 +1745,9 @@
     ) {
 
 
-      while (true) {
+      while (
+        true
+      ) {
 
 
         const codePoint =
@@ -1346,6 +1755,7 @@
             random() *
             0x110000
           );
+
 
 
         if (
@@ -1369,11 +1779,41 @@
 
 
     /* ==================================================
-       今日の一文字を表示
+       今日の一文字
     ================================================== */
 
-    function updateDailyCharacter() {
+    async function updateDailyCharacter() {
 
+
+      /*
+        読み込み開始
+      */
+
+      dailyCharacter.className =
+        "character loading-character";
+
+
+      dailyCharacter.textContent =
+        "?";
+
+
+      dailyCode.textContent =
+        "読み込み中…";
+
+
+      dailyResearchLink.classList.add(
+        "disabled"
+      );
+
+
+      dailyResearchLink.href =
+        "#";
+
+
+
+      /*
+        日付から今日の文字を決める
+      */
 
       const today =
         getTodayString();
@@ -1403,21 +1843,23 @@
         );
 
 
+      const hex =
+        codePoint
+          .toString(16)
+          .toUpperCase();
+
+
 
       /*
-        修正版。
-
-        characterクラスと
-        専用フォントクラスの
-        両方を付ける。
+        フォント設定
       */
 
       dailyCharacter.className =
         "character " +
         getFontClass(
           codePoint
-        );
-
+        ) +
+        " loading-character";
 
 
       dailyCharacter.textContent =
@@ -1426,24 +1868,73 @@
 
 
       dailyCode.textContent =
-        "U+" +
-        codePoint
-          .toString(16)
-          .toUpperCase();
+        "U+" + hex;
+
+
+
+      /*
+        検索リンク作成
+
+        実際のURLは長いが、
+        表示は
+        「この文字について調べる」
+        のまま。
+      */
+
+      const searchQuery =
+        character +
+        " U+" +
+        hex +
+        " Unicode";
+
+
+      dailyResearchLink.href =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(
+          searchQuery
+        );
+
+
+
+      /*
+        フォント読み込み
+      */
+
+      await waitForCharacterFont(
+        codePoint,
+        character
+      );
+
+
+
+      /*
+        完了
+      */
+
+      dailyCharacter.classList.remove(
+        "loading-character"
+      );
+
+
+      dailyResearchLink.classList.remove(
+        "disabled"
+      );
 
 
     }
 
 
 
-    /* 最初に表示 */
+    /* ==================================================
+       初回
+    ================================================== */
 
     updateDailyCharacter();
 
 
 
     /* ==================================================
-       日付が変わったら自動更新
+       日付変更監視
     ================================================== */
 
     let lastDailyDate =
@@ -1456,6 +1947,7 @@
 
         const today =
           getTodayString();
+
 
 
         if (
