@@ -936,15 +936,43 @@ button:disabled {
   }
 
 
-  .random-button {
-    flex: 1;
+.random-buttons {
+  display: grid;
 
-    min-width: 95px;
-  }
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 7px;
+}
+
+
+.random-button {
+  flex: none;
+
+  min-width: 0;
+
+  width: 100%;
+
+  padding:
+    9px 4px;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
 
 
   .back-button {
     min-width: 80px;
+  }
+
+  .hint {
+    font-size: 12px;
+
+    line-height: 1.55;
   }
 }
 
