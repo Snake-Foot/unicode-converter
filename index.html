@@ -210,45 +210,47 @@
     </section>
 
 
-    <!-- ================================= -->
-    <!-- 文字 → Unicode -->
-    <!-- ================================= -->
+<!-- ================================= -->
+<!-- 文字 → Unicode -->
+<!-- ================================= -->
 
-    <section
-      class="box"
-    >
-
-      <h2>
-        文字 → Unicode
-      </h2>
-
-
-      <textarea
-        id="charInput"
-        placeholder="文字を入力"
-      ></textarea>
-
-
-      <div
-  id="unicodeOutput"
-  class="
-    result
-    unicode-result
-  "
-></div>
-
-
-<div
-  class="view-buttons"
+<section
+  class="box"
 >
 
-  <button
-    id="toggleCharView"
-    type="button"
-    class="expand-button"
+  <h2>
+    文字 → Unicode
+  </h2>
+
+
+  <textarea
+    id="charInput"
+    placeholder="文字を入力"
+  ></textarea>
+
+
+  <div
+    class="input-view-control"
   >
-    全表示
-  </button>
+
+    <button
+      id="toggleCharView"
+      type="button"
+      class="expand-button"
+    >
+      全表示
+    </button>
+
+  </div>
+
+
+  <div
+    id="unicodeOutput"
+    class="
+      result
+      unicode-result
+    "
+  ></div>
 
 
   <button
@@ -258,111 +260,116 @@
     クリア
   </button>
 
-</div>
-    </section>
+</section>
 
 
     <!-- ================================= -->
-    <!-- Unicode → 文字 -->
-    <!-- ================================= -->
+<!-- Unicode → 文字 -->
+<!-- ================================= -->
 
-    <section
-      class="box"
+<section
+  class="box"
+>
+
+  <h2>
+    Unicode → 文字
+  </h2>
+
+
+  <textarea
+    id="unicodeInput"
+    placeholder="例: U+1E290 または 1E290"
+    rows="1"
+  ></textarea>
+
+
+  <div
+    class="input-view-control"
+  >
+
+    <button
+      id="toggleUnicodeView"
+      type="button"
+      class="expand-button"
     >
+      全表示
+    </button>
 
-      <h2>
-        Unicode → 文字
-      </h2>
-
-
-      <textarea
-  id="unicodeInput"
-  placeholder="例: U+1E290 または 1E290"
-  rows="1"
-></textarea>
+  </div>
 
 
-      <div
-        class="hint"
-      >
-        U+1E290 / 1E290 / 0x1E290 に対応。
-        複数入力は空白・改行・カンマで区切れます。
-      </div>
+  <div
+    class="hint"
+  >
+    U+1E290 / 1E290 / 0x1E290 に対応。
+    複数入力は空白・改行・カンマで区切れます。
+  </div>
 
 
-      <!-- ランダム操作 -->
+  <!-- ランダム操作 -->
 
-      <div
-        class="random-buttons"
-      >
+  <div
+    class="random-buttons"
+  >
 
-        <button
-  id="backUnicode"
-  type="button"
-  class="back-button"
-  disabled
->
-  ← 戻る
-</button>
-
-
-<button
-  id="toggleUnicodeView"
-  type="button"
-  class="expand-button"
->
-  全表示
-</button>
+    <button
+      id="backUnicode"
+      type="button"
+      class="back-button"
+      disabled
+    >
+      ← 戻る
+    </button>
 
 
-<button
-  type="button"
-  class="random-button"
-  data-random-count="5"
->
-  ランダム5個
-</button>
+    <button
+      type="button"
+      class="random-button"
+      data-random-count="5"
+    >
+      ランダム5個
+    </button>
 
 
-        <button
-          type="button"
-          class="random-button"
-          data-random-count="10"
-        >
-          ランダム10個
-        </button>
+    <button
+      type="button"
+      class="random-button"
+      data-random-count="10"
+    >
+      ランダム10個
+    </button>
 
 
-        <button
-          type="button"
-          class="random-button"
-          data-random-count="100"
-        >
-          ランダム100個
-        </button>
+    <button
+      type="button"
+      class="random-button"
+      data-random-count="100"
+    >
+      ランダム100個
+    </button>
 
-      </div>
-
-
-      <!-- 変換結果 -->
-
-      <div
-        id="charOutput"
-        class="
-          result
-          character-result
-        "
-      ></div>
+  </div>
 
 
-      <button
-        id="clearUnicode"
-        type="button"
-      >
-        クリア
-      </button>
+  <!-- 変換結果 -->
 
-    </section>
+  <div
+    id="charOutput"
+    class="
+      result
+      character-result
+    "
+  ></div>
+
+
+  <button
+    id="clearUnicode"
+    type="button"
+  >
+    クリア
+  </button>
+
+</section>
 
 
     <!-- ================================= -->
