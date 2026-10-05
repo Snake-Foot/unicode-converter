@@ -1347,24 +1347,36 @@ button:disabled {
 }
 
 /* =========================================
-   History controls
+   Unicode controls
 ========================================= */
 
+.unicode-controls {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+
+.unicode-controls .random-buttons {
+  margin-top: 0;
+}
+
+
 .history-controls {
-  margin-top: 12px;
+  display: flex;
+
+  justify-content: flex-end;
+
+  flex-shrink: 0;
 }
 
 
 .history-controls .back-button {
   margin-top: 0;
-}
-
-
-/*
-  戻るボタンとランダムボタンの
-  グループを少し離す。
-*/
-
-.history-controls + .random-buttons {
-  margin-top: 8px;
 }
