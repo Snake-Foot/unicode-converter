@@ -3,7 +3,7 @@ name: Daily Unicode Character
 on:
   workflow_dispatch:
   schedule:
-    - cron: "45 23 * * *"
+    - cron: "40 18 * * *"
       timezone: "Asia/Tokyo"
 
 permissions:
