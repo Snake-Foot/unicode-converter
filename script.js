@@ -2657,8 +2657,8 @@ let scopePointerStart =
 
 
 /*
-  これ以上押し続けた場合は
-  Unicodeスコープではなく
+  この時間以上押した場合は
+  Unicode Scopeではなく
   ブラウザ標準の長押しとして扱う
 */
 
@@ -2699,6 +2699,15 @@ function hideUnicodeScope() {
 
   currentScopeCharacter =
     "";
+
+
+  if (
+    unicodeScopeGlyph
+  ) {
+
+    unicodeScopeGlyph.style.transform =
+      "none";
+  }
 }
 
 
@@ -2894,13 +2903,20 @@ function getCharacterFromPoint(
     Node.ELEMENT_NODE
   ) {
 
-    const child =
-      textNode.childNodes[
+    const childIndex =
+      Math.max(
+        0,
         Math.min(
           offset,
           textNode.childNodes.length -
           1
         )
+      );
+
+
+    const child =
+      textNode.childNodes[
+        childIndex
       ];
 
 
@@ -2972,10 +2988,19 @@ function getCharacterFromPoint(
     Infinity;
 
 
+  /*
+    TextNode内の各文字を
+    実際の位置で比較する
+  */
+
   for (
     const piece
     of pieces
   ) {
+
+    /*
+      空白は対象外
+    */
 
     if (
       /^\s+$/u.test(
@@ -3000,6 +3025,11 @@ function getCharacterFromPoint(
     }
 
 
+    /*
+      タップしやすいよう
+      判定領域を少し広げる
+    */
+
     const padding =
       7;
 
@@ -3020,6 +3050,13 @@ function getCharacterFromPoint(
       y <=
         rect.bottom +
         padding;
+
+
+    if (
+      !inside
+    ) {
+      continue;
+    }
 
 
     const centerX =
@@ -3044,8 +3081,6 @@ function getCharacterFromPoint(
 
 
     if (
-      inside
-      &&
       distance <
       bestDistance
     ) {
@@ -3067,6 +3102,198 @@ function getCharacterFromPoint(
 
 
   return best;
+}
+
+
+/* =========================================
+   Scope glyph auto fit
+========================================= */
+
+function fitUnicodeScopeGlyph(
+  character
+) {
+
+  if (
+    !unicodeScopeGlyph
+    ||
+    !unicodeScope
+    ||
+    !unicodeScope.classList.contains(
+      "visible"
+    )
+  ) {
+    return;
+  }
+
+
+  /*
+    前の文字のscaleを解除
+  */
+
+  unicodeScopeGlyph.style.transform =
+    "none";
+
+
+  const style =
+    getComputedStyle(
+      unicodeScopeGlyph
+    );
+
+
+  const fontFamily =
+    style.fontFamily;
+
+
+  const fontSize =
+    parseFloat(
+      style.fontSize
+    )
+    ||
+    32;
+
+
+  /*
+    既存のCanvas解析を使って、
+    フォントの「実際の黒い字面」を測る。
+
+    DOMの幅だけを見るより、
+    古代文字などの異常な
+    オーバーハングに強い。
+  */
+
+  const analysis =
+    analyseGlyphPixels(
+      character,
+      fontFamily,
+      120
+    );
+
+
+  /*
+    円の中に安全に収まる
+    最大の字面サイズ。
+
+    64pxの円なので、
+    四隅で切れないよう42px程度。
+  */
+
+  const maxInkWidth =
+    42;
+
+
+  const maxInkHeight =
+    42;
+
+
+  let scale =
+    1;
+
+
+  if (
+    analysis.inkPixels >
+    0
+  ) {
+
+    const expectedWidth =
+      analysis.width
+      *
+      (
+        fontSize /
+        120
+      );
+
+
+    const expectedHeight =
+      analysis.height
+      *
+      (
+        fontSize /
+        120
+      );
+
+
+    const scaleX =
+      maxInkWidth /
+      Math.max(
+        expectedWidth,
+        1
+      );
+
+
+    const scaleY =
+      maxInkHeight /
+      Math.max(
+        expectedHeight,
+        1
+      );
+
+
+    /*
+      普通の小さい文字は
+      最大1.15倍まで拡大。
+
+      大きすぎる文字は
+      必要なだけ自動縮小。
+    */
+
+    scale =
+      Math.min(
+        1.15,
+        scaleX,
+        scaleY
+      );
+
+  } else {
+
+    /*
+      Canvasで測れなかった場合の
+      DOM fallback
+    */
+
+    const rect =
+      unicodeScopeGlyph
+        .getBoundingClientRect();
+
+
+    const scaleX =
+      maxInkWidth /
+      Math.max(
+        rect.width,
+        1
+      );
+
+
+    const scaleY =
+      maxInkHeight /
+      Math.max(
+        rect.height,
+        1
+      );
+
+
+    scale =
+      Math.min(
+        1.15,
+        scaleX,
+        scaleY
+      );
+  }
+
+
+  /*
+    異常なフォントでも
+    完全に消えないよう下限を設定
+  */
+
+  scale =
+    Math.max(
+      0.08,
+      scale
+    );
+
+
+  unicodeScopeGlyph.style.transform =
+    `scale(${scale})`;
 }
 
 
@@ -3122,6 +3349,14 @@ function showUnicodeScope(
     code;
 
 
+  /*
+    前文字の変形を解除
+  */
+
+  unicodeScopeGlyph.style.transform =
+    "none";
+
+
   unicodeScopeGlyph.textContent =
     character;
 
@@ -3135,6 +3370,11 @@ function showUnicodeScope(
     `${code} をコピー`
   );
 
+
+  /*
+    元の文字のフォントを
+    Scopeにも引き継ぐ
+  */
 
   const parentElement =
     result.textNode
@@ -3180,20 +3420,29 @@ function showUnicodeScope(
     2;
 
 
+  /*
+    左右端からScopeが
+    はみ出さないようにする
+  */
+
   centerX =
     Math.max(
-      42,
+      38,
       Math.min(
         window.innerWidth -
-        42,
+        38,
         centerX
       )
     );
 
 
+  /*
+    上端
+  */
+
   centerY =
     Math.max(
-      42,
+      38,
       centerY
     );
 
@@ -3208,18 +3457,28 @@ function showUnicodeScope(
     "px";
 
 
-  let codeTop =
-    40;
+  /*
+    基本はコードを
+    Scopeの下に表示
+  */
 
+  let codeTop =
+    46;
+
+
+  /*
+    画面下に近い場合だけ
+    コードを上へ
+  */
 
   if (
     centerY +
-    95 >
+    100 >
     window.innerHeight
   ) {
 
     codeTop =
-      -52;
+      -56;
   }
 
 
@@ -3229,6 +3488,11 @@ function showUnicodeScope(
     "px"
   );
 
+
+  /*
+    先に表示状態にしないと
+    正確な測定ができない
+  */
 
   unicodeScope
     .classList
@@ -3242,6 +3506,64 @@ function showUnicodeScope(
       "aria-hidden",
       "false"
     );
+
+
+  /*
+    次フレームで実際の字面を測る
+  */
+
+  requestAnimationFrame(
+    () => {
+
+      if (
+        currentScopeCharacter ===
+        character
+      ) {
+
+        fitUnicodeScopeGlyph(
+          character
+        );
+      }
+
+    }
+  );
+
+
+  /*
+    Web Fontが後から
+    切り替わった場合にも再測定
+  */
+
+  if (
+    document.fonts
+    &&
+    document.fonts.ready
+  ) {
+
+    document.fonts.ready
+      .then(
+        () => {
+
+          if (
+            currentScopeCharacter ===
+              character
+            &&
+            unicodeScope.classList.contains(
+              "visible"
+            )
+          ) {
+
+            fitUnicodeScopeGlyph(
+              character
+            );
+          }
+
+        }
+      )
+      .catch(
+        () => {}
+      );
+  }
 }
 
 
@@ -3262,6 +3584,10 @@ async function copyScopeCode() {
     currentScopeCode;
 
 
+  let copied =
+    false;
+
+
   try {
 
     if (
@@ -3273,6 +3599,10 @@ async function copyScopeCode() {
       await navigator.clipboard.writeText(
         code
       );
+
+
+      copied =
+        true;
 
     } else {
 
@@ -3313,6 +3643,10 @@ async function copyScopeCode() {
       "-9999px";
 
 
+    textarea.style.opacity =
+      "0";
+
+
     document.body.appendChild(
       textarea
     );
@@ -3323,9 +3657,10 @@ async function copyScopeCode() {
 
     try {
 
-      document.execCommand(
-        "copy"
-      );
+      copied =
+        document.execCommand(
+          "copy"
+        );
 
     } catch (
       copyError
@@ -3342,8 +3677,18 @@ async function copyScopeCode() {
   }
 
 
-  unicodeScopeCode.textContent =
-    "コピーしました ✓";
+  if (
+    copied
+  ) {
+
+    unicodeScopeCode.textContent =
+      "コピーしました ✓";
+
+  } else {
+
+    unicodeScopeCode.textContent =
+      "コピー失敗";
+  }
 
 
   setTimeout(
@@ -3392,7 +3737,7 @@ document.addEventListener(
   (event) => {
 
     /*
-      Unicodeスコープ自身の操作は除外
+      Scope自身の操作は除外
     */
 
     if (
@@ -3405,8 +3750,10 @@ document.addEventListener(
 
 
     /*
-      既に出ているスコープだけ閉じる。
-      ネイティブの文字選択には触らない。
+      前のScopeだけ閉じる。
+
+      ここでは文字選択を
+      絶対に解除しない。
     */
 
     hideUnicodeScope();
@@ -3435,7 +3782,7 @@ document.addEventListener(
   (event) => {
 
     /*
-      Unicodeスコープ自身なら除外
+      Scope自身の操作は除外
     */
 
     if (
@@ -3478,11 +3825,14 @@ document.addEventListener(
 
 
     /*
-      長押しの場合
+      長押し
 
-      Unicodeスコープは出さず、
-      Safari / ブラウザ標準の
-      文字選択・コピー・調べる等に任せる。
+      iOS / Safari標準の
+      選択・コピー・調べる等を
+      そのまま使わせる。
+
+      clearNativeSelection()は
+      呼ばない。
     */
 
     if (
@@ -3495,8 +3845,7 @@ document.addEventListener(
 
 
     /*
-      スクロール・スワイプなら
-      Unicodeスコープを出さない
+      スクロールやスワイプ
     */
 
     if (
@@ -3537,8 +3886,8 @@ document.addEventListener(
 
 
     /*
-      短いタップのときだけ
-      偶発的な文字選択を解除する。
+      短いタップの場合だけ
+      偶発的なブラウザ選択を解除
     */
 
     clearNativeSelection();
@@ -3555,10 +3904,9 @@ document.addEventListener(
 );
 
 
-/*
-  スクロールなどで
-  pointer操作がキャンセルされた場合
-*/
+/* =========================================
+   Pointer cancel
+========================================= */
 
 document.addEventListener(
   "pointercancel",
