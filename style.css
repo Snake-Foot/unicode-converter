@@ -1195,3 +1195,170 @@ button:disabled {
       scale(1);
   }
 }
+
+/* =========================================
+   Expand / Full view controls
+========================================= */
+
+
+/*
+  文字 → Unicode の
+
+  [全表示] [クリア]
+
+  を横並びにする。
+*/
+
+.view-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+
+.view-buttons button {
+  margin-top: 0;
+}
+
+
+/*
+  全表示ボタン
+
+  Random controlsと同じくらいの
+  サイズに合わせる。
+*/
+
+.expand-button {
+  margin-top: 0;
+
+  padding:
+    8px 12px;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   Expandable textareas
+========================================= */
+
+
+/*
+  全表示 / 元に戻すの切り替えを
+  少し滑らかにする。
+*/
+
+#charInput,
+#unicodeInput {
+  transition:
+    height 0.18s ease;
+}
+
+
+/* =========================================
+   文字 → Unicode
+========================================= */
+
+
+/*
+  通常時は既存のtextarea設定をそのまま使用。
+
+  現在のCSSにある
+  min-height: 100px;
+  resize: vertical;
+  もそのまま生かす。
+*/
+
+#charInput {
+  overflow-y: auto;
+}
+
+
+/*
+  全表示中。
+
+  実際の高さはJS側で
+  scrollHeightを取得して決める。
+
+  そのため文字数に応じて
+  本当に全部表示できる。
+*/
+
+#charInput.input-expanded {
+  overflow-y: hidden;
+}
+
+
+/* =========================================
+   Unicode → 文字
+========================================= */
+
+
+/*
+  textareaに変更するが、
+  通常時は今までのinputと同じように
+  1行のバーとして表示する。
+
+  既存CSSではtextareaすべてに
+  min-height: 100px が付いているため、
+  ここでunicodeInputだけ上書きする。
+*/
+
+#unicodeInput {
+  display: block;
+
+  height: 52px;
+
+  min-height: 52px;
+
+  resize: none;
+
+  white-space: nowrap;
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+}
+
+
+/*
+  全表示中は折り返しを有効にする。
+
+  実際の縦幅はJS側で
+  内容量に合わせて自動計算する。
+*/
+
+#unicodeInput.input-expanded {
+  white-space: pre-wrap;
+
+  overflow-x: hidden;
+
+  overflow-y: hidden;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   Expand controls - Mobile
+========================================= */
+
+@media (
+  max-width:
+  520px
+) {
+
+  .expand-button {
+    min-width: 80px;
+  }
+
+
+  .view-buttons {
+    gap: 8px;
+  }
+
+}
