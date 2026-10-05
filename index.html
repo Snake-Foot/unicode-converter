@@ -230,21 +230,35 @@
 
 
       <div
-        id="unicodeOutput"
-        class="
-          result
-          unicode-result
-        "
-      ></div>
+  id="unicodeOutput"
+  class="
+    result
+    unicode-result
+  "
+></div>
 
 
-      <button
-        id="clearChar"
-        type="button"
-      >
-        クリア
-      </button>
+<div
+  class="view-buttons"
+>
 
+  <button
+    id="toggleCharView"
+    type="button"
+    class="expand-button"
+  >
+    全表示
+  </button>
+
+
+  <button
+    id="clearChar"
+    type="button"
+  >
+    クリア
+  </button>
+
+</div>
     </section>
 
 
@@ -261,11 +275,11 @@
       </h2>
 
 
-      <input
-        id="unicodeInput"
-        type="text"
-        placeholder="例: U+1E290 または 1E290"
-      >
+      <textarea
+  id="unicodeInput"
+  placeholder="例: U+1E290 または 1E290"
+  rows="1"
+></textarea>
 
 
       <div
@@ -283,22 +297,31 @@
       >
 
         <button
-          id="backUnicode"
-          type="button"
-          class="back-button"
-          disabled
-        >
-          ← 戻る
-        </button>
+  id="backUnicode"
+  type="button"
+  class="back-button"
+  disabled
+>
+  ← 戻る
+</button>
 
 
-        <button
-          type="button"
-          class="random-button"
-          data-random-count="5"
-        >
-          ランダム5個
-        </button>
+<button
+  id="toggleUnicodeView"
+  type="button"
+  class="expand-button"
+>
+  全表示
+</button>
+
+
+<button
+  type="button"
+  class="random-button"
+  data-random-count="5"
+>
+  ランダム5個
+</button>
 
 
         <button
