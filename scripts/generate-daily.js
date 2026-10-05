@@ -739,6 +739,30 @@ function generateEntry(
 
 
 /* =========================================
+   Existing daily data
+========================================= */
+
+function loadExistingDailyData() {
+
+  try {
+
+    return JSON.parse(
+      fs.readFileSync(
+        DAILY_JSON_PATH,
+        "utf8"
+      )
+    );
+
+  } catch (
+    error
+  ) {
+
+    return {};
+  }
+}
+
+
+/* =========================================
    Main
 ========================================= */
 
@@ -760,11 +784,41 @@ function main() {
     );
 
 
-  const current =
-    generateEntry(
-      fonts,
+  const existing =
+    loadExistingDailyData();
+
+
+  let current;
+
+
+  if (
+    existing.current
+    &&
+    existing.current.date ===
       currentDate
-    );
+  ) {
+
+    current =
+      existing.current;
+
+  } else if (
+    existing.next
+    &&
+    existing.next.date ===
+      currentDate
+  ) {
+
+    current =
+      existing.next;
+
+  } else {
+
+    current =
+      generateEntry(
+        fonts,
+        currentDate
+      );
+  }
 
 
   const next =
