@@ -23,6 +23,16 @@ const clearUnicode =
 const backUnicode =
   document.getElementById("backUnicode");
 
+const toggleCharView =
+  document.getElementById(
+    "toggleCharView"
+  );
+
+const toggleUnicodeView =
+  document.getElementById(
+    "toggleUnicodeView"
+  );
+
 const dailyCharacter =
   document.getElementById("dailyCharacter");
 
