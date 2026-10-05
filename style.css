@@ -975,21 +975,6 @@ button:disabled {
     line-height: 1.55;
   }
 
-.unicode-controls {
-  display: block;
-}
-
-
-.unicode-controls .random-buttons {
-  margin-top: 0;
-}
-
-
-.history-controls {
-  margin-top: 8px;
-
-  justify-content: flex-end;
-}
 }
 
 
@@ -1392,7 +1377,33 @@ button:disabled {
   flex-shrink: 0;
 }
 
-
 .history-controls .back-button {
   margin-top: 0;
+}
+
+/* =========================================
+   Unicode controls - Mobile
+========================================= */
+
+@media (
+  max-width:
+  520px
+) {
+
+  .unicode-controls {
+    display: block;
+  }
+
+
+  .unicode-controls .random-buttons {
+    margin-top: 0;
+  }
+
+
+  .history-controls {
+    margin-top: 8px;
+
+    justify-content: flex-end;
+  }
+
 }
