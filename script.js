@@ -2656,6 +2656,16 @@ let scopePointerStart =
   null;
 
 
+/*
+  これ以上押し続けた場合は
+  Unicodeスコープではなく
+  ブラウザ標準の長押しとして扱う
+*/
+
+const scopeLongPressThreshold =
+  400;
+
+
 /* =========================================
    Scope hide
 ========================================= */
@@ -2962,22 +2972,10 @@ function getCharacterFromPoint(
     Infinity;
 
 
-  /*
-    タップ周辺だけでなく
-    TextNode内の全文字を調べる。
-
-    タイトルなどでも
-    正確に1文字を選びやすくする。
-  */
-
   for (
     const piece
     of pieces
   ) {
-
-    /*
-      空白文字はスコープ対象外
-    */
 
     if (
       /^\s+$/u.test(
@@ -3001,11 +2999,6 @@ function getCharacterFromPoint(
       continue;
     }
 
-
-    /*
-      文字矩形を少し拡張して
-      タップ判定しやすくする。
-    */
 
     const padding =
       7;
@@ -3143,11 +3136,6 @@ function showUnicodeScope(
   );
 
 
-  /*
-    タップした文字と同じフォントを
-    スコープ内でも使う
-  */
-
   const parentElement =
     result.textNode
       .parentElement;
@@ -3192,10 +3180,6 @@ function showUnicodeScope(
     2;
 
 
-  /*
-    左右端からはみ出さない
-  */
-
   centerX =
     Math.max(
       42,
@@ -3206,10 +3190,6 @@ function showUnicodeScope(
       )
     );
 
-
-  /*
-    上端からも少し離す
-  */
 
   centerY =
     Math.max(
@@ -3228,18 +3208,9 @@ function showUnicodeScope(
     "px";
 
 
-  /*
-    基本はスコープの下
-  */
-
   let codeTop =
     40;
 
-
-  /*
-    画面下に近い場合は
-    Unicodeコードを上側へ
-  */
 
   if (
     centerY +
@@ -3421,7 +3392,7 @@ document.addEventListener(
   (event) => {
 
     /*
-      スコープ自身の操作なら無視
+      Unicodeスコープ自身の操作は除外
     */
 
     if (
@@ -3433,12 +3404,23 @@ document.addEventListener(
     }
 
 
+    /*
+      既に出ているスコープだけ閉じる。
+      ネイティブの文字選択には触らない。
+    */
+
+    hideUnicodeScope();
+
+
     scopePointerStart = {
       x:
         event.clientX,
 
       y:
-        event.clientY
+        event.clientY,
+
+      time:
+        performance.now()
     };
 
   },
@@ -3453,7 +3435,7 @@ document.addEventListener(
   (event) => {
 
     /*
-      スコープ自身なら無視
+      Unicodeスコープ自身なら除外
     */
 
     if (
@@ -3472,23 +3454,49 @@ document.addEventListener(
     }
 
 
-    const movement =
-      Math.hypot(
-        event.clientX -
-        scopePointerStart.x,
-
-        event.clientY -
-        scopePointerStart.y
-      );
+    const start =
+      scopePointerStart;
 
 
     scopePointerStart =
       null;
 
 
+    const movement =
+      Math.hypot(
+        event.clientX -
+        start.x,
+
+        event.clientY -
+        start.y
+      );
+
+
+    const duration =
+      performance.now() -
+      start.time;
+
+
     /*
-      スクロール・スワイプは
-      文字タップ扱いにしない
+      長押しの場合
+
+      Unicodeスコープは出さず、
+      Safari / ブラウザ標準の
+      文字選択・コピー・調べる等に任せる。
+    */
+
+    if (
+      duration >=
+      scopeLongPressThreshold
+    ) {
+
+      return;
+    }
+
+
+    /*
+      スクロール・スワイプなら
+      Unicodeスコープを出さない
     */
 
     if (
@@ -3500,8 +3508,7 @@ document.addEventListener(
 
 
     /*
-      ボタン・リンク・入力欄は
-      普通の操作を優先
+      UI部品は通常操作を優先
     */
 
     if (
@@ -3509,8 +3516,6 @@ document.addEventListener(
         "button, a, input, textarea, select"
       )
     ) {
-
-      hideUnicodeScope();
 
       return;
     }
@@ -3527,13 +3532,14 @@ document.addEventListener(
       !result
     ) {
 
-      hideUnicodeScope();
-
-      clearNativeSelection();
-
       return;
     }
 
+
+    /*
+      短いタップのときだけ
+      偶発的な文字選択を解除する。
+    */
 
     clearNativeSelection();
 
@@ -3549,25 +3555,21 @@ document.addEventListener(
 );
 
 
-/* =========================================
-   Prevent native text selection after tap
-========================================= */
+/*
+  スクロールなどで
+  pointer操作がキャンセルされた場合
+*/
 
 document.addEventListener(
-  "selectionchange",
+  "pointercancel",
   () => {
 
-    if (
-      unicodeScope
-      &&
-      unicodeScope.classList.contains(
-        "visible"
-      )
-    ) {
+    scopePointerStart =
+      null;
 
-      clearNativeSelection();
-    }
-
+  },
+  {
+    passive: true
   }
 );
 
