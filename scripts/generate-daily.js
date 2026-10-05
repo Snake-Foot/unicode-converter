@@ -1,141 +1,198 @@
-const fs = require("fs");
-const path = require("path");
-const crypto = require("crypto");
+const fs =
+  require("fs");
 
-const dailyPath =
-  path.join(process.cwd(), "daily.json");
+const path =
+  require("path");
+
+const crypto =
+  require("crypto");
+
+const fontkit =
+  require("@cantoo/fontkit");
 
 
-/* ================================= */
-/* 見えないUnicode */
-/* ================================= */
+/* =========================================
+   Paths
+========================================= */
 
-const knownInvisibleCodePoints =
+const ROOT =
+  path.resolve(
+    __dirname,
+    ".."
+  );
+
+
+const DAILY_JSON_PATH =
+  path.join(
+    ROOT,
+    "daily.json"
+  );
+
+
+/* =========================================
+   Daily用に使うローカルフォント
+========================================= */
+
+const FONT_FILES = [
+  {
+    name:
+      "Tangut Extended",
+
+    file:
+      "tangut-extended.woff2"
+  },
+
+  {
+    name:
+      "Plangothic P1",
+
+    file:
+      "fonts/PlangothicP1-Regular.woff2"
+  },
+
+  {
+    name:
+      "Plangothic P2",
+
+    file:
+      "fonts/PlangothicP2-Regular.woff2"
+  },
+
+  {
+    name:
+      "Egyptology Extended",
+
+    file:
+      "fonts/EgyptologyExtended.woff2"
+  },
+
+  {
+    name:
+      "UniHieroglyphica",
+
+    file:
+      "fonts/UniHieroglyphica.ttf"
+  },
+
+  {
+    name:
+      "BabelStone Pseudographica",
+
+    file:
+      "fonts/BabelStonePseudographica.woff2"
+  },
+
+  {
+    name:
+      "Noto Sans Symbols 2",
+
+    file:
+      "fonts/NotoSansSymbols2-Regular.ttf"
+  }
+];
+
+
+/* =========================================
+   JST date
+========================================= */
+
+function getJSTDateString(
+  dayOffset = 0
+) {
+
+  const JST_OFFSET =
+    9 *
+    60 *
+    60 *
+    1000;
+
+
+  const DAY =
+    24 *
+    60 *
+    60 *
+    1000;
+
+
+  const date =
+    new Date(
+      Date.now()
+      +
+      JST_OFFSET
+      +
+      dayOffset *
+      DAY
+    );
+
+
+  return date
+    .toISOString()
+    .slice(
+      0,
+      10
+    );
+}
+
+
+/* =========================================
+   Random
+========================================= */
+
+function randomIndex(
+  length
+) {
+
+  return crypto.randomInt(
+    length
+  );
+}
+
+
+/* =========================================
+   Character filter
+========================================= */
+
+const knownInvisible =
   new Set([
     0x115F,
     0x1160,
     0x2800,
     0x3164,
-    0xFFA0
+    0xFFA0,
+    0xFFFD
   ]);
 
 
-/* ================================= */
-/* JST日付 */
-/* ================================= */
-
-function getJSTDateString(
-  offsetDays = 0
-) {
-
-  const date =
-    new Date(
-      Date.now() +
-      offsetDays *
-      24 *
-      60 *
-      60 *
-      1000
-    );
-
-
-  const parts =
-    new Intl.DateTimeFormat(
-      "en-US",
-      {
-        timeZone:
-          "Asia/Tokyo",
-
-        year:
-          "numeric",
-
-        month:
-          "2-digit",
-
-        day:
-          "2-digit"
-      }
-    )
-    .formatToParts(
-      date
-    );
-
-
-  const part =
-    (type) =>
-      parts.find(
-        (p) =>
-          p.type === type
-      )?.value;
-
-
-  return (
-    part("year") +
-    "-" +
-    part("month") +
-    "-" +
-    part("day")
-  );
-}
-
-
-/* ================================= */
-/* 不可視文字判定 */
-/* ================================= */
-
-function isInvisibleCharacter(
-  codePoint,
-  character
-) {
-
-  /*
-    見た目が空白になることで
-    知られている文字
-  */
-
-  if (
-    knownInvisibleCodePoints.has(
-      codePoint
-    )
-  ) {
-    return true;
-  }
-
-
-  /*
-    Unicodeが
-    通常表示しないと定義している文字
-  */
-
-  if (
-    /\p{Default_Ignorable_Code_Point}/u
-      .test(
-        character
-      )
-  ) {
-    return true;
-  }
-
-
-  return false;
-}
-
-
-/* ================================= */
-/* ランダム対象として使えるか */
-/* ================================= */
-
-function isUsableCharacter(
+function isGoodDailyCharacter(
   codePoint
 ) {
 
-  /*
-    サロゲート領域
-  */
+  if (
+    codePoint <
+      0
+    ||
+    codePoint >
+      0x10FFFF
+  ) {
+    return false;
+  }
+
 
   if (
-    codePoint >= 0xD800 &&
-    codePoint <= 0xDFFF
+    codePoint >=
+      0xD800
+    &&
+    codePoint <=
+      0xDFFF
+  ) {
+    return false;
+  }
+
+
+  if (
+    knownInvisible.has(
+      codePoint
+    )
   ) {
     return false;
   }
@@ -148,100 +205,47 @@ function isUsableCharacter(
 
 
   /*
-    空白・不可視文字
-  */
-
-  if (
-    isInvisibleCharacter(
-      codePoint,
-      character
-    )
-  ) {
-    return false;
-  }
-
-
-  /*
-    未割り当て文字
-  */
-
-  if (
-    !/\p{Assigned}/u
-      .test(
-        character
-      )
-  ) {
-    return false;
-  }
-
-
-  /*
     制御文字
-  */
-
-  if (
-    /\p{Cc}/u
-      .test(
-        character
-      )
-  ) {
-    return false;
-  }
-
-
-  /*
-    Format文字
-  */
-
-  if (
-    /\p{Cf}/u
-      .test(
-        character
-      )
-  ) {
-    return false;
-  }
-
-
-  /*
+    書式文字
+    サロゲート
     私用領域
-  */
-
-  if (
-    /\p{Co}/u
-      .test(
-        character
-      )
-  ) {
-    return false;
-  }
-
-
-  /*
+    未割当
     結合文字
+    空白類
+    を除外
   */
 
   if (
-    /\p{M}/u
+    /(?:\p{Cc}|\p{Cf}|\p{Cs}|\p{Co}|\p{Cn}|\p{M}|\p{Z})/u
       .test(
         character
       )
   ) {
+
     return false;
   }
 
 
-  /*
-    空白・区切り文字
-  */
+  try {
 
-  if (
-    /\p{Z}/u
-      .test(
-        character
-      )
+    if (
+      /\p{Default_Ignorable_Code_Point}/u
+        .test(
+          character
+        )
+    ) {
+
+      return false;
+    }
+
+  } catch (
+    error
   ) {
-    return false;
+
+    /*
+      Node側が未対応でも
+      上のGeneral Category判定は残る
+    */
   }
 
 
@@ -249,259 +253,564 @@ function isUsableCharacter(
 }
 
 
-/* ================================= */
-/* ランダムUnicode */
-/* ================================= */
+/* =========================================
+   Load fonts
+========================================= */
 
-function randomCodePoint() {
+function loadFonts() {
 
-  while (
-    true
+  const fonts =
+    [];
+
+
+  for (
+    const item
+    of FONT_FILES
   ) {
 
-    const codePoint =
-      crypto.randomInt(
-        0,
-        0x110000
+    const absolutePath =
+      path.join(
+        ROOT,
+        item.file
       );
 
 
     if (
-      isUsableCharacter(
-        codePoint
+      !fs.existsSync(
+        absolutePath
       )
     ) {
 
-      return codePoint;
+      console.warn(
+        `Font not found: ${item.file}`
+      );
 
+
+      continue;
+    }
+
+
+    try {
+
+      const font =
+        fontkit.openSync(
+          absolutePath
+        );
+
+
+      const candidates =
+        font.characterSet
+          .filter(
+            isGoodDailyCharacter
+          );
+
+
+      if (
+        candidates.length ===
+        0
+      ) {
+
+        console.warn(
+          `No candidates: ${item.name}`
+        );
+
+
+        continue;
+      }
+
+
+      let notdefPath =
+        "";
+
+
+      try {
+
+        const notdef =
+          font.getGlyph(
+            0
+          );
+
+
+        if (
+          notdef
+          &&
+          notdef.path
+        ) {
+
+          notdefPath =
+            notdef.path.toSVG();
+        }
+
+      } catch (
+        error
+      ) {
+
+        /*
+          .notdefが取得できなくても
+          glyph.id === 0 で判定できる
+        */
+      }
+
+
+      fonts.push(
+        {
+          name:
+            item.name,
+
+          file:
+            item.file,
+
+          font,
+
+          candidates,
+
+          notdefPath
+        }
+      );
+
+
+      console.log(
+        `${item.name}: ${candidates.length} candidates`
+      );
+
+    } catch (
+      error
+    ) {
+
+      console.error(
+        `Failed to load ${item.file}`,
+        error
+      );
     }
   }
+
+
+  if (
+    fonts.length ===
+    0
+  ) {
+
+    throw new Error(
+      "No usable fonts found."
+    );
+  }
+
+
+  return fonts;
 }
 
 
-/* ================================= */
-/* daily.json用エントリー生成 */
-/* ================================= */
+/* =========================================
+   Glyph → SVG data
+========================================= */
 
-function makeEntry(
-  date
+function makeSvgGlyph(
+  fontRecord,
+  codePoint
 ) {
 
-  const codePoint =
-    randomCodePoint();
+  const {
+    font,
+    notdefPath
+  } =
+    fontRecord;
+
+
+  /*
+    cmapに存在するか
+  */
+
+  if (
+    !font.hasGlyphForCodePoint(
+      codePoint
+    )
+  ) {
+
+    return null;
+  }
+
+
+  let glyph;
+
+
+  try {
+
+    glyph =
+      font.glyphForCodePoint(
+        codePoint
+      );
+
+  } catch (
+    error
+  ) {
+
+    return null;
+  }
+
+
+  /*
+    glyph 0 は通常 .notdef
+  */
+
+  if (
+    !glyph
+    ||
+    glyph.id ===
+      0
+    ||
+    !glyph.path
+  ) {
+
+    return null;
+  }
+
+
+  let svgPath;
+
+
+  try {
+
+    svgPath =
+      glyph.path.toSVG();
+
+  } catch (
+    error
+  ) {
+
+    return null;
+  }
+
+
+  /*
+    輪郭が無いなら不採用
+  */
+
+  if (
+    !svgPath
+    ||
+    svgPath.trim() ===
+      ""
+  ) {
+
+    return null;
+  }
+
+
+  /*
+    万一 .notdef と同じ輪郭なら不採用
+  */
+
+  if (
+    notdefPath
+    &&
+    svgPath ===
+      notdefPath
+  ) {
+
+    return null;
+  }
+
+
+  let bbox;
+
+
+  try {
+
+    bbox =
+      glyph.path.bbox;
+
+  } catch (
+    error
+  ) {
+
+    return null;
+  }
+
+
+  if (
+    !bbox
+  ) {
+    return null;
+  }
+
+
+  const width =
+    bbox.maxX -
+    bbox.minX;
+
+
+  const height =
+    bbox.maxY -
+    bbox.minY;
+
+
+  /*
+    形が無い・点しかないものは除外
+  */
+
+  if (
+    !Number.isFinite(
+      width
+    )
+    ||
+    !Number.isFinite(
+      height
+    )
+    ||
+    width <=
+      0
+    ||
+    height <=
+      0
+  ) {
+
+    return null;
+  }
+
+
+  /*
+    字面の周囲に8%ほど余白
+  */
+
+  const padding =
+    Math.max(
+      width,
+      height
+    )
+    *
+    0.08;
+
+
+  /*
+    フォント座標はYが上向き。
+
+    SVGはYが下向きなので、
+    scale(1 -1) して表示する。
+
+    反転後のY範囲は
+    -maxY ～ -minY
+  */
+
+  const viewBoxX =
+    bbox.minX -
+    padding;
+
+
+  const viewBoxY =
+    -bbox.maxY -
+    padding;
+
+
+  const viewBoxWidth =
+    width +
+    padding *
+    2;
+
+
+  const viewBoxHeight =
+    height +
+    padding *
+    2;
 
 
   return {
-    date: date,
+    path:
+      svgPath,
 
-    codePoint:
-      codePoint
-        .toString(16)
-        .toUpperCase(),
-
-    character:
-      String.fromCodePoint(
-        codePoint
+    viewBox:
+      [
+        viewBoxX,
+        viewBoxY,
+        viewBoxWidth,
+        viewBoxHeight
+      ].join(
+        " "
       )
   };
 }
 
 
-/* ================================= */
-/* 既存daily.json読み込み */
-/* ================================= */
+/* =========================================
+   Generate one entry
+========================================= */
 
-function readExisting() {
+function generateEntry(
+  fonts,
+  date,
+  avoidCodePoint = null
+) {
 
-  try {
+  /*
+    失敗した候補は捨てて
+    別の文字を再抽選する。
 
-    return JSON.parse(
-      fs.readFileSync(
-        dailyPath,
-        "utf8"
+    daily.json に入る時点では
+    必ずSVG輪郭を取得済みにする。
+  */
+
+  for (
+    let attempt = 0;
+    attempt < 10000;
+    attempt++
+  ) {
+
+    /*
+      フォントを先にランダム選択。
+
+      こうすることでPlangothicの
+      巨大な漢字数だけに
+      抽選が偏りすぎない。
+    */
+
+    const fontRecord =
+      fonts[
+        randomIndex(
+          fonts.length
+        )
+      ];
+
+
+    const codePoint =
+      fontRecord.candidates[
+        randomIndex(
+          fontRecord
+            .candidates
+            .length
+        )
+      ];
+
+
+    if (
+      codePoint ===
+      avoidCodePoint
+    ) {
+      continue;
+    }
+
+
+    const svg =
+      makeSvgGlyph(
+        fontRecord,
+        codePoint
+      );
+
+
+    if (
+      !svg
+    ) {
+      continue;
+    }
+
+
+    const character =
+      String.fromCodePoint(
+        codePoint
+      );
+
+
+    const hex =
+      codePoint
+        .toString(
+          16
+        )
+        .toUpperCase();
+
+
+    return {
+      date,
+
+      codePoint:
+        hex,
+
+      character,
+
+      font:
+        fontRecord.name,
+
+      svg
+    };
+  }
+
+
+  throw new Error(
+    "Could not generate a drawable daily character."
+  );
+}
+
+
+/* =========================================
+   Main
+========================================= */
+
+function main() {
+
+  const fonts =
+    loadFonts();
+
+
+  const currentDate =
+    getJSTDateString(
+      0
+    );
+
+
+  const nextDate =
+    getJSTDateString(
+      1
+    );
+
+
+  const current =
+    generateEntry(
+      fonts,
+      currentDate
+    );
+
+
+  const next =
+    generateEntry(
+      fonts,
+      nextDate,
+      parseInt(
+        current.codePoint,
+        16
       )
     );
 
-  } catch {
 
-    return {
-      current: null,
-      next: null
-    };
-
-  }
-}
+  const data = {
+    current,
+    next
+  };
 
 
-/* ================================= */
-/* 指定日の既存エントリー検索 */
-/* ================================= */
-
-function findByDate(
-  data,
-  date
-) {
-
-  return (
-    [
-      data.current,
-      data.next
-    ]
-    .find(
-      (entry) => {
-
-        if (
-          !entry ||
-          entry.date !== date
-        ) {
-          return false;
-        }
-
-
-        if (
-          typeof
-            entry.codePoint !==
-            "string"
-          ||
-          !/^[0-9A-F]+$/i
-            .test(
-              entry.codePoint
-            )
-        ) {
-          return false;
-        }
-
-
-        const codePoint =
-          parseInt(
-            entry.codePoint,
-            16
-          );
-
-
-        if (
-          !Number.isInteger(
-            codePoint
-          )
-        ) {
-          return false;
-        }
-
-
-        if (
-          codePoint < 0 ||
-          codePoint > 0x10FFFF
-        ) {
-          return false;
-        }
-
-
-        if (
-          codePoint >= 0xD800 &&
-          codePoint <= 0xDFFF
-        ) {
-          return false;
-        }
-
-
-        /*
-          既存の日付データでも、
-          現在の抽選条件に合わない文字なら
-          使い回さず再抽選する。
-        */
-
-        if (
-          !isUsableCharacter(
-            codePoint
-          )
-        ) {
-          return false;
-        }
-
-
-        return true;
-      }
+  fs.writeFileSync(
+    DAILY_JSON_PATH,
+    JSON.stringify(
+      data,
+      null,
+      2
     )
-    ||
-    null
+    +
+    "\n",
+    "utf8"
+  );
+
+
+  console.log(
+    `Current: ${current.character} U+${current.codePoint} (${current.font})`
+  );
+
+
+  console.log(
+    `Next: ${next.character} U+${next.codePoint} (${next.font})`
+  );
+
+
+  console.log(
+    "daily.json updated."
   );
 }
 
 
-/* ================================= */
-/* 今日・明日 */
-/* ================================= */
-
-const oldData =
-  readExisting();
-
-
-const today =
-  getJSTDateString(
-    0
-  );
-
-
-const tomorrow =
-  getJSTDateString(
-    1
-  );
-
-
-/* ================================= */
-/* 今日 */
-/* ================================= */
-
-const current =
-  findByDate(
-    oldData,
-    today
-  )
-  ||
-  makeEntry(
-    today
-  );
-
-
-/* ================================= */
-/* 明日 */
-/* ================================= */
-
-const next =
-  findByDate(
-    oldData,
-    tomorrow
-  )
-  ||
-  makeEntry(
-    tomorrow
-  );
-
-
-/* ================================= */
-/* 保存 */
-/* ================================= */
-
-const newData = {
-  current,
-  next
-};
-
-
-fs.writeFileSync(
-  dailyPath,
-  JSON.stringify(
-    newData,
-    null,
-    2
-  )
-  +
-  "\n",
-  "utf8"
-);
-
-
-console.log(
-  "Updated daily.json:",
-  newData
-);
+main();
