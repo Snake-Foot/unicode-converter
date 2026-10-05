@@ -67,6 +67,7 @@ function inRange(
   start,
   end
 ) {
+
   return (
     codePoint >= start &&
     codePoint <= end
@@ -741,7 +742,6 @@ async function waitForCharacterFont(
       "Font loading failed:",
       error
     );
-
   }
 }
 
@@ -2223,7 +2223,6 @@ clearChar.addEventListener(
 
 
     charInput.focus();
-
   }
 );
 
@@ -2252,7 +2251,6 @@ clearUnicode.addEventListener(
 
 
     unicodeInput.focus();
-
   }
 );
 
@@ -2312,10 +2310,340 @@ function getJSTDateString() {
 
 
 /* =========================================
+   Daily SVG validation
+========================================= */
+
+function isValidDailySvg(
+  svgData
+) {
+
+  if (
+    !svgData
+    ||
+    typeof svgData.path !==
+      "string"
+    ||
+    typeof svgData.viewBox !==
+      "string"
+    ||
+    svgData.path.trim() ===
+      ""
+  ) {
+
+    return false;
+  }
+
+
+  const viewBoxParts =
+    svgData.viewBox
+      .trim()
+      .split(
+        /\s+/
+      )
+      .map(
+        Number
+      );
+
+
+  if (
+    viewBoxParts.length !==
+    4
+  ) {
+    return false;
+  }
+
+
+  if (
+    !viewBoxParts.every(
+      Number.isFinite
+    )
+  ) {
+    return false;
+  }
+
+
+  if (
+    viewBoxParts[2] <=
+      0
+    ||
+    viewBoxParts[3] <=
+      0
+  ) {
+    return false;
+  }
+
+
+  return true;
+}
+
+
+/* =========================================
+   Render Daily SVG
+========================================= */
+
+function renderDailySvg(
+  svgData,
+  character
+) {
+
+  const SVG_NS =
+    "http://www.w3.org/2000/svg";
+
+
+  const svg =
+    document.createElementNS(
+      SVG_NS,
+      "svg"
+    );
+
+
+  svg.classList.add(
+    "daily-character-svg"
+  );
+
+
+  svg.setAttribute(
+    "viewBox",
+    svgData.viewBox
+  );
+
+
+  svg.setAttribute(
+    "preserveAspectRatio",
+    "xMidYMid meet"
+  );
+
+
+  svg.setAttribute(
+    "role",
+    "img"
+  );
+
+
+  svg.setAttribute(
+    "aria-label",
+    character
+  );
+
+
+  svg.setAttribute(
+    "focusable",
+    "false"
+  );
+
+
+  /*
+    CSSを追加していなくても
+    このJSだけで適切な大きさになる
+  */
+
+  svg.style.display =
+    "block";
+
+
+  svg.style.width =
+    "110px";
+
+
+  svg.style.height =
+    "110px";
+
+
+  svg.style.maxWidth =
+    "100%";
+
+
+  svg.style.overflow =
+    "visible";
+
+
+  svg.style.pointerEvents =
+    "none";
+
+
+  svg.style.shapeRendering =
+    "geometricPrecision";
+
+
+  const path =
+    document.createElementNS(
+      SVG_NS,
+      "path"
+    );
+
+
+  path.setAttribute(
+    "d",
+    svgData.path
+  );
+
+
+  /*
+    Font座標はYが上向き、
+    SVGはYが下向きなので反転する。
+
+    generate-daily.js側のviewBoxも
+    この反転を前提に生成する。
+  */
+
+  path.setAttribute(
+    "transform",
+    "scale(1 -1)"
+  );
+
+
+  path.setAttribute(
+    "fill",
+    "currentColor"
+  );
+
+
+  svg.appendChild(
+    path
+  );
+
+
+  dailyCharacter.appendChild(
+    svg
+  );
+}
+
+
+/* =========================================
+   Daily old-font fallback
+========================================= */
+
+async function renderDailyFontFallback(
+  codePoint,
+  character
+) {
+
+  if (
+    isInvisibleCharacter(
+      codePoint,
+      character
+    )
+  ) {
+
+    dailyCharacter.className =
+      "character font-normal";
+
+
+    dailyCharacter.textContent =
+      "不可視";
+
+
+    return;
+  }
+
+
+  dailyCharacter.className =
+    "character "
+    +
+    getFontClass(
+      codePoint
+    )
+    +
+    " loading-character";
+
+
+  dailyCharacter.textContent =
+    "";
+
+
+  const inner =
+    document.createElement(
+      "span"
+    );
+
+
+  inner.className =
+    "daily-glyph-inner";
+
+
+  inner.textContent =
+    character;
+
+
+  dailyCharacter.appendChild(
+    inner
+  );
+
+
+  await waitForCharacterFont(
+    codePoint,
+    character
+  );
+
+
+  const fontFamily =
+    getComputedStyle(
+      inner
+    )
+    .fontFamily;
+
+
+  if (
+    isRenderedBlank(
+      character,
+      fontFamily
+    )
+  ) {
+
+    dailyCharacter.className =
+      "character font-normal";
+
+
+    dailyCharacter.textContent =
+      "空白";
+
+
+    return;
+  }
+
+
+  if (
+    looksLikeMissingGlyph(
+      character,
+      fontFamily
+    )
+  ) {
+
+    dailyCharacter.className =
+      "character font-normal";
+
+
+    dailyCharacter.textContent =
+      "未対応";
+
+
+    return;
+  }
+
+
+  dailyCharacter
+    .classList
+    .remove(
+      "loading-character"
+    );
+
+
+  applyDailyGlyphScale(
+    inner,
+    codePoint,
+    character
+  );
+}
+
+
+/* =========================================
    Daily character
 ========================================= */
 
 async function loadDailyCharacter() {
+
+  hideUnicodeScope();
+
 
   dailyCharacter.className =
     "character loading-character";
@@ -2390,8 +2718,7 @@ async function loadDailyCharacter() {
     if (
       !entry
       ||
-      typeof
-        entry.codePoint !==
+      typeof entry.codePoint !==
         "string"
       ||
       !/^[0-9A-F]+$/i
@@ -2439,6 +2766,14 @@ async function loadDailyCharacter() {
     }
 
 
+    /*
+      character欄がGitHub上で
+      空白に見えていても関係ない。
+
+      codePointからこちらで
+      本物のUnicode文字を復元する。
+    */
+
     const character =
       String.fromCodePoint(
         codePoint
@@ -2473,93 +2808,33 @@ async function loadDailyCharacter() {
       );
 
 
+    /*
+      新方式
+
+      daily.json にSVG輪郭があるなら
+      フォントを一切使わずSVG表示。
+    */
+
     if (
-      isInvisibleCharacter(
-        codePoint,
+      isValidDailySvg(
+        entry.svg
+      )
+    ) {
+
+      dailyCharacter.className =
+        "character";
+
+
+      dailyCharacter.textContent =
+        "";
+
+
+      renderDailySvg(
+        entry.svg,
         character
-      )
-    ) {
-
-      dailyCharacter.className =
-        "character font-normal";
-
-
-      dailyCharacter.textContent =
-        "不可視";
-
-
-      dailyResearchLink
-        .classList
-        .remove(
-          "disabled"
-        );
-
-
-      return;
-    }
-
-
-    dailyCharacter.className =
-      "character "
-      +
-      getFontClass(
-        codePoint
-      )
-      +
-      " loading-character";
-
-
-    dailyCharacter.textContent =
-      "";
-
-
-    const inner =
-      document.createElement(
-        "span"
       );
 
 
-    inner.className =
-      "daily-glyph-inner";
-
-
-    inner.textContent =
-      character;
-
-
-    dailyCharacter.appendChild(
-      inner
-    );
-
-
-    await waitForCharacterFont(
-      codePoint,
-      character
-    );
-
-
-    const fontFamily =
-      getComputedStyle(
-        inner
-      )
-      .fontFamily;
-
-
-    if (
-      isRenderedBlank(
-        character,
-        fontFamily
-      )
-    ) {
-
-      dailyCharacter.className =
-        "character font-normal";
-
-
-      dailyCharacter.textContent =
-        "空白";
-
-
       dailyResearchLink
         .classList
         .remove(
@@ -2571,41 +2846,23 @@ async function loadDailyCharacter() {
     }
 
 
-    if (
-      looksLikeMissingGlyph(
-        character,
-        fontFamily
-      )
-    ) {
+    /*
+      移行期間用
 
-      dailyCharacter.className =
-        "character font-normal";
+      まだdaily.jsonが旧形式なら
+      従来のフォント表示を使う。
 
+      新しいGitHub Actionsが
+      daily.jsonを更新した後は
+      基本的にこちらには来ない。
+    */
 
-      dailyCharacter.textContent =
-        "未対応";
-
-
-      dailyResearchLink
-        .classList
-        .remove(
-          "disabled"
-        );
+    console.warn(
+      "Daily SVG is not available. Using font fallback."
+    );
 
 
-      return;
-    }
-
-
-    dailyCharacter
-      .classList
-      .remove(
-        "loading-character"
-      );
-
-
-    applyDailyGlyphScale(
-      inner,
+    await renderDailyFontFallback(
       codePoint,
       character
     );
@@ -2636,6 +2893,13 @@ async function loadDailyCharacter() {
 
     dailyCode.textContent =
       "更新待ち";
+
+
+    dailyResearchLink
+      .classList
+      .add(
+        "disabled"
+      );
   }
 }
 
@@ -2893,11 +3157,6 @@ function getCharacterFromPoint(
   }
 
 
-  /*
-    Elementが返ってきた場合
-    子TextNodeを探す
-  */
-
   if (
     textNode.nodeType ===
     Node.ELEMENT_NODE
@@ -2988,19 +3247,10 @@ function getCharacterFromPoint(
     Infinity;
 
 
-  /*
-    TextNode内の各文字を
-    実際の位置で比較する
-  */
-
   for (
     const piece
     of pieces
   ) {
-
-    /*
-      空白は対象外
-    */
 
     if (
       /^\s+$/u.test(
@@ -3024,11 +3274,6 @@ function getCharacterFromPoint(
       continue;
     }
 
-
-    /*
-      タップしやすいよう
-      判定領域を少し広げる
-    */
 
     const padding =
       7;
@@ -3126,10 +3371,6 @@ function fitUnicodeScopeGlyph(
   }
 
 
-  /*
-    前の文字のscaleを解除
-  */
-
   unicodeScopeGlyph.style.transform =
     "none";
 
@@ -3152,15 +3393,6 @@ function fitUnicodeScopeGlyph(
     32;
 
 
-  /*
-    既存のCanvas解析を使って、
-    フォントの「実際の黒い字面」を測る。
-
-    DOMの幅だけを見るより、
-    古代文字などの異常な
-    オーバーハングに強い。
-  */
-
   const analysis =
     analyseGlyphPixels(
       character,
@@ -3168,14 +3400,6 @@ function fitUnicodeScopeGlyph(
       120
     );
 
-
-  /*
-    円の中に安全に収まる
-    最大の字面サイズ。
-
-    64pxの円なので、
-    四隅で切れないよう42px程度。
-  */
 
   const maxInkWidth =
     42;
@@ -3228,14 +3452,6 @@ function fitUnicodeScopeGlyph(
       );
 
 
-    /*
-      普通の小さい文字は
-      最大1.15倍まで拡大。
-
-      大きすぎる文字は
-      必要なだけ自動縮小。
-    */
-
     scale =
       Math.min(
         1.15,
@@ -3244,11 +3460,6 @@ function fitUnicodeScopeGlyph(
       );
 
   } else {
-
-    /*
-      Canvasで測れなかった場合の
-      DOM fallback
-    */
 
     const rect =
       unicodeScopeGlyph
@@ -3279,11 +3490,6 @@ function fitUnicodeScopeGlyph(
       );
   }
 
-
-  /*
-    異常なフォントでも
-    完全に消えないよう下限を設定
-  */
 
   scale =
     Math.max(
@@ -3349,10 +3555,6 @@ function showUnicodeScope(
     code;
 
 
-  /*
-    前文字の変形を解除
-  */
-
   unicodeScopeGlyph.style.transform =
     "none";
 
@@ -3370,11 +3572,6 @@ function showUnicodeScope(
     `${code} をコピー`
   );
 
-
-  /*
-    元の文字のフォントを
-    Scopeにも引き継ぐ
-  */
 
   const parentElement =
     result.textNode
@@ -3420,11 +3617,6 @@ function showUnicodeScope(
     2;
 
 
-  /*
-    左右端からScopeが
-    はみ出さないようにする
-  */
-
   centerX =
     Math.max(
       38,
@@ -3435,10 +3627,6 @@ function showUnicodeScope(
       )
     );
 
-
-  /*
-    上端
-  */
 
   centerY =
     Math.max(
@@ -3457,19 +3645,9 @@ function showUnicodeScope(
     "px";
 
 
-  /*
-    基本はコードを
-    Scopeの下に表示
-  */
-
   let codeTop =
     46;
 
-
-  /*
-    画面下に近い場合だけ
-    コードを上へ
-  */
 
   if (
     centerY +
@@ -3489,11 +3667,6 @@ function showUnicodeScope(
   );
 
 
-  /*
-    先に表示状態にしないと
-    正確な測定ができない
-  */
-
   unicodeScope
     .classList
     .add(
@@ -3507,10 +3680,6 @@ function showUnicodeScope(
       "false"
     );
 
-
-  /*
-    次フレームで実際の字面を測る
-  */
 
   requestAnimationFrame(
     () => {
@@ -3528,11 +3697,6 @@ function showUnicodeScope(
     }
   );
 
-
-  /*
-    Web Fontが後から
-    切り替わった場合にも再測定
-  */
 
   if (
     document.fonts
@@ -3736,10 +3900,6 @@ document.addEventListener(
   "pointerdown",
   (event) => {
 
-    /*
-      Scope自身の操作は除外
-    */
-
     if (
       event.target.closest(
         "#unicodeScope"
@@ -3748,13 +3908,6 @@ document.addEventListener(
       return;
     }
 
-
-    /*
-      前のScopeだけ閉じる。
-
-      ここでは文字選択を
-      絶対に解除しない。
-    */
 
     hideUnicodeScope();
 
@@ -3780,10 +3933,6 @@ document.addEventListener(
 document.addEventListener(
   "pointerup",
   (event) => {
-
-    /*
-      Scope自身の操作は除外
-    */
 
     if (
       event.target.closest(
@@ -3825,27 +3974,19 @@ document.addEventListener(
 
 
     /*
-      長押し
-
-      iOS / Safari標準の
-      選択・コピー・調べる等を
-      そのまま使わせる。
-
-      clearNativeSelection()は
-      呼ばない。
+      長押しならブラウザ標準動作
     */
 
     if (
       duration >=
       scopeLongPressThreshold
     ) {
-
       return;
     }
 
 
     /*
-      スクロールやスワイプ
+      スクロール・スワイプ
     */
 
     if (
@@ -3857,7 +3998,21 @@ document.addEventListener(
 
 
     /*
-      UI部品は通常操作を優先
+      今日の一文字はSVGなので
+      Unicode Scope対象外にする
+    */
+
+    if (
+      event.target.closest(
+        "#dailyCharacter"
+      )
+    ) {
+      return;
+    }
+
+
+    /*
+      UI部品
     */
 
     if (
@@ -3865,7 +4020,6 @@ document.addEventListener(
         "button, a, input, textarea, select"
       )
     ) {
-
       return;
     }
 
@@ -3880,15 +4034,9 @@ document.addEventListener(
     if (
       !result
     ) {
-
       return;
     }
 
-
-    /*
-      短いタップの場合だけ
-      偶発的なブラウザ選択を解除
-    */
 
     clearNativeSelection();
 
