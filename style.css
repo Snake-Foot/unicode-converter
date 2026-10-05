@@ -1317,3 +1317,26 @@ button:disabled {
 
   overflow-wrap: anywhere;
 }
+
+/* =========================================
+   History controls
+========================================= */
+
+.history-controls {
+  margin-top: 12px;
+}
+
+
+.history-controls .back-button {
+  margin-top: 0;
+}
+
+
+/*
+  戻るボタンとランダムボタンの
+  グループを少し離す。
+*/
+
+.history-controls + .random-buttons {
+  margin-top: 8px;
+}
