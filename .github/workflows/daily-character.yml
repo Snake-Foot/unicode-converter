@@ -32,6 +32,11 @@ jobs:
         with:
           node-version: "22"
 
+      # package.json に書いた fontkit をインストール
+      - name: Install dependencies
+        run: npm install --package-lock=false
+
+      # フォントを調べて、表示可能な文字＋SVG輪郭を生成
       - name: Generate daily characters
         run: node scripts/generate-daily.js
 
