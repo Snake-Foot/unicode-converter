@@ -1202,55 +1202,55 @@ button:disabled {
 
 
 /*
-  文字 → Unicode の
-
-  [全表示] [クリア]
-
-  を横並びにする。
+  入力欄の右下に
+  小さい「全表示」ボタンを置く。
 */
 
-.view-buttons {
+.input-view-control {
   display: flex;
 
-  flex-wrap: wrap;
+  justify-content: flex-end;
 
-  gap: 8px;
-
-  margin-top: 12px;
-}
-
-
-.view-buttons button {
-  margin-top: 0;
+  margin-top: 5px;
 }
 
 
 /*
-  全表示ボタン
-
-  Random controlsと同じくらいの
-  サイズに合わせる。
+  全表示 / 元に戻す ボタン
 */
 
-.expand-button {
-  margin-top: 0;
+.input-view-control .expand-button {
+  margin: 0;
 
   padding:
-    8px 12px;
+    4px 9px;
 
-  font-size: 14px;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #6e6e73;
+
+  font-size: 12px;
+
+  line-height: 1.3;
+}
+
+
+.input-view-control .expand-button:hover {
+  background: #f0f0f2;
+}
+
+
+.input-view-control .expand-button:active:not(:disabled) {
+  transform:
+    scale(0.96);
 }
 
 
 /* =========================================
    Expandable textareas
 ========================================= */
-
-
-/*
-  全表示 / 元に戻すの切り替えを
-  少し滑らかにする。
-*/
 
 #charInput,
 #unicodeInput {
@@ -1263,30 +1263,10 @@ button:disabled {
    文字 → Unicode
 ========================================= */
 
-
-/*
-  通常時は既存のtextarea設定をそのまま使用。
-
-  現在のCSSにある
-  min-height: 100px;
-  resize: vertical;
-  もそのまま生かす。
-*/
-
 #charInput {
   overflow-y: auto;
 }
 
-
-/*
-  全表示中。
-
-  実際の高さはJS側で
-  scrollHeightを取得して決める。
-
-  そのため文字数に応じて
-  本当に全部表示できる。
-*/
 
 #charInput.input-expanded {
   overflow-y: hidden;
@@ -1297,15 +1277,13 @@ button:disabled {
    Unicode → 文字
 ========================================= */
 
-
 /*
-  textareaに変更するが、
-  通常時は今までのinputと同じように
-  1行のバーとして表示する。
+  textareaに変更したが、
+  通常時は1行の入力バーとして表示する。
 
-  既存CSSではtextareaすべてに
-  min-height: 100px が付いているため、
-  ここでunicodeInputだけ上書きする。
+  元のCSSではtextarea全体に
+  min-height: 100px が設定されているので、
+  unicodeInputだけここで上書きする。
 */
 
 #unicodeInput {
@@ -1326,10 +1304,8 @@ button:disabled {
 
 
 /*
-  全表示中は折り返しを有効にする。
-
-  実際の縦幅はJS側で
-  内容量に合わせて自動計算する。
+  全表示中は折り返す。
+  高さはmain.jsがscrollHeightから計算する。
 */
 
 #unicodeInput.input-expanded {
@@ -1340,25 +1316,4 @@ button:disabled {
   overflow-y: hidden;
 
   overflow-wrap: anywhere;
-}
-
-
-/* =========================================
-   Expand controls - Mobile
-========================================= */
-
-@media (
-  max-width:
-  520px
-) {
-
-  .expand-button {
-    min-width: 80px;
-  }
-
-
-  .view-buttons {
-    gap: 8px;
-  }
-
 }
