@@ -66,6 +66,20 @@ function isUsableRandomCharacter(
   }
 
 
+  /*
+    Replacement Character は
+    「不明な文字の代用品」なので
+    ランダム生成の候補から除外する。
+  */
+
+  if (
+    codePoint ===
+      0xFFFD
+  ) {
+    return false;
+  }
+
+
   const character =
     String.fromCodePoint(
       codePoint
