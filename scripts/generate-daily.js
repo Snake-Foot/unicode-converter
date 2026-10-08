@@ -88,6 +88,33 @@ const FONT_FILES = [
 
     file:
       "fonts/NotoSansSymbols2-Regular.ttf"
+  },
+
+  {
+    name:
+      "Noto Sans Phonetics",
+
+    file:
+      "fonts/phonetics/NotoSans-Regular.ttf"
+  },
+
+  {
+    name:
+      "Noto Sans JP",
+
+    directory:
+      "node_modules/@fontsource/noto-sans-jp/files",
+
+    fileSuffix:
+      "-400-normal.woff2"
+  },
+
+  {
+    name:
+      "Noto Music",
+
+    file:
+      "fonts/music/NotoMusic-Regular.ttf"
   }
 ];
 
@@ -254,6 +281,432 @@ function isGoodDailyCharacter(
 
 
 /* =========================================
+   Daily categories
+========================================= */
+
+const DAILY_CATEGORIES = [
+  "han",
+  "kana",
+  "number",
+  "symbol",
+  "music",
+  "phonetics",
+  "ancient"
+];
+
+
+function isInRange(
+  codePoint,
+  start,
+  end
+) {
+
+  return (
+    codePoint >=
+      start
+    &&
+    codePoint <=
+      end
+  );
+}
+
+
+function isPhoneticsCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x0250,
+      0x02FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x0300,
+      0x036F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1D00,
+      0x1DBF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1DC0,
+      0x1DFF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1E00,
+      0x1EFF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0xA700,
+      0xA7FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0xAB30,
+      0xAB6F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x10780,
+      0x107BF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1DF00,
+      0x1DFFF
+    )
+  );
+}
+
+
+function isKanaCodePoint(
+  codePoint
+) {
+
+  const inKanaRange =
+    (
+      isInRange(
+        codePoint,
+        0x3040,
+        0x30FF
+      )
+      ||
+      isInRange(
+        codePoint,
+        0x31F0,
+        0x31FF
+      )
+      ||
+      isInRange(
+        codePoint,
+        0x1AFF0,
+        0x1AFFF
+      )
+      ||
+      isInRange(
+        codePoint,
+        0x1B000,
+        0x1B16F
+      )
+    );
+
+
+  if (
+    !inKanaRange
+  ) {
+    return false;
+  }
+
+
+  const character =
+    String.fromCodePoint(
+      codePoint
+    );
+
+
+  return (
+    /\p{Script=Hiragana}/u.test(
+      character
+    )
+    ||
+    /\p{Script=Katakana}/u.test(
+      character
+    )
+  );
+}
+
+
+function isJapaneseDisplayCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x3000,
+      0x30FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x31F0,
+      0x31FF
+    )
+    ||
+    isHanCodePoint(
+      codePoint
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1AFF0,
+      0x1AFFF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1B000,
+      0x1B16F
+    )
+  );
+}
+
+
+function isHanCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x3400,
+      0x4DBF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x4E00,
+      0x9FFF
+    )
+  );
+}
+
+
+function isMusicCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x1D000,
+      0x1D24F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2669,
+      0x266F
+    )
+  );
+}
+
+
+function isAncientCodePoint(
+  codePoint
+) {
+
+  /*
+    現在、文字固有の説明資料が十分にある
+    Egyptian Hieroglyphs Extended-A を
+    古代文字カテゴリに採用する。
+  */
+
+  return isInRange(
+    codePoint,
+    0x13460,
+    0x143FF
+  );
+}
+
+
+function getDailyCategory(
+  codePoint
+) {
+
+  if (
+    isMusicCodePoint(
+      codePoint
+    )
+  ) {
+    return "music";
+  }
+
+
+  if (
+    isPhoneticsCodePoint(
+      codePoint
+    )
+  ) {
+    return "phonetics";
+  }
+
+
+  if (
+    isKanaCodePoint(
+      codePoint
+    )
+  ) {
+    return "kana";
+  }
+
+
+  if (
+    isHanCodePoint(
+      codePoint
+    )
+  ) {
+    return "han";
+  }
+
+
+  if (
+    isAncientCodePoint(
+      codePoint
+    )
+  ) {
+    return "ancient";
+  }
+
+
+  const character =
+    String.fromCodePoint(
+      codePoint
+    );
+
+
+  if (
+    /\p{N}/u.test(
+      character
+    )
+  ) {
+    return "number";
+  }
+
+
+  if (
+    /(?:\p{S}|\p{P})/u.test(
+      character
+    )
+  ) {
+    return "symbol";
+  }
+
+
+  return null;
+}
+
+
+function pickDailyCategory() {
+
+  return DAILY_CATEGORIES[
+    randomIndex(
+      DAILY_CATEGORIES.length
+    )
+  ];
+}
+
+
+const categoryPoolCache =
+  new WeakMap();
+
+
+function getCategoryPools(
+  fonts
+) {
+
+  const cached =
+    categoryPoolCache.get(
+      fonts
+    );
+
+
+  if (
+    cached
+  ) {
+    return cached;
+  }
+
+
+  const sets =
+    Object.fromEntries(
+      DAILY_CATEGORIES.map(
+        (
+          category
+        ) => [
+          category,
+          new Set()
+        ]
+      )
+    );
+
+
+  for (
+    const fontRecord
+    of fonts
+  ) {
+
+    for (
+      const codePoint
+      of fontRecord.candidates
+    ) {
+
+      const category =
+        getDailyCategory(
+          codePoint
+        );
+
+
+      if (
+        category
+        &&
+        sets[
+          category
+        ]
+      ) {
+
+        sets[
+          category
+        ].add(
+          codePoint
+        );
+      }
+    }
+  }
+
+
+  const pools =
+    Object.fromEntries(
+      DAILY_CATEGORIES.map(
+        (
+          category
+        ) => [
+          category,
+          Array.from(
+            sets[
+              category
+            ]
+          )
+        ]
+      )
+    );
+
+
+  categoryPoolCache.set(
+    fonts,
+    pools
+  );
+
+
+  return pools;
+}
+
+
+/* =========================================
    Load fonts
 ========================================= */
 
@@ -263,9 +716,90 @@ function loadFonts() {
     [];
 
 
+  const fontItems =
+    [];
+
+
   for (
     const item
     of FONT_FILES
+  ) {
+
+    if (
+      item.directory
+    ) {
+
+      const absoluteDirectory =
+        path.join(
+          ROOT,
+          item.directory
+        );
+
+
+      if (
+        !fs.existsSync(
+          absoluteDirectory
+        )
+      ) {
+
+        console.warn(
+          `Font directory not found: ${item.directory}`
+        );
+
+
+        continue;
+      }
+
+
+      const fileNames =
+        fs.readdirSync(
+          absoluteDirectory
+        )
+        .filter(
+          (
+            fileName
+          ) =>
+            !item.fileSuffix
+            ||
+            fileName.endsWith(
+              item.fileSuffix
+            )
+        );
+
+
+      for (
+        const fileName
+        of fileNames
+      ) {
+
+        fontItems.push(
+          {
+            name:
+              item.name,
+
+            file:
+              path.join(
+                item.directory,
+                fileName
+              )
+          }
+        );
+      }
+
+
+      continue;
+    }
+
+
+    fontItems.push(
+      item
+    );
+  }
+
+
+  for (
+    const item
+    of fontItems
   ) {
 
     const absolutePath =
@@ -307,13 +841,8 @@ function loadFonts() {
 
       if (
         candidates.length ===
-        0
+          0
       ) {
-
-        console.warn(
-          `No candidates: ${item.name}`
-        );
-
 
         continue;
       }
@@ -368,11 +897,6 @@ function loadFonts() {
         }
       );
 
-
-      console.log(
-        `${item.name}: ${candidates.length} candidates`
-      );
-
     } catch (
       error
     ) {
@@ -387,7 +911,7 @@ function loadFonts() {
 
   if (
     fonts.length ===
-    0
+      0
   ) {
 
     throw new Error(
@@ -396,9 +920,46 @@ function loadFonts() {
   }
 
 
+  const counts =
+    new Map();
+
+
+  for (
+    const fontRecord
+    of fonts
+  ) {
+
+    counts.set(
+      fontRecord.name,
+      (
+        counts.get(
+          fontRecord.name
+        )
+        ||
+        0
+      )
+      +
+      fontRecord.candidates.length
+    );
+  }
+
+
+  for (
+    const [
+      name,
+      count
+    ]
+    of counts
+  ) {
+
+    console.log(
+      `${name}: ${count} candidates`
+    );
+  }
+
+
   return fonts;
 }
-
 
 /* =========================================
    Glyph → SVG data
@@ -631,21 +1192,417 @@ function makeSvgGlyph(
 
 
 /* =========================================
+   Unicode → 文字 と同じフォント優先順位
+========================================= */
+
+function inCodePointRange(
+  codePoint,
+  start,
+  end
+) {
+
+  return (
+    codePoint >=
+      start
+    &&
+    codePoint <=
+      end
+  );
+}
+
+
+function getDisplayFontPriority(
+  codePoint
+) {
+
+  /*
+    js/fonts.js の getWebFontNames() と
+    同じ優先順位にする。
+
+    ここで先頭に来るフォントが、
+    Unicode → 文字 で最初に試される
+    フォントと一致する。
+  */
+
+  if (
+    isMusicCodePoint(
+      codePoint
+    )
+  ) {
+
+    return [
+      "Noto Music"
+    ];
+  }
+
+
+  if (
+    isPhoneticsCodePoint(
+      codePoint
+    )
+  ) {
+
+    return [
+      "Noto Sans Phonetics"
+    ];
+  }
+
+
+  if (
+    isJapaneseDisplayCodePoint(
+      codePoint
+    )
+  ) {
+
+    return [
+      "Noto Sans JP"
+    ];
+  }
+
+
+  if (
+    inCodePointRange(
+      codePoint,
+      0x13460,
+      0x143FF
+    )
+  ) {
+
+    return [
+      "UniHieroglyphica",
+      "Egyptology Extended",
+      "Noto Sans Egyptian Hieroglyphs"
+    ];
+  }
+
+
+  if (
+    inCodePointRange(
+      codePoint,
+      0x187F8,
+      0x187FF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x18D09,
+      0x18D1E
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x18D80,
+      0x18DFF
+    )
+  ) {
+
+    return [
+      "Tangut Extended",
+      "Noto Serif Tangut"
+    ];
+  }
+
+
+  if (
+    inCodePointRange(
+      codePoint,
+      0x1CC00,
+      0x1CEBF
+    )
+  ) {
+
+    return [
+      "BabelStone Pseudographica",
+      "Noto Sans Symbols 2 Local",
+      "Noto Sans Symbols 2"
+    ];
+  }
+
+
+  if (
+    inCodePointRange(
+      codePoint,
+      0x101D0,
+      0x101FF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x10E60,
+      0x10E7F
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1D2C0,
+      0x1D2DF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1F500,
+      0x1F5FF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1F650,
+      0x1F67F
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1F780,
+      0x1F7FF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1F800,
+      0x1F8FF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x1FB00,
+      0x1FBFF
+    )
+  ) {
+
+    return [
+      "Noto Sans Symbols 2 Local",
+      "Noto Sans Symbols 2"
+    ];
+  }
+
+
+  if (
+    inCodePointRange(
+      codePoint,
+      0xF900,
+      0xFAFF
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x20000,
+      0x2EE5F
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x2F800,
+      0x2FA1F
+    )
+    ||
+    inCodePointRange(
+      codePoint,
+      0x30000,
+      0x3347F
+    )
+  ) {
+
+    return [
+      "Plangothic P1",
+      "Plangothic P2",
+      "BabelStone Han"
+    ];
+  }
+
+
+  const character =
+    String.fromCodePoint(
+      codePoint
+    );
+
+
+  if (
+    /\p{N}/u.test(
+      character
+    )
+  ) {
+
+    return [
+      "Noto Sans Phonetics",
+      "Noto Sans JP",
+      "Noto Sans Symbols 2"
+    ];
+  }
+
+
+  if (
+    /(?:\p{S}|\p{P})/u.test(
+      character
+    )
+  ) {
+
+    return [
+      "Noto Sans Symbols 2",
+      "Noto Sans JP",
+      "Noto Sans Phonetics"
+    ];
+  }
+
+
+  return [];
+}
+
+
+function getLocalFontRecordsByDisplayName(
+  fonts,
+  displayName
+) {
+
+  const aliases = {
+    "Noto Sans Symbols 2 Local":
+      "Noto Sans Symbols 2"
+  };
+
+
+  const recordName =
+    aliases[
+      displayName
+    ]
+    ||
+    displayName;
+
+
+  return fonts.filter(
+    (
+      item
+    ) =>
+      item.name ===
+        recordName
+  );
+}
+
+function resolveDisplaySvg(
+  fonts,
+  codePoint
+) {
+
+  const priority =
+    getDisplayFontPriority(
+      codePoint
+    );
+
+
+  if (
+    priority.length ===
+      0
+  ) {
+
+    return null;
+  }
+
+
+  const firstRecords =
+    getLocalFontRecordsByDisplayName(
+      fonts,
+      priority[
+        0
+      ]
+    );
+
+
+  if (
+    firstRecords.length ===
+      0
+  ) {
+
+    return null;
+  }
+
+
+  for (
+    const displayName
+    of priority
+  ) {
+
+    const fontRecords =
+      getLocalFontRecordsByDisplayName(
+        fonts,
+        displayName
+      );
+
+
+    for (
+      const fontRecord
+      of fontRecords
+    ) {
+
+      const svg =
+        makeSvgGlyph(
+          fontRecord,
+          codePoint
+        );
+
+
+      if (
+        svg
+      ) {
+
+        return {
+          fontRecord,
+          svg
+        };
+      }
+    }
+  }
+
+
+  return null;
+}
+
+/* =========================================
    Generate one entry
 ========================================= */
 
 function generateEntry(
   fonts,
   date,
-  avoidCodePoint = null
+  avoidCodePoint = null,
+  preferredCategory = null
 ) {
 
-  /*
-    失敗した候補は捨てて
-    別の文字を再抽選する。
+  const category =
+    preferredCategory
+    ||
+    pickDailyCategory();
 
-    daily.json に入る時点では
-    必ずSVG輪郭を取得済みにする。
+
+  const pools =
+    getCategoryPools(
+      fonts
+    );
+
+
+  const candidates =
+    pools[
+      category
+    ]
+    ||
+    [];
+
+
+  if (
+    candidates.length ===
+      0
+  ) {
+
+    throw new Error(
+      "No drawable candidates for daily category: " +
+      category
+    );
+  }
+
+
+  /*
+    先にカテゴリを決め、そのカテゴリの中で
+    コードポイントを均等に抽選する。
+
+    フォント数・収録文字数の差で
+    エジプト文字などへ偏るのを防ぐ。
   */
 
   for (
@@ -654,28 +1611,10 @@ function generateEntry(
     attempt++
   ) {
 
-    /*
-      フォントを先にランダム選択。
-
-      こうすることでPlangothicの
-      巨大な漢字数だけに
-      抽選が偏りすぎない。
-    */
-
-    const fontRecord =
-      fonts[
-        randomIndex(
-          fonts.length
-        )
-      ];
-
-
     const codePoint =
-      fontRecord.candidates[
+      candidates[
         randomIndex(
-          fontRecord
-            .candidates
-            .length
+          candidates.length
         )
       ];
 
@@ -688,18 +1627,26 @@ function generateEntry(
     }
 
 
-    const svg =
-      makeSvgGlyph(
-        fontRecord,
+    const resolved =
+      resolveDisplaySvg(
+        fonts,
         codePoint
       );
 
 
     if (
-      !svg
+      !resolved
     ) {
       continue;
     }
+
+
+    const {
+      fontRecord:
+        displayFontRecord,
+      svg
+    } =
+      resolved;
 
 
     const character =
@@ -719,13 +1666,15 @@ function generateEntry(
     return {
       date,
 
+      category,
+
       codePoint:
         hex,
 
       character,
 
       font:
-        fontRecord.name,
+        displayFontRecord.name,
 
       svg
     };
@@ -733,7 +1682,8 @@ function generateEntry(
 
 
   throw new Error(
-    "Could not generate a drawable daily character."
+    "Could not generate a drawable daily character for category: " +
+    category
   );
 }
 
@@ -768,6 +1718,11 @@ function loadExistingDailyData() {
 
 function main() {
 
+  const forceRegenerateCurrent =
+    process.env.FORCE_REGENERATE_CURRENT ===
+      "true";
+
+
   const fonts =
     loadFonts();
 
@@ -792,6 +1747,21 @@ function main() {
 
 
   if (
+    forceRegenerateCurrent
+  ) {
+
+    console.log(
+      "Manual test mode: regenerating current character."
+    );
+
+
+    current =
+      generateEntry(
+        fonts,
+        currentDate
+      );
+
+  } else if (
     existing.current
     &&
     existing.current.date ===
@@ -867,4 +1837,20 @@ function main() {
 }
 
 
-main();
+
+if (
+  require.main === module
+) {
+  main();
+}
+
+
+module.exports = {
+  DAILY_JSON_PATH,
+  getJSTDateString,
+  loadFonts,
+  generateEntry,
+  pickDailyCategory,
+  getDailyCategory,
+  loadExistingDailyData
+};
