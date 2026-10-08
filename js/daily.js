@@ -376,6 +376,435 @@ async function renderDailyFontFallback(
 }
 
 /* =========================================
+   Daily explanation
+========================================= */
+
+function setDailyInlineGlyphFont(
+  element,
+  entry
+) {
+
+  const families = {
+    "Tangut Extended":
+      "Tangut Extended",
+
+    "Plangothic P1":
+      "Plangothic P1",
+
+    "Plangothic P2":
+      "Plangothic P2",
+
+    "Egyptology Extended":
+      "Egyptology Extended",
+
+    "UniHieroglyphica":
+      "UniHieroglyphica",
+
+    "BabelStone Pseudographica":
+      "BabelStone Pseudographica",
+
+    "Noto Sans Symbols 2":
+      "Noto Sans Symbols 2 Local"
+  };
+
+
+  const family =
+    families[
+      entry.font
+    ];
+
+
+  if (
+    family
+  ) {
+
+    element.style.fontFamily =
+      `"${family}"`;
+
+    return;
+  }
+
+
+  element.classList.add(
+    getFontClass(
+      parseInt(
+        entry.codePoint,
+        16
+      )
+    )
+  );
+}
+
+
+function renderDailySummary(
+  text,
+  entry
+) {
+
+  dailySummary.replaceChildren();
+
+
+  if (
+    typeof text !==
+      "string"
+    ||
+    !text.trim()
+  ) {
+    return;
+  }
+
+
+  const summary =
+    text.trim();
+
+
+  const codeMatch =
+    summary.match(
+      /^U\+[0-9A-F]+/i
+    );
+
+
+  if (
+    !codeMatch
+  ) {
+
+    dailySummary.textContent =
+      summary;
+
+
+    return;
+  }
+
+
+  const glyph =
+    document.createElement(
+      "span"
+    );
+
+
+  glyph.className =
+    "daily-inline-glyph";
+
+
+  glyph.textContent =
+    String.fromCodePoint(
+      parseInt(
+        entry.codePoint,
+        16
+      )
+    );
+
+
+  setDailyInlineGlyphFont(
+    glyph,
+    entry
+  );
+
+
+  dailySummary.appendChild(
+    glyph
+  );
+
+
+  dailySummary.appendChild(
+    document.createTextNode(
+      summary.slice(
+        codeMatch[
+          0
+        ].length
+      )
+    )
+  );
+}
+
+
+function getDailyTransliteration(
+  info
+) {
+
+  if (
+    !Array.isArray(
+      info?.facts
+    )
+  ) {
+    return "";
+  }
+
+
+  const fact =
+    info.facts.find(
+      (
+        item
+      ) =>
+        item
+        &&
+        item.kind ===
+          "functionValue"
+        &&
+        typeof item.text ===
+          "string"
+        &&
+        item.text.trim()
+    );
+
+
+  return fact
+    ? fact.text.trim()
+    : "";
+}
+
+
+function renderDailyTransliteration(
+  text
+) {
+
+  dailyTransliteration.textContent =
+    text;
+}
+
+
+function resetDailyInfo() {
+
+  dailyName.hidden =
+    true;
+
+
+  dailyName.textContent =
+    "";
+
+
+  dailyInfo.hidden =
+    true;
+
+
+  dailySummary.replaceChildren();
+
+
+  dailyUsageSection.hidden =
+    true;
+
+
+  dailyUsage.textContent =
+    "";
+
+
+  dailyTransliterationMeta.hidden =
+    true;
+
+
+  dailyTransliteration.replaceChildren();
+
+
+  dailySupplementSection.hidden =
+    true;
+
+
+  dailySupplement.textContent =
+    "";
+
+
+  dailySources.hidden =
+    true;
+
+
+  dailySources.open =
+    false;
+
+
+  dailySourceList.replaceChildren();
+}
+
+
+function renderDailyInfo(
+  info,
+  entry
+) {
+
+  resetDailyInfo();
+
+
+  if (
+    !info
+    ||
+    typeof info !==
+      "object"
+  ) {
+    return;
+  }
+
+
+  if (
+    typeof info.unicodeName ===
+      "string"
+    &&
+    info.unicodeName.trim()
+  ) {
+
+    dailyName.textContent =
+      info.unicodeName.trim();
+
+
+    dailyName.hidden =
+      false;
+  }
+
+
+  if (
+    typeof info.summary !==
+      "string"
+    ||
+    !info.summary.trim()
+  ) {
+    return;
+  }
+
+
+  renderDailySummary(
+    info.summary,
+    entry
+  );
+
+
+  dailyInfo.hidden =
+    false;
+
+
+  if (
+    typeof info.usage ===
+      "string"
+    &&
+    info.usage.trim()
+  ) {
+
+    dailyUsage.textContent =
+      info.usage.trim();
+
+
+    dailyUsageSection.hidden =
+      false;
+  }
+
+
+  const transliteration =
+    getDailyTransliteration(
+      info
+    );
+
+
+  if (
+    transliteration
+  ) {
+
+    renderDailyTransliteration(
+      transliteration
+    );
+
+
+    dailyTransliterationMeta.hidden =
+      false;
+  }
+
+
+  if (
+    typeof info.supplementalInfo ===
+      "string"
+    &&
+    info.supplementalInfo.trim()
+  ) {
+
+    dailySupplement.textContent =
+      info.supplementalInfo.trim();
+
+
+    dailySupplementSection.hidden =
+      false;
+  }
+
+
+  if (
+    Array.isArray(
+      info.sources
+    )
+  ) {
+
+    for (
+      const source
+      of info.sources
+    ) {
+
+      if (
+        !source
+        ||
+        typeof source.url !==
+          "string"
+        ||
+        !/^https:\/\//i.test(
+          source.url
+        )
+      ) {
+        continue;
+      }
+
+
+      const item =
+        document.createElement(
+          "li"
+        );
+
+
+      const link =
+        document.createElement(
+          "a"
+        );
+
+
+      link.href =
+        source.url;
+
+
+      link.target =
+        "_blank";
+
+
+      link.rel =
+        "noopener noreferrer";
+
+
+      link.textContent =
+        (
+          typeof source.name ===
+            "string"
+          &&
+          source.name.trim()
+        )
+          ? source.name.trim()
+          : source.url;
+
+
+      item.appendChild(
+        link
+      );
+
+
+      dailySourceList.appendChild(
+        item
+      );
+    }
+
+
+    if (
+      dailySourceList.children.length >
+        0
+    ) {
+
+      dailySources.hidden =
+        false;
+    }
+  }
+}
+
+
+/* =========================================
    Daily character
 ========================================= */
 
@@ -396,15 +825,7 @@ async function loadDailyCharacter() {
     "読み込み中…";
 
 
-  dailyResearchLink
-    .classList
-    .add(
-      "disabled"
-    );
-
-
-  dailyResearchLink.href =
-    "#";
+  resetDailyInfo();
 
 
   try {
@@ -533,12 +954,10 @@ async function loadDailyCharacter() {
       hex;
 
 
-    dailyResearchLink.href =
-      "https://0g0.org/unicode/"
-      +
-      hex
-      +
-      "/";
+    renderDailyInfo(
+      entry.info,
+      entry
+    );
 
 
     /*
@@ -567,15 +986,7 @@ async function loadDailyCharacter() {
         character
       );
 
-
-      dailyResearchLink
-        .classList
-        .remove(
-          "disabled"
-        );
-
-
-      return;
+return;
     }
 
 
@@ -600,14 +1011,7 @@ async function loadDailyCharacter() {
       character
     );
 
-
-    dailyResearchLink
-      .classList
-      .remove(
-        "disabled"
-      );
-
-  } catch (
+} catch (
     error
   ) {
 
@@ -628,10 +1032,6 @@ async function loadDailyCharacter() {
       "更新待ち";
 
 
-    dailyResearchLink
-      .classList
-      .add(
-        "disabled"
-      );
+
   }
 }
