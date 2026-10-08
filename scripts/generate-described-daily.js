@@ -7,6 +7,32 @@ const {
 } = require("./unihan-profile.js");
 
 const {
+  SMUFL_GLYPHNAMES_URL,
+  SMUFL_CLASSES_URL,
+  loadMusicData,
+  buildMusicProfile
+} = require("./music-profile.js");
+
+const {
+  EMOJI_DATA_URL,
+  CLDR_JA_ANNOTATIONS_URL,
+  loadEmojiData,
+  buildEmojiProfile
+} = require("./emoji-profile.js");
+
+const {
+  HISTORICAL_SOURCES,
+  loadHistoricalData,
+  buildHistoricalProfile
+} = require("./historical-profile.js");
+
+const {
+  MATH_SOURCES,
+  loadMathData,
+  buildMathProfile
+} = require("./math-profile.js");
+
+const {
   UCD_BASE,
   COMMON_UCD_SOURCES,
   fetchText,
@@ -64,7 +90,11 @@ async function loadResearchSources() {
   const [
     commonUcd,
     unikemet,
-    unihan
+    unihan,
+    music,
+    emoji,
+    historical,
+    math
   ] =
     await Promise.all(
       [
@@ -74,7 +104,15 @@ async function loadResearchSources() {
           SOURCES.unikemet
         ),
 
-        loadUnihanData()
+        loadUnihanData(),
+
+        loadMusicData(),
+
+        loadEmojiData(),
+
+        loadHistoricalData(),
+
+        loadMathData()
       ]
     );
 
@@ -82,7 +120,11 @@ async function loadResearchSources() {
   return {
     commonUcd,
     unikemet,
-    unihan
+    unihan,
+    music,
+    emoji,
+    historical,
+    math
   };
 }
 
@@ -543,12 +585,269 @@ function researchCharacter(
     hanProfile.properties;
 
 
+  const musicProfile =
+    buildMusicProfile(
+      sourceTexts.music,
+      codePoint
+    );
+
+
+  const emojiProfile =
+    buildEmojiProfile(
+      sourceTexts.emoji,
+      codePoint
+    );
+
+
+  const historicalProfile =
+    buildHistoricalProfile(
+      sourceTexts.historical,
+      codePoint,
+      script
+    );
+
+
+  const mathProfile =
+    buildMathProfile(
+      sourceTexts.math,
+      codePoint
+    );
+
+
   const facts =
     makeFacts(
       namesList,
       unikemet,
       unihan
     );
+
+
+  const normalizedFactTexts =
+    new Set(
+      facts.map(
+        (
+          fact
+        ) =>
+          normalizeFactText(
+            fact.text
+          )
+      )
+    );
+
+
+  const addFact = (
+    kind,
+    text,
+    source,
+    strength =
+      "supporting"
+  ) => {
+
+    if (
+      !text
+    ) {
+      return;
+    }
+
+
+    const normalized =
+      normalizeFactText(
+        text
+      );
+
+
+    if (
+      !normalized
+      ||
+      normalizedFactTexts.has(
+        normalized
+      )
+    ) {
+      return;
+    }
+
+
+    normalizedFactTexts.add(
+      normalized
+    );
+
+
+    facts.push(
+      {
+        kind,
+        text,
+        source,
+        strength
+      }
+    );
+  };
+
+
+  if (
+    musicProfile
+  ) {
+
+    for (
+      const match
+      of musicProfile.matches
+    ) {
+
+      addFact(
+        "smufl:glyph",
+        [
+          match.glyphName,
+          match.description
+        ]
+          .filter(
+            Boolean
+          )
+          .join(
+            ": "
+          ),
+        "SMuFL",
+        "strong"
+      );
+
+
+      if (
+        match.classes.length >
+          0
+      ) {
+
+        addFact(
+          "smufl:classes",
+          match.classes.join(
+            ", "
+          ),
+          "SMuFL",
+          "supporting"
+        );
+      }
+    }
+  }
+
+
+  if (
+    emojiProfile
+  ) {
+
+    addFact(
+      "emoji:jaName",
+      emojiProfile.shortName,
+      "CLDR Japanese annotations",
+      "strong"
+    );
+
+
+    if (
+      emojiProfile.keywords.length >
+        0
+    ) {
+
+      addFact(
+        "emoji:jaKeywords",
+        emojiProfile.keywords.join(
+          ", "
+        ),
+        "CLDR Japanese annotations",
+        "supporting"
+      );
+    }
+
+
+    if (
+      emojiProfile.properties.length >
+        0
+    ) {
+
+      addFact(
+        "emoji:properties",
+        emojiProfile.properties.join(
+          ", "
+        ),
+        "Unicode Emoji data",
+        "supporting"
+      );
+    }
+  }
+
+
+  if (
+    historicalProfile
+  ) {
+
+    for (
+      const [
+        property,
+        value
+      ]
+      of Object.entries(
+        historicalProfile.properties
+      )
+    ) {
+
+      addFact(
+        "historical:" +
+          property,
+        value,
+        historicalProfile.sourceName,
+        /Reading|Definition|Meaning|Numeric|Desc|Func/i.test(
+          property
+        )
+          ? "strong"
+          : "supporting"
+      );
+    }
+  }
+
+
+  if (
+    mathProfile
+  ) {
+
+    if (
+      mathProfile.isMath
+    ) {
+
+      addFact(
+        "math:property",
+        "Math",
+        "Unicode DerivedCoreProperties",
+        "supporting"
+      );
+    }
+
+
+    if (
+      mathProfile.bracket
+    ) {
+
+      addFact(
+        "math:bidiBracket",
+        "paired U+" +
+          mathProfile.bracket.pairedCodePoint +
+          " (" +
+          mathProfile.bracket.type +
+          ")",
+        "Unicode BidiBrackets",
+        "supporting"
+      );
+    }
+
+
+    if (
+      mathProfile.mirroredCodePoint
+    ) {
+
+      addFact(
+        "math:bidiMirror",
+        "mirrored U+" +
+          mathProfile.mirroredCodePoint,
+        "Unicode BidiMirroring",
+        "supporting"
+      );
+    }
+  }
 
 
   const strongFacts =
@@ -841,6 +1140,110 @@ function researchCharacter(
   }
 
 
+  if (
+    musicProfile
+  ) {
+
+    sources.push(
+      {
+        name:
+          "SMuFL glyphnames",
+
+        url:
+          SMUFL_GLYPHNAMES_URL
+      },
+
+      {
+        name:
+          "SMuFL classes",
+
+        url:
+          SMUFL_CLASSES_URL
+      }
+    );
+  }
+
+
+  if (
+    emojiProfile
+  ) {
+
+    sources.push(
+      {
+        name:
+          "Unicode Emoji data",
+
+        url:
+          EMOJI_DATA_URL
+      },
+
+      {
+        name:
+          "CLDR Japanese annotations",
+
+        url:
+          CLDR_JA_ANNOTATIONS_URL
+      }
+    );
+  }
+
+
+  if (
+    historicalProfile
+  ) {
+
+    sources.push(
+      {
+        name:
+          historicalProfile.sourceName,
+
+        url:
+          historicalProfile.sourceUrl
+      }
+    );
+  }
+
+
+  if (
+    mathProfile
+  ) {
+
+    sources.push(
+      {
+        name:
+          "Unicode DerivedCoreProperties",
+
+        url:
+          MATH_SOURCES.derivedCoreProperties
+      },
+
+      {
+        name:
+          "Unicode BidiBrackets",
+
+        url:
+          MATH_SOURCES.bidiBrackets
+      },
+
+      {
+        name:
+          "Unicode BidiMirroring",
+
+        url:
+          MATH_SOURCES.bidiMirroring
+      },
+
+      {
+        name:
+          "Unicode UTR #25",
+
+        url:
+          MATH_SOURCES.utr25
+      }
+    );
+  }
+
+
   return {
     accepted,
 
@@ -862,6 +1265,26 @@ function researchCharacter(
 
       standardizedVariants:
         profile.standardizedVariants,
+
+      music:
+        musicProfile,
+
+      emoji:
+        emojiProfile,
+
+      historical:
+        historicalProfile
+          ? {
+              source:
+                historicalProfile.key,
+
+              properties:
+                historicalProfile.properties
+            }
+          : null,
+
+      math:
+        mathProfile,
 
       han:
         isHan
@@ -985,7 +1408,10 @@ async function generateDescription(
     "記号ではUnicodeの正式名称を、その記号の形や種類を説明する根拠として使えます。ただし正式名称から実際の用途を推測しないでください。",
     "かなではUnicode名と表示文字から、ひらがな・カタカナのどの文字かを簡潔に説明してください。資料にない語源や歴史は足さないでください。",
     "数字ではUnicode名から確認できる数字・数値表現だけを説明し、用途を推測しないでください。",
-    "音楽記号ではUnicode名から確認できる記号名や音価の種類だけを説明し、楽典上の追加情報を勝手に補わないでください。",
+    "音楽記号ではUnicode名に加えてSMuFLのglyph descriptionとclassがある場合、それらを専門資料として優先してください。ただし資料にない楽典上の追加情報は補わないでください。",
+    "EmojiではUnicode Emoji propertyとCLDR日本語annotationsがある場合、日本語short nameとkeywordsを根拠として使ってください。keywordsから新しい意味や用途を推測しないでください。",
+    "歴史文字では各Unicode source fileに明記された読み・出典・数値・分類情報だけを使い、資料にない語源や歴史的背景を補わないでください。",
+    "数学・一般記号ではUnicode Math property、NamesList、BidiBrackets、BidiMirroringを根拠にできます。括弧の対応関係やミラー関係は説明できますが、用途を名前だけから推測しないでください。",
     "発音・転写文字ではUnicode名とNamesList注釈にある情報だけを使い、具体的な発音値を資料なしで推測しないでください。",
     "エジプト文字の転写はfactsのfunctionValueから別欄に表示するため、usageには混ぜないでください。",
     "supplementalInfoは本文を理解する助けになる追加情報だけにしてください。",
