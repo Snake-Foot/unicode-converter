@@ -2,6 +2,36 @@
    Local fonts
 ========================================= */
 
+/* Phonetics / transliteration */
+
+@font-face {
+  font-family: "Noto Sans Phonetics";
+
+  src:
+    url("./fonts/phonetics/NotoSans-Regular.ttf")
+    format("truetype");
+
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
+/* Musical symbols */
+
+@font-face {
+  font-family: "Noto Music";
+
+  src:
+    url("./fonts/music/NotoMusic-Regular.ttf")
+    format("truetype");
+
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 /* Tangut Extended */
 
 @font-face {
@@ -573,6 +603,123 @@ button:disabled {
 }
 
 
+#dailyName {
+  margin-top: 7px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.025em;
+
+  overflow-wrap: anywhere;
+}
+
+
+#dailyInfo {
+  max-width: 620px;
+
+  margin:
+    22px auto 0;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid
+    #e5e5ea;
+
+  text-align: left;
+}
+
+
+.daily-info-section + .daily-info-section {
+  margin-top: 18px;
+}
+
+
+.daily-info-heading {
+  margin-bottom: 6px;
+
+  color: #555;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+
+.daily-info-section p {
+  margin: 0;
+
+  color: #262628;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+
+.daily-sources {
+  margin-top: 18px;
+
+  padding-top: 14px;
+
+  border-top:
+    1px solid
+    #ededf0;
+}
+
+
+.daily-sources summary {
+  width: fit-content;
+
+  color: #6e6e73;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-user-select: none;
+}
+
+
+.daily-sources ul {
+  margin:
+    10px 0 0;
+
+  padding-left: 20px;
+}
+
+
+.daily-sources li {
+  margin-top: 6px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.daily-sources a {
+  color: #007aff;
+
+  text-decoration: none;
+
+  overflow-wrap: anywhere;
+}
+
+
+.daily-sources a:hover {
+  text-decoration: underline;
+}
+
+
 #dailyResearch {
   margin-top: 14px;
 }
@@ -608,6 +755,50 @@ button:disabled {
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
+    sans-serif;
+}
+
+
+/* Phonetics / transliteration */
+
+.font-phonetics {
+  font-family:
+    "Noto Sans Phonetics",
+    "Noto Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* Japanese / common Han */
+
+.font-japanese {
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+}
+
+
+/* Numbers */
+
+.font-numbers {
+  font-family:
+    "Noto Sans Phonetics",
+    "Noto Sans JP",
+    "Noto Sans Symbols 2 Local",
+    sans-serif;
+}
+
+
+/* Common symbols / punctuation */
+
+.font-symbols-common {
+  font-family:
+    "Noto Sans Symbols 2 Local",
+    "Noto Sans JP",
+    "Noto Sans Phonetics",
     sans-serif;
 }
 
@@ -922,6 +1113,20 @@ button:disabled {
     width: 96px;
 
     height: 96px;
+  }
+
+
+  #dailyInfo {
+    margin-top: 18px;
+
+    padding-top: 17px;
+  }
+
+
+  .daily-info-section p {
+    font-size: 14px;
+
+    line-height: 1.7;
   }
 
 
@@ -1404,6 +1609,406 @@ button:disabled {
     margin-top: 8px;
 
     justify-content: flex-end;
+  }
+
+}
+
+
+/* =========================================
+   Daily character - split layout
+========================================= */
+
+#dailyCharacterBox {
+  padding:
+    22px;
+
+  text-align: left;
+}
+
+
+#dailyTitle {
+  margin-bottom: 16px;
+
+  text-align: left;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #555;
+}
+
+
+.daily-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 0.78fr)
+    minmax(0, 1.5fr);
+
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+
+.daily-character-panel {
+  min-width: 0;
+}
+
+
+.daily-character-frame {
+  display: flex;
+
+  min-height: 200px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 22px;
+
+  border:
+    1px solid
+    #dcdce1;
+
+  border-radius: 18px;
+
+  background:
+    #fafafa;
+}
+
+
+#dailyCharacter {
+  width: 100%;
+
+  min-height: 150px;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.daily-meta {
+  margin-top: 13px;
+
+  text-align: center;
+}
+
+
+#dailyCode {
+  margin-top: 0;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #3b3b3d;
+}
+
+
+#dailyName {
+  margin-top: 6px;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+
+#dailyResearch {
+  margin-top: 12px;
+
+  text-align: center;
+}
+
+
+#dailyResearchLink {
+  font-size: 13px;
+}
+
+
+#dailyInfo {
+  max-width: none;
+
+  margin: 0;
+
+  padding:
+    18px 20px;
+
+  border:
+    1px solid
+    #e3e3e7;
+
+  border-radius: 18px;
+
+  background:
+    #fff;
+
+  text-align: left;
+}
+
+
+.daily-info-section + .daily-info-section {
+  margin-top: 20px;
+}
+
+
+.daily-info-heading {
+  margin-bottom: 7px;
+
+  color: #4f4f54;
+
+  font-size: 13px;
+}
+
+
+.daily-info-section p {
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+
+.daily-sources {
+  margin-top: 20px;
+}
+
+
+.daily-sources summary.unicode-scope-excluded {
+  display: inline-block;
+
+  padding:
+    6px 9px;
+
+  border-radius: 8px;
+
+  background: #f2f2f5;
+
+  color: #666;
+
+  line-height: 1.2;
+}
+
+
+@media (
+  max-width:
+  620px
+) {
+
+  #dailyCharacterBox {
+    padding:
+      18px 14px;
+  }
+
+
+  .daily-layout {
+    grid-template-columns:
+      minmax(112px, 0.72fr)
+      minmax(0, 1.28fr);
+
+    gap: 12px;
+
+    align-items: start;
+  }
+
+
+  .daily-character-frame {
+    min-height: 145px;
+
+    padding:
+      14px 10px;
+
+    border-radius: 14px;
+  }
+
+
+  #dailyCharacter {
+    min-height: 115px;
+
+    font-size: 72px;
+  }
+
+
+  .daily-character-svg {
+    width: 88px !important;
+
+    height: 88px !important;
+  }
+
+
+  #dailyCode {
+    font-size: 13px;
+  }
+
+
+  #dailyName {
+    font-size: 9px;
+
+    line-height: 1.35;
+  }
+
+
+  #dailyResearchLink {
+    font-size: 11px;
+  }
+
+
+  #dailyInfo {
+    padding:
+      14px 13px;
+
+    border-radius: 14px;
+  }
+
+
+  .daily-info-section + .daily-info-section {
+    margin-top: 15px;
+  }
+
+
+  .daily-info-heading {
+    margin-bottom: 5px;
+
+    font-size: 11px;
+  }
+
+
+  .daily-info-section p {
+    font-size: 13px;
+
+    line-height: 1.65;
+  }
+
+
+  .daily-sources {
+    margin-top: 15px;
+
+    padding-top: 11px;
+  }
+
+
+  .daily-sources summary.unicode-scope-excluded {
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================
+   Daily inline glyph / transliteration
+========================================= */
+
+.daily-inline-glyph {
+  display: inline-block;
+
+  margin-right: 0.08em;
+
+  font-size: 1.18em;
+
+  line-height: 1;
+
+  vertical-align: -0.06em;
+}
+
+
+.daily-transliteration-section {
+  padding:
+    10px 12px;
+
+  border-radius: 10px;
+
+  background:
+    #f7f7f9;
+}
+
+
+.egyptian-transliteration {
+  font-family:
+    "Egyptology Extended",
+    "Segoe UI Historic",
+    serif;
+
+  font-size: 1.18em !important;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* =========================================
+   Daily compact transliteration
+========================================= */
+
+.daily-transliteration-meta {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+
+  color: #555;
+
+  line-height: 1.4;
+}
+
+
+.daily-transliteration-label {
+  flex: 0 0 auto;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+#dailyTransliteration {
+  min-width: 0;
+
+  font-size: 16px;
+
+  letter-spacing: 0.02em;
+
+  overflow-wrap: anywhere;
+}
+
+
+#dailyTransliteration {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans Phonetics",
+    "Noto Sans",
+    sans-serif;
+}
+
+
+@media (
+  max-width:
+  620px
+) {
+
+  .daily-transliteration-meta {
+    gap: 5px;
+
+    margin-top: 10px;
+  }
+
+
+  .daily-transliteration-label {
+    font-size: 9px;
+  }
+
+
+  #dailyTransliteration {
+    font-size: 13px;
   }
 
 }
