@@ -284,15 +284,77 @@ function isGoodDailyCharacter(
    Daily categories
 ========================================= */
 
-const DAILY_CATEGORIES = [
-  "han",
-  "kana",
-  "number",
-  "symbol",
-  "music",
-  "phonetics",
-  "ancient"
-];
+const DAILY_CATEGORY_CONFIG = {
+  han: {
+    weight:
+      0.90
+  },
+
+  kana: {
+    weight:
+      0.70
+  },
+
+  number: {
+    weight:
+      0.75
+  },
+
+  punctuation: {
+    weight:
+      0.75
+  },
+
+  symbol: {
+    weight:
+      0.90
+  },
+
+  math: {
+    weight:
+      1.10
+  },
+
+  emoji: {
+    weight:
+      0.90
+  },
+
+  arrows: {
+    weight:
+      1.10
+  },
+
+  legacy: {
+    weight:
+      1.30
+  },
+
+  music: {
+    weight:
+      1.20
+  },
+
+  phonetics: {
+    weight:
+      1.10
+  },
+
+  ancient: {
+    weight:
+      1.35
+  }
+};
+
+
+const DAILY_CATEGORIES =
+  Object.keys(
+    DAILY_CATEGORY_CONFIG
+  );
+
+
+const MAX_RARITY_WEIGHT =
+  1.40;
 
 
 function isInRange(
@@ -430,6 +492,62 @@ function isKanaCodePoint(
 }
 
 
+function isCommonHanCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x3400,
+      0x4DBF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x4E00,
+      0x9FFF
+    )
+  );
+}
+
+
+function isHanCodePoint(
+  codePoint
+) {
+
+  return (
+    isCommonHanCodePoint(
+      codePoint
+    )
+    ||
+    isInRange(
+      codePoint,
+      0xF900,
+      0xFAFF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x20000,
+      0x2EE5F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2F800,
+      0x2FA1F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x30000,
+      0x3347F
+    )
+  );
+}
+
+
 function isJapaneseDisplayCodePoint(
   codePoint
 ) {
@@ -447,7 +565,7 @@ function isJapaneseDisplayCodePoint(
       0x31FF
     )
     ||
-    isHanCodePoint(
+    isCommonHanCodePoint(
       codePoint
     )
     ||
@@ -461,26 +579,6 @@ function isJapaneseDisplayCodePoint(
       codePoint,
       0x1B000,
       0x1B16F
-    )
-  );
-}
-
-
-function isHanCodePoint(
-  codePoint
-) {
-
-  return (
-    isInRange(
-      codePoint,
-      0x3400,
-      0x4DBF
-    )
-    ||
-    isInRange(
-      codePoint,
-      0x4E00,
-      0x9FFF
     )
   );
 }
@@ -510,16 +608,132 @@ function isAncientCodePoint(
   codePoint
 ) {
 
-  /*
-    現在、文字固有の説明資料が十分にある
-    Egyptian Hieroglyphs Extended-A を
-    古代文字カテゴリに採用する。
-  */
-
   return isInRange(
     codePoint,
-    0x13460,
+    0x13000,
     0x143FF
+  );
+}
+
+
+function isLegacyCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x1CC00,
+      0x1CEBF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1FB00,
+      0x1FBFF
+    )
+  );
+}
+
+
+function isArrowCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x2190,
+      0x21FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x27F0,
+      0x27FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2900,
+      0x297F
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1F800,
+      0x1F8FF
+    )
+  );
+}
+
+
+function isMathCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x2200,
+      0x22FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x27C0,
+      0x27EF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2980,
+      0x29FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2A00,
+      0x2AFF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1EE00,
+      0x1EEFF
+    )
+  );
+}
+
+
+function isEmojiCodePoint(
+  codePoint
+) {
+
+  return (
+    isInRange(
+      codePoint,
+      0x2600,
+      0x26FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x2700,
+      0x27BF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1F300,
+      0x1F6FF
+    )
+    ||
+    isInRange(
+      codePoint,
+      0x1F900,
+      0x1FAFF
+    )
   );
 }
 
@@ -573,6 +787,42 @@ function getDailyCategory(
   }
 
 
+  if (
+    isLegacyCodePoint(
+      codePoint
+    )
+  ) {
+    return "legacy";
+  }
+
+
+  if (
+    isArrowCodePoint(
+      codePoint
+    )
+  ) {
+    return "arrows";
+  }
+
+
+  if (
+    isMathCodePoint(
+      codePoint
+    )
+  ) {
+    return "math";
+  }
+
+
+  if (
+    isEmojiCodePoint(
+      codePoint
+    )
+  ) {
+    return "emoji";
+  }
+
+
   const character =
     String.fromCodePoint(
       codePoint
@@ -589,7 +839,16 @@ function getDailyCategory(
 
 
   if (
-    /(?:\p{S}|\p{P})/u.test(
+    /\p{P}/u.test(
+      character
+    )
+  ) {
+    return "punctuation";
+  }
+
+
+  if (
+    /\p{S}/u.test(
       character
     )
   ) {
@@ -601,13 +860,348 @@ function getDailyCategory(
 }
 
 
-function pickDailyCategory() {
+function getRarityWeight(
+  category,
+  codePoint
+) {
 
-  return DAILY_CATEGORIES[
-    randomIndex(
-      DAILY_CATEGORIES.length
+  let weight =
+    codePoint <=
+      0x007F
+      ? 0.35
+      : codePoint <=
+          0x00FF
+        ? 0.55
+        : codePoint <=
+            0xFFFF
+          ? 0.90
+          : 1.15;
+
+
+  if (
+    category ===
+      "han"
+  ) {
+
+    if (
+      isInRange(
+        codePoint,
+        0x4E00,
+        0x9FFF
+      )
+    ) {
+      weight =
+        0.75;
+
+    } else if (
+      isInRange(
+        codePoint,
+        0x3400,
+        0x4DBF
+      )
+    ) {
+      weight =
+        1.05;
+
+    } else if (
+      codePoint >=
+        0x20000
+    ) {
+      weight =
+        1.35;
+    }
+
+  } else if (
+    category ===
+      "kana"
+  ) {
+
+    if (
+      isInRange(
+        codePoint,
+        0x3040,
+        0x30FF
+      )
+    ) {
+      weight =
+        0.75;
+
+    } else if (
+      isInRange(
+        codePoint,
+        0x31F0,
+        0x31FF
+      )
+    ) {
+      weight =
+        1.10;
+
+    } else {
+      weight =
+        1.35;
+    }
+
+  } else if (
+    category ===
+      "number"
+  ) {
+
+    if (
+      isInRange(
+        codePoint,
+        0x0030,
+        0x0039
+      )
+    ) {
+      weight =
+        0.30;
+
+    } else if (
+      isInRange(
+        codePoint,
+        0xFF10,
+        0xFF19
+      )
+    ) {
+      weight =
+        0.55;
+
+    } else if (
+      codePoint >
+        0xFFFF
+    ) {
+      weight =
+        1.30;
+    }
+
+  } else if (
+    category ===
+      "punctuation"
+  ) {
+
+    if (
+      codePoint <=
+        0x007F
+    ) {
+      weight =
+        0.35;
+
+    } else if (
+      codePoint >
+        0xFFFF
+    ) {
+      weight =
+        1.30;
+    }
+
+  } else if (
+    category ===
+      "music"
+  ) {
+
+    weight =
+      isInRange(
+        codePoint,
+        0x2669,
+        0x266F
+      )
+        ? 0.75
+        : 1.20;
+
+  } else if (
+    category ===
+      "phonetics"
+  ) {
+
+    if (
+      isInRange(
+        codePoint,
+        0x0250,
+        0x02FF
+      )
+    ) {
+      weight =
+        0.80;
+
+    } else if (
+      codePoint >
+        0xFFFF
+    ) {
+      weight =
+        1.35;
+
+    } else {
+      weight =
+        1.10;
+    }
+
+  } else if (
+    category ===
+      "math"
+  ) {
+
+    weight =
+      isInRange(
+        codePoint,
+        0x2200,
+        0x22FF
+      )
+        ? 0.80
+        : 1.15;
+
+  } else if (
+    category ===
+      "arrows"
+  ) {
+
+    weight =
+      isInRange(
+        codePoint,
+        0x2190,
+        0x21FF
+      )
+        ? 0.80
+        : 1.25;
+
+  } else if (
+    category ===
+      "legacy"
+  ) {
+
+    weight =
+      isInRange(
+        codePoint,
+        0x1CC00,
+        0x1CEBF
+      )
+        ? 1.35
+        : 1.20;
+
+  } else if (
+    category ===
+      "ancient"
+  ) {
+
+    weight =
+      isInRange(
+        codePoint,
+        0x13460,
+        0x143FF
+      )
+        ? 1.35
+        : 1.20;
+
+  } else if (
+    category ===
+      "emoji"
+  ) {
+
+    weight =
+      codePoint >
+        0xFFFF
+        ? 1.05
+        : 0.85;
+
+  } else if (
+    category ===
+      "symbol"
+    &&
+    codePoint >
+      0xFFFF
+  ) {
+
+    weight =
+      1.25;
+  }
+
+
+  return Math.max(
+    0.10,
+    Math.min(
+      MAX_RARITY_WEIGHT,
+      weight
     )
-  ];
+  );
+}
+
+
+function randomUnit() {
+
+  return crypto.randomInt(
+    1000000
+  ) /
+  1000000;
+}
+
+
+function weightedChoice(
+  entries
+) {
+
+  const scale =
+    1000;
+
+
+  const weighted =
+    entries.map(
+      (
+        entry
+      ) => ({
+        ...entry,
+
+        integerWeight:
+          Math.max(
+            1,
+            Math.round(
+              entry.weight *
+              scale
+            )
+          )
+      })
+    );
+
+
+  const total =
+    weighted.reduce(
+      (
+        sum,
+        entry
+      ) =>
+        sum +
+        entry.integerWeight,
+      0
+    );
+
+
+  let cursor =
+    crypto.randomInt(
+      total
+    );
+
+
+  for (
+    const entry
+    of weighted
+  ) {
+
+    if (
+      cursor <
+        entry.integerWeight
+    ) {
+
+      return entry.value;
+    }
+
+
+    cursor -=
+      entry.integerWeight;
+  }
+
+
+  return weighted[
+    weighted.length -
+      1
+  ].value;
 }
 
 
@@ -703,6 +1297,86 @@ function getCategoryPools(
 
 
   return pools;
+}
+
+
+function pickDailyCategory(
+  fonts =
+    null
+) {
+
+  if (
+    !fonts
+  ) {
+
+    return weightedChoice(
+      DAILY_CATEGORIES.map(
+        (
+          category
+        ) => ({
+          value:
+            category,
+
+          weight:
+            DAILY_CATEGORY_CONFIG[
+              category
+            ].weight
+        })
+      )
+    );
+  }
+
+
+  const pools =
+    getCategoryPools(
+      fonts
+    );
+
+
+  const available =
+    DAILY_CATEGORIES
+      .filter(
+        (
+          category
+        ) =>
+          pools[
+            category
+          ]
+          &&
+          pools[
+            category
+          ].length >
+            0
+      )
+      .map(
+        (
+          category
+        ) => ({
+          value:
+            category,
+
+          weight:
+            DAILY_CATEGORY_CONFIG[
+              category
+            ].weight
+        })
+      );
+
+
+  if (
+    available.length ===
+      0
+  ) {
+
+    throw new Error(
+      "No daily categories have drawable candidates."
+    );
+  }
+
+
+  return weightedChoice(
+    available
+  );
 }
 
 
@@ -1263,7 +1937,7 @@ function getDisplayFontPriority(
   if (
     inCodePointRange(
       codePoint,
-      0x13460,
+      0x13000,
       0x143FF
     )
   ) {
@@ -1568,7 +2242,9 @@ function generateEntry(
   const category =
     preferredCategory
     ||
-    pickDailyCategory();
+    pickDailyCategory(
+      fonts
+    );
 
 
   const pools =
@@ -1598,11 +2274,16 @@ function generateEntry(
 
 
   /*
-    先にカテゴリを決め、そのカテゴリの中で
-    コードポイントを均等に抽選する。
+    第1段階:
+      カテゴリをカテゴリweightで抽選する。
 
-    フォント数・収録文字数の差で
-    エジプト文字などへ偏るのを防ぐ。
+    第2段階:
+      そのカテゴリ内ではコードポイントを
+      一度均等に候補化したうえで、
+      rarity weightによる拒否サンプリングを行う。
+
+    これにより、よく見る文字を完全には消さず、
+    拡張面・珍しいブロックを少し出やすくする。
   */
 
   for (
@@ -1622,6 +2303,22 @@ function generateEntry(
     if (
       codePoint ===
       avoidCodePoint
+    ) {
+      continue;
+    }
+
+
+    const rarityWeight =
+      getRarityWeight(
+        category,
+        codePoint
+      );
+
+
+    if (
+      randomUnit() >
+        rarityWeight /
+        MAX_RARITY_WEIGHT
     ) {
       continue;
     }
