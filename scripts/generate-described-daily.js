@@ -1,7 +1,10 @@
 const fs = require("fs");
 
-const AdmZip =
-  require("adm-zip");
+const {
+  UNIHAN_URL,
+  loadUnihanData,
+  buildHanProfile
+} = require("./unihan-profile.js");
 
 const {
   UCD_BASE,
@@ -32,11 +35,6 @@ if (!API_KEY) {
 }
 
 
-const UNIHAN_URL =
-  UCD_BASE +
-  "/Unihan.zip";
-
-
 const SOURCES = {
   ...COMMON_UCD_SOURCES,
 
@@ -59,230 +57,6 @@ function hex(
     );
 }
 
-
-
-async function fetchBuffer(
-  url
-) {
-
-  const response =
-    await fetch(
-      url,
-      {
-        headers: {
-          "User-Agent":
-            "Unicode-Converter description test"
-        },
-
-        signal:
-          AbortSignal.timeout(
-            30000
-          )
-      }
-    );
-
-
-  if (
-    !response.ok
-  ) {
-
-    throw new Error(
-      response.status +
-      " " +
-      response.statusText +
-      ": " +
-      url
-    );
-  }
-
-
-  return Buffer.from(
-    await response.arrayBuffer()
-  );
-}
-
-
-function readZipText(
-  zip,
-  fileName
-) {
-
-  const entry =
-    zip
-      .getEntries()
-      .find(
-        (
-          item
-        ) =>
-          item.entryName ===
-            fileName
-          ||
-          item.entryName.endsWith(
-            "/" +
-            fileName
-          )
-      );
-
-
-  if (
-    !entry
-  ) {
-
-    throw new Error(
-      "Unihan file not found in zip: " +
-      fileName
-    );
-  }
-
-
-  return entry
-    .getData()
-    .toString(
-      "utf8"
-    );
-}
-
-
-function parseUnihanProperties(
-  text
-) {
-
-  const lookup =
-    new Map();
-
-
-  for (
-    const line
-    of text.split(
-      /\r?\n/
-    )
-  ) {
-
-    if (
-      !line
-      ||
-      line.startsWith(
-        "#"
-      )
-    ) {
-      continue;
-    }
-
-
-    const fields =
-      line.split(
-        "\t"
-      );
-
-
-    if (
-      fields.length <
-        3
-      ||
-      !/^U\+[0-9A-F]+$/i.test(
-        fields[
-          0
-        ]
-      )
-    ) {
-      continue;
-    }
-
-
-    const codePoint =
-      parseInt(
-        fields[
-          0
-        ].slice(
-          2
-        ),
-        16
-      );
-
-
-    const property =
-      fields[
-        1
-      ].trim();
-
-
-    const value =
-      fields
-        .slice(
-          2
-        )
-        .join(
-          "\t"
-        )
-        .trim();
-
-
-    if (
-      !property
-      ||
-      !value
-    ) {
-      continue;
-    }
-
-
-    let properties =
-      lookup.get(
-        codePoint
-      );
-
-
-    if (
-      !properties
-    ) {
-
-      properties =
-        {};
-
-
-      lookup.set(
-        codePoint,
-        properties
-      );
-    }
-
-
-    properties[
-      property
-    ] =
-      value;
-  }
-
-
-  return lookup;
-}
-
-
-async function loadUnihanData() {
-
-  const buffer =
-    await fetchBuffer(
-      UNIHAN_URL
-    );
-
-
-  const zip =
-    new AdmZip(
-      buffer
-    );
-
-
-  const readings =
-    readZipText(
-      zip,
-      "Unihan_Readings.txt"
-    );
-
-
-  return parseUnihanProperties(
-    readings
-  );
-}
 
 
 async function loadResearchSources() {
@@ -568,6 +342,140 @@ function makeFacts(
 
 
   push(
+    "unihan:totalStrokes",
+    unihan.kTotalStrokes,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:radicalStroke",
+    unihan.kRSUnicode,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:compatibilityVariant",
+    unihan.kCompatibilityVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:japaneseNewVariant",
+    unihan.kJapaneseNewVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:japaneseOldVariant",
+    unihan.kJapaneseOldVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:semanticVariant",
+    unihan.kSemanticVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:simplifiedVariant",
+    unihan.kSimplifiedVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:traditionalVariant",
+    unihan.kTraditionalVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:zVariant",
+    unihan.kZVariant,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
+    "unihan:primaryNumeric",
+    unihan.kPrimaryNumeric,
+    "Unicode Unihan",
+    "strong"
+  );
+
+
+  push(
+    "unihan:accountingNumeric",
+    unihan.kAccountingNumeric,
+    "Unicode Unihan",
+    "strong"
+  );
+
+
+  push(
+    "unihan:otherNumeric",
+    unihan.kOtherNumeric,
+    "Unicode Unihan",
+    "strong"
+  );
+
+
+  const irgSourceText =
+    Object.entries(
+      unihan
+    )
+      .filter(
+        (
+          [
+            key
+          ]
+        ) =>
+          /^kIRG_.+Source$/.test(
+            key
+          )
+      )
+      .map(
+        (
+          [
+            key,
+            value
+          ]
+        ) =>
+          key +
+          "=" +
+          value
+      )
+      .join(
+        "; "
+      );
+
+
+  push(
+    "unihan:irgSources",
+    irgSourceText,
+    "Unicode Unihan",
+    "supporting"
+  );
+
+
+  push(
     "catalogIndex",
     unikemet.kEH_UniK,
     "Unicode Unikemet",
@@ -624,12 +532,15 @@ function researchCharacter(
     );
 
 
-  const unihan =
-    sourceTexts.unihan.get(
+  const hanProfile =
+    buildHanProfile(
+      sourceTexts.unihan,
       codePoint
-    )
-    ||
-    {};
+    );
+
+
+  const unihan =
+    hanProfile.properties;
 
 
   const facts =
@@ -952,6 +863,38 @@ function researchCharacter(
       standardizedVariants:
         profile.standardizedVariants,
 
+      han:
+        isHan
+          ? {
+              definition:
+                hanProfile.definition,
+
+              japaneseOn:
+                hanProfile.japaneseOn,
+
+              japaneseKun:
+                hanProfile.japaneseKun,
+
+              strokes:
+                hanProfile.strokes,
+
+              variants:
+                hanProfile.variants,
+
+              numeric:
+                hanProfile.numeric,
+
+              irgSources:
+                hanProfile.irgSources,
+
+              dictionary:
+                hanProfile.dictionary,
+
+              sourceFiles:
+                hanProfile.sourceFiles
+            }
+          : null,
+
       unicodeData: {
         combiningClass:
           profile.combiningClass,
@@ -1035,6 +978,10 @@ async function generateDescription(
     "summaryは対象文字・U+XXXX・Unicode名・「この文字は」などを主語にせず、見た目や意味の説明から直接始めてください。たとえば「横向きの角を持つ雄羊の頭をした蛇を表します。」のように書いてください。",
     "usageには根拠のある用途・機能が確認できる場合だけ書き、資料に用途がなければ空文字列にしてください。",
     "UnihanのkDefinitionは漢字の意味、kJapaneseOnは日本語の音読み、kJapaneseKunは日本語の訓読みです。漢字ではこれらをsummaryに自然にまとめてください。",
+    "漢字ではkTotalStrokesは総画数、kRSUnicodeはUnicodeの部首・残画情報です。これらは補足として使えます。",
+    "Unihanの各Variantプロパティは異体関係を表します。資料に明示された関係だけを書き、字形差の理由や歴史を推測しないでください。",
+    "kPrimaryNumeric・kAccountingNumeric・kOtherNumericがある場合は、その文字にUnicodeが与えた数値情報として扱ってください。",
+    "kIRG_*SourceはIRG出典識別子です。一般向け説明に必要な場合だけ補足し、意味や読みをそこから推測しないでください。",
     "記号ではUnicodeの正式名称を、その記号の形や種類を説明する根拠として使えます。ただし正式名称から実際の用途を推測しないでください。",
     "かなではUnicode名と表示文字から、ひらがな・カタカナのどの文字かを簡潔に説明してください。資料にない語源や歴史は足さないでください。",
     "数字ではUnicode名から確認できる数字・数値表現だけを説明し、用途を推測しないでください。",
