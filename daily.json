@@ -1,38 +1,5 @@
 {
   "current": {
-    "date": "2026-10-08",
-    "category": "symbol",
-    "codePoint": "1CE27",
-    "character": "𜸧",
-    "font": "BabelStone Pseudographica",
-    "svg": {
-      "path": "M1 386L683 387L683 -224L341 -224L342 184L0 185Z",
-      "viewBox": "-54.64 -441.64 792.28 720.28"
-    },
-    "info": {
-      "category": "symbol",
-      "unicodeName": "LARGE TYPE PIECE UPPER RIGHT CORNER",
-      "block": "Symbols for Legacy Computing Supplement",
-      "script": "Common",
-      "age": "16.0",
-      "generalCategory": "So",
-      "summary": "右上隅が欠けた大型の活字ピースを表す記号です。",
-      "usage": "",
-      "supplementalInfo": "",
-      "facts": [],
-      "sources": [
-        {
-          "name": "Unicode DerivedName",
-          "url": "https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt"
-        },
-        {
-          "name": "Unicode NamesList",
-          "url": "https://www.unicode.org/Public/UCD/latest/ucd/NamesList.txt"
-        }
-      ]
-    }
-  },
-  "next": {
     "date": "2026-10-09",
     "category": "symbol",
     "codePoint": "2551",
@@ -57,6 +24,76 @@
         {
           "name": "Unicode DerivedName",
           "url": "https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt"
+        },
+        {
+          "name": "Unicode NamesList",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/NamesList.txt"
+        }
+      ]
+    }
+  },
+  "next": {
+    "date": "2026-10-10",
+    "category": "music",
+    "codePoint": "1D0DF",
+    "character": "𝃟",
+    "font": "Noto Music",
+    "svg": {
+      "path": "M167 232Q187 232 187 215Q187 196 167 196Q149 196 149 215Q149 232 167 232ZM222 132Q222 113 204.5 99Q187 85 157 85Q103 85 103 124Q103 141 120 155.5Q137 170 167 170Q222 170 222 132ZM137 124Q137 117 142.5 109Q148 101 158 101Q171 101 179.5 110Q188 119 188 132Q188 156 167 156Q151 156 144 145Q137 134 137 124Z",
+      "viewBox": "91.24 -243.76 142.52 170.52"
+    },
+    "info": {
+      "category": "music",
+      "unicodeName": "BYZANTINE MUSICAL SYMBOL SIMANSIS THESEOS DISIMOU",
+      "block": "Byzantine Musical Symbols",
+      "script": "Common",
+      "age": "3.1",
+      "generalCategory": "So",
+      "aliases": [],
+      "scriptExtensions": [],
+      "standardizedVariants": [],
+      "music": null,
+      "emoji": null,
+      "historical": null,
+      "math": null,
+      "han": null,
+      "unicodeData": {
+        "combiningClass": "0",
+        "bidiClass": "L",
+        "decomposition": null,
+        "decimalValue": null,
+        "digitValue": null,
+        "numericValue": null,
+        "bidiMirrored": false,
+        "unicode1Name": null,
+        "simpleUppercase": null,
+        "simpleLowercase": null,
+        "simpleTitlecase": null
+      },
+      "summary": "ビザンティン音楽記号における「二拍のシマンシス・テセオス」を表す記号です。",
+      "usage": "",
+      "supplementalInfo": "",
+      "facts": [],
+      "sources": [
+        {
+          "name": "Unicode DerivedName",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/extracted/DerivedName.txt"
+        },
+        {
+          "name": "Unicode UnicodeData",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt"
+        },
+        {
+          "name": "Unicode NameAliases",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/NameAliases.txt"
+        },
+        {
+          "name": "Unicode ScriptExtensions",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/ScriptExtensions.txt"
+        },
+        {
+          "name": "Unicode StandardizedVariants",
+          "url": "https://www.unicode.org/Public/UCD/latest/ucd/StandardizedVariants.txt"
         },
         {
           "name": "Unicode NamesList",
