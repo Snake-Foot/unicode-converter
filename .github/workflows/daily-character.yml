@@ -32,13 +32,19 @@ jobs:
         with:
           node-version: "22"
 
-      # package.json に書いた fontkit をインストール
       - name: Install dependencies
         run: npm install --package-lock=false
 
-      # フォントを調べて、表示可能な文字＋SVG輪郭を生成
       - name: Generate daily characters
-        run: node scripts/generate-daily.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "$GEMINI_API_KEY" ]; then
+            node scripts/generate-described-daily.js
+          else
+            echo "::warning::GEMINI_API_KEY is not configured; descriptions are skipped."
+            node scripts/generate-daily.js
+          fi
 
       - name: Commit daily.json
         run: |
