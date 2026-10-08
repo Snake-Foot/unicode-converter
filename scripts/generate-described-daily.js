@@ -54,6 +54,18 @@ const API_KEY =
   process.env.GEMINI_API_KEY;
 
 
+const GEMINI_MODELS = [
+  "gemini-3.8-flash",
+  "gemini-3.7-flash",
+  "gemini-2.5-pro",
+  "gemini-3.1-flash-lite"
+];
+
+
+const GEMINI_ATTEMPTS_PER_MODEL =
+  2;
+
+
 if (!API_KEY) {
   throw new Error(
     "GEMINI_API_KEY is not set."
@@ -1446,10 +1458,7 @@ async function generateDescription(
   );
 
 
-  const body = {
-    model:
-      "gemini-3.1-flash-lite",
-
+  const baseBody = {
     input:
       prompt,
 
@@ -1491,156 +1500,303 @@ async function generateDescription(
   };
 
 
+  let lastError =
+    null;
+
+
   for (
-    let attempt = 1;
-    attempt <= 4;
-    attempt++
+    const model
+    of GEMINI_MODELS
   ) {
 
-    const response =
-      await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/interactions",
-        {
-          method:
-            "POST",
+    for (
+      let attempt = 1;
+      attempt <=
+        GEMINI_ATTEMPTS_PER_MODEL;
+      attempt++
+    ) {
 
-          headers: {
-            "Content-Type":
-              "application/json",
-
-            "x-goog-api-key":
-              API_KEY
-          },
-
-          body:
-            JSON.stringify(
-              body
-            ),
-
-          signal:
-            AbortSignal.timeout(
-              60000
-            )
-        }
+      console.log(
+        "Gemini model " +
+        model +
+        " attempt " +
+        attempt +
+        "/" +
+        GEMINI_ATTEMPTS_PER_MODEL
       );
 
 
-    const raw =
-      await response.text();
+      let response;
 
 
-    if (
-      response.ok
-    ) {
+      try {
 
-      const data =
-        JSON.parse(
+        response =
+          await fetch(
+            "https://generativelanguage.googleapis.com/v1beta/interactions",
+            {
+              method:
+                "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json",
+
+                "x-goog-api-key":
+                  API_KEY
+              },
+
+              body:
+                JSON.stringify(
+                  {
+                    ...baseBody,
+                    model
+                  }
+                ),
+
+              signal:
+                AbortSignal.timeout(
+                  60000
+                )
+            }
+          );
+
+      } catch (
+        error
+      ) {
+
+        lastError =
+          error;
+
+
+        console.warn(
+          "Gemini request failed for " +
+          model +
+          ": " +
+          error.message
+        );
+
+
+        if (
+          attempt <
+            GEMINI_ATTEMPTS_PER_MODEL
+        ) {
+
+          await sleep(
+            1500 *
+            attempt
+          );
+        }
+
+
+        continue;
+      }
+
+
+      const raw =
+        await response.text();
+
+
+      if (
+        response.ok
+      ) {
+
+        try {
+
+          const data =
+            JSON.parse(
+              raw
+            );
+
+
+          const text =
+            (
+              data.steps
+              ||
+              []
+            )
+              .filter(
+                (
+                  step
+                ) =>
+                  step.type ===
+                    "model_output"
+              )
+              .flatMap(
+                (
+                  step
+                ) =>
+                  step.content
+                  ||
+                  []
+              )
+              .filter(
+                (
+                  part
+                ) =>
+                  part.type ===
+                    "text"
+              )
+              .map(
+                (
+                  part
+                ) =>
+                  part.text
+                  ||
+                  ""
+              )
+              .join(
+                ""
+              )
+              .trim();
+
+
+          if (
+            !text
+          ) {
+
+            throw new Error(
+              "Gemini returned no text."
+            );
+          }
+
+
+          const parsed =
+            JSON.parse(
+              text
+            );
+
+
+          console.log(
+            "Gemini description generated with " +
+            model
+          );
+
+
+          return parsed;
+
+        } catch (
+          error
+        ) {
+
+          lastError =
+            error;
+
+
+          console.warn(
+            "Gemini output parse failed for " +
+            model +
+            ": " +
+            error.message
+          );
+
+
+          if (
+            attempt <
+              GEMINI_ATTEMPTS_PER_MODEL
+          ) {
+
+            await sleep(
+              1000 *
+              attempt
+            );
+          }
+
+
+          continue;
+        }
+      }
+
+
+      const apiError =
+        new Error(
+          "Gemini API error: " +
+          response.status +
+          " " +
           raw
         );
 
 
-      const text =
-        (
-          data.steps
-          ||
-          []
-        )
-          .filter(
-            (
-              step
-            ) =>
-              step.type ===
-                "model_output"
-          )
-          .flatMap(
-            (
-              step
-            ) =>
-              step.content
-              ||
-              []
-          )
-          .filter(
-            (
-              part
-            ) =>
-              part.type ===
-                "text"
-          )
-          .map(
-            (
-              part
-            ) =>
-              part.text
-              ||
-              ""
-          )
-          .join(
-            ""
-          )
-          .trim();
+      lastError =
+        apiError;
 
 
       if (
-        !text
+        [
+          401,
+          403
+        ].includes(
+          response.status
+        )
       ) {
 
-        throw new Error(
-          "Gemini returned no text."
-        );
+        throw apiError;
       }
 
 
-      return JSON.parse(
-        text
-      );
-    }
+      const canRetrySameModel =
+        [
+          408,
+          429,
+          500,
+          502,
+          503,
+          504
+        ].includes(
+          response.status
+        )
+        &&
+        attempt <
+          GEMINI_ATTEMPTS_PER_MODEL;
 
 
-    if (
-      ![
-        429,
-        503
-      ].includes(
-        response.status
-      )
-      ||
-      attempt ===
-        4
-    ) {
+      if (
+        canRetrySameModel
+      ) {
 
-      throw new Error(
-        "Gemini API error: " +
+        console.warn(
+          "Gemini temporary error " +
+          response.status +
+          " on " +
+          model +
+          ". Retrying same model once..."
+        );
+
+
+        await sleep(
+          1500 *
+          Math.pow(
+            2,
+            attempt -
+              1
+          )
+        );
+
+
+        continue;
+      }
+
+
+      console.warn(
+        "Gemini model " +
+        model +
+        " unavailable or exhausted (" +
         response.status +
-        " " +
-        raw
+        "). Falling back to the next free-tier model."
       );
+
+
+      break;
     }
-
-
-    console.warn(
-      "Gemini temporary error " +
-      response.status +
-      ". Retrying..."
-    );
-
-
-    await sleep(
-      2000 *
-      Math.pow(
-        2,
-        attempt -
-          1
-      )
-    );
   }
 
 
-  throw new Error(
-    "Gemini description failed."
-  );
+  throw lastError
+    ||
+    new Error(
+      "All configured Gemini free-tier models failed."
+    );
 }
-
 
 async function generateAcceptedEntry(
   fonts,
