@@ -4,6 +4,14 @@ const AdmZip =
   require("adm-zip");
 
 const {
+  UCD_BASE,
+  COMMON_UCD_SOURCES,
+  fetchText,
+  loadCommonUcdData,
+  buildCommonProfile
+} = require("./ucd-profile.js");
+
+const {
   DAILY_JSON_PATH,
   getJSTDateString,
   loadFonts,
@@ -24,39 +32,13 @@ if (!API_KEY) {
 }
 
 
-const UCD_BASE =
-  "https://www.unicode.org/Public/UCD/latest/ucd";
-
-
 const UNIHAN_URL =
   UCD_BASE +
   "/Unihan.zip";
 
 
 const SOURCES = {
-  derivedName:
-    UCD_BASE +
-    "/extracted/DerivedName.txt",
-
-  blocks:
-    UCD_BASE +
-    "/Blocks.txt",
-
-  scripts:
-    UCD_BASE +
-    "/Scripts.txt",
-
-  age:
-    UCD_BASE +
-    "/DerivedAge.txt",
-
-  generalCategory:
-    UCD_BASE +
-    "/extracted/DerivedGeneralCategory.txt",
-
-  namesList:
-    UCD_BASE +
-    "/NamesList.txt",
+  ...COMMON_UCD_SOURCES,
 
   unikemet:
     UCD_BASE +
@@ -77,44 +59,6 @@ function hex(
     );
 }
 
-
-async function fetchText(
-  url
-) {
-
-  const response =
-    await fetch(
-      url,
-      {
-        headers: {
-          "User-Agent":
-            "Unicode-Converter description test"
-        },
-
-        signal:
-          AbortSignal.timeout(
-            30000
-          )
-      }
-    );
-
-
-  if (
-    !response.ok
-  ) {
-
-    throw new Error(
-      response.status +
-      " " +
-      response.statusText +
-      ": " +
-      url
-    );
-  }
-
-
-  return response.text();
-}
 
 
 async function fetchBuffer(
@@ -343,30 +287,17 @@ async function loadUnihanData() {
 
 async function loadResearchSources() {
 
-  const entries =
-    Object.entries(
-      SOURCES
-    );
-
-
   const [
-    texts,
+    commonUcd,
+    unikemet,
     unihan
   ] =
     await Promise.all(
       [
-        Promise.all(
-          entries.map(
-            (
-              [
-                ,
-                url
-              ]
-            ) =>
-              fetchText(
-                url
-              )
-          )
+        loadCommonUcdData(),
+
+        fetchText(
+          SOURCES.unikemet
         ),
 
         loadUnihanData()
@@ -375,332 +306,11 @@ async function loadResearchSources() {
 
 
   return {
-    ...Object.fromEntries(
-      entries.map(
-        (
-          [
-            key
-          ],
-          index
-        ) => [
-          key,
-          texts[
-            index
-          ]
-        ]
-      )
-    ),
-
+    commonUcd,
+    unikemet,
     unihan
   };
 }
-
-function parseRange(
-  raw
-) {
-
-  const value =
-    raw.trim();
-
-
-  if (
-    value.includes(
-      ".."
-    )
-  ) {
-
-    const [
-      start,
-      end
-    ] =
-      value.split(
-        ".."
-      );
-
-
-    return [
-      parseInt(
-        start,
-        16
-      ),
-
-      parseInt(
-        end,
-        16
-      )
-    ];
-  }
-
-
-  const point =
-    parseInt(
-      value,
-      16
-    );
-
-
-  return [
-    point,
-    point
-  ];
-}
-
-
-function findSemicolonProperty(
-  text,
-  codePoint
-) {
-
-  for (
-    const line
-    of text.split(
-      /\r?\n/
-    )
-  ) {
-
-    const data =
-      line
-        .split(
-          "#"
-        )[
-          0
-        ]
-        .trim();
-
-
-    if (
-      !data
-      ||
-      !data.includes(
-        ";"
-      )
-    ) {
-      continue;
-    }
-
-
-    const [
-      rangeText,
-      valueText
-    ] =
-      data.split(
-        ";",
-        2
-      );
-
-
-    const [
-      start,
-      end
-    ] =
-      parseRange(
-        rangeText
-      );
-
-
-    if (
-      codePoint >=
-        start
-      &&
-      codePoint <=
-        end
-    ) {
-
-      return valueText
-        .trim();
-    }
-  }
-
-
-  return null;
-}
-
-
-function findDerivedName(
-  text,
-  codePoint
-) {
-
-  const value =
-    findSemicolonProperty(
-      text,
-      codePoint
-    );
-
-
-  if (
-    !value
-  ) {
-    return null;
-  }
-
-
-  return value.replace(
-    "*",
-    hex(
-      codePoint
-    )
-  );
-}
-
-
-function findNamesListEntry(
-  text,
-  codePoint
-) {
-
-  const lines =
-    text.split(
-      /\r?\n/
-    );
-
-
-  const target =
-    hex(
-      codePoint
-    );
-
-
-  let collecting =
-    false;
-
-
-  const raw =
-    [];
-
-
-  for (
-    const line
-    of lines
-  ) {
-
-    const match =
-      line.match(
-        /^([0-9A-F]{4,6})\t(.*)$/
-      );
-
-
-    if (
-      match
-    ) {
-
-      if (
-        collecting
-      ) {
-        break;
-      }
-
-
-      if (
-        match[
-          1
-        ] ===
-        target
-      ) {
-
-        collecting =
-          true;
-
-
-        raw.push(
-          {
-            type:
-              "name",
-
-            text:
-              match[
-                2
-              ].trim()
-          }
-        );
-      }
-
-
-      continue;
-    }
-
-
-    if (
-      !collecting
-      ||
-      !line.startsWith(
-        "\t"
-      )
-    ) {
-      continue;
-    }
-
-
-    const item =
-      line.trim();
-
-
-    if (
-      !item
-    ) {
-      continue;
-    }
-
-
-    const marker =
-      item[
-        0
-      ];
-
-
-    const body =
-      item
-        .slice(
-          1
-        )
-        .trim();
-
-
-    const typeMap = {
-      "*":
-        "comment",
-
-      "=":
-        "alias",
-
-      "%":
-        "formalAlias",
-
-      "#":
-        "notice",
-
-      "x":
-        "crossReference",
-
-      ":":
-        "decomposition",
-
-      "~":
-        "variation"
-    };
-
-
-    raw.push(
-      {
-        type:
-          typeMap[
-            marker
-          ]
-          ||
-          "other",
-
-        text:
-          body
-          ||
-          item
-      }
-    );
-  }
-
-
-  return raw;
-}
-
 
 function findUnikemet(
   text,
@@ -989,46 +599,22 @@ function researchCharacter(
     );
 
 
-  const unicodeName =
-    findDerivedName(
-      sourceTexts.derivedName,
+  const profile =
+    buildCommonProfile(
+      sourceTexts.commonUcd,
       codePoint
     );
 
 
-  const block =
-    findSemicolonProperty(
-      sourceTexts.blocks,
-      codePoint
-    );
-
-
-  const script =
-    findSemicolonProperty(
-      sourceTexts.scripts,
-      codePoint
-    );
-
-
-  const age =
-    findSemicolonProperty(
-      sourceTexts.age,
-      codePoint
-    );
-
-
-  const generalCategory =
-    findSemicolonProperty(
-      sourceTexts.generalCategory,
-      codePoint
-    );
-
-
-  const namesList =
-    findNamesListEntry(
-      sourceTexts.namesList,
-      codePoint
-    );
+  const {
+    unicodeName,
+    block,
+    script,
+    age,
+    generalCategory,
+    namesList
+  } =
+    profile;
 
 
   const unikemet =
@@ -1163,11 +749,6 @@ function researchCharacter(
       "kana";
 
 
-    /*
-      仮名は正式Unicode名と実際の文字から
-      何の仮名か安全に説明できる。
-    */
-
     accepted =
       Boolean(
         unicodeName
@@ -1259,6 +840,7 @@ function researchCharacter(
         2;
   }
 
+
   const sources = [
     {
       name:
@@ -1266,6 +848,38 @@ function researchCharacter(
 
       url:
         SOURCES.derivedName
+    },
+
+    {
+      name:
+        "Unicode UnicodeData",
+
+      url:
+        SOURCES.unicodeData
+    },
+
+    {
+      name:
+        "Unicode NameAliases",
+
+      url:
+        SOURCES.nameAliases
+    },
+
+    {
+      name:
+        "Unicode ScriptExtensions",
+
+      url:
+        SOURCES.scriptExtensions
+    },
+
+    {
+      name:
+        "Unicode StandardizedVariants",
+
+      url:
+        SOURCES.standardizedVariants
     },
 
     {
@@ -1327,7 +941,51 @@ function researchCharacter(
       block,
       script,
       age,
-      generalCategory
+      generalCategory,
+
+      aliases:
+        profile.nameAliases,
+
+      scriptExtensions:
+        profile.scriptExtensions,
+
+      standardizedVariants:
+        profile.standardizedVariants,
+
+      unicodeData: {
+        combiningClass:
+          profile.combiningClass,
+
+        bidiClass:
+          profile.bidiClass,
+
+        decomposition:
+          profile.decomposition,
+
+        decimalValue:
+          profile.decimalValue,
+
+        digitValue:
+          profile.digitValue,
+
+        numericValue:
+          profile.numericValue,
+
+        bidiMirrored:
+          profile.bidiMirrored,
+
+        unicode1Name:
+          profile.unicode1Name,
+
+        simpleUppercase:
+          profile.simpleUppercase,
+
+        simpleLowercase:
+          profile.simpleLowercase,
+
+        simpleTitlecase:
+          profile.simpleTitlecase
+      }
     },
 
     facts,
