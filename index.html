@@ -32,6 +32,12 @@
   <!-- Unicode用 Web Fonts -->
   <!-- ================================= -->
 
+  <!-- Local Noto Sans JP from Fontsource -->
+  <link
+    href="./node_modules/@fontsource/noto-sans-jp/400.css"
+    rel="stylesheet"
+  >
+
   <!-- Kawi -->
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&display=swap"
@@ -92,12 +98,6 @@
     rel="stylesheet"
   >
 
-  <!-- Music -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Music&display=swap"
-    rel="stylesheet"
-  >
-
   <!-- SignWriting -->
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+SignWriting&display=swap"
@@ -142,7 +142,7 @@
 <script src="./js/glyph-check.js" defer></script>
 <script src="./js/converter.js" defer></script>
 <script src="./js/random.js" defer></script>
-<script src="./js/daily.js" defer></script>
+<script src="./js/daily.js?v=20261008-5" defer></script>
 <script src="./js/scope.js" defer></script>
 <script src="./js/main.js" defer></script>
 
@@ -174,36 +174,150 @@
 
 
       <div
-        id="dailyCharacter"
-        class="
-          character
-          loading-character
-        "
-      >
-        ?
-      </div>
-
-
-      <div
-        id="dailyCode"
-      >
-        読み込み中…
-      </div>
-
-
-      <div
-        id="dailyResearch"
+        class="daily-layout"
       >
 
-        <a
-          id="dailyResearchLink"
-          class="disabled"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
+          class="daily-character-panel"
         >
-          外部サイトで見る(0g0.org様)
-        </a>
+
+          <div
+            class="daily-character-frame"
+          >
+
+            <div
+              id="dailyCharacter"
+              class="
+                character
+                loading-character
+              "
+            >
+              ?
+            </div>
+
+          </div>
+
+
+          <div
+            class="daily-meta"
+          >
+
+            <div
+              id="dailyCode"
+            >
+              読み込み中…
+            </div>
+
+
+            <div
+              id="dailyName"
+              hidden
+            ></div>
+
+          </div>
+
+
+          <div
+            id="dailyTransliterationMeta"
+            class="daily-transliteration-meta"
+            hidden
+          >
+
+            <span
+              class="daily-transliteration-label"
+            >
+              転写
+            </span>
+
+            <span
+              id="dailyTransliteration"
+            ></span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="dailyInfo"
+          class="daily-info-panel"
+          hidden
+        >
+
+          <div
+            class="daily-info-section"
+          >
+
+            <div
+              class="daily-info-heading"
+            >
+              どんな文字？
+            </div>
+
+            <p
+              id="dailySummary"
+            ></p>
+
+          </div>
+
+
+          <div
+            id="dailyUsageSection"
+            class="daily-info-section"
+            hidden
+          >
+
+            <div
+              class="daily-info-heading"
+            >
+              使われ方
+            </div>
+
+            <p
+              id="dailyUsage"
+            ></p>
+
+          </div>
+
+
+          <div
+            id="dailySupplementSection"
+            class="daily-info-section"
+            hidden
+          >
+
+            <div
+              class="daily-info-heading"
+            >
+              補足情報
+            </div>
+
+            <p
+              id="dailySupplement"
+            ></p>
+
+          </div>
+
+
+          <details
+            id="dailySources"
+            class="daily-sources"
+            hidden
+          >
+
+            <summary
+              class="unicode-scope-excluded"
+            >
+              出典を見る
+            </summary>
+
+            <ul
+              id="dailySourceList"
+            ></ul>
+
+          </details>
+
+        </div>
 
       </div>
 
