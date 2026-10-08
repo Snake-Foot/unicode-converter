@@ -969,6 +969,119 @@ function researchCharacter(
     hasIdentity
     &&
     category ===
+      "emoji"
+  ) {
+
+    researchType =
+      "emoji";
+
+
+    accepted =
+      Boolean(
+        emojiProfile
+        &&
+        (
+          emojiProfile.shortName
+          ||
+          emojiProfile.keywords.length >
+            0
+        )
+      )
+      ||
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
+      "math"
+  ) {
+
+    researchType =
+      "math";
+
+
+    accepted =
+      Boolean(
+        mathProfile
+        &&
+        mathProfile.isMath
+      )
+      ||
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
+      "arrows"
+  ) {
+
+    researchType =
+      "arrows";
+
+
+    accepted =
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
+      "legacy"
+  ) {
+
+    researchType =
+      "legacy";
+
+
+    accepted =
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
+      "punctuation"
+  ) {
+
+    researchType =
+      "punctuation";
+
+
+    accepted =
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
+      "symbol"
+  ) {
+
+    researchType =
+      "symbol";
+
+
+    accepted =
+      Boolean(
+        unicodeName
+      );
+
+  } else if (
+    hasIdentity
+    &&
+    category ===
       "kana"
   ) {
 
@@ -1032,16 +1145,28 @@ function researchCharacter(
   } else if (
     hasIdentity
     &&
-    isEgyptian
+    category ===
+      "ancient"
   ) {
 
     researchType =
-      "egyptian";
+      historicalProfile
+        ? "historical"
+        : isEgyptian
+          ? "egyptian"
+          : "ancient";
 
 
     accepted =
-      strongFacts.length >=
-        2;
+      historicalProfile
+        ? strongFacts.length >=
+            1
+        : isEgyptian
+          ? strongFacts.length >=
+              2
+          : Boolean(
+              unicodeName
+            );
 
   } else if (
     hasIdentity
@@ -1812,7 +1937,9 @@ async function generateAcceptedEntry(
 
 
   const category =
-    pickDailyCategory();
+    pickDailyCategory(
+      fonts
+    );
 
 
   console.log(
