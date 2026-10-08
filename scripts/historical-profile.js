@@ -163,38 +163,52 @@ async function loadHistoricalData() {
     );
 
 
-  const texts =
+  const loaded =
     await Promise.all(
       entries.map(
-        (
+        async (
           [
-            ,
+            key,
             source
           ]
-        ) =>
-          fetchText(
-            source.url
-          )
+        ) => {
+
+          try {
+
+            return [
+              key,
+              parseTaggedData(
+                await fetchText(
+                  source.url
+                )
+              )
+            ];
+
+          } catch (
+            error
+          ) {
+
+            console.warn(
+              "Optional historical source unavailable: " +
+              source.url +
+              " (" +
+              error.message +
+              ")"
+            );
+
+
+            return [
+              key,
+              new Map()
+            ];
+          }
+        }
       )
     );
 
 
   return Object.fromEntries(
-    entries.map(
-      (
-        [
-          key
-        ],
-        index
-      ) => [
-        key,
-        parseTaggedData(
-          texts[
-            index
-          ]
-        )
-      ]
-    )
+    loaded
   );
 }
 
