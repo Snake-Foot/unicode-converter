@@ -200,6 +200,84 @@ h2 {
 
 
 /* =========================================
+   Site logo
+========================================= */
+
+.site-header {
+  display: flex;
+
+  justify-content: center;
+
+  margin:
+    0 0 22px;
+}
+
+
+.site-logo-link {
+  display: block;
+
+  width: min(
+    100%,
+    460px
+  );
+
+  border-radius: 14px;
+
+  line-height: 0;
+
+  text-decoration: none;
+
+  -webkit-tap-highlight-color:
+    transparent;
+
+  touch-action:
+    manipulation;
+}
+
+
+.site-logo {
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 14px;
+}
+
+
+.site-logo-link:focus-visible {
+  outline:
+    2px solid
+    #007aff;
+
+  outline-offset:
+    4px;
+}
+
+
+@media (
+  max-width:
+  520px
+) {
+
+  .site-header {
+    margin-bottom: 18px;
+  }
+
+
+  .site-logo-link {
+    width:
+      min(
+        100%,
+        360px
+      );
+  }
+
+}
+
+
+/* =========================================
    Boxes
 ========================================= */
 
