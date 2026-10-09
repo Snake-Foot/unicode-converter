@@ -482,6 +482,21 @@ input:focus {
 
 
 /* =========================================
+   Interactive tap behavior
+========================================= */
+
+button,
+a,
+select,
+summary,
+label,
+[role="button"] {
+  touch-action:
+    manipulation;
+}
+
+
+/* =========================================
    Buttons
 ========================================= */
 
