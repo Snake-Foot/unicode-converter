@@ -1951,17 +1951,17 @@ button:disabled {
 
 
 /* =========================================
-   Daily compact transliteration
+   Daily linguistic metadata
 ========================================= */
 
-.daily-transliteration-meta {
+.daily-linguistic-meta {
   display: flex;
 
-  align-items: baseline;
+  flex-direction: column;
 
-  justify-content: center;
+  align-items: center;
 
-  gap: 7px;
+  gap: 5px;
 
   margin-top: 12px;
 
@@ -1971,7 +1971,24 @@ button:disabled {
 }
 
 
-.daily-transliteration-label {
+.daily-linguistic-meta[hidden],
+.daily-linguistic-row[hidden] {
+  display: none !important;
+}
+
+
+.daily-linguistic-row {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 7px;
+}
+
+
+.daily-linguistic-label {
   flex: 0 0 auto;
 
   font-size: 11px;
@@ -1980,6 +1997,8 @@ button:disabled {
 }
 
 
+#dailyOnReading,
+#dailyKunReading,
 #dailyTransliteration {
   min-width: 0;
 
@@ -2007,18 +2026,25 @@ button:disabled {
   620px
 ) {
 
-  .daily-transliteration-meta {
-    gap: 5px;
+  .daily-linguistic-meta {
+    gap: 4px;
 
     margin-top: 10px;
   }
 
 
-  .daily-transliteration-label {
+  .daily-linguistic-row {
+    gap: 5px;
+  }
+
+
+  .daily-linguistic-label {
     font-size: 9px;
   }
 
 
+  #dailyOnReading,
+  #dailyKunReading,
   #dailyTransliteration {
     font-size: 13px;
   }
