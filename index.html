@@ -142,7 +142,7 @@
 <script src="./js/glyph-check.js" defer></script>
 <script src="./js/converter.js" defer></script>
 <script src="./js/random.js" defer></script>
-<script src="./js/daily.js?v=20261008-5" defer></script>
+<script src="./js/daily.js?v=20261009-1" defer></script>
 <script src="./js/scope.js" defer></script>
 <script src="./js/main.js" defer></script>
 
@@ -218,20 +218,60 @@
 
 
           <div
-            id="dailyTransliterationMeta"
-            class="daily-transliteration-meta"
+            id="dailyLinguisticMeta"
+            class="daily-linguistic-meta"
             hidden
           >
 
-            <span
-              class="daily-transliteration-label"
+            <div
+              id="dailyOnReadingRow"
+              class="daily-linguistic-row"
+              hidden
             >
-              転写
-            </span>
+              <span
+                class="daily-linguistic-label"
+              >
+                音
+              </span>
 
-            <span
-              id="dailyTransliteration"
-            ></span>
+              <span
+                id="dailyOnReading"
+              ></span>
+            </div>
+
+
+            <div
+              id="dailyKunReadingRow"
+              class="daily-linguistic-row"
+              hidden
+            >
+              <span
+                class="daily-linguistic-label"
+              >
+                訓
+              </span>
+
+              <span
+                id="dailyKunReading"
+              ></span>
+            </div>
+
+
+            <div
+              id="dailyTransliterationRow"
+              class="daily-linguistic-row"
+              hidden
+            >
+              <span
+                class="daily-linguistic-label"
+              >
+                転写
+              </span>
+
+              <span
+                id="dailyTransliteration"
+              ></span>
+            </div>
 
           </div>
 
