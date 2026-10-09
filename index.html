@@ -140,11 +140,11 @@
 <script src="./js/config.js" defer></script>
 <script src="./js/fonts.js" defer></script>
 <script src="./js/glyph-check.js" defer></script>
-<script src="./js/converter.js" defer></script>
-<script src="./js/random.js" defer></script>
+<script src="./js/converter.js?v=20261009-1" defer></script>
+<script src="./js/random.js?v=20261009-1" defer></script>
 <script src="./js/daily.js?v=20261009-1" defer></script>
 <script src="./js/scope.js" defer></script>
-<script src="./js/main.js" defer></script>
+<script src="./js/main.js?v=20261009-1" defer></script>
 
 </head>
 
@@ -376,33 +376,31 @@
 <!-- ================================= -->
 
 <section
-  class="box"
+  class="box converter-box"
 >
 
-  <h2>
-    文字 → Unicode
-  </h2>
-
-
-  <textarea
-    id="charInput"
-    placeholder="文字を入力"
-  ></textarea>
-
-
-  <div
-    class="input-view-control"
-  >
+  <div class="converter-heading-row">
+    <h2>
+      文字 → Unicode
+    </h2>
 
     <button
       id="toggleCharView"
       type="button"
-      class="expand-button"
+      class="mode-toggle-button"
+      aria-expanded="false"
     >
-      全表示
+      一括入力
     </button>
-
   </div>
+
+
+  <textarea
+    id="charInput"
+    class="compact-input"
+    placeholder="文字を入力"
+    rows="1"
+  ></textarea>
 
 
   <div
@@ -410,6 +408,7 @@
     class="
       result
       unicode-result
+      compact-result
     "
   ></div>
 
@@ -417,6 +416,7 @@
   <button
     id="clearChar"
     type="button"
+    class="compact-clear-button"
   >
     クリア
   </button>
@@ -429,100 +429,140 @@
 <!-- ================================= -->
 
 <section
-  class="box"
+  class="box converter-box"
 >
 
-  <h2>
-    Unicode → 文字
-  </h2>
-
-
-  <textarea
-    id="unicodeInput"
-    placeholder="例: U+1E290 または 1E290"
-    rows="1"
-  ></textarea>
-
-
-  <div
-    class="input-view-control"
-  >
+  <div class="converter-heading-row">
+    <h2>
+      Unicode → 文字
+    </h2>
 
     <button
       id="toggleUnicodeView"
       type="button"
-      class="expand-button"
+      class="mode-toggle-button"
+      aria-expanded="false"
     >
-      全表示
+      一括入力
     </button>
-
   </div>
 
 
   <div
-    class="hint"
+    id="unicodeInputShell"
+    class="unicode-input-shell"
   >
-    U+1E290 / 1E290 / 0x1E290 に対応。
-    複数入力は空白・改行・カンマで区切れます。
+    <span
+      id="unicodePrefix"
+      class="unicode-prefix"
+      aria-hidden="true"
+    >
+      U+
+    </span>
+
+    <textarea
+      id="unicodeInput"
+      class="compact-input unicode-hex-input"
+      placeholder="1F600"
+      rows="1"
+      maxlength="6"
+      autocapitalize="characters"
+      autocomplete="off"
+      spellcheck="false"
+      inputmode="text"
+      aria-label="Unicodeコードポイント"
+    ></textarea>
   </div>
 
 
-<!-- ランダム・履歴操作 -->
-
-<div class="unicode-controls">
-
-  <div class="random-buttons">
-
-    <button
-      type="button"
-      class="random-button"
-      data-random-count="5"
-    >
-      ランダム5個
-    </button>
-
-    <button
-      type="button"
-      class="random-button"
-      data-random-count="10"
-    >
-      ランダム10個
-    </button>
-
-    <button
-      type="button"
-      class="random-button"
-      data-random-count="100"
-    >
-      ランダム100個
-    </button>
-
+  <div
+    id="unicodeInputHint"
+    class="hint compact-hint"
+  >
+    0–9 / A–F、最大6桁
   </div>
 
 
-  <div class="history-controls">
+  <!-- ランダム・履歴操作 -->
 
-    <button
-      id="backUnicode"
-      type="button"
-      class="back-button"
-      disabled
-    >
-      ← 戻る
-    </button>
+  <div class="unicode-controls">
+
+    <div class="random-generator">
+
+      <label
+        for="randomCountSelect"
+        class="random-label"
+      >
+        ランダム
+      </label>
+
+      <select
+        id="randomCountSelect"
+        class="random-count-select"
+      >
+        <option value="1">1文字</option>
+        <option value="5" selected>5文字</option>
+        <option value="10">10文字</option>
+        <option value="25">25文字</option>
+        <option value="50">50文字</option>
+        <option value="100">100文字</option>
+        <option value="custom">カスタム</option>
+      </select>
+
+      <div
+        id="randomCustomWrap"
+        class="random-custom-wrap"
+        hidden
+      >
+        <input
+          id="randomCustomCount"
+          class="random-custom-count"
+          type="number"
+          min="1"
+          max="500"
+          step="1"
+          value="150"
+          inputmode="numeric"
+          aria-label="ランダム生成する文字数"
+        >
+        <span class="random-limit">
+          最大500
+        </span>
+      </div>
+
+      <button
+        id="generateRandomButton"
+        type="button"
+        class="random-generate-button"
+      >
+        生成
+      </button>
+
+    </div>
+
+
+    <div class="history-controls">
+
+      <button
+        id="backUnicode"
+        type="button"
+        class="back-button"
+        disabled
+      >
+        ← 戻る
+      </button>
+
+    </div>
 
   </div>
 
-</div>
-
-
-  <!-- 変換結果 -->
 
   <div
     id="charOutput"
     class="
       result
       character-result
+      compact-result
     "
   ></div>
 
@@ -530,6 +570,7 @@
   <button
     id="clearUnicode"
     type="button"
+    class="compact-clear-button"
   >
     クリア
   </button>
