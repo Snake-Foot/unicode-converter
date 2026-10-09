@@ -2426,6 +2426,11 @@ button:disabled {
    Segmented Unicode keypad
 ========================================= */
 
+.unicode-single-tool,
+.unicode-single-tool * {
+  touch-action: manipulation;
+}
+
 .char-input {
   min-height: 100px;
 }
