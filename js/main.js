@@ -61,6 +61,187 @@ let lastUnicodeOutputSource =
 
 
 /* =========================================
+   Unified Unicode history state
+========================================= */
+
+function captureUnicodeHistoryState() {
+
+  return {
+    digitCount:
+      getUnicodeDigitLength(),
+
+    digits:
+      [
+        ...singleHexDigits
+      ],
+
+    activeHexIndex,
+
+    bulkValue:
+      unicodeInput.value,
+
+    bulkExpanded:
+      unicodeInput
+        .classList
+        .contains(
+          "input-expanded"
+        ),
+
+    outputSource:
+      lastUnicodeOutputSource
+  };
+}
+
+
+function restoreUnicodeHistoryState(
+  state
+) {
+
+  if (
+    !state
+  ) {
+    return;
+  }
+
+
+  const digitCount =
+    [
+      4,
+      5,
+      6
+    ].includes(
+      Number(
+        state.digitCount
+      )
+    )
+      ? Number(
+          state.digitCount
+        )
+      : 4;
+
+
+  unicodeDigitCount.value =
+    String(
+      digitCount
+    );
+
+
+  singleHexDigits =
+    Array.from(
+      {
+        length:
+          digitCount
+      },
+      (
+        _,
+        index
+      ) => {
+
+        const digit =
+          state.digits?.[
+            index
+          ];
+
+
+        return /^[0-9A-F]$/
+          .test(
+            digit
+            ||
+            ""
+          )
+          ? digit
+          : "";
+      }
+    );
+
+
+  activeHexIndex =
+    Math.max(
+      0,
+      Math.min(
+        digitCount -
+          1,
+        Number(
+          state.activeHexIndex
+        )
+        ||
+        0
+      )
+    );
+
+
+  unicodeInput.value =
+    String(
+      state.bulkValue
+      ||
+      ""
+    );
+
+
+  setBulkInputExpanded(
+    Boolean(
+      state.bulkExpanded
+    )
+  );
+
+
+  lastUnicodeOutputSource =
+    state.outputSource ===
+      "single"
+      ||
+      state.outputSource ===
+      "bulk"
+      ? state.outputSource
+      : null;
+
+
+  renderUnicodeDigitBoxes();
+
+
+  if (
+    lastUnicodeOutputSource ===
+    "single"
+    &&
+    singleHexDigits.every(
+      Boolean
+    )
+  ) {
+
+    convertUnicode(
+      "U+" +
+      singleHexDigits.join(
+        ""
+      )
+    );
+
+
+    return;
+  }
+
+
+  if (
+    lastUnicodeOutputSource ===
+    "bulk"
+    &&
+    unicodeInput.value.trim()
+  ) {
+
+    convertUnicode();
+
+
+    return;
+  }
+
+
+  charOutput.textContent =
+    "";
+
+
+  hideUnicodeScope();
+}
+
+
+/* =========================================
    Bulk input expansion
 ========================================= */
 
@@ -345,6 +526,9 @@ function enterSingleHexDigit(
   digit
 ) {
 
+  saveUnicodeHistory();
+
+
   if (
     unicodeInput.value
   ) {
@@ -415,6 +599,9 @@ function enterSingleHexDigit(
 
 
 function backspaceSingleHexDigit() {
+
+  saveUnicodeHistory();
+
 
   if (
     singleHexDigits[
@@ -508,6 +695,9 @@ unicodeDigitCount.addEventListener(
   "change",
   () => {
 
+    saveUnicodeHistory();
+
+
     resetSingleUnicodeInput();
 
 
@@ -566,6 +756,9 @@ unicodeDigitBoxes.addEventListener(
     ) {
 
       event.preventDefault();
+
+
+      saveUnicodeHistory();
 
 
       singleHexDigits[
@@ -698,6 +891,9 @@ unicodeHexKeypad.addEventListener(
       action ===
       "clear"
     ) {
+
+      saveUnicodeHistory();
+
 
       resetSingleUnicodeInput();
     }
@@ -881,6 +1077,9 @@ generateRandomButton.addEventListener(
       1
     ) {
 
+      saveUnicodeHistory();
+
+
       const codePoint =
         generateRandomCodePoint();
 
@@ -919,16 +1118,7 @@ backUnicode.addEventListener(
   "click",
   () => {
 
-    lastUnicodeOutputSource =
-      "bulk";
-
-
     goBackUnicode();
-
-
-    setBulkInputExpanded(
-      false
-    );
   }
 );
 
