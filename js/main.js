@@ -1,18 +1,64 @@
 /* =========================================
-   Compact / bulk input modes
+   Unicode single input
 ========================================= */
 
 const MAX_RANDOM_COUNT =
   500;
 
 
-let unicodeSingleValue =
-  "";
+const unicodeDigitCount =
+  document.getElementById(
+    "unicodeDigitCount"
+  );
 
 
-let unicodeBulkValue =
-  "";
+const unicodeDigitBoxes =
+  document.getElementById(
+    "unicodeDigitBoxes"
+  );
 
+
+const unicodeHexKeypad =
+  document.getElementById(
+    "unicodeHexKeypad"
+  );
+
+
+const randomCountSelect =
+  document.getElementById(
+    "randomCountSelect"
+  );
+
+
+const randomCustomWrap =
+  document.getElementById(
+    "randomCustomWrap"
+  );
+
+
+const randomCustomCount =
+  document.getElementById(
+    "randomCustomCount"
+  );
+
+
+const generateRandomButton =
+  document.getElementById(
+    "generateRandomButton"
+  );
+
+
+let singleHexDigits =
+  [];
+
+
+let activeHexIndex =
+  0;
+
+
+/* =========================================
+   Bulk input expansion
+========================================= */
 
 function resizeExpandedTextarea(
   textarea
@@ -39,181 +85,20 @@ function resizeExpandedTextarea(
 }
 
 
-function setCharBulkMode(
+function setBulkInputExpanded(
   expanded
 ) {
 
-  charInput.classList.toggle(
+  unicodeInput.classList.toggle(
     "input-expanded",
     expanded
   );
 
 
-  toggleCharView.textContent =
-    expanded
-      ? "1件入力"
-      : "一括入力";
-
-
-  toggleCharView.setAttribute(
-    "aria-expanded",
-    String(expanded)
-  );
-
-
-  if (
-    expanded
-  ) {
-
-    requestAnimationFrame(
-      () => {
-        resizeExpandedTextarea(
-          charInput
-        );
-      }
-    );
-
-  } else {
-
-    charInput.style.height =
-      "";
-
-
-    charInput.scrollTop =
-      0;
-
-
-    charInput.scrollLeft =
-      0;
-  }
-}
-
-
-function sanitizeSingleUnicodeValue(
-  value
-) {
-
-  const raw =
-    String(
-      value
-      ||
-      ""
-    )
-      .trim()
-      .replace(
-        /^U\+/i,
-        ""
-      )
-      .replace(
-        /^0x/i,
-        ""
-      )
-      .toUpperCase();
-
-
-  return raw
-    .replace(
-      /[^0-9A-F]/g,
-      ""
-    )
-    .slice(
-      0,
-      6
-    );
-}
-
-
-function getFirstUnicodeToken(
-  value
-) {
-
-  const token =
-    String(
-      value
-      ||
-      ""
-    )
-      .trim()
-      .split(
-        /[\s,]+/
-      )
-      .filter(
-        Boolean
-      )[
-        0
-      ];
-
-
-  return sanitizeSingleUnicodeValue(
-    token
-    ||
-    ""
-  );
-}
-
-
-function isUnicodeBulkMode() {
-
-  return unicodeInputShell
-    .classList
-    .contains(
-      "bulk-mode"
-    );
-}
-
-
-function setUnicodeBulkMode(
-  expanded,
-  {
-    preserveValues = true
-  } = {}
-) {
-
-  const wasBulk =
-    isUnicodeBulkMode();
-
-
-  if (
-    preserveValues
-  ) {
-
-    if (
-      wasBulk
-    ) {
-
-      unicodeBulkValue =
-        unicodeInput.value;
-
-    } else {
-
-      unicodeSingleValue =
-        sanitizeSingleUnicodeValue(
-          unicodeInput.value
-        );
-    }
-  }
-
-
-  unicodeInputShell
-    .classList
-    .toggle(
-      "bulk-mode",
-      expanded
-    );
-
-
-  unicodeInput
-    .classList
-    .toggle(
-      "input-expanded",
-      expanded
-    );
-
-
   toggleUnicodeView.textContent =
     expanded
-      ? "1件入力"
-      : "一括入力";
+      ? "元に戻す"
+      : "全表示";
 
 
   toggleUnicodeView.setAttribute(
@@ -226,35 +111,6 @@ function setUnicodeBulkMode(
     expanded
   ) {
 
-    unicodeInput.removeAttribute(
-      "maxlength"
-    );
-
-
-    unicodeInput.placeholder =
-      "例: U+1F600 U+3042";
-
-
-    unicodeInputHint.textContent =
-      "複数入力は空白・改行・カンマで区切れます。";
-
-
-    if (
-      preserveValues
-    ) {
-
-      unicodeInput.value =
-        unicodeBulkValue
-        ||
-        (
-          unicodeSingleValue
-            ? "U+" +
-              unicodeSingleValue
-            : ""
-        );
-    }
-
-
     requestAnimationFrame(
       () => {
         resizeExpandedTextarea(
@@ -264,41 +120,6 @@ function setUnicodeBulkMode(
     );
 
   } else {
-
-    unicodeInput.removeAttribute(
-      "maxlength"
-    );
-
-
-    unicodeInput.placeholder =
-      "1F600";
-
-
-    unicodeInputHint.textContent =
-      "0–9 / A–F、最大6桁";
-
-
-    if (
-      preserveValues
-    ) {
-
-      if (
-        !unicodeSingleValue
-        &&
-        unicodeBulkValue
-      ) {
-
-        unicodeSingleValue =
-          getFirstUnicodeToken(
-            unicodeBulkValue
-          );
-      }
-
-
-      unicodeInput.value =
-        unicodeSingleValue;
-    }
-
 
     unicodeInput.style.height =
       "";
@@ -314,44 +135,107 @@ function setUnicodeBulkMode(
 }
 
 
-function valueLooksBulkUnicode(
-  value
-) {
+/* =========================================
+   Segmented Unicode boxes
+========================================= */
 
-  const trimmed =
-    String(
-      value
-      ||
-      ""
-    )
-      .trim();
+function getUnicodeDigitLength() {
 
-
-  if (
-    !trimmed
-  ) {
-    return false;
-  }
+  const count =
+    Number(
+      unicodeDigitCount.value
+    );
 
 
-  return (
-    /[\s,]/.test(
-      trimmed
-    )
-    ||
+  return [
+    4,
+    5,
+    6
+  ].includes(
+    count
+  )
+    ? count
+    : 4;
+}
+
+
+function renderUnicodeDigitBoxes() {
+
+  unicodeDigitBoxes.replaceChildren();
+
+
+  singleHexDigits.forEach(
     (
-      trimmed.match(
-        /U\+/gi
-      )
-      ||
-      []
-    ).length >
-      1
+      digit,
+      index
+    ) => {
+
+      const box =
+        document.createElement(
+          "div"
+        );
+
+
+      box.className =
+        "unicode-digit-box";
+
+
+      if (
+        digit
+      ) {
+
+        box.classList.add(
+          "filled"
+        );
+      }
+
+
+      if (
+        index ===
+        activeHexIndex
+      ) {
+
+        box.classList.add(
+          "active"
+        );
+      }
+
+
+      box.dataset.index =
+        String(
+          index
+        );
+
+
+      box.textContent =
+        digit;
+
+
+      box.addEventListener(
+        "click",
+        () => {
+
+          activeHexIndex =
+            index;
+
+
+          renderUnicodeDigitBoxes();
+
+
+          unicodeDigitBoxes.focus();
+        }
+      );
+
+
+      unicodeDigitBoxes.appendChild(
+        box
+      );
+    }
   );
 }
 
 
-function scheduleUnicodeConversion() {
+function clearSinglePreview() {
 
   unicodeRun++;
 
@@ -361,64 +245,426 @@ function scheduleUnicodeConversion() {
   );
 
 
+  charOutput.textContent =
+    "";
+
+
   hideUnicodeScope();
+}
 
 
-  unicodeInputTimer =
-    setTimeout(
-      convertUnicode,
-      220
+function updateSingleUnicodePreview() {
+
+  const complete =
+    singleHexDigits.length >
+      0
+    &&
+    singleHexDigits.every(
+      Boolean
     );
+
+
+  if (
+    !complete
+  ) {
+
+    clearSinglePreview();
+
+
+    return;
+  }
+
+
+  const value =
+    singleHexDigits.join(
+      ""
+    );
+
+
+  convertUnicode(
+    "U+" +
+    value
+  );
+}
+
+
+function resetSingleUnicodeInput(
+  {
+    clearOutput = true
+  } = {}
+) {
+
+  const length =
+    getUnicodeDigitLength();
+
+
+  singleHexDigits =
+    Array(
+      length
+    )
+      .fill(
+        ""
+      );
+
+
+  activeHexIndex =
+    0;
+
+
+  renderUnicodeDigitBoxes();
+
+
+  if (
+    clearOutput
+  ) {
+
+    clearSinglePreview();
+  }
+}
+
+
+function enterSingleHexDigit(
+  digit
+) {
+
+  const normalized =
+    String(
+      digit
+      ||
+      ""
+    )
+      .toUpperCase();
+
+
+  if (
+    !/^[0-9A-F]$/
+      .test(
+        normalized
+      )
+  ) {
+    return;
+  }
+
+
+  singleHexDigits[
+    activeHexIndex
+  ] =
+    normalized;
+
+
+  if (
+    activeHexIndex <
+      singleHexDigits.length -
+      1
+  ) {
+
+    activeHexIndex++;
+  }
+
+
+  renderUnicodeDigitBoxes();
+
+
+  updateSingleUnicodePreview();
+}
+
+
+function backspaceSingleHexDigit() {
+
+  if (
+    singleHexDigits[
+      activeHexIndex
+    ]
+  ) {
+
+    singleHexDigits[
+      activeHexIndex
+    ] =
+      "";
+
+  } else if (
+    activeHexIndex >
+      0
+  ) {
+
+    activeHexIndex--;
+
+
+    singleHexDigits[
+      activeHexIndex
+    ] =
+      "";
+  }
+
+
+  renderUnicodeDigitBoxes();
+
+
+  updateSingleUnicodePreview();
+}
+
+
+function setSingleUnicodeCodePoint(
+  codePoint
+) {
+
+  const hex =
+    codePoint
+      .toString(
+        16
+      )
+      .toUpperCase();
+
+
+  const length =
+    hex.length <=
+      4
+      ? 4
+      : hex.length ===
+          5
+        ? 5
+        : 6;
+
+
+  unicodeDigitCount.value =
+    String(
+      length
+    );
+
+
+  singleHexDigits =
+    hex
+      .padStart(
+        length,
+        "0"
+      )
+      .split(
+        ""
+      );
+
+
+  activeHexIndex =
+    length -
+    1;
+
+
+  renderUnicodeDigitBoxes();
+
+
+  updateSingleUnicodePreview();
 }
 
 
 /* =========================================
-   Mode buttons
+   Segmented input events
 ========================================= */
 
-toggleCharView.setAttribute(
-  "aria-controls",
-  "charInput"
-);
-
-
-toggleUnicodeView.setAttribute(
-  "aria-controls",
-  "unicodeInput"
-);
-
-
-toggleCharView.addEventListener(
-  "click",
+unicodeDigitCount.addEventListener(
+  "change",
   () => {
 
-    setCharBulkMode(
-      !charInput
-        .classList
-        .contains(
-          "input-expanded"
-        )
-    );
+    resetSingleUnicodeInput();
+
+
+    unicodeDigitBoxes.focus();
   }
 );
 
 
-toggleUnicodeView.addEventListener(
+unicodeDigitBoxes.addEventListener(
+  "keydown",
+  (
+    event
+  ) => {
+
+    const key =
+      event.key;
+
+
+    if (
+      /^[0-9A-Fa-f]$/
+        .test(
+          key
+        )
+    ) {
+
+      event.preventDefault();
+
+
+      enterSingleHexDigit(
+        key
+      );
+
+
+      return;
+    }
+
+
+    if (
+      key ===
+      "Backspace"
+    ) {
+
+      event.preventDefault();
+
+
+      backspaceSingleHexDigit();
+
+
+      return;
+    }
+
+
+    if (
+      key ===
+      "Delete"
+    ) {
+
+      event.preventDefault();
+
+
+      singleHexDigits[
+        activeHexIndex
+      ] =
+        "";
+
+
+      renderUnicodeDigitBoxes();
+
+
+      updateSingleUnicodePreview();
+
+
+      return;
+    }
+
+
+    if (
+      key ===
+      "ArrowLeft"
+    ) {
+
+      event.preventDefault();
+
+
+      activeHexIndex =
+        Math.max(
+          0,
+          activeHexIndex -
+            1
+        );
+
+
+      renderUnicodeDigitBoxes();
+
+
+      return;
+    }
+
+
+    if (
+      key ===
+      "ArrowRight"
+    ) {
+
+      event.preventDefault();
+
+
+      activeHexIndex =
+        Math.min(
+          singleHexDigits.length -
+            1,
+          activeHexIndex +
+            1
+        );
+
+
+      renderUnicodeDigitBoxes();
+
+
+      return;
+    }
+
+
+    if (
+      key.length ===
+      1
+    ) {
+
+      event.preventDefault();
+    }
+  }
+);
+
+
+unicodeHexKeypad.addEventListener(
   "click",
-  () => {
+  (
+    event
+  ) => {
 
-    setUnicodeBulkMode(
-      !isUnicodeBulkMode()
-    );
+    const keyButton =
+      event.target.closest(
+        "[data-hex-key]"
+      );
 
 
-    convertUnicode();
+    if (
+      keyButton
+    ) {
+
+      enterSingleHexDigit(
+        keyButton.dataset.hexKey
+      );
+
+
+      unicodeDigitBoxes.focus();
+
+
+      return;
+    }
+
+
+    const actionButton =
+      event.target.closest(
+        "[data-hex-action]"
+      );
+
+
+    if (
+      !actionButton
+    ) {
+      return;
+    }
+
+
+    const action =
+      actionButton.dataset.hexAction;
+
+
+    if (
+      action ===
+      "backspace"
+    ) {
+
+      backspaceSingleHexDigit();
+
+    } else if (
+      action ===
+      "clear"
+    ) {
+
+      resetSingleUnicodeInput();
+    }
+
+
+    unicodeDigitBoxes.focus();
   }
 );
 
 
 /* =========================================
-   Character input
+   Character → Unicode
 ========================================= */
 
 charInput.addEventListener(
@@ -426,93 +672,58 @@ charInput.addEventListener(
   () => {
 
     convertCharacters();
-
-
-    resizeExpandedTextarea(
-      charInput
-    );
   }
 );
 
 
 /* =========================================
-   Unicode input
+   Bulk Unicode input
 ========================================= */
+
+toggleUnicodeView.setAttribute(
+  "aria-controls",
+  "unicodeInput"
+);
+
+
+toggleUnicodeView.addEventListener(
+  "click",
+  () => {
+
+    setBulkInputExpanded(
+      !unicodeInput.classList.contains(
+        "input-expanded"
+      )
+    );
+  }
+);
+
 
 unicodeInput.addEventListener(
   "input",
   () => {
 
-    if (
-      !isUnicodeBulkMode()
-    ) {
-
-      const raw =
-        unicodeInput.value;
+    unicodeRun++;
 
 
-      if (
-        valueLooksBulkUnicode(
-          raw
-        )
-      ) {
-
-        unicodeBulkValue =
-          raw;
+    clearTimeout(
+      unicodeInputTimer
+    );
 
 
-        setUnicodeBulkMode(
-          true,
-          {
-            preserveValues:
-              false
-          }
-        );
+    hideUnicodeScope();
 
 
-        unicodeInput.value =
-          unicodeBulkValue;
+    resizeExpandedTextarea(
+      unicodeInput
+    );
 
 
-        resizeExpandedTextarea(
-          unicodeInput
-        );
-
-      } else {
-
-        const sanitized =
-          sanitizeSingleUnicodeValue(
-            raw
-          );
-
-
-        if (
-          unicodeInput.value !==
-          sanitized
-        ) {
-
-          unicodeInput.value =
-            sanitized;
-        }
-
-
-        unicodeSingleValue =
-          sanitized;
-      }
-
-    } else {
-
-      unicodeBulkValue =
-        unicodeInput.value;
-
-
-      resizeExpandedTextarea(
-        unicodeInput
+    unicodeInputTimer =
+      setTimeout(
+        convertUnicode,
+        220
       );
-    }
-
-
-    scheduleUnicodeConversion();
   }
 );
 
@@ -618,53 +829,45 @@ generateRandomButton.addEventListener(
       1
     ) {
 
-      setUnicodeBulkMode(
-        false,
-        {
-          preserveValues:
-            false
-        }
-      );
+      const codePoint =
+        generateRandomCodePoint();
 
 
-      generateRandomUnicode(
-        count,
-        true
-      );
+      unicodeInput.value =
+        "";
 
 
-      unicodeSingleValue =
-        unicodeInput.value;
-
-    } else {
-
-      setUnicodeBulkMode(
-        true,
-        {
-          preserveValues:
-            false
-        }
-      );
-
-
-      generateRandomUnicode(
-        count,
+      setBulkInputExpanded(
         false
       );
 
 
-      unicodeBulkValue =
-        unicodeInput.value;
-
-
-      requestAnimationFrame(
-        () => {
-          resizeExpandedTextarea(
-            unicodeInput
-          );
-        }
+      setSingleUnicodeCodePoint(
+        codePoint
       );
+
+
+      return;
     }
+
+
+    resetSingleUnicodeInput(
+      {
+        clearOutput:
+          false
+      }
+    );
+
+
+    generateRandomUnicode(
+      count,
+      false
+    );
+
+
+    setBulkInputExpanded(
+      false
+    );
   }
 );
 
@@ -680,47 +883,9 @@ backUnicode.addEventListener(
     goBackUnicode();
 
 
-    if (
-      valueLooksBulkUnicode(
-        unicodeInput.value
-      )
-    ) {
-
-      unicodeBulkValue =
-        unicodeInput.value;
-
-
-      setUnicodeBulkMode(
-        true,
-        {
-          preserveValues:
-            false
-        }
-      );
-
-    } else {
-
-      unicodeSingleValue =
-        sanitizeSingleUnicodeValue(
-          unicodeInput.value
-        );
-
-
-      setUnicodeBulkMode(
-        false,
-        {
-          preserveValues:
-            false
-        }
-      );
-
-
-      unicodeInput.value =
-        unicodeSingleValue;
-    }
-
-
-    convertUnicode();
+    setBulkInputExpanded(
+      false
+    );
   }
 );
 
@@ -735,11 +900,6 @@ clearChar.addEventListener(
 
     unicodeOutput.textContent =
       "";
-
-
-    setCharBulkMode(
-      false
-    );
 
 
     hideUnicodeScope();
@@ -762,14 +922,6 @@ clearUnicode.addEventListener(
     );
 
 
-    unicodeSingleValue =
-      "";
-
-
-    unicodeBulkValue =
-      "";
-
-
     unicodeInput.value =
       "";
 
@@ -778,19 +930,23 @@ clearUnicode.addEventListener(
       "";
 
 
-    setUnicodeBulkMode(
-      false,
+    resetSingleUnicodeInput(
       {
-        preserveValues:
+        clearOutput:
           false
       }
+    );
+
+
+    setBulkInputExpanded(
+      false
     );
 
 
     hideUnicodeScope();
 
 
-    unicodeInput.focus();
+    unicodeDigitBoxes.focus();
   }
 );
 
@@ -802,11 +958,6 @@ clearUnicode.addEventListener(
 window.addEventListener(
   "resize",
   () => {
-
-    resizeExpandedTextarea(
-      charInput
-    );
-
 
     resizeExpandedTextarea(
       unicodeInput
@@ -823,21 +974,20 @@ window.addEventListener(
    Startup
 ========================================= */
 
-setCharBulkMode(
+setBulkInputExpanded(
   false
 );
 
 
-setUnicodeBulkMode(
-  false,
+syncRandomCustomVisibility();
+
+
+resetSingleUnicodeInput(
   {
-    preserveValues:
+    clearOutput:
       false
   }
 );
-
-
-syncRandomCustomVisibility();
 
 
 updateBackButton();
