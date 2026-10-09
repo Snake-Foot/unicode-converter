@@ -720,6 +720,18 @@ button:disabled {
 }
 
 
+.daily-ai-note {
+  margin:
+    10px 0 0;
+
+  color: #9a9aa0;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+
 #dailyResearch {
   margin-top: 14px;
 }
