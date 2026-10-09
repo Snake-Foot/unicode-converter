@@ -163,11 +163,25 @@ function updateBackButton() {
 
 function saveUnicodeHistory() {
 
-  const currentValue =
-    unicodeInput.value;
+  if (
+    typeof captureUnicodeHistoryState !==
+      "function"
+  ) {
+    return;
+  }
 
 
-  const lastValue =
+  const currentState =
+    captureUnicodeHistoryState();
+
+
+  const serialized =
+    JSON.stringify(
+      currentState
+    );
+
+
+  const lastEntry =
     unicodeHistory[
       unicodeHistory.length -
       1
@@ -175,15 +189,22 @@ function saveUnicodeHistory() {
 
 
   if (
-    currentValue ===
-    lastValue
+    lastEntry
+    &&
+    lastEntry.serialized ===
+      serialized
   ) {
     return;
   }
 
 
   unicodeHistory.push(
-    currentValue
+    {
+      state:
+        currentState,
+
+      serialized
+    }
   );
 
 
@@ -232,14 +253,22 @@ function goBackUnicode() {
   );
 
 
-  unicodeInput.value =
+  const entry =
     unicodeHistory.pop();
 
 
   updateBackButton();
 
 
-  convertUnicode();
+  if (
+    typeof restoreUnicodeHistoryState ===
+      "function"
+  ) {
+
+    restoreUnicodeHistoryState(
+      entry.state
+    );
+  }
 }
 
 /* =========================================
