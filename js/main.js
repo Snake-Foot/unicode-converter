@@ -345,6 +345,33 @@ function enterSingleHexDigit(
   digit
 ) {
 
+  if (
+    unicodeInput.value
+  ) {
+
+    unicodeInput.value =
+      "";
+
+
+    setBulkInputExpanded(
+      false
+    );
+
+
+    if (
+      lastUnicodeOutputSource ===
+      "bulk"
+    ) {
+
+      lastUnicodeOutputSource =
+        null;
+    }
+
+
+    updateBackButton();
+  }
+
+
   const normalized =
     String(
       digit
