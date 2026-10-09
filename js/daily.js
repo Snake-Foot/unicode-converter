@@ -379,6 +379,48 @@ async function renderDailyFontFallback(
    Daily explanation
 ========================================= */
 
+const dailyLinguisticMeta =
+  document.getElementById(
+    "dailyLinguisticMeta"
+  );
+
+
+const dailyOnReadingRow =
+  document.getElementById(
+    "dailyOnReadingRow"
+  );
+
+
+const dailyOnReading =
+  document.getElementById(
+    "dailyOnReading"
+  );
+
+
+const dailyKunReadingRow =
+  document.getElementById(
+    "dailyKunReadingRow"
+  );
+
+
+const dailyKunReading =
+  document.getElementById(
+    "dailyKunReading"
+  );
+
+
+const dailyTransliterationRow =
+  document.getElementById(
+    "dailyTransliterationRow"
+  );
+
+
+const dailyTransliteration =
+  document.getElementById(
+    "dailyTransliteration"
+  );
+
+
 function setDailyInlineGlyphFont(
   element,
   entry
@@ -518,8 +560,9 @@ function renderDailySummary(
 }
 
 
-function getDailyTransliteration(
-  info
+function findDailyFactText(
+  info,
+  kind
 ) {
 
   if (
@@ -539,7 +582,7 @@ function getDailyTransliteration(
         item
         &&
         item.kind ===
-          "functionValue"
+          kind
         &&
         typeof item.text ===
           "string"
@@ -554,14 +597,170 @@ function getDailyTransliteration(
 }
 
 
-function renderDailyTransliteration(
-  text
+function getDailyHanReadings(
+  info
 ) {
 
-  dailyTransliteration.textContent =
-    text;
+  const han =
+    info
+    &&
+    typeof info.han ===
+      "object"
+      ? info.han
+      : null;
+
+
+  const on =
+    (
+      han
+      &&
+      typeof han.japaneseOn ===
+        "string"
+      &&
+      han.japaneseOn.trim()
+    )
+      ? han.japaneseOn.trim()
+      : findDailyFactText(
+          info,
+          "unihan:japaneseOn"
+        );
+
+
+  const kun =
+    (
+      han
+      &&
+      typeof han.japaneseKun ===
+        "string"
+      &&
+      han.japaneseKun.trim()
+    )
+      ? han.japaneseKun.trim()
+      : findDailyFactText(
+          info,
+          "unihan:japaneseKun"
+        );
+
+
+  return {
+    on,
+    kun
+  };
 }
 
+
+function getDailyTransliteration(
+  info
+) {
+
+  return findDailyFactText(
+    info,
+    "functionValue"
+  );
+}
+
+
+function resetDailyLinguisticMeta() {
+
+  dailyLinguisticMeta.hidden =
+    true;
+
+
+  dailyOnReadingRow.hidden =
+    true;
+
+
+  dailyOnReading.textContent =
+    "";
+
+
+  dailyKunReadingRow.hidden =
+    true;
+
+
+  dailyKunReading.textContent =
+    "";
+
+
+  dailyTransliterationRow.hidden =
+    true;
+
+
+  dailyTransliteration.textContent =
+    "";
+}
+
+
+function renderDailyLinguisticMeta(
+  info
+) {
+
+  resetDailyLinguisticMeta();
+
+
+  const {
+    on,
+    kun
+  } =
+    getDailyHanReadings(
+      info
+    );
+
+
+  if (
+    on
+  ) {
+
+    dailyOnReading.textContent =
+      on;
+
+
+    dailyOnReadingRow.hidden =
+      false;
+  }
+
+
+  if (
+    kun
+  ) {
+
+    dailyKunReading.textContent =
+      kun;
+
+
+    dailyKunReadingRow.hidden =
+      false;
+  }
+
+
+  const transliteration =
+    getDailyTransliteration(
+      info
+    );
+
+
+  if (
+    transliteration
+  ) {
+
+    dailyTransliteration.textContent =
+      transliteration;
+
+
+    dailyTransliterationRow.hidden =
+      false;
+  }
+
+
+  dailyLinguisticMeta.hidden =
+    !(
+      on
+      ||
+      kun
+      ||
+      transliteration
+    );
+}
 
 function resetDailyInfo() {
 
@@ -588,11 +787,7 @@ function resetDailyInfo() {
     "";
 
 
-  dailyTransliterationMeta.hidden =
-    true;
-
-
-  dailyTransliteration.replaceChildren();
+  resetDailyLinguisticMeta();
 
 
   dailySupplementSection.hidden =
@@ -685,24 +880,9 @@ function renderDailyInfo(
   }
 
 
-  const transliteration =
-    getDailyTransliteration(
-      info
-    );
-
-
-  if (
-    transliteration
-  ) {
-
-    renderDailyTransliteration(
-      transliteration
-    );
-
-
-    dailyTransliterationMeta.hidden =
-      false;
-  }
+  renderDailyLinguisticMeta(
+    info
+  );
 
 
   if (
