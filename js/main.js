@@ -1,6 +1,18 @@
 /* =========================================
-   Expandable textarea helpers
+   Compact / bulk input modes
 ========================================= */
+
+const MAX_RANDOM_COUNT =
+  500;
+
+
+let unicodeSingleValue =
+  "";
+
+
+let unicodeBulkValue =
+  "";
+
 
 function resizeExpandedTextarea(
   textarea
@@ -17,13 +29,6 @@ function resizeExpandedTextarea(
   }
 
 
-  /*
-    いったん高さをautoに戻してから
-    scrollHeightを取り直すことで、
-    文字が増えた時だけでなく
-    減った時にも正しい高さへ縮む。
-  */
-
   textarea.style.height =
     "auto";
 
@@ -34,34 +39,23 @@ function resizeExpandedTextarea(
 }
 
 
-function setTextareaExpanded(
-  textarea,
-  button,
+function setCharBulkMode(
   expanded
 ) {
 
-  if (
-    !textarea
-    ||
-    !button
-  ) {
-    return;
-  }
-
-
-  textarea.classList.toggle(
+  charInput.classList.toggle(
     "input-expanded",
     expanded
   );
 
 
-  button.textContent =
+  toggleCharView.textContent =
     expanded
-      ? "元に戻す"
-      : "全表示";
+      ? "1件入力"
+      : "一括入力";
 
 
-  button.setAttribute(
+  toggleCharView.setAttribute(
     "aria-expanded",
     String(expanded)
   );
@@ -73,142 +67,358 @@ function setTextareaExpanded(
 
     requestAnimationFrame(
       () => {
-
         resizeExpandedTextarea(
-          textarea
+          charInput
         );
-
       }
     );
 
-    return;
+  } else {
+
+    charInput.style.height =
+      "";
+
+
+    charInput.scrollTop =
+      0;
+
+
+    charInput.scrollLeft =
+      0;
   }
-
-
-  /*
-    CSS側の通常サイズへ戻す。
-  */
-
-  textarea.style.height =
-    "";
-
-
-  textarea.scrollTop =
-    0;
-
-
-  textarea.scrollLeft =
-    0;
 }
 
 
-function toggleTextareaExpanded(
-  textarea,
-  button
+function sanitizeSingleUnicodeValue(
+  value
 ) {
 
-  if (
-    !textarea
+  const raw =
+    String(
+      value
+      ||
+      ""
+    )
+      .trim()
+      .replace(
+        /^U\+/i,
+        ""
+      )
+      .replace(
+        /^0x/i,
+        ""
+      )
+      .toUpperCase();
+
+
+  return raw
+    .replace(
+      /[^0-9A-F]/g,
+      ""
+    )
+    .slice(
+      0,
+      6
+    );
+}
+
+
+function getFirstUnicodeToken(
+  value
+) {
+
+  const token =
+    String(
+      value
+      ||
+      ""
+    )
+      .trim()
+      .split(
+        /[\s,]+/
+      )
+      .filter(
+        Boolean
+      )[
+        0
+      ];
+
+
+  return sanitizeSingleUnicodeValue(
+    token
     ||
-    !button
+    ""
+  );
+}
+
+
+function isUnicodeBulkMode() {
+
+  return unicodeInputShell
+    .classList
+    .contains(
+      "bulk-mode"
+    );
+}
+
+
+function setUnicodeBulkMode(
+  expanded,
+  {
+    preserveValues = true
+  } = {}
+) {
+
+  const wasBulk =
+    isUnicodeBulkMode();
+
+
+  if (
+    preserveValues
   ) {
-    return;
+
+    if (
+      wasBulk
+    ) {
+
+      unicodeBulkValue =
+        unicodeInput.value;
+
+    } else {
+
+      unicodeSingleValue =
+        sanitizeSingleUnicodeValue(
+          unicodeInput.value
+        );
+    }
   }
 
 
-  const expanded =
-    !textarea.classList.contains(
-      "input-expanded"
+  unicodeInputShell
+    .classList
+    .toggle(
+      "bulk-mode",
+      expanded
     );
 
 
-  setTextareaExpanded(
-    textarea,
-    button,
+  unicodeInput
+    .classList
+    .toggle(
+      "input-expanded",
+      expanded
+    );
+
+
+  toggleUnicodeView.textContent =
     expanded
+      ? "1件入力"
+      : "一括入力";
+
+
+  toggleUnicodeView.setAttribute(
+    "aria-expanded",
+    String(expanded)
+  );
+
+
+  if (
+    expanded
+  ) {
+
+    unicodeInput.removeAttribute(
+      "maxlength"
+    );
+
+
+    unicodeInput.placeholder =
+      "例: U+1F600 U+3042";
+
+
+    unicodeInputHint.textContent =
+      "複数入力は空白・改行・カンマで区切れます。";
+
+
+    if (
+      preserveValues
+    ) {
+
+      unicodeInput.value =
+        unicodeBulkValue
+        ||
+        (
+          unicodeSingleValue
+            ? "U+" +
+              unicodeSingleValue
+            : ""
+        );
+    }
+
+
+    requestAnimationFrame(
+      () => {
+        resizeExpandedTextarea(
+          unicodeInput
+        );
+      }
+    );
+
+  } else {
+
+    unicodeInput.removeAttribute(
+      "maxlength"
+    );
+
+
+    unicodeInput.placeholder =
+      "1F600";
+
+
+    unicodeInputHint.textContent =
+      "0–9 / A–F、最大6桁";
+
+
+    if (
+      preserveValues
+    ) {
+
+      if (
+        !unicodeSingleValue
+        &&
+        unicodeBulkValue
+      ) {
+
+        unicodeSingleValue =
+          getFirstUnicodeToken(
+            unicodeBulkValue
+          );
+      }
+
+
+      unicodeInput.value =
+        unicodeSingleValue;
+    }
+
+
+    unicodeInput.style.height =
+      "";
+
+
+    unicodeInput.scrollTop =
+      0;
+
+
+    unicodeInput.scrollLeft =
+      0;
+  }
+}
+
+
+function valueLooksBulkUnicode(
+  value
+) {
+
+  const trimmed =
+    String(
+      value
+      ||
+      ""
+    )
+      .trim();
+
+
+  if (
+    !trimmed
+  ) {
+    return false;
+  }
+
+
+  return (
+    /[\s,]/.test(
+      trimmed
+    )
+    ||
+    (
+      trimmed.match(
+        /U\+/gi
+      )
+      ||
+      []
+    ).length >
+      1
   );
 }
 
 
-function resetTextareaExpanded(
-  textarea,
-  button
-) {
+function scheduleUnicodeConversion() {
 
-  setTextareaExpanded(
-    textarea,
-    button,
-    false
+  unicodeRun++;
+
+
+  clearTimeout(
+    unicodeInputTimer
   );
+
+
+  hideUnicodeScope();
+
+
+  unicodeInputTimer =
+    setTimeout(
+      convertUnicode,
+      220
+    );
 }
 
 
 /* =========================================
-   Expand buttons
+   Mode buttons
 ========================================= */
 
-if (
-  toggleCharView
-) {
-
-  toggleCharView.setAttribute(
-    "aria-controls",
-    "charInput"
-  );
+toggleCharView.setAttribute(
+  "aria-controls",
+  "charInput"
+);
 
 
-  toggleCharView.setAttribute(
-    "aria-expanded",
-    "false"
-  );
+toggleUnicodeView.setAttribute(
+  "aria-controls",
+  "unicodeInput"
+);
 
 
-  toggleCharView.addEventListener(
-    "click",
-    () => {
+toggleCharView.addEventListener(
+  "click",
+  () => {
 
-      toggleTextareaExpanded(
-        charInput,
-        toggleCharView
-      );
-
-    }
-  );
-}
-
-
-if (
-  toggleUnicodeView
-) {
-
-  toggleUnicodeView.setAttribute(
-    "aria-controls",
-    "unicodeInput"
-  );
+    setCharBulkMode(
+      !charInput
+        .classList
+        .contains(
+          "input-expanded"
+        )
+    );
+  }
+);
 
 
-  toggleUnicodeView.setAttribute(
-    "aria-expanded",
-    "false"
-  );
+toggleUnicodeView.addEventListener(
+  "click",
+  () => {
+
+    setUnicodeBulkMode(
+      !isUnicodeBulkMode()
+    );
 
 
-  toggleUnicodeView.addEventListener(
-    "click",
-    () => {
-
-      toggleTextareaExpanded(
-        unicodeInput,
-        toggleUnicodeView
-      );
-
-    }
-  );
-}
+    convertUnicode();
+  }
+);
 
 
 /* =========================================
-   Events
+   Character input
 ========================================= */
 
 charInput.addEventListener(
@@ -221,75 +431,247 @@ charInput.addEventListener(
     resizeExpandedTextarea(
       charInput
     );
-
   }
 );
 
+
+/* =========================================
+   Unicode input
+========================================= */
 
 unicodeInput.addEventListener(
   "input",
   () => {
 
-    unicodeRun++;
+    if (
+      !isUnicodeBulkMode()
+    ) {
+
+      const raw =
+        unicodeInput.value;
 
 
-    clearTimeout(
-      unicodeInputTimer
-    );
+      if (
+        valueLooksBulkUnicode(
+          raw
+        )
+      ) {
+
+        unicodeBulkValue =
+          raw;
 
 
-    hideUnicodeScope();
+        setUnicodeBulkMode(
+          true,
+          {
+            preserveValues:
+              false
+          }
+        );
 
 
-    resizeExpandedTextarea(
-      unicodeInput
-    );
+        unicodeInput.value =
+          unicodeBulkValue;
 
 
-    unicodeInputTimer =
-      setTimeout(
-        convertUnicode,
-        300
+        resizeExpandedTextarea(
+          unicodeInput
+        );
+
+      } else {
+
+        const sanitized =
+          sanitizeSingleUnicodeValue(
+            raw
+          );
+
+
+        if (
+          unicodeInput.value !==
+          sanitized
+        ) {
+
+          unicodeInput.value =
+            sanitized;
+        }
+
+
+        unicodeSingleValue =
+          sanitized;
+      }
+
+    } else {
+
+      unicodeBulkValue =
+        unicodeInput.value;
+
+
+      resizeExpandedTextarea(
+        unicodeInput
       );
+    }
 
+
+    scheduleUnicodeConversion();
   }
 );
 
 
-document
-  .querySelectorAll(
-    "[data-random-count]"
-  )
-  .forEach(
-    (button) => {
+/* =========================================
+   Random controls
+========================================= */
 
-      button.addEventListener(
-        "click",
-        () => {
+function syncRandomCustomVisibility() {
 
-          generateRandomUnicode(
-            Number(
-              button.dataset.randomCount
-            )
-          );
+  randomCustomWrap.hidden =
+    randomCountSelect.value !==
+    "custom";
+}
 
 
-          requestAnimationFrame(
-            () => {
+function getSelectedRandomCount() {
 
-              resizeExpandedTextarea(
-                unicodeInput
-              );
+  if (
+    randomCountSelect.value !==
+    "custom"
+  ) {
 
-            }
-          );
+    return Math.min(
+      MAX_RANDOM_COUNT,
+      Math.max(
+        1,
+        Number(
+          randomCountSelect.value
+        )
+      )
+    );
+  }
 
+
+  const parsed =
+    Number.parseInt(
+      randomCustomCount.value,
+      10
+    );
+
+
+  const count =
+    Number.isFinite(
+      parsed
+    )
+      ? Math.min(
+          MAX_RANDOM_COUNT,
+          Math.max(
+            1,
+            parsed
+          )
+        )
+      : 1;
+
+
+  randomCustomCount.value =
+    String(
+      count
+    );
+
+
+  return count;
+}
+
+
+randomCountSelect.addEventListener(
+  "change",
+  () => {
+
+    syncRandomCustomVisibility();
+
+
+    if (
+      !randomCustomWrap.hidden
+    ) {
+
+      randomCustomCount.focus();
+    }
+  }
+);
+
+
+randomCustomCount.addEventListener(
+  "blur",
+  () => {
+
+    getSelectedRandomCount();
+  }
+);
+
+
+generateRandomButton.addEventListener(
+  "click",
+  () => {
+
+    const count =
+      getSelectedRandomCount();
+
+
+    if (
+      count ===
+      1
+    ) {
+
+      setUnicodeBulkMode(
+        false,
+        {
+          preserveValues:
+            false
         }
       );
 
-    }
-  );
 
+      generateRandomUnicode(
+        count,
+        true
+      );
+
+
+      unicodeSingleValue =
+        unicodeInput.value;
+
+    } else {
+
+      setUnicodeBulkMode(
+        true,
+        {
+          preserveValues:
+            false
+        }
+      );
+
+
+      generateRandomUnicode(
+        count,
+        false
+      );
+
+
+      unicodeBulkValue =
+        unicodeInput.value;
+
+
+      requestAnimationFrame(
+        () => {
+          resizeExpandedTextarea(
+            unicodeInput
+          );
+        }
+      );
+    }
+  }
+);
+
+
+/* =========================================
+   History / clear
+========================================= */
 
 backUnicode.addEventListener(
   "click",
@@ -298,16 +680,47 @@ backUnicode.addEventListener(
     goBackUnicode();
 
 
-    requestAnimationFrame(
-      () => {
+    if (
+      valueLooksBulkUnicode(
+        unicodeInput.value
+      )
+    ) {
 
-        resizeExpandedTextarea(
-          unicodeInput
+      unicodeBulkValue =
+        unicodeInput.value;
+
+
+      setUnicodeBulkMode(
+        true,
+        {
+          preserveValues:
+            false
+        }
+      );
+
+    } else {
+
+      unicodeSingleValue =
+        sanitizeSingleUnicodeValue(
+          unicodeInput.value
         );
 
-      }
-    );
 
+      setUnicodeBulkMode(
+        false,
+        {
+          preserveValues:
+            false
+        }
+      );
+
+
+      unicodeInput.value =
+        unicodeSingleValue;
+    }
+
+
+    convertUnicode();
   }
 );
 
@@ -324,9 +737,8 @@ clearChar.addEventListener(
       "";
 
 
-    resetTextareaExpanded(
-      charInput,
-      toggleCharView
+    setCharBulkMode(
+      false
     );
 
 
@@ -350,6 +762,14 @@ clearUnicode.addEventListener(
     );
 
 
+    unicodeSingleValue =
+      "";
+
+
+    unicodeBulkValue =
+      "";
+
+
     unicodeInput.value =
       "";
 
@@ -358,9 +778,12 @@ clearUnicode.addEventListener(
       "";
 
 
-    resetTextareaExpanded(
-      unicodeInput,
-      toggleUnicodeView
+    setUnicodeBulkMode(
+      false,
+      {
+        preserveValues:
+          false
+      }
     );
 
 
@@ -372,11 +795,9 @@ clearUnicode.addEventListener(
 );
 
 
-/*
-  画面回転やウィンドウ幅変更で
-  折り返し位置が変わった時にも
-  全表示の高さを合わせ直す。
-*/
+/* =========================================
+   Resize
+========================================= */
 
 window.addEventListener(
   "resize",
@@ -390,10 +811,10 @@ window.addEventListener(
     resizeExpandedTextarea(
       unicodeInput
     );
-
   },
   {
-    passive: true
+    passive:
+      true
   }
 );
 
@@ -401,6 +822,23 @@ window.addEventListener(
 /* =========================================
    Startup
 ========================================= */
+
+setCharBulkMode(
+  false
+);
+
+
+setUnicodeBulkMode(
+  false,
+  {
+    preserveValues:
+      false
+  }
+);
+
+
+syncRandomCustomVisibility();
+
 
 updateBackButton();
 
@@ -433,7 +871,6 @@ setInterval(
 
       loadDailyCharacter();
     }
-
   },
   60000
 );
