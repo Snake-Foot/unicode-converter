@@ -214,12 +214,18 @@ h2 {
 
 
 .site-logo-link {
+  position: relative;
+
   display: block;
 
   width: min(
     100%,
     460px
   );
+
+  height: 54px;
+
+  overflow: hidden;
 
   border-radius: 14px;
 
@@ -236,11 +242,20 @@ h2 {
 
 
 .site-logo {
+  position: absolute;
+
+  top: 50%;
+
+  left: 0;
+
   display: block;
 
   width: 100%;
 
   height: auto;
+
+  transform:
+    translateY(-50%);
 
   border-radius: 14px;
 }
@@ -272,6 +287,8 @@ h2 {
         100%,
         360px
       );
+
+    height: 42px;
   }
 
 }
