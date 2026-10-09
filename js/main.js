@@ -60,6 +60,11 @@ let lastUnicodeOutputSource =
   null;
 
 
+let randomCustomHasDefaultValue =
+  randomCustomCount.value ===
+  "150";
+
+
 /* =========================================
    Unified Unicode history state
 ========================================= */
@@ -1051,6 +1056,96 @@ randomCountSelect.addEventListener(
 
       randomCustomCount.focus();
     }
+  }
+);
+
+
+randomCustomCount.addEventListener(
+  "beforeinput",
+  (
+    event
+  ) => {
+
+    if (
+      !randomCustomHasDefaultValue
+    ) {
+      return;
+    }
+
+
+    const inputType =
+      event.inputType
+      ||
+      "";
+
+
+    if (
+      inputType.startsWith(
+        "insert"
+      )
+    ) {
+
+      const inserted =
+        event.data;
+
+
+      randomCustomHasDefaultValue =
+        false;
+
+
+      if (
+        inserted
+        &&
+        /^\d+$/.test(
+          inserted
+        )
+      ) {
+
+        event.preventDefault();
+
+
+        randomCustomCount.value =
+          inserted;
+
+
+        return;
+      }
+
+
+      randomCustomCount.value =
+        "";
+
+
+      return;
+    }
+
+
+    if (
+      inputType.startsWith(
+        "delete"
+      )
+    ) {
+
+      event.preventDefault();
+
+
+      randomCustomHasDefaultValue =
+        false;
+
+
+      randomCustomCount.value =
+        "";
+    }
+  }
+);
+
+
+randomCustomCount.addEventListener(
+  "input",
+  () => {
+
+    randomCustomHasDefaultValue =
+      false;
   }
 );
 
