@@ -238,6 +238,15 @@ h2 {
 
   touch-action:
     manipulation;
+
+  user-select:
+    none;
+
+  -webkit-user-select:
+    none;
+
+  -webkit-touch-callout:
+    none;
 }
 
 
@@ -258,6 +267,21 @@ h2 {
     translateY(-50%);
 
   border-radius: 14px;
+
+  pointer-events:
+    none;
+
+  user-select:
+    none;
+
+  -webkit-user-select:
+    none;
+
+  -webkit-touch-callout:
+    none;
+
+  -webkit-user-drag:
+    none;
 }
 
 
