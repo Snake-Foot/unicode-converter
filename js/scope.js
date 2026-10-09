@@ -1102,7 +1102,7 @@ document.addEventListener(
 
     if (
       event.target.closest(
-        "button, a, input, textarea, select, .unicode-scope-excluded"
+        "button, a, input, textarea, select, option, summary, label, [role='button'], [role='group'], .unicode-scope-excluded"
       )
     ) {
       return;
