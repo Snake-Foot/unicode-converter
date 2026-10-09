@@ -56,6 +56,10 @@ let activeHexIndex =
   0;
 
 
+let lastUnicodeOutputSource =
+  null;
+
+
 /* =========================================
    Bulk input expansion
 ========================================= */
@@ -245,8 +249,18 @@ function clearSinglePreview() {
   );
 
 
-  charOutput.textContent =
-    "";
+  if (
+    lastUnicodeOutputSource ===
+    "single"
+  ) {
+
+    charOutput.textContent =
+      "";
+
+
+    lastUnicodeOutputSource =
+      null;
+  }
 
 
   hideUnicodeScope();
@@ -279,6 +293,10 @@ function updateSingleUnicodePreview() {
     singleHexDigits.join(
       ""
     );
+
+
+  lastUnicodeOutputSource =
+    "single";
 
 
   convertUnicode(
@@ -721,7 +739,14 @@ unicodeInput.addEventListener(
 
     unicodeInputTimer =
       setTimeout(
-        convertUnicode,
+        () => {
+
+          lastUnicodeOutputSource =
+            "bulk";
+
+
+          convertUnicode();
+        },
         220
       );
   }
@@ -833,15 +858,6 @@ generateRandomButton.addEventListener(
         generateRandomCodePoint();
 
 
-      unicodeInput.value =
-        "";
-
-
-      setBulkInputExpanded(
-        false
-      );
-
-
       setSingleUnicodeCodePoint(
         codePoint
       );
@@ -851,12 +867,8 @@ generateRandomButton.addEventListener(
     }
 
 
-    resetSingleUnicodeInput(
-      {
-        clearOutput:
-          false
-      }
-    );
+    lastUnicodeOutputSource =
+      "bulk";
 
 
     generateRandomUnicode(
@@ -879,6 +891,10 @@ generateRandomButton.addEventListener(
 backUnicode.addEventListener(
   "click",
   () => {
+
+    lastUnicodeOutputSource =
+      "bulk";
+
 
     goBackUnicode();
 
@@ -926,16 +942,18 @@ clearUnicode.addEventListener(
       "";
 
 
-    charOutput.textContent =
-      "";
+    if (
+      lastUnicodeOutputSource ===
+      "bulk"
+    ) {
+
+      charOutput.textContent =
+        "";
 
 
-    resetSingleUnicodeInput(
-      {
-        clearOutput:
-          false
-      }
-    );
+      lastUnicodeOutputSource =
+        null;
+    }
 
 
     setBulkInputExpanded(
@@ -946,7 +964,7 @@ clearUnicode.addEventListener(
     hideUnicodeScope();
 
 
-    unicodeDigitBoxes.focus();
+    unicodeInput.focus();
   }
 );
 
