@@ -294,14 +294,25 @@ function createGlyphElement(
    Unicode → Character
 ========================================= */
 
-async function convertUnicode() {
+async function convertUnicode(
+  rawOverride =
+    null
+) {
 
   const currentRun =
     ++unicodeRun;
 
 
   const raw =
-    unicodeInput.value.trim();
+    (
+      rawOverride ===
+        null
+        ? unicodeInput.value
+        : String(
+            rawOverride
+          )
+    )
+      .trim();
 
 
   charOutput.className =
