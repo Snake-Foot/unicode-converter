@@ -143,8 +143,8 @@
 <script src="./js/converter.js?v=20261009-1" defer></script>
 <script src="./js/random.js?v=20261009-1" defer></script>
 <script src="./js/daily.js?v=20261009-1" defer></script>
-<script src="./js/scope.js" defer></script>
-<script src="./js/main.js?v=20261009-1" defer></script>
+<script src="./js/scope.js?v=20261009-2" defer></script>
+<script src="./js/main.js?v=20261009-2" defer></script>
 
 </head>
 
@@ -379,25 +379,14 @@
   class="box converter-box"
 >
 
-  <div class="converter-heading-row">
-    <h2>
-      文字 → Unicode
-    </h2>
-
-    <button
-      id="toggleCharView"
-      type="button"
-      class="mode-toggle-button"
-      aria-expanded="false"
-    >
-      一括入力
-    </button>
-  </div>
+  <h2>
+    文字 → Unicode
+  </h2>
 
 
   <textarea
     id="charInput"
-    class="compact-input"
+    class="compact-input char-input"
     placeholder="文字を入力"
     rows="1"
   ></textarea>
@@ -416,7 +405,7 @@
   <button
     id="clearChar"
     type="button"
-    class="compact-clear-button"
+    class="compact-clear-button unicode-scope-excluded"
   >
     クリア
   </button>
@@ -432,60 +421,129 @@
   class="box converter-box"
 >
 
-  <div class="converter-heading-row">
-    <h2>
-      Unicode → 文字
-    </h2>
-
-    <button
-      id="toggleUnicodeView"
-      type="button"
-      class="mode-toggle-button"
-      aria-expanded="false"
-    >
-      一括入力
-    </button>
-  </div>
+  <h2>
+    Unicode → 文字
+  </h2>
 
 
   <div
-    id="unicodeInputShell"
-    class="unicode-input-shell"
+    class="unicode-single-tool unicode-scope-excluded"
   >
-    <span
-      id="unicodePrefix"
-      class="unicode-prefix"
-      aria-hidden="true"
+
+    <div class="unicode-digit-toolbar">
+
+      <span class="unicode-prefix">
+        U+
+      </span>
+
+      <label
+        for="unicodeDigitCount"
+        class="unicode-digit-label"
+      >
+        桁数
+      </label>
+
+      <select
+        id="unicodeDigitCount"
+        class="unicode-digit-count"
+      >
+        <option value="4" selected>4桁</option>
+        <option value="5">5桁</option>
+        <option value="6">6桁</option>
+      </select>
+
+    </div>
+
+
+    <div
+      id="unicodeDigitBoxes"
+      class="unicode-digit-boxes"
+      tabindex="0"
+      role="group"
+      aria-label="Unicodeコードポイント入力"
+    ></div>
+
+
+    <div
+      id="unicodeHexKeypad"
+      class="unicode-hex-keypad"
+      aria-label="16進数キーボード"
     >
-      U+
-    </span>
+      <button type="button" data-hex-key="0">0</button>
+      <button type="button" data-hex-key="1">1</button>
+      <button type="button" data-hex-key="2">2</button>
+      <button type="button" data-hex-key="3">3</button>
+      <button type="button" data-hex-key="4">4</button>
+      <button type="button" data-hex-key="5">5</button>
+      <button type="button" data-hex-key="6">6</button>
+      <button type="button" data-hex-key="7">7</button>
+      <button type="button" data-hex-key="8">8</button>
+      <button type="button" data-hex-key="9">9</button>
+      <button type="button" data-hex-key="A">A</button>
+      <button type="button" data-hex-key="B">B</button>
+      <button type="button" data-hex-key="C">C</button>
+      <button type="button" data-hex-key="D">D</button>
+      <button type="button" data-hex-key="E">E</button>
+      <button type="button" data-hex-key="F">F</button>
+      <button
+        type="button"
+        class="hex-key-action"
+        data-hex-action="backspace"
+        aria-label="1文字削除"
+      >
+        ⌫
+      </button>
+      <button
+        type="button"
+        class="hex-key-action"
+        data-hex-action="clear"
+      >
+        クリア
+      </button>
+    </div>
+
+  </div>
+
+
+  <details
+    id="unicodeBulkDetails"
+    class="unicode-bulk-details unicode-scope-excluded"
+  >
+    <summary>
+      一括入力
+    </summary>
 
     <textarea
       id="unicodeInput"
-      class="compact-input unicode-hex-input"
-      placeholder="1F600"
+      class="unicode-bulk-input"
+      placeholder="例: U+1F600 U+3042"
       rows="1"
-      maxlength="6"
       autocapitalize="characters"
       autocomplete="off"
       spellcheck="false"
-      inputmode="text"
-      aria-label="Unicodeコードポイント"
     ></textarea>
-  </div>
+
+    <div class="input-view-control">
+      <button
+        id="toggleUnicodeView"
+        type="button"
+        class="expand-button"
+        aria-expanded="false"
+      >
+        全表示
+      </button>
+    </div>
+
+    <div
+      id="unicodeInputHint"
+      class="hint compact-hint"
+    >
+      複数入力は空白・改行・カンマで区切れます。
+    </div>
+  </details>
 
 
-  <div
-    id="unicodeInputHint"
-    class="hint compact-hint"
-  >
-    0–9 / A–F、最大6桁
-  </div>
-
-
-  <!-- ランダム・履歴操作 -->
-
-  <div class="unicode-controls">
+  <div class="unicode-controls unicode-scope-excluded">
 
     <div class="random-generator">
 
@@ -570,7 +628,7 @@
   <button
     id="clearUnicode"
     type="button"
-    class="compact-clear-button"
+    class="compact-clear-button unicode-scope-excluded"
   >
     クリア
   </button>
