@@ -183,8 +183,26 @@ function generateRandomCodePoint() {
 ========================================= */
 
 function generateRandomUnicode(
-  count
+  count,
+  compactSingle =
+    false
 ) {
+
+  const safeCount =
+    Math.min(
+      500,
+      Math.max(
+        1,
+        Math.trunc(
+          Number(
+            count
+          )
+          ||
+          1
+        )
+      )
+    );
+
 
   saveUnicodeHistory();
 
@@ -195,7 +213,7 @@ function generateRandomUnicode(
 
   for (
     let index = 0;
-    index < count;
+    index < safeCount;
     index++
   ) {
 
@@ -203,14 +221,22 @@ function generateRandomUnicode(
       generateRandomCodePoint();
 
 
-    values.push(
-      "U+"
-      +
+    const code =
       codePoint
         .toString(
           16
         )
-        .toUpperCase()
+        .toUpperCase();
+
+
+    values.push(
+      compactSingle
+      &&
+      safeCount ===
+        1
+        ? code
+        : "U+" +
+          code
     );
   }
 
