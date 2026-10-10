@@ -3,49 +3,60 @@
   "notes": [
     "Local font file inventory for run-time-independent cmap audit; these are site-distributed assets plus an npm dependency.",
     "Missing path is reported; note GitHub Pages does not contain node_modules even if npm installs it during build.",
-    "Add freely-licensed downloaded font binaries yourself only after reviewing licensing and source; do not infer full coverage from Unicode block or filename."
+    "Add freely-licensed downloaded font binaries yourself only after reviewing licensing and source; do not infer full coverage from Unicode block or filename.",
+    "site_served=false entries are intentionally omitted from the published-browser coverage index."
   ],
   "fonts": [
     {
       "family": "Noto Sans Phonetics",
-      "path": "fonts/phonetics/NotoSans-Regular.ttf"
+      "path": "fonts/phonetics/NotoSans-Regular.ttf",
+      "site_served": true
     },
     {
       "family": "Noto Music",
-      "path": "fonts/music/NotoMusic-Regular.ttf"
+      "path": "fonts/music/NotoMusic-Regular.ttf",
+      "site_served": true
     },
     {
       "family": "Noto Sans Symbols 2 Local",
-      "path": "fonts/NotoSansSymbols2-Regular.ttf"
+      "path": "fonts/NotoSansSymbols2-Regular.ttf",
+      "site_served": true
     },
     {
       "family": "Plangothic P1",
-      "path": "fonts/PlangothicP1-Regular.woff2"
+      "path": "fonts/PlangothicP1-Regular.woff2",
+      "site_served": true
     },
     {
       "family": "Plangothic P2",
-      "path": "fonts/PlangothicP2-Regular.woff2"
+      "path": "fonts/PlangothicP2-Regular.woff2",
+      "site_served": true
     },
     {
       "family": "UniHieroglyphica",
-      "path": "fonts/UniHieroglyphica.ttf"
+      "path": "fonts/UniHieroglyphica.ttf",
+      "site_served": true
     },
     {
       "family": "Egyptology Extended",
-      "path": "fonts/EgyptologyExtended.woff2"
+      "path": "fonts/EgyptologyExtended.woff2",
+      "site_served": true
     },
     {
       "family": "BabelStone Pseudographica",
-      "path": "fonts/BabelStonePseudographica.woff2"
+      "path": "fonts/BabelStonePseudographica.woff2",
+      "site_served": true
     },
     {
       "family": "Noto Sans JP from Fontsource",
       "directory": "node_modules/@fontsource/noto-sans-jp/files",
-      "suffix": "-400-normal.woff2"
+      "suffix": "-400-normal.woff2",
+      "site_served": false
     },
     {
       "family": "Tangut Extended",
-      "path": "tangut-extended.woff2"
+      "path": "tangut-extended.woff2",
+      "site_served": false
     }
   ]
 }
