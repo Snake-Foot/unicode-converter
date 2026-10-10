@@ -7,7 +7,12 @@
     "family_directory_identified": "Matching font family directory was found in Noto Fonts, but glyph cmap coverage was NOT checked.",
     "cjk_font_repository_identified": "Published Noto CJK directories found; exact per-codepoint coverage NOT checked.",
     "project_or_generic_candidate_only": "Individual Noto development project or generic fallback candidate found; actual compiled binaries and cmap NOT checked.",
-    "no_catalog_source_identified": "No suitable source identified in inspected catalogs; this does NOT prove there is no existing font."
+    "no_catalog_source_identified": "No suitable source identified in inspected catalogs; this does NOT prove there is no existing font.",
+    "font_binary_exists_cmap_unchecked": "Repo contained TTF/WOFF2 binary, but binary's actual cmap and outlines not checked.",
+    "sil_release_unicode_font": "Official SIL release states Unicode support; binary cmap not checked in this audit.",
+    "sil_font_source_repository": "Specialized publisher's font source repository exists; compiled binary coverage not checked.",
+    "specialist_font_source_identified": "Official font release or specialized project found; exact cmap and license require verification before deployment.",
+    "proposal_reference_only": "Only encoding-proposal reference to a font; NOT a verified obtainable font."
   },
   "notes": [
     "Font candidate is a research lead, NOT a verified per-codepoint mapping or a promise it can render every code point.",
@@ -15,7 +20,9 @@
     "Script assigned counts exclude Cn, Co, Cs and Cc to match unicode18_all_ranges.json's encoded count; assigned Cf and combining marks may still be invisible or require context.",
     "Color emoji and joining/shaping behavior are outside simple cmap coverage.",
     "Noto source-repo listings are moving-main snapshots and need periodic rechecking.",
-    "Do not load all fonts in browsers; use server-side cmap audits and subsets."
+    "Do not load all fonts in browsers; use server-side cmap audits and subsets.",
+    "For Seal, binaries exist but coverage is not assumed complete; for Beria Erfe the Unicode-encoded Kedebideri release replaces a legacy-encoded Zaghawa font.",
+    "Proto-Cuneiform PCSL is a cited proposal font, NOT a confirmed available downloadable font; do not advertise as usable."
   ],
   "sources": {
     "unicode_scripts": "https://www.unicode.org/Public/18.0.0/ucd/Scripts.txt",
@@ -31,14 +38,9 @@
     "assigned_common": 9211,
     "assigned_inherited": 695,
     "total_official_encoded": 172808,
-    "with_catalog_candidate": 165,
-    "no_catalog_candidate": 10,
+    "with_catalog_candidate": 169,
+    "no_catalog_candidate": 6,
     "without_candidate_scripts": [
-      {
-        "script": "Berf",
-        "name_en": "Beria Erfe",
-        "assigned_codepoints": 50
-      },
       {
         "script": "Gara",
         "name_en": "Garay",
@@ -48,21 +50,6 @@
         "script": "Jurc",
         "name_en": "Jurchen",
         "assigned_codepoints": 965
-      },
-      {
-        "script": "Krai",
-        "name_en": "Kirat Rai",
-        "assigned_codepoints": 58
-      },
-      {
-        "script": "Pcun",
-        "name_en": "Proto Cuneiform",
-        "assigned_codepoints": 164
-      },
-      {
-        "script": "Seal",
-        "name_en": "Seal",
-        "assigned_codepoints": 11328
       },
       {
         "script": "Sidt",
@@ -86,7 +73,8 @@
       }
     ],
     "individual_project_sources": 7,
-    "noto_main_family_count": 226
+    "noto_main_family_count": 226,
+    "specialist_found_sources": 5
   },
   "scripts": [
     {
@@ -509,10 +497,20 @@
           "end": "16EDF"
         }
       ],
-      "preferred_candidate": null,
-      "font_candidates": [],
+      "preferred_candidate": "Kedebideri",
+      "font_candidates": [
+        {
+          "code": "Berf",
+          "family": "Kedebideri",
+          "source_kind": "sil_release_unicode_font",
+          "source_url": "https://software.sil.org/kedebideri/release-3-000/",
+          "evidence": "SIL confirms release 3.000 is Unicode-encoded for Beria Erfe; cmap uninspected",
+          "notes": "Do NOT use older legacy-encoded Zaghawa Beria font as Unicode-compatible.",
+          "cmap_verified": false
+        }
+      ],
       "existing_site_font_candidates": [],
-      "source_status": "no_catalog_source_identified",
+      "source_status": "specialist_font_source_identified",
       "verified_glyph_count": null,
       "verified_font_coverage": null
     },
@@ -2476,10 +2474,19 @@
           "end": "16D7F"
         }
       ],
-      "preferred_candidate": null,
-      "font_candidates": [],
+      "preferred_candidate": "Kanchenjunga",
+      "font_candidates": [
+        {
+          "code": "Krai",
+          "family": "Kanchenjunga",
+          "source_kind": "sil_font_source_repository",
+          "source_url": "https://github.com/silnrsi/font-kanchenjunga",
+          "evidence": "SIL font repository explicitly targets Kirat Rai; compiled cmap uninspected.",
+          "cmap_verified": false
+        }
+      ],
       "existing_site_font_candidates": [],
-      "source_status": "no_catalog_source_identified",
+      "source_status": "specialist_font_source_identified",
       "verified_glyph_count": null,
       "verified_font_coverage": null
     },
@@ -3861,10 +3868,20 @@
           "end": "1268F"
         }
       ],
-      "preferred_candidate": null,
-      "font_candidates": [],
+      "preferred_candidate": "PCSL (proposal font)",
+      "font_candidates": [
+        {
+          "code": "Pcun",
+          "family": "PCSL (proposal font)",
+          "source_kind": "proposal_font_not_download_verified",
+          "source_url": "https://www.unicode.org/L2/L2025/25211-proto-cuneiform.pdf",
+          "evidence": "Unicode encoding proposal documents PCSL.ttf with archaic numeral glyphs, but downloadable license-compatible font source NOT verified.",
+          "notes": "Research reference only; NOT an installable or verified available font.",
+          "cmap_verified": false
+        }
+      ],
       "existing_site_font_candidates": [],
-      "source_status": "no_catalog_source_identified",
+      "source_status": "proposal_reference_only",
       "verified_glyph_count": null,
       "verified_font_coverage": null
     },
@@ -4244,10 +4261,29 @@
           "end": "3FC3F"
         }
       ],
-      "preferred_candidate": null,
-      "font_candidates": [],
+      "preferred_candidate": "Kaiyuan Small Seal",
+      "font_candidates": [
+        {
+          "code": "Seal",
+          "family": "Kaiyuan Small Seal",
+          "source_kind": "font_binary_repository",
+          "source_url": "https://github.com/pannous/hieros/tree/master/fonts/seal-scripts/kaiyuan/fonts",
+          "evidence": "KaiyuanSmallSeal-Regular.ttf and .woff2 binaries confirmed in GitHub repository; cmap uninspected.",
+          "notes": "An external project reports partial repertoire; do not mark 11,328 as fully covered.",
+          "cmap_verified": false
+        },
+        {
+          "code": "Seal",
+          "family": "LXGW Seal",
+          "source_kind": "font_binary_repository",
+          "source_url": "https://github.com/lxgw/LxgwSeal/tree/main/TTF",
+          "evidence": "LXGWSeal-Regular.ttf binary confirmed; author reports only 75 characters at research date (early project).",
+          "notes": "Partial font, project does not plan complete coverage.",
+          "cmap_verified": false
+        }
+      ],
       "existing_site_font_candidates": [],
-      "source_status": "no_catalog_source_identified",
+      "source_status": "font_binary_exists_cmap_unchecked",
       "verified_glyph_count": null,
       "verified_font_coverage": null
     },
