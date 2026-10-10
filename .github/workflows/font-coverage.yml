@@ -118,6 +118,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
+          # Generated files were already backed up in /tmp; clear working-tree
+          # changes before switching to a newer main commit.
+          git reset --hard HEAD
           git checkout --detach origin/main
           cp /tmp/unicode-font-output/* data/
           git add data/unicode18_font_cmap_audit.json data/unicode18_font_coverage_index.json data/extension_j_glyph_fallback.json
