@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "notes": [
+    "Local font file inventory for run-time-independent cmap audit; these are site-distributed assets plus an npm dependency.",
+    "Missing path is reported; note GitHub Pages does not contain node_modules even if npm installs it during build.",
+    "Add freely-licensed downloaded font binaries yourself only after reviewing licensing and source; do not infer full coverage from Unicode block or filename."
+  ],
+  "fonts": [
+    {
+      "family": "Noto Sans Phonetics",
+      "path": "fonts/phonetics/NotoSans-Regular.ttf"
+    },
+    {
+      "family": "Noto Music",
+      "path": "fonts/music/NotoMusic-Regular.ttf"
+    },
+    {
+      "family": "Noto Sans Symbols 2 Local",
+      "path": "fonts/NotoSansSymbols2-Regular.ttf"
+    },
+    {
+      "family": "Plangothic P1",
+      "path": "fonts/PlangothicP1-Regular.woff2"
+    },
+    {
+      "family": "Plangothic P2",
+      "path": "fonts/PlangothicP2-Regular.woff2"
+    },
+    {
+      "family": "UniHieroglyphica",
+      "path": "fonts/UniHieroglyphica.ttf"
+    },
+    {
+      "family": "Egyptology Extended",
+      "path": "fonts/EgyptologyExtended.woff2"
+    },
+    {
+      "family": "BabelStone Pseudographica",
+      "path": "fonts/BabelStonePseudographica.woff2"
+    },
+    {
+      "family": "Noto Sans JP from Fontsource",
+      "directory": "node_modules/@fontsource/noto-sans-jp/files",
+      "suffix": "-400-normal.woff2"
+    },
+    {
+      "family": "Tangut Extended",
+      "path": "tangut-extended.woff2"
+    }
+  ]
+}
