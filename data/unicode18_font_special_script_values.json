@@ -1,0 +1,70 @@
+{
+  "unicode_version": "18.0.0",
+  "schema_version": 1,
+  "basis": "data/unicode18_all_ranges.json: all assigned characters with Script=Common or Inherited, plus Unknown with no assigned characters",
+  "special_script_values": [
+    {
+      "script": "Zyyy",
+      "name": "Common",
+      "encoded_codepoints": 9211,
+      "typical_groups": [
+        "emoji",
+        "pictographs",
+        "mathematical symbols",
+        "musical symbols",
+        "arrows",
+        "numbers",
+        "punctuation"
+      ],
+      "candidate_families": [
+        "Noto Sans Symbols 2",
+        "Noto Sans Math",
+        "Noto Music",
+        "Noto Color Emoji",
+        "GNU Unifont"
+      ],
+      "decision_rule": "MUST use codepoint-specific font cmap rather than assign Common to one font",
+      "coverage_confirmed": false
+    },
+    {
+      "script": "Zinh",
+      "name": "Inherited",
+      "encoded_codepoints": 695,
+      "typical_groups": [
+        "combining accents",
+        "combining marks",
+        "formatting marks"
+      ],
+      "candidate_families": [
+        "Noto Sans",
+        "Noto Sans Symbols 2",
+        "specialized script fonts"
+      ],
+      "decision_rule": "MUST test mark with surrounding base text; standalone single-codepoint display may be blank by design",
+      "coverage_confirmed": false
+    },
+    {
+      "script": "Zzzz",
+      "name": "Unknown",
+      "encoded_codepoints": 0,
+      "typical_groups": [
+        "unassigned codepoints"
+      ],
+      "candidate_families": [],
+      "decision_rule": "Exclude Cn/Co/Cs from standardized encoded character candidate sampling",
+      "coverage_confirmed": false
+    }
+  ],
+  "reconciliation": {
+    "named_scripts": 175,
+    "script_assigned": 162902,
+    "common_assigned": 9211,
+    "inherited_assigned": 695,
+    "official_encoded": 172808
+  },
+  "warnings": [
+    "A single valid Unicode codepoint may need a context to display visibly.",
+    "Emoji ZWJ sequences and regional-indicator flags are multi-codepoint strings; not in this pointwise font coverage index.",
+    "Generic font candidates here have NOT passed cmap coverage verification."
+  ]
+}
