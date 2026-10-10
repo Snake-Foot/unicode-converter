@@ -23,6 +23,9 @@ on:
       - "fonts/**"
       - "js/font-coverage.js"
       - "js/converter.js"
+      - "js/main.js"
+      - "js/bulk-input-policy.js"
+      - "scripts/test-bulk-input-policy.js"
       - "js/fonts.js"
       - "js/glyph-check.js"
       - "index.html"
@@ -64,6 +67,9 @@ jobs:
           node --check js/daily.js
           node --check scripts/test-unicode18-emoji-display.js
           node --check js/converter.js
+          node --check js/main.js
+          node --check js/bulk-input-policy.js
+          node --check scripts/test-bulk-input-policy.js
           node --check js/fonts.js
           node --check scripts/generate-daily.js
       - name: Inspect real on-site font cmap tables
@@ -72,6 +78,8 @@ jobs:
         run: node scripts/build-unicode18-font-index.js
       - name: Validate font index and official Unicode boundaries
         run: node scripts/test-unicode18-font-index.js
+      - name: Test bulk Unicode input performance policy
+        run: node scripts/test-bulk-input-policy.js
       - name: Test CJK Extension J glyph outlines
         run: node scripts/test-extension-j-font.js
       - name: Test Unicode 18 color emoji classification
