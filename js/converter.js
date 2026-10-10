@@ -505,15 +505,21 @@ async function convertUnicode(
     }
 
 
-    if (
-      fontNames.length >
-      0
-    ) {
+    // The audited cmap index chooses a concrete font for this code point.
+    // The old path remains available if this optional script fails to load.
+    let selectedFont = null;
+    if (typeof selectUnicodeFont === "function") {
+      try {
+        selectedFont = await selectUnicodeFont(codePoint, character);
+      } catch (error) {
+        console.warn("Indexed font selection failed", error);
+      }
+    } else if (fontNames.length > 0) {
+      await waitForCharacterFont(codePoint, character);
+    }
 
-      await waitForCharacterFont(
-        codePoint,
-        character
-      );
+    if (selectedFont) {
+      inner.style.fontFamily = '"' + selectedFont + '", sans-serif';
     }
 
 
@@ -529,6 +535,17 @@ async function convertUnicode(
       "loading-character"
     );
 
+
+    // Avoid false "unsupported" reports while a font is still downloading.
+    if (document.fonts && document.fonts.status === "loading") {
+      await Promise.race([document.fonts.ready, sleep(8000)]);
+    }
+
+    if (document.fonts && document.fonts.status === "loading") {
+      wrapper.title = "フォントの読み込みが継続中のため、表示可否をまだ判定できません";
+      await yieldToBrowser();
+      continue;
+    }
 
     const fontFamily =
       getComputedStyle(
