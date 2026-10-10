@@ -78,3 +78,20 @@ assert(verified>=10,"Too few reported codepoints matched new specialist fonts: "
 const sidetic=getPriority("1094F");
 assert(!sidetic.includes("Noto Sans Sidetic"),"Uninstalled Sidetic font invented");
 console.log("Verified",verified,"specialist codepoint assignments.");
+// Check all six reported PC Han glyphs in the compact renamed WOFF2 subset.
+const fontkit=require("@cantoo/fontkit");
+const subsetFile="fonts/han/YKTSmoothHanB.woff2";
+assert(fs.existsSync(subsetFile),"Six-glyph smooth Han subset not distributed");
+const hanFont=fontkit.openSync(subsetFile);
+const notdef=hanFont.getGlyph(0).path.toSVG();
+for(const cp of ["29C09","20478","2076F","207B8","29D27","27971"]){
+ const num=parseInt(cp,16),order=getPriority(cp);
+ assert.equal(order[0],"YKT Smooth Han B","Smooth Han glyph not prioritized: U+"+cp);
+ assert(hanFont.hasGlyphForCodePoint(num),"Subset cmap missing U+"+cp);
+ const g=hanFont.glyphForCodePoint(num);
+ assert(g.id>0&&g.path.toSVG()&&g.path.toSVG()!==notdef,
+   "Subset glyph is blank or .notdef at U+"+cp);
+ console.log("Verified smooth Han U+"+cp,"glyph ID:",g.id);
+}
+console.log("All six smooth Han glyphs audited and ranked first.");
+

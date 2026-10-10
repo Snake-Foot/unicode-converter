@@ -30,6 +30,19 @@ The latest 14 uploaded font binaries were moved from `fonts/` into `han/`, `anci
 
 The site's existing Unicode 18 index is regenerated automatically by GitHub Actions when these files move. Source-level raster/outline, OpenType shaping, and Windows/iPhone browser rendering can still vary.
 
+## Six extra outline Han glyphs
+
+The tiny (approximately 3.4 KB) subset in `han/YKTSmoothHanB.woff2`
+derives from the OFL-licensed Hanazono Mincho B font. It is renamed inside
+the font to respect Reserved Font Names. Its original license and complete
+attribution are in `han/YKTSmoothHanB-LICENSE.txt` and
+`han/YKTSmoothHanB-SOURCE.md`.
+
+Only U+29C09, U+20478, U+2076F, U+207B8, U+29D27, and U+27971 receive
+this font as their first choice. All other Chinese/Japanese characters keep
+their existing font ranking. Tests verify real outlines and no .notdef glyph.
+This does not prove all browsers render at the same apparent quality.
+
 ## Existing assets are preserved
 
 All formerly root-level font binaries were moved without changing blob contents. The original `music/` and `phonetics/` folders, including their licenses, were preserved.
