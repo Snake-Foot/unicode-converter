@@ -1,0 +1,5693 @@
+{
+  "schema_version": 1,
+  "unicode_version": "18.0.0",
+  "type": "script-associated Unicode block coverage",
+  "range_format": "inclusive hexadecimal strings without U+",
+  "caveats": [
+    "blocks describes Unicode blocks associated with each script, not exact Unicode Script property membership",
+    "unassigned contains code points unassigned in Unicode 18.0 within those listed blocks only; missing glyphs and invisible controls are separate concepts",
+    "shared_blocks are reference-only and are not included in blocks/unassigned_count",
+    "font support is not guaranteed by allocation"
+  ],
+  "sources": {
+    "blocks": "https://www.unicode.org/Public/18.0.0/ucd/Blocks.txt",
+    "age": "https://www.unicode.org/Public/18.0.0/ucd/DerivedAge.txt"
+  },
+  "scripts": [
+    {
+      "no": 1,
+      "code": "Adlm",
+      "name_ja": "アドラム",
+      "blocks": [
+        {
+          "start": "1E900",
+          "end": "1E95F",
+          "unassigned": [
+            {
+              "start": "1E94C",
+              "end": "1E94F"
+            },
+            {
+              "start": "1E95A",
+              "end": "1E95D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 2,
+      "code": "Aghb",
+      "name_ja": "カフカス・アルバニア",
+      "blocks": [
+        {
+          "start": "10530",
+          "end": "1056F",
+          "unassigned": [
+            {
+              "start": "10564",
+              "end": "1056E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 3,
+      "code": "Ahom",
+      "name_ja": "アホム",
+      "blocks": [
+        {
+          "start": "11700",
+          "end": "1174F",
+          "unassigned": [
+            {
+              "start": "1171B",
+              "end": "1171C"
+            },
+            {
+              "start": "1172C",
+              "end": "1172F"
+            },
+            {
+              "start": "11747",
+              "end": "1174F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 4,
+      "code": "Arab",
+      "name_ja": "アラビア",
+      "blocks": [
+        {
+          "start": "0600",
+          "end": "06FF",
+          "unassigned": []
+        },
+        {
+          "start": "0750",
+          "end": "077F",
+          "unassigned": []
+        },
+        {
+          "start": "0870",
+          "end": "089F",
+          "unassigned": [
+            {
+              "start": "0892",
+              "end": "0896"
+            }
+          ]
+        },
+        {
+          "start": "08A0",
+          "end": "08FF",
+          "unassigned": []
+        },
+        {
+          "start": "FB50",
+          "end": "FDFF",
+          "unassigned": []
+        },
+        {
+          "start": "FE70",
+          "end": "FEFF",
+          "unassigned": [
+            {
+              "start": "FE75",
+              "end": "FE75"
+            },
+            {
+              "start": "FEFD",
+              "end": "FEFE"
+            }
+          ]
+        },
+        {
+          "start": "10E60",
+          "end": "10E7F",
+          "unassigned": [
+            {
+              "start": "10E7F",
+              "end": "10E7F"
+            }
+          ]
+        },
+        {
+          "start": "10EC0",
+          "end": "10EFF",
+          "unassigned": [
+            {
+              "start": "10EC0",
+              "end": "10EC1"
+            },
+            {
+              "start": "10EC8",
+              "end": "10EC8"
+            },
+            {
+              "start": "10EEF",
+              "end": "10EEF"
+            }
+          ]
+        },
+        {
+          "start": "1EE00",
+          "end": "1EEFF",
+          "unassigned": [
+            {
+              "start": "1EE04",
+              "end": "1EE04"
+            },
+            {
+              "start": "1EE20",
+              "end": "1EE20"
+            },
+            {
+              "start": "1EE23",
+              "end": "1EE23"
+            },
+            {
+              "start": "1EE25",
+              "end": "1EE26"
+            },
+            {
+              "start": "1EE28",
+              "end": "1EE28"
+            },
+            {
+              "start": "1EE33",
+              "end": "1EE33"
+            },
+            {
+              "start": "1EE38",
+              "end": "1EE38"
+            },
+            {
+              "start": "1EE3A",
+              "end": "1EE3A"
+            },
+            {
+              "start": "1EE3C",
+              "end": "1EE41"
+            },
+            {
+              "start": "1EE43",
+              "end": "1EE46"
+            },
+            {
+              "start": "1EE48",
+              "end": "1EE48"
+            },
+            {
+              "start": "1EE4A",
+              "end": "1EE4A"
+            },
+            {
+              "start": "1EE4C",
+              "end": "1EE4C"
+            },
+            {
+              "start": "1EE50",
+              "end": "1EE50"
+            },
+            {
+              "start": "1EE53",
+              "end": "1EE53"
+            },
+            {
+              "start": "1EE55",
+              "end": "1EE56"
+            },
+            {
+              "start": "1EE58",
+              "end": "1EE58"
+            },
+            {
+              "start": "1EE5A",
+              "end": "1EE5A"
+            },
+            {
+              "start": "1EE5C",
+              "end": "1EE5C"
+            },
+            {
+              "start": "1EE5E",
+              "end": "1EE5E"
+            },
+            {
+              "start": "1EE60",
+              "end": "1EE60"
+            },
+            {
+              "start": "1EE63",
+              "end": "1EE63"
+            },
+            {
+              "start": "1EE65",
+              "end": "1EE66"
+            },
+            {
+              "start": "1EE6B",
+              "end": "1EE6B"
+            },
+            {
+              "start": "1EE73",
+              "end": "1EE73"
+            },
+            {
+              "start": "1EE78",
+              "end": "1EE78"
+            },
+            {
+              "start": "1EE7D",
+              "end": "1EE7D"
+            },
+            {
+              "start": "1EE7F",
+              "end": "1EE7F"
+            },
+            {
+              "start": "1EE8A",
+              "end": "1EE8A"
+            },
+            {
+              "start": "1EE9C",
+              "end": "1EEA0"
+            },
+            {
+              "start": "1EEA4",
+              "end": "1EEA4"
+            },
+            {
+              "start": "1EEAA",
+              "end": "1EEAA"
+            },
+            {
+              "start": "1EEBC",
+              "end": "1EEEF"
+            },
+            {
+              "start": "1EEF2",
+              "end": "1EEFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 126
+    },
+    {
+      "no": 5,
+      "code": "Armi",
+      "name_ja": "帝国アラム",
+      "blocks": [
+        {
+          "start": "10840",
+          "end": "1085F",
+          "unassigned": [
+            {
+              "start": "10856",
+              "end": "10856"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 1
+    },
+    {
+      "no": 6,
+      "code": "Armn",
+      "name_ja": "アルメニア",
+      "blocks": [
+        {
+          "start": "0530",
+          "end": "058F",
+          "unassigned": [
+            {
+              "start": "0530",
+              "end": "0530"
+            },
+            {
+              "start": "0557",
+              "end": "0557"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "FB00",
+          "end": "FB4F"
+        }
+      ],
+      "unassigned_count": 2
+    },
+    {
+      "no": 7,
+      "code": "Avst",
+      "name_ja": "アヴェスター",
+      "blocks": [
+        {
+          "start": "10B00",
+          "end": "10B3F",
+          "unassigned": [
+            {
+              "start": "10B36",
+              "end": "10B38"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 8,
+      "code": "Bali",
+      "name_ja": "バリ",
+      "blocks": [
+        {
+          "start": "1B00",
+          "end": "1B7F",
+          "unassigned": [
+            {
+              "start": "1B4D",
+              "end": "1B4D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 1
+    },
+    {
+      "no": 9,
+      "code": "Bamu",
+      "name_ja": "バムン",
+      "blocks": [
+        {
+          "start": "A6A0",
+          "end": "A6FF",
+          "unassigned": [
+            {
+              "start": "A6F8",
+              "end": "A6FF"
+            }
+          ]
+        },
+        {
+          "start": "16800",
+          "end": "16A3F",
+          "unassigned": [
+            {
+              "start": "16A39",
+              "end": "16A3F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 10,
+      "code": "Bass",
+      "name_ja": "バッサ・ヴァー",
+      "blocks": [
+        {
+          "start": "16AD0",
+          "end": "16AFF",
+          "unassigned": [
+            {
+              "start": "16AEE",
+              "end": "16AEF"
+            },
+            {
+              "start": "16AF6",
+              "end": "16AFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 11,
+      "code": "Batk",
+      "name_ja": "バタク",
+      "blocks": [
+        {
+          "start": "1BC0",
+          "end": "1BFF",
+          "unassigned": [
+            {
+              "start": "1BF4",
+              "end": "1BFB"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 12,
+      "code": "Beng",
+      "name_ja": "ベンガル",
+      "blocks": [
+        {
+          "start": "0980",
+          "end": "09FF",
+          "unassigned": [
+            {
+              "start": "0984",
+              "end": "0984"
+            },
+            {
+              "start": "098D",
+              "end": "098E"
+            },
+            {
+              "start": "0991",
+              "end": "0992"
+            },
+            {
+              "start": "09A9",
+              "end": "09A9"
+            },
+            {
+              "start": "09B1",
+              "end": "09B1"
+            },
+            {
+              "start": "09B3",
+              "end": "09B5"
+            },
+            {
+              "start": "09BA",
+              "end": "09BB"
+            },
+            {
+              "start": "09C5",
+              "end": "09C6"
+            },
+            {
+              "start": "09C9",
+              "end": "09CA"
+            },
+            {
+              "start": "09CF",
+              "end": "09D6"
+            },
+            {
+              "start": "09D8",
+              "end": "09DB"
+            },
+            {
+              "start": "09DE",
+              "end": "09DE"
+            },
+            {
+              "start": "09E4",
+              "end": "09E5"
+            },
+            {
+              "start": "09FF",
+              "end": "09FF"
+            }
+          ]
+        },
+        {
+          "start": "11DF0",
+          "end": "11DFF",
+          "unassigned": [
+            {
+              "start": "11DF2",
+              "end": "11DFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 46
+    },
+    {
+      "no": 13,
+      "code": "Berf",
+      "name_ja": "ベリア・エルフェ",
+      "blocks": [
+        {
+          "start": "16EA0",
+          "end": "16EDF",
+          "unassigned": [
+            {
+              "start": "16EB9",
+              "end": "16EBA"
+            },
+            {
+              "start": "16ED4",
+              "end": "16EDF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 14,
+      "code": "Bhks",
+      "name_ja": "バイクシュキー",
+      "blocks": [
+        {
+          "start": "11C00",
+          "end": "11C6F",
+          "unassigned": [
+            {
+              "start": "11C09",
+              "end": "11C09"
+            },
+            {
+              "start": "11C37",
+              "end": "11C37"
+            },
+            {
+              "start": "11C46",
+              "end": "11C4F"
+            },
+            {
+              "start": "11C6D",
+              "end": "11C6F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 15,
+      "code": "Bopo",
+      "name_ja": "注音字母",
+      "blocks": [
+        {
+          "start": "3100",
+          "end": "312F",
+          "unassigned": [
+            {
+              "start": "3100",
+              "end": "3104"
+            }
+          ]
+        },
+        {
+          "start": "31A0",
+          "end": "31BF",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 16,
+      "code": "Brah",
+      "name_ja": "ブラーフミー",
+      "blocks": [
+        {
+          "start": "11000",
+          "end": "1107F",
+          "unassigned": [
+            {
+              "start": "1104E",
+              "end": "11051"
+            },
+            {
+              "start": "11076",
+              "end": "1107E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 17,
+      "code": "Brai",
+      "name_ja": "点字",
+      "blocks": [
+        {
+          "start": "2800",
+          "end": "28FF",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 18,
+      "code": "Bugi",
+      "name_ja": "ブギス",
+      "blocks": [
+        {
+          "start": "1A00",
+          "end": "1A1F",
+          "unassigned": [
+            {
+              "start": "1A1C",
+              "end": "1A1D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 2
+    },
+    {
+      "no": 19,
+      "code": "Buhd",
+      "name_ja": "ブヒッド",
+      "blocks": [
+        {
+          "start": "1740",
+          "end": "175F",
+          "unassigned": [
+            {
+              "start": "1754",
+              "end": "175F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 20,
+      "code": "Cakm",
+      "name_ja": "チャクマ",
+      "blocks": [
+        {
+          "start": "11100",
+          "end": "1114F",
+          "unassigned": [
+            {
+              "start": "11135",
+              "end": "11135"
+            },
+            {
+              "start": "11148",
+              "end": "1114F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 21,
+      "code": "Cans",
+      "name_ja": "カナダ先住民音節文字",
+      "blocks": [
+        {
+          "start": "1400",
+          "end": "167F",
+          "unassigned": []
+        },
+        {
+          "start": "18B0",
+          "end": "18FF",
+          "unassigned": [
+            {
+              "start": "18F6",
+              "end": "18FF"
+            }
+          ]
+        },
+        {
+          "start": "11AB0",
+          "end": "11ABF",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 22,
+      "code": "Cari",
+      "name_ja": "カリア",
+      "blocks": [
+        {
+          "start": "102A0",
+          "end": "102DF",
+          "unassigned": [
+            {
+              "start": "102D1",
+              "end": "102DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 23,
+      "code": "Cham",
+      "name_ja": "チャム",
+      "blocks": [
+        {
+          "start": "AA00",
+          "end": "AA5F",
+          "unassigned": [
+            {
+              "start": "AA37",
+              "end": "AA3F"
+            },
+            {
+              "start": "AA4E",
+              "end": "AA4F"
+            },
+            {
+              "start": "AA5A",
+              "end": "AA5B"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 24,
+      "code": "Cher",
+      "name_ja": "チェロキー",
+      "blocks": [
+        {
+          "start": "13A0",
+          "end": "13FF",
+          "unassigned": [
+            {
+              "start": "13F6",
+              "end": "13F7"
+            },
+            {
+              "start": "13FE",
+              "end": "13FF"
+            }
+          ]
+        },
+        {
+          "start": "AB70",
+          "end": "ABBF",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 4
+    },
+    {
+      "no": 25,
+      "code": "Chrs",
+      "name_ja": "ホラズム",
+      "blocks": [
+        {
+          "start": "10FB0",
+          "end": "10FDF",
+          "unassigned": [
+            {
+              "start": "10FCC",
+              "end": "10FDF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 20
+    },
+    {
+      "no": 26,
+      "code": "Copt",
+      "name_ja": "コプト",
+      "blocks": [
+        {
+          "start": "2C80",
+          "end": "2CFF",
+          "unassigned": [
+            {
+              "start": "2CF4",
+              "end": "2CF8"
+            }
+          ]
+        },
+        {
+          "start": "102E0",
+          "end": "102FF",
+          "unassigned": [
+            {
+              "start": "102FC",
+              "end": "102FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "0370",
+          "end": "03FF"
+        }
+      ],
+      "unassigned_count": 9
+    },
+    {
+      "no": 27,
+      "code": "Cpmn",
+      "name_ja": "キプロ・ミノア",
+      "blocks": [
+        {
+          "start": "12F90",
+          "end": "12FFF",
+          "unassigned": [
+            {
+              "start": "12FF3",
+              "end": "12FFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 28,
+      "code": "Cprt",
+      "name_ja": "キプロス音節文字",
+      "blocks": [
+        {
+          "start": "10800",
+          "end": "1083F",
+          "unassigned": [
+            {
+              "start": "10806",
+              "end": "10807"
+            },
+            {
+              "start": "10809",
+              "end": "10809"
+            },
+            {
+              "start": "10836",
+              "end": "10836"
+            },
+            {
+              "start": "10839",
+              "end": "1083B"
+            },
+            {
+              "start": "1083D",
+              "end": "1083E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 29,
+      "code": "Cyrl",
+      "name_ja": "キリル",
+      "blocks": [
+        {
+          "start": "0400",
+          "end": "04FF",
+          "unassigned": []
+        },
+        {
+          "start": "0500",
+          "end": "052F",
+          "unassigned": []
+        },
+        {
+          "start": "1C80",
+          "end": "1C8F",
+          "unassigned": [
+            {
+              "start": "1C8B",
+              "end": "1C8F"
+            }
+          ]
+        },
+        {
+          "start": "2DE0",
+          "end": "2DFF",
+          "unassigned": []
+        },
+        {
+          "start": "A640",
+          "end": "A69F",
+          "unassigned": []
+        },
+        {
+          "start": "1E030",
+          "end": "1E08F",
+          "unassigned": [
+            {
+              "start": "1E06E",
+              "end": "1E08E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 38
+    },
+    {
+      "no": 30,
+      "code": "Deva",
+      "name_ja": "デーヴァナーガリー",
+      "blocks": [
+        {
+          "start": "0900",
+          "end": "097F",
+          "unassigned": []
+        },
+        {
+          "start": "A8E0",
+          "end": "A8FF",
+          "unassigned": []
+        },
+        {
+          "start": "11B00",
+          "end": "11B5F",
+          "unassigned": [
+            {
+              "start": "11B0B",
+              "end": "11B5F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 85
+    },
+    {
+      "no": 31,
+      "code": "Diak",
+      "name_ja": "ディヴェス・アクル",
+      "blocks": [
+        {
+          "start": "11900",
+          "end": "1195F",
+          "unassigned": [
+            {
+              "start": "11907",
+              "end": "11908"
+            },
+            {
+              "start": "1190A",
+              "end": "1190B"
+            },
+            {
+              "start": "11914",
+              "end": "11914"
+            },
+            {
+              "start": "11917",
+              "end": "11917"
+            },
+            {
+              "start": "11936",
+              "end": "11936"
+            },
+            {
+              "start": "11939",
+              "end": "1193A"
+            },
+            {
+              "start": "11947",
+              "end": "1194F"
+            },
+            {
+              "start": "1195A",
+              "end": "1195F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 24
+    },
+    {
+      "no": 32,
+      "code": "Dogr",
+      "name_ja": "ドーグラー",
+      "blocks": [
+        {
+          "start": "11800",
+          "end": "1184F",
+          "unassigned": [
+            {
+              "start": "1183C",
+              "end": "1184F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 20
+    },
+    {
+      "no": 33,
+      "code": "Dsrt",
+      "name_ja": "デザレット",
+      "blocks": [
+        {
+          "start": "10400",
+          "end": "1044F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 34,
+      "code": "Dupl",
+      "name_ja": "デュプロワ式速記",
+      "blocks": [
+        {
+          "start": "1BC00",
+          "end": "1BC9F",
+          "unassigned": [
+            {
+              "start": "1BC6B",
+              "end": "1BC6F"
+            },
+            {
+              "start": "1BC7D",
+              "end": "1BC7F"
+            },
+            {
+              "start": "1BC89",
+              "end": "1BC8F"
+            },
+            {
+              "start": "1BC9A",
+              "end": "1BC9B"
+            }
+          ]
+        },
+        {
+          "start": "1BCA0",
+          "end": "1BCAF",
+          "unassigned": [
+            {
+              "start": "1BCA4",
+              "end": "1BCAF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 29
+    },
+    {
+      "no": 35,
+      "code": "Egyp",
+      "name_ja": "エジプト聖刻文字",
+      "blocks": [
+        {
+          "start": "13000",
+          "end": "1342F",
+          "unassigned": []
+        },
+        {
+          "start": "13430",
+          "end": "1345F",
+          "unassigned": [
+            {
+              "start": "13456",
+              "end": "1345F"
+            }
+          ]
+        },
+        {
+          "start": "13460",
+          "end": "143FF",
+          "unassigned": [
+            {
+              "start": "143FB",
+              "end": "143FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 36,
+      "code": "Elba",
+      "name_ja": "エルバサン",
+      "blocks": [
+        {
+          "start": "10500",
+          "end": "1052F",
+          "unassigned": [
+            {
+              "start": "10528",
+              "end": "1052F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 37,
+      "code": "Elym",
+      "name_ja": "エリマイス",
+      "blocks": [
+        {
+          "start": "10FE0",
+          "end": "10FFF",
+          "unassigned": [
+            {
+              "start": "10FF7",
+              "end": "10FFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 38,
+      "code": "Ethi",
+      "name_ja": "エチオピア",
+      "blocks": [
+        {
+          "start": "1200",
+          "end": "137F",
+          "unassigned": [
+            {
+              "start": "1249",
+              "end": "1249"
+            },
+            {
+              "start": "124E",
+              "end": "124F"
+            },
+            {
+              "start": "1257",
+              "end": "1257"
+            },
+            {
+              "start": "1259",
+              "end": "1259"
+            },
+            {
+              "start": "125E",
+              "end": "125F"
+            },
+            {
+              "start": "1289",
+              "end": "1289"
+            },
+            {
+              "start": "128E",
+              "end": "128F"
+            },
+            {
+              "start": "12B1",
+              "end": "12B1"
+            },
+            {
+              "start": "12B6",
+              "end": "12B7"
+            },
+            {
+              "start": "12BF",
+              "end": "12BF"
+            },
+            {
+              "start": "12C1",
+              "end": "12C1"
+            },
+            {
+              "start": "12C6",
+              "end": "12C7"
+            },
+            {
+              "start": "12D7",
+              "end": "12D7"
+            },
+            {
+              "start": "1311",
+              "end": "1311"
+            },
+            {
+              "start": "1316",
+              "end": "1317"
+            },
+            {
+              "start": "135B",
+              "end": "135C"
+            },
+            {
+              "start": "137D",
+              "end": "137F"
+            }
+          ]
+        },
+        {
+          "start": "1380",
+          "end": "139F",
+          "unassigned": [
+            {
+              "start": "139A",
+              "end": "139F"
+            }
+          ]
+        },
+        {
+          "start": "2D80",
+          "end": "2DDF",
+          "unassigned": [
+            {
+              "start": "2D97",
+              "end": "2D9F"
+            },
+            {
+              "start": "2DA7",
+              "end": "2DA7"
+            },
+            {
+              "start": "2DAF",
+              "end": "2DAF"
+            },
+            {
+              "start": "2DB7",
+              "end": "2DB7"
+            },
+            {
+              "start": "2DBF",
+              "end": "2DBF"
+            },
+            {
+              "start": "2DC7",
+              "end": "2DC7"
+            },
+            {
+              "start": "2DCF",
+              "end": "2DCF"
+            },
+            {
+              "start": "2DD7",
+              "end": "2DD7"
+            },
+            {
+              "start": "2DDF",
+              "end": "2DDF"
+            }
+          ]
+        },
+        {
+          "start": "AB00",
+          "end": "AB2F",
+          "unassigned": [
+            {
+              "start": "AB00",
+              "end": "AB00"
+            },
+            {
+              "start": "AB07",
+              "end": "AB08"
+            },
+            {
+              "start": "AB0F",
+              "end": "AB10"
+            },
+            {
+              "start": "AB17",
+              "end": "AB1F"
+            },
+            {
+              "start": "AB27",
+              "end": "AB27"
+            },
+            {
+              "start": "AB2F",
+              "end": "AB2F"
+            }
+          ]
+        },
+        {
+          "start": "1E7E0",
+          "end": "1E7FF",
+          "unassigned": [
+            {
+              "start": "1E7E7",
+              "end": "1E7E7"
+            },
+            {
+              "start": "1E7EC",
+              "end": "1E7EC"
+            },
+            {
+              "start": "1E7EF",
+              "end": "1E7EF"
+            },
+            {
+              "start": "1E7FF",
+              "end": "1E7FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 69
+    },
+    {
+      "no": 39,
+      "code": "Gara",
+      "name_ja": "ガライ",
+      "blocks": [
+        {
+          "start": "10D40",
+          "end": "10D8F",
+          "unassigned": [
+            {
+              "start": "10D66",
+              "end": "10D68"
+            },
+            {
+              "start": "10D86",
+              "end": "10D8D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 40,
+      "code": "Geor",
+      "name_ja": "ジョージア",
+      "blocks": [
+        {
+          "start": "10A0",
+          "end": "10FF",
+          "unassigned": [
+            {
+              "start": "10C6",
+              "end": "10C6"
+            },
+            {
+              "start": "10C8",
+              "end": "10CC"
+            },
+            {
+              "start": "10CE",
+              "end": "10CF"
+            }
+          ]
+        },
+        {
+          "start": "1C90",
+          "end": "1CBF",
+          "unassigned": [
+            {
+              "start": "1CBB",
+              "end": "1CBC"
+            }
+          ]
+        },
+        {
+          "start": "2D00",
+          "end": "2D2F",
+          "unassigned": [
+            {
+              "start": "2D26",
+              "end": "2D26"
+            },
+            {
+              "start": "2D28",
+              "end": "2D2C"
+            },
+            {
+              "start": "2D2E",
+              "end": "2D2F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 18
+    },
+    {
+      "no": 41,
+      "code": "Glag",
+      "name_ja": "グラゴル",
+      "blocks": [
+        {
+          "start": "2C00",
+          "end": "2C5F",
+          "unassigned": []
+        },
+        {
+          "start": "1E000",
+          "end": "1E02F",
+          "unassigned": [
+            {
+              "start": "1E007",
+              "end": "1E007"
+            },
+            {
+              "start": "1E019",
+              "end": "1E01A"
+            },
+            {
+              "start": "1E022",
+              "end": "1E022"
+            },
+            {
+              "start": "1E025",
+              "end": "1E025"
+            },
+            {
+              "start": "1E02B",
+              "end": "1E02F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 42,
+      "code": "Gong",
+      "name_ja": "グンジャラ・ゴーンディ",
+      "blocks": [
+        {
+          "start": "11D60",
+          "end": "11DAF",
+          "unassigned": [
+            {
+              "start": "11D66",
+              "end": "11D66"
+            },
+            {
+              "start": "11D69",
+              "end": "11D69"
+            },
+            {
+              "start": "11D8F",
+              "end": "11D8F"
+            },
+            {
+              "start": "11D92",
+              "end": "11D92"
+            },
+            {
+              "start": "11D99",
+              "end": "11D9F"
+            },
+            {
+              "start": "11DAA",
+              "end": "11DAF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 43,
+      "code": "Gonm",
+      "name_ja": "マサラム・ゴーンディ",
+      "blocks": [
+        {
+          "start": "11D00",
+          "end": "11D5F",
+          "unassigned": [
+            {
+              "start": "11D07",
+              "end": "11D07"
+            },
+            {
+              "start": "11D0A",
+              "end": "11D0A"
+            },
+            {
+              "start": "11D37",
+              "end": "11D39"
+            },
+            {
+              "start": "11D3B",
+              "end": "11D3B"
+            },
+            {
+              "start": "11D3E",
+              "end": "11D3E"
+            },
+            {
+              "start": "11D48",
+              "end": "11D4F"
+            },
+            {
+              "start": "11D5A",
+              "end": "11D5F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 21
+    },
+    {
+      "no": 44,
+      "code": "Goth",
+      "name_ja": "ゴート",
+      "blocks": [
+        {
+          "start": "10330",
+          "end": "1034F",
+          "unassigned": [
+            {
+              "start": "1034B",
+              "end": "1034F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 45,
+      "code": "Gran",
+      "name_ja": "グランタ",
+      "blocks": [
+        {
+          "start": "11300",
+          "end": "1137F",
+          "unassigned": [
+            {
+              "start": "11304",
+              "end": "11304"
+            },
+            {
+              "start": "1130D",
+              "end": "1130E"
+            },
+            {
+              "start": "11311",
+              "end": "11312"
+            },
+            {
+              "start": "11329",
+              "end": "11329"
+            },
+            {
+              "start": "11331",
+              "end": "11331"
+            },
+            {
+              "start": "11334",
+              "end": "11334"
+            },
+            {
+              "start": "1133A",
+              "end": "1133A"
+            },
+            {
+              "start": "11345",
+              "end": "11346"
+            },
+            {
+              "start": "11349",
+              "end": "1134A"
+            },
+            {
+              "start": "1134E",
+              "end": "1134F"
+            },
+            {
+              "start": "11351",
+              "end": "11356"
+            },
+            {
+              "start": "11358",
+              "end": "1135C"
+            },
+            {
+              "start": "11364",
+              "end": "11365"
+            },
+            {
+              "start": "1136D",
+              "end": "1136F"
+            },
+            {
+              "start": "11375",
+              "end": "1137F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 42
+    },
+    {
+      "no": 46,
+      "code": "Grek",
+      "name_ja": "ギリシャ",
+      "blocks": [
+        {
+          "start": "0370",
+          "end": "03FF",
+          "unassigned": [
+            {
+              "start": "0378",
+              "end": "0379"
+            },
+            {
+              "start": "0380",
+              "end": "0383"
+            },
+            {
+              "start": "038B",
+              "end": "038B"
+            },
+            {
+              "start": "038D",
+              "end": "038D"
+            },
+            {
+              "start": "03A2",
+              "end": "03A2"
+            }
+          ]
+        },
+        {
+          "start": "1F00",
+          "end": "1FFF",
+          "unassigned": [
+            {
+              "start": "1F16",
+              "end": "1F17"
+            },
+            {
+              "start": "1F1E",
+              "end": "1F1F"
+            },
+            {
+              "start": "1F46",
+              "end": "1F47"
+            },
+            {
+              "start": "1F4E",
+              "end": "1F4F"
+            },
+            {
+              "start": "1F58",
+              "end": "1F58"
+            },
+            {
+              "start": "1F5A",
+              "end": "1F5A"
+            },
+            {
+              "start": "1F5C",
+              "end": "1F5C"
+            },
+            {
+              "start": "1F5E",
+              "end": "1F5E"
+            },
+            {
+              "start": "1F7E",
+              "end": "1F7F"
+            },
+            {
+              "start": "1FB5",
+              "end": "1FB5"
+            },
+            {
+              "start": "1FC5",
+              "end": "1FC5"
+            },
+            {
+              "start": "1FD4",
+              "end": "1FD5"
+            },
+            {
+              "start": "1FDC",
+              "end": "1FDC"
+            },
+            {
+              "start": "1FF0",
+              "end": "1FF1"
+            },
+            {
+              "start": "1FF5",
+              "end": "1FF5"
+            },
+            {
+              "start": "1FFF",
+              "end": "1FFF"
+            }
+          ]
+        },
+        {
+          "start": "10140",
+          "end": "1018F",
+          "unassigned": [
+            {
+              "start": "1018F",
+              "end": "1018F"
+            }
+          ]
+        },
+        {
+          "start": "1D200",
+          "end": "1D24F",
+          "unassigned": [
+            {
+              "start": "1D246",
+              "end": "1D24F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "1D00",
+          "end": "1D7F"
+        }
+      ],
+      "unassigned_count": 43
+    },
+    {
+      "no": 47,
+      "code": "Gujr",
+      "name_ja": "グジャラート",
+      "blocks": [
+        {
+          "start": "0A80",
+          "end": "0AFF",
+          "unassigned": [
+            {
+              "start": "0A80",
+              "end": "0A80"
+            },
+            {
+              "start": "0A84",
+              "end": "0A84"
+            },
+            {
+              "start": "0A8E",
+              "end": "0A8E"
+            },
+            {
+              "start": "0A92",
+              "end": "0A92"
+            },
+            {
+              "start": "0AA9",
+              "end": "0AA9"
+            },
+            {
+              "start": "0AB1",
+              "end": "0AB1"
+            },
+            {
+              "start": "0AB4",
+              "end": "0AB4"
+            },
+            {
+              "start": "0ABA",
+              "end": "0ABB"
+            },
+            {
+              "start": "0AC6",
+              "end": "0AC6"
+            },
+            {
+              "start": "0ACA",
+              "end": "0ACA"
+            },
+            {
+              "start": "0ACE",
+              "end": "0ACF"
+            },
+            {
+              "start": "0AD1",
+              "end": "0ADF"
+            },
+            {
+              "start": "0AE4",
+              "end": "0AE5"
+            },
+            {
+              "start": "0AF2",
+              "end": "0AF8"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 37
+    },
+    {
+      "no": 48,
+      "code": "Gukh",
+      "name_ja": "グルン・ケマ",
+      "blocks": [
+        {
+          "start": "16100",
+          "end": "1613F",
+          "unassigned": [
+            {
+              "start": "1613A",
+              "end": "1613F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 49,
+      "code": "Guru",
+      "name_ja": "グルムキー",
+      "blocks": [
+        {
+          "start": "0A00",
+          "end": "0A7F",
+          "unassigned": [
+            {
+              "start": "0A00",
+              "end": "0A00"
+            },
+            {
+              "start": "0A04",
+              "end": "0A04"
+            },
+            {
+              "start": "0A0B",
+              "end": "0A0E"
+            },
+            {
+              "start": "0A11",
+              "end": "0A12"
+            },
+            {
+              "start": "0A29",
+              "end": "0A29"
+            },
+            {
+              "start": "0A31",
+              "end": "0A31"
+            },
+            {
+              "start": "0A34",
+              "end": "0A34"
+            },
+            {
+              "start": "0A37",
+              "end": "0A37"
+            },
+            {
+              "start": "0A3A",
+              "end": "0A3B"
+            },
+            {
+              "start": "0A3D",
+              "end": "0A3D"
+            },
+            {
+              "start": "0A43",
+              "end": "0A46"
+            },
+            {
+              "start": "0A49",
+              "end": "0A4A"
+            },
+            {
+              "start": "0A4E",
+              "end": "0A50"
+            },
+            {
+              "start": "0A52",
+              "end": "0A58"
+            },
+            {
+              "start": "0A5D",
+              "end": "0A5D"
+            },
+            {
+              "start": "0A5F",
+              "end": "0A65"
+            },
+            {
+              "start": "0A77",
+              "end": "0A7F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 48
+    },
+    {
+      "no": 50,
+      "code": "Hang",
+      "name_ja": "ハングル",
+      "blocks": [
+        {
+          "start": "1100",
+          "end": "11FF",
+          "unassigned": []
+        },
+        {
+          "start": "3130",
+          "end": "318F",
+          "unassigned": [
+            {
+              "start": "3130",
+              "end": "3130"
+            },
+            {
+              "start": "318F",
+              "end": "318F"
+            }
+          ]
+        },
+        {
+          "start": "A960",
+          "end": "A97F",
+          "unassigned": [
+            {
+              "start": "A97D",
+              "end": "A97F"
+            }
+          ]
+        },
+        {
+          "start": "AC00",
+          "end": "D7AF",
+          "unassigned": [
+            {
+              "start": "D7A4",
+              "end": "D7AF"
+            }
+          ]
+        },
+        {
+          "start": "D7B0",
+          "end": "D7FF",
+          "unassigned": [
+            {
+              "start": "D7C7",
+              "end": "D7CA"
+            },
+            {
+              "start": "D7FC",
+              "end": "D7FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "3200",
+          "end": "32FF"
+        },
+        {
+          "start": "FF00",
+          "end": "FFEF"
+        }
+      ],
+      "unassigned_count": 25
+    },
+    {
+      "no": 51,
+      "code": "Hani",
+      "name_ja": "漢字",
+      "blocks": [
+        {
+          "start": "2E80",
+          "end": "2EFF",
+          "unassigned": [
+            {
+              "start": "2E9A",
+              "end": "2E9A"
+            },
+            {
+              "start": "2EF4",
+              "end": "2EFF"
+            }
+          ]
+        },
+        {
+          "start": "2F00",
+          "end": "2FDF",
+          "unassigned": [
+            {
+              "start": "2FD6",
+              "end": "2FDF"
+            }
+          ]
+        },
+        {
+          "start": "3400",
+          "end": "4DBF",
+          "unassigned": []
+        },
+        {
+          "start": "4E00",
+          "end": "9FFF",
+          "unassigned": []
+        },
+        {
+          "start": "F900",
+          "end": "FAFF",
+          "unassigned": [
+            {
+              "start": "FA6E",
+              "end": "FA6F"
+            },
+            {
+              "start": "FADA",
+              "end": "FAFF"
+            }
+          ]
+        },
+        {
+          "start": "16FE0",
+          "end": "16FFF",
+          "unassigned": [
+            {
+              "start": "16FE5",
+              "end": "16FEF"
+            },
+            {
+              "start": "16FF7",
+              "end": "16FFF"
+            }
+          ]
+        },
+        {
+          "start": "20000",
+          "end": "2A6DF",
+          "unassigned": []
+        },
+        {
+          "start": "2A700",
+          "end": "2B73F",
+          "unassigned": []
+        },
+        {
+          "start": "2B740",
+          "end": "2B81F",
+          "unassigned": [
+            {
+              "start": "2B81F",
+              "end": "2B81F"
+            }
+          ]
+        },
+        {
+          "start": "2B820",
+          "end": "2CEAF",
+          "unassigned": [
+            {
+              "start": "2CEAE",
+              "end": "2CEAF"
+            }
+          ]
+        },
+        {
+          "start": "2CEB0",
+          "end": "2EBEF",
+          "unassigned": [
+            {
+              "start": "2EBE1",
+              "end": "2EBEF"
+            }
+          ]
+        },
+        {
+          "start": "2EBF0",
+          "end": "2EE5F",
+          "unassigned": [
+            {
+              "start": "2EE5E",
+              "end": "2EE5F"
+            }
+          ]
+        },
+        {
+          "start": "2F800",
+          "end": "2FA1F",
+          "unassigned": [
+            {
+              "start": "2FA1E",
+              "end": "2FA1F"
+            }
+          ]
+        },
+        {
+          "start": "30000",
+          "end": "3134F",
+          "unassigned": [
+            {
+              "start": "3134B",
+              "end": "3134F"
+            }
+          ]
+        },
+        {
+          "start": "31350",
+          "end": "323AF",
+          "unassigned": []
+        },
+        {
+          "start": "323B0",
+          "end": "3347F",
+          "unassigned": [
+            {
+              "start": "3347A",
+              "end": "3347F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "3000",
+          "end": "303F"
+        }
+      ],
+      "unassigned_count": 116
+    },
+    {
+      "no": 52,
+      "code": "Hano",
+      "name_ja": "ハヌノオ",
+      "blocks": [
+        {
+          "start": "1720",
+          "end": "173F",
+          "unassigned": [
+            {
+              "start": "1737",
+              "end": "173F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 53,
+      "code": "Hatr",
+      "name_ja": "ハトラ",
+      "blocks": [
+        {
+          "start": "108E0",
+          "end": "108FF",
+          "unassigned": [
+            {
+              "start": "108F3",
+              "end": "108F3"
+            },
+            {
+              "start": "108F6",
+              "end": "108FA"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 54,
+      "code": "Hebr",
+      "name_ja": "ヘブライ",
+      "blocks": [
+        {
+          "start": "0590",
+          "end": "05FF",
+          "unassigned": [
+            {
+              "start": "0590",
+              "end": "0590"
+            },
+            {
+              "start": "05CA",
+              "end": "05CF"
+            },
+            {
+              "start": "05EB",
+              "end": "05EE"
+            },
+            {
+              "start": "05F5",
+              "end": "05FF"
+            }
+          ]
+        },
+        {
+          "start": "FB00",
+          "end": "FB4F",
+          "unassigned": [
+            {
+              "start": "FB07",
+              "end": "FB12"
+            },
+            {
+              "start": "FB18",
+              "end": "FB1C"
+            },
+            {
+              "start": "FB37",
+              "end": "FB37"
+            },
+            {
+              "start": "FB3D",
+              "end": "FB3D"
+            },
+            {
+              "start": "FB3F",
+              "end": "FB3F"
+            },
+            {
+              "start": "FB42",
+              "end": "FB42"
+            },
+            {
+              "start": "FB45",
+              "end": "FB45"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 44
+    },
+    {
+      "no": 55,
+      "code": "Hira",
+      "name_ja": "ひらがな",
+      "blocks": [
+        {
+          "start": "3040",
+          "end": "309F",
+          "unassigned": [
+            {
+              "start": "3040",
+              "end": "3040"
+            },
+            {
+              "start": "3097",
+              "end": "3098"
+            }
+          ]
+        },
+        {
+          "start": "1B000",
+          "end": "1B0FF",
+          "unassigned": []
+        },
+        {
+          "start": "1B100",
+          "end": "1B12F",
+          "unassigned": [
+            {
+              "start": "1B129",
+              "end": "1B12F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "1B130",
+          "end": "1B16F"
+        }
+      ],
+      "unassigned_count": 10
+    },
+    {
+      "no": 56,
+      "code": "Hluw",
+      "name_ja": "アナトリア象形文字",
+      "blocks": [
+        {
+          "start": "14400",
+          "end": "1467F",
+          "unassigned": [
+            {
+              "start": "14647",
+              "end": "1467F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 57
+    },
+    {
+      "no": 57,
+      "code": "Hmng",
+      "name_ja": "パハウ・フモン",
+      "blocks": [
+        {
+          "start": "16B00",
+          "end": "16B8F",
+          "unassigned": [
+            {
+              "start": "16B46",
+              "end": "16B4F"
+            },
+            {
+              "start": "16B5A",
+              "end": "16B5A"
+            },
+            {
+              "start": "16B62",
+              "end": "16B62"
+            },
+            {
+              "start": "16B78",
+              "end": "16B7C"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 58,
+      "code": "Hmnp",
+      "name_ja": "ニャケン・プアチュエ・フモン",
+      "blocks": [
+        {
+          "start": "1E100",
+          "end": "1E14F",
+          "unassigned": [
+            {
+              "start": "1E12D",
+              "end": "1E12F"
+            },
+            {
+              "start": "1E13E",
+              "end": "1E13F"
+            },
+            {
+              "start": "1E14A",
+              "end": "1E14D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 59,
+      "code": "Hung",
+      "name_ja": "古ハンガリー",
+      "blocks": [
+        {
+          "start": "10C80",
+          "end": "10CFF",
+          "unassigned": [
+            {
+              "start": "10CB3",
+              "end": "10CBF"
+            },
+            {
+              "start": "10CF3",
+              "end": "10CF9"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 20
+    },
+    {
+      "no": 60,
+      "code": "Ital",
+      "name_ja": "古イタリア",
+      "blocks": [
+        {
+          "start": "10300",
+          "end": "1032F",
+          "unassigned": [
+            {
+              "start": "10324",
+              "end": "1032C"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 61,
+      "code": "Java",
+      "name_ja": "ジャワ",
+      "blocks": [
+        {
+          "start": "A980",
+          "end": "A9DF",
+          "unassigned": [
+            {
+              "start": "A9CE",
+              "end": "A9CE"
+            },
+            {
+              "start": "A9DA",
+              "end": "A9DD"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 62,
+      "code": "Jurc",
+      "name_ja": "女真",
+      "blocks": [
+        {
+          "start": "18E00",
+          "end": "1919F",
+          "unassigned": [
+            {
+              "start": "19192",
+              "end": "1919F"
+            }
+          ]
+        },
+        {
+          "start": "191A0",
+          "end": "191DF",
+          "unassigned": [
+            {
+              "start": "191D3",
+              "end": "191DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 27
+    },
+    {
+      "no": 63,
+      "code": "Kali",
+      "name_ja": "カヤー・リー",
+      "blocks": [
+        {
+          "start": "A900",
+          "end": "A92F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 64,
+      "code": "Kana",
+      "name_ja": "カタカナ",
+      "blocks": [
+        {
+          "start": "30A0",
+          "end": "30FF",
+          "unassigned": []
+        },
+        {
+          "start": "31F0",
+          "end": "31FF",
+          "unassigned": []
+        },
+        {
+          "start": "1AFF0",
+          "end": "1AFFF",
+          "unassigned": [
+            {
+              "start": "1AFF4",
+              "end": "1AFF4"
+            },
+            {
+              "start": "1AFFC",
+              "end": "1AFFC"
+            },
+            {
+              "start": "1AFFF",
+              "end": "1AFFF"
+            }
+          ]
+        },
+        {
+          "start": "1B130",
+          "end": "1B16F",
+          "unassigned": [
+            {
+              "start": "1B130",
+              "end": "1B131"
+            },
+            {
+              "start": "1B133",
+              "end": "1B14F"
+            },
+            {
+              "start": "1B153",
+              "end": "1B154"
+            },
+            {
+              "start": "1B156",
+              "end": "1B163"
+            },
+            {
+              "start": "1B169",
+              "end": "1B16F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "3200",
+          "end": "32FF"
+        },
+        {
+          "start": "3300",
+          "end": "33FF"
+        },
+        {
+          "start": "FF00",
+          "end": "FFEF"
+        },
+        {
+          "start": "1B100",
+          "end": "1B12F"
+        }
+      ],
+      "unassigned_count": 57
+    },
+    {
+      "no": 65,
+      "code": "Kawi",
+      "name_ja": "カウィ",
+      "blocks": [
+        {
+          "start": "11F00",
+          "end": "11F5F",
+          "unassigned": [
+            {
+              "start": "11F11",
+              "end": "11F11"
+            },
+            {
+              "start": "11F3B",
+              "end": "11F3D"
+            },
+            {
+              "start": "11F5B",
+              "end": "11F5F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 66,
+      "code": "Khar",
+      "name_ja": "カローシュティー",
+      "blocks": [
+        {
+          "start": "10A00",
+          "end": "10A5F",
+          "unassigned": [
+            {
+              "start": "10A04",
+              "end": "10A04"
+            },
+            {
+              "start": "10A07",
+              "end": "10A0B"
+            },
+            {
+              "start": "10A14",
+              "end": "10A14"
+            },
+            {
+              "start": "10A18",
+              "end": "10A18"
+            },
+            {
+              "start": "10A36",
+              "end": "10A37"
+            },
+            {
+              "start": "10A3B",
+              "end": "10A3E"
+            },
+            {
+              "start": "10A49",
+              "end": "10A4F"
+            },
+            {
+              "start": "10A59",
+              "end": "10A5F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 28
+    },
+    {
+      "no": 67,
+      "code": "Khmr",
+      "name_ja": "クメール",
+      "blocks": [
+        {
+          "start": "1780",
+          "end": "17FF",
+          "unassigned": [
+            {
+              "start": "17DE",
+              "end": "17DF"
+            },
+            {
+              "start": "17EA",
+              "end": "17EF"
+            },
+            {
+              "start": "17FA",
+              "end": "17FF"
+            }
+          ]
+        },
+        {
+          "start": "19E0",
+          "end": "19FF",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 68,
+      "code": "Khoj",
+      "name_ja": "コージキー",
+      "blocks": [
+        {
+          "start": "11200",
+          "end": "1124F",
+          "unassigned": [
+            {
+              "start": "11212",
+              "end": "11212"
+            },
+            {
+              "start": "11242",
+              "end": "1124F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 69,
+      "code": "Kits",
+      "name_ja": "契丹小字",
+      "blocks": [
+        {
+          "start": "18B00",
+          "end": "18CFF",
+          "unassigned": [
+            {
+              "start": "18CDB",
+              "end": "18CFE"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 36
+    },
+    {
+      "no": 70,
+      "code": "Knda",
+      "name_ja": "カンナダ",
+      "blocks": [
+        {
+          "start": "0C80",
+          "end": "0CFF",
+          "unassigned": [
+            {
+              "start": "0C8D",
+              "end": "0C8D"
+            },
+            {
+              "start": "0C91",
+              "end": "0C91"
+            },
+            {
+              "start": "0CA9",
+              "end": "0CA9"
+            },
+            {
+              "start": "0CB4",
+              "end": "0CB4"
+            },
+            {
+              "start": "0CBA",
+              "end": "0CBB"
+            },
+            {
+              "start": "0CC5",
+              "end": "0CC5"
+            },
+            {
+              "start": "0CC9",
+              "end": "0CC9"
+            },
+            {
+              "start": "0CCE",
+              "end": "0CD4"
+            },
+            {
+              "start": "0CD7",
+              "end": "0CDB"
+            },
+            {
+              "start": "0CDF",
+              "end": "0CDF"
+            },
+            {
+              "start": "0CE4",
+              "end": "0CE5"
+            },
+            {
+              "start": "0CF0",
+              "end": "0CF0"
+            },
+            {
+              "start": "0CF4",
+              "end": "0CFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 36
+    },
+    {
+      "no": 71,
+      "code": "Krai",
+      "name_ja": "キラット・ライ",
+      "blocks": [
+        {
+          "start": "16D40",
+          "end": "16D7F",
+          "unassigned": [
+            {
+              "start": "16D7A",
+              "end": "16D7F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 72,
+      "code": "Kthi",
+      "name_ja": "カイティー",
+      "blocks": [
+        {
+          "start": "11080",
+          "end": "110CF",
+          "unassigned": [
+            {
+              "start": "110C3",
+              "end": "110CC"
+            },
+            {
+              "start": "110CE",
+              "end": "110CF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 73,
+      "code": "Lana",
+      "name_ja": "タイ・タム",
+      "blocks": [
+        {
+          "start": "1A20",
+          "end": "1AAF",
+          "unassigned": [
+            {
+              "start": "1A5F",
+              "end": "1A5F"
+            },
+            {
+              "start": "1A7D",
+              "end": "1A7E"
+            },
+            {
+              "start": "1A8A",
+              "end": "1A8F"
+            },
+            {
+              "start": "1A9A",
+              "end": "1A9F"
+            },
+            {
+              "start": "1AAE",
+              "end": "1AAF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 74,
+      "code": "Laoo",
+      "name_ja": "ラオ",
+      "blocks": [
+        {
+          "start": "0E80",
+          "end": "0EFF",
+          "unassigned": [
+            {
+              "start": "0E80",
+              "end": "0E80"
+            },
+            {
+              "start": "0E83",
+              "end": "0E83"
+            },
+            {
+              "start": "0E85",
+              "end": "0E85"
+            },
+            {
+              "start": "0E8B",
+              "end": "0E8B"
+            },
+            {
+              "start": "0EA4",
+              "end": "0EA4"
+            },
+            {
+              "start": "0EA6",
+              "end": "0EA6"
+            },
+            {
+              "start": "0EBE",
+              "end": "0EBF"
+            },
+            {
+              "start": "0EC5",
+              "end": "0EC5"
+            },
+            {
+              "start": "0EC7",
+              "end": "0EC7"
+            },
+            {
+              "start": "0ECF",
+              "end": "0ECF"
+            },
+            {
+              "start": "0EDA",
+              "end": "0EDB"
+            },
+            {
+              "start": "0EE0",
+              "end": "0EFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 45
+    },
+    {
+      "no": 75,
+      "code": "Latn",
+      "name_ja": "ラテン",
+      "blocks": [
+        {
+          "start": "0000",
+          "end": "007F",
+          "unassigned": []
+        },
+        {
+          "start": "0080",
+          "end": "00FF",
+          "unassigned": []
+        },
+        {
+          "start": "0100",
+          "end": "017F",
+          "unassigned": []
+        },
+        {
+          "start": "0180",
+          "end": "024F",
+          "unassigned": []
+        },
+        {
+          "start": "0250",
+          "end": "02AF",
+          "unassigned": []
+        },
+        {
+          "start": "1D00",
+          "end": "1D7F",
+          "unassigned": []
+        },
+        {
+          "start": "1D80",
+          "end": "1DBF",
+          "unassigned": []
+        },
+        {
+          "start": "1E00",
+          "end": "1EFF",
+          "unassigned": []
+        },
+        {
+          "start": "2150",
+          "end": "218F",
+          "unassigned": [
+            {
+              "start": "218C",
+              "end": "218F"
+            }
+          ]
+        },
+        {
+          "start": "2C60",
+          "end": "2C7F",
+          "unassigned": []
+        },
+        {
+          "start": "A720",
+          "end": "A7FF",
+          "unassigned": [
+            {
+              "start": "A7DE",
+              "end": "A7E1"
+            },
+            {
+              "start": "A7E3",
+              "end": "A7F0"
+            }
+          ]
+        },
+        {
+          "start": "AB30",
+          "end": "AB6F",
+          "unassigned": [
+            {
+              "start": "AB6E",
+              "end": "AB6F"
+            }
+          ]
+        },
+        {
+          "start": "10780",
+          "end": "107BF",
+          "unassigned": [
+            {
+              "start": "10786",
+              "end": "10786"
+            },
+            {
+              "start": "107B1",
+              "end": "107B1"
+            }
+          ]
+        },
+        {
+          "start": "1DF00",
+          "end": "1DFFF",
+          "unassigned": [
+            {
+              "start": "1DF82",
+              "end": "1DF8F"
+            },
+            {
+              "start": "1DF97",
+              "end": "1DFCC"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "02B0",
+          "end": "02FF"
+        },
+        {
+          "start": "2070",
+          "end": "209F"
+        },
+        {
+          "start": "2100",
+          "end": "214F"
+        },
+        {
+          "start": "FB00",
+          "end": "FB4F"
+        },
+        {
+          "start": "FF00",
+          "end": "FFEF"
+        }
+      ],
+      "unassigned_count": 94
+    },
+    {
+      "no": 76,
+      "code": "Lepc",
+      "name_ja": "レプチャ",
+      "blocks": [
+        {
+          "start": "1C00",
+          "end": "1C4F",
+          "unassigned": [
+            {
+              "start": "1C38",
+              "end": "1C3A"
+            },
+            {
+              "start": "1C4A",
+              "end": "1C4C"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 77,
+      "code": "Limb",
+      "name_ja": "リンブ",
+      "blocks": [
+        {
+          "start": "1900",
+          "end": "194F",
+          "unassigned": [
+            {
+              "start": "191F",
+              "end": "191F"
+            },
+            {
+              "start": "192C",
+              "end": "192F"
+            },
+            {
+              "start": "193C",
+              "end": "193F"
+            },
+            {
+              "start": "1941",
+              "end": "1943"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 78,
+      "code": "Lina",
+      "name_ja": "線文字A",
+      "blocks": [
+        {
+          "start": "10600",
+          "end": "1077F",
+          "unassigned": [
+            {
+              "start": "10737",
+              "end": "1073F"
+            },
+            {
+              "start": "10756",
+              "end": "1075F"
+            },
+            {
+              "start": "10768",
+              "end": "1077F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 43
+    },
+    {
+      "no": 79,
+      "code": "Linb",
+      "name_ja": "線文字B",
+      "blocks": [
+        {
+          "start": "10000",
+          "end": "1007F",
+          "unassigned": [
+            {
+              "start": "1000C",
+              "end": "1000C"
+            },
+            {
+              "start": "10027",
+              "end": "10027"
+            },
+            {
+              "start": "1003B",
+              "end": "1003B"
+            },
+            {
+              "start": "1003E",
+              "end": "1003E"
+            },
+            {
+              "start": "1004E",
+              "end": "1004F"
+            },
+            {
+              "start": "1005E",
+              "end": "1007F"
+            }
+          ]
+        },
+        {
+          "start": "10080",
+          "end": "100FF",
+          "unassigned": [
+            {
+              "start": "100FB",
+              "end": "100FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 45
+    },
+    {
+      "no": 80,
+      "code": "Lisu",
+      "name_ja": "リス",
+      "blocks": [
+        {
+          "start": "A4D0",
+          "end": "A4FF",
+          "unassigned": []
+        },
+        {
+          "start": "11FB0",
+          "end": "11FBF",
+          "unassigned": [
+            {
+              "start": "11FB1",
+              "end": "11FBF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 15
+    },
+    {
+      "no": 81,
+      "code": "Lyci",
+      "name_ja": "リュキア",
+      "blocks": [
+        {
+          "start": "10280",
+          "end": "1029F",
+          "unassigned": [
+            {
+              "start": "1029D",
+              "end": "1029F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 82,
+      "code": "Lydi",
+      "name_ja": "リュディア",
+      "blocks": [
+        {
+          "start": "10920",
+          "end": "1093F",
+          "unassigned": [
+            {
+              "start": "1093A",
+              "end": "1093E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 83,
+      "code": "Mahj",
+      "name_ja": "マハージャニー",
+      "blocks": [
+        {
+          "start": "11150",
+          "end": "1117F",
+          "unassigned": [
+            {
+              "start": "11177",
+              "end": "1117F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 84,
+      "code": "Maka",
+      "name_ja": "マカッサル",
+      "blocks": [
+        {
+          "start": "11EE0",
+          "end": "11EFF",
+          "unassigned": [
+            {
+              "start": "11EF9",
+              "end": "11EFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 7
+    },
+    {
+      "no": 85,
+      "code": "Mand",
+      "name_ja": "マンダ",
+      "blocks": [
+        {
+          "start": "0840",
+          "end": "085F",
+          "unassigned": [
+            {
+              "start": "085C",
+              "end": "085D"
+            },
+            {
+              "start": "085F",
+              "end": "085F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 86,
+      "code": "Mani",
+      "name_ja": "マニ",
+      "blocks": [
+        {
+          "start": "10AC0",
+          "end": "10AFF",
+          "unassigned": [
+            {
+              "start": "10AE7",
+              "end": "10AEA"
+            },
+            {
+              "start": "10AF7",
+              "end": "10AFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 87,
+      "code": "Marc",
+      "name_ja": "マルチェン",
+      "blocks": [
+        {
+          "start": "11C70",
+          "end": "11CBF",
+          "unassigned": [
+            {
+              "start": "11C90",
+              "end": "11C91"
+            },
+            {
+              "start": "11CA8",
+              "end": "11CA8"
+            },
+            {
+              "start": "11CB7",
+              "end": "11CBF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 88,
+      "code": "Medf",
+      "name_ja": "メデファイドリン",
+      "blocks": [
+        {
+          "start": "16E40",
+          "end": "16E9F",
+          "unassigned": [
+            {
+              "start": "16E9B",
+              "end": "16E9F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 89,
+      "code": "Mend",
+      "name_ja": "メンデ・キカクイ",
+      "blocks": [
+        {
+          "start": "1E800",
+          "end": "1E8DF",
+          "unassigned": [
+            {
+              "start": "1E8C5",
+              "end": "1E8C6"
+            },
+            {
+              "start": "1E8D7",
+              "end": "1E8DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 90,
+      "code": "Merc",
+      "name_ja": "メロエ草書体",
+      "blocks": [
+        {
+          "start": "109A0",
+          "end": "109FF",
+          "unassigned": [
+            {
+              "start": "109B8",
+              "end": "109BB"
+            },
+            {
+              "start": "109D0",
+              "end": "109D1"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 91,
+      "code": "Mero",
+      "name_ja": "メロエ聖刻文字",
+      "blocks": [
+        {
+          "start": "10980",
+          "end": "1099F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 92,
+      "code": "Mlym",
+      "name_ja": "マラヤーラム",
+      "blocks": [
+        {
+          "start": "0D00",
+          "end": "0D7F",
+          "unassigned": [
+            {
+              "start": "0D0D",
+              "end": "0D0D"
+            },
+            {
+              "start": "0D11",
+              "end": "0D11"
+            },
+            {
+              "start": "0D45",
+              "end": "0D45"
+            },
+            {
+              "start": "0D49",
+              "end": "0D49"
+            },
+            {
+              "start": "0D50",
+              "end": "0D53"
+            },
+            {
+              "start": "0D64",
+              "end": "0D65"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 93,
+      "code": "Modi",
+      "name_ja": "モーディー",
+      "blocks": [
+        {
+          "start": "11600",
+          "end": "1165F",
+          "unassigned": [
+            {
+              "start": "11645",
+              "end": "1164F"
+            },
+            {
+              "start": "1165A",
+              "end": "1165F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 94,
+      "code": "Mong",
+      "name_ja": "モンゴル",
+      "blocks": [
+        {
+          "start": "1800",
+          "end": "18AF",
+          "unassigned": [
+            {
+              "start": "181A",
+              "end": "181F"
+            },
+            {
+              "start": "1879",
+              "end": "187F"
+            },
+            {
+              "start": "18AB",
+              "end": "18AF"
+            }
+          ]
+        },
+        {
+          "start": "11660",
+          "end": "1167F",
+          "unassigned": [
+            {
+              "start": "1166D",
+              "end": "1167F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 37
+    },
+    {
+      "no": 95,
+      "code": "Mroo",
+      "name_ja": "ムロ",
+      "blocks": [
+        {
+          "start": "16A40",
+          "end": "16A6F",
+          "unassigned": [
+            {
+              "start": "16A5F",
+              "end": "16A5F"
+            },
+            {
+              "start": "16A6A",
+              "end": "16A6D"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 96,
+      "code": "Mtei",
+      "name_ja": "メイテイ・マイェク",
+      "blocks": [
+        {
+          "start": "AAE0",
+          "end": "AAFF",
+          "unassigned": [
+            {
+              "start": "AAF7",
+              "end": "AAFF"
+            }
+          ]
+        },
+        {
+          "start": "ABC0",
+          "end": "ABFF",
+          "unassigned": [
+            {
+              "start": "ABEE",
+              "end": "ABEF"
+            },
+            {
+              "start": "ABFA",
+              "end": "ABFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 97,
+      "code": "Mult",
+      "name_ja": "ムルターニー",
+      "blocks": [
+        {
+          "start": "11280",
+          "end": "112AF",
+          "unassigned": [
+            {
+              "start": "11287",
+              "end": "11287"
+            },
+            {
+              "start": "11289",
+              "end": "11289"
+            },
+            {
+              "start": "1128E",
+              "end": "1128E"
+            },
+            {
+              "start": "1129E",
+              "end": "1129E"
+            },
+            {
+              "start": "112AA",
+              "end": "112AF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 98,
+      "code": "Mymr",
+      "name_ja": "ミャンマー",
+      "blocks": [
+        {
+          "start": "1000",
+          "end": "109F",
+          "unassigned": []
+        },
+        {
+          "start": "A9E0",
+          "end": "A9FF",
+          "unassigned": [
+            {
+              "start": "A9FF",
+              "end": "A9FF"
+            }
+          ]
+        },
+        {
+          "start": "AA60",
+          "end": "AA7F",
+          "unassigned": []
+        },
+        {
+          "start": "116D0",
+          "end": "116FF",
+          "unassigned": [
+            {
+              "start": "116E4",
+              "end": "116FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 29
+    },
+    {
+      "no": 99,
+      "code": "Nagm",
+      "name_ja": "ナグ・ムンダリ",
+      "blocks": [
+        {
+          "start": "1E4D0",
+          "end": "1E4FF",
+          "unassigned": [
+            {
+              "start": "1E4FA",
+              "end": "1E4FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 100,
+      "code": "Nand",
+      "name_ja": "ナンディナーガリー",
+      "blocks": [
+        {
+          "start": "119A0",
+          "end": "119FF",
+          "unassigned": [
+            {
+              "start": "119A8",
+              "end": "119A9"
+            },
+            {
+              "start": "119D8",
+              "end": "119D9"
+            },
+            {
+              "start": "119E5",
+              "end": "119FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 31
+    },
+    {
+      "no": 101,
+      "code": "Narb",
+      "name_ja": "古代北アラビア",
+      "blocks": [
+        {
+          "start": "10A80",
+          "end": "10A9F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 102,
+      "code": "Nbat",
+      "name_ja": "ナバテア",
+      "blocks": [
+        {
+          "start": "10880",
+          "end": "108AF",
+          "unassigned": [
+            {
+              "start": "1089F",
+              "end": "108A6"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 103,
+      "code": "Newa",
+      "name_ja": "ネワ",
+      "blocks": [
+        {
+          "start": "11400",
+          "end": "1147F",
+          "unassigned": [
+            {
+              "start": "1145C",
+              "end": "1145C"
+            },
+            {
+              "start": "11462",
+              "end": "1147F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 31
+    },
+    {
+      "no": 104,
+      "code": "Nkoo",
+      "name_ja": "ンコ",
+      "blocks": [
+        {
+          "start": "07C0",
+          "end": "07FF",
+          "unassigned": [
+            {
+              "start": "07FB",
+              "end": "07FC"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 2
+    },
+    {
+      "no": 105,
+      "code": "Nshu",
+      "name_ja": "女書",
+      "blocks": [
+        {
+          "start": "1B170",
+          "end": "1B2FF",
+          "unassigned": [
+            {
+              "start": "1B2FC",
+              "end": "1B2FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 4
+    },
+    {
+      "no": 106,
+      "code": "Ogam",
+      "name_ja": "オガム",
+      "blocks": [
+        {
+          "start": "1680",
+          "end": "169F",
+          "unassigned": [
+            {
+              "start": "169D",
+              "end": "169F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 107,
+      "code": "Olck",
+      "name_ja": "オル・チキ",
+      "blocks": [
+        {
+          "start": "1C50",
+          "end": "1C7F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 108,
+      "code": "Onao",
+      "name_ja": "オル・オナル",
+      "blocks": [
+        {
+          "start": "1E5D0",
+          "end": "1E5FF",
+          "unassigned": [
+            {
+              "start": "1E5FB",
+              "end": "1E5FE"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 4
+    },
+    {
+      "no": 109,
+      "code": "Orkh",
+      "name_ja": "古代テュルク",
+      "blocks": [
+        {
+          "start": "10C00",
+          "end": "10C4F",
+          "unassigned": [
+            {
+              "start": "10C49",
+              "end": "10C4F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 7
+    },
+    {
+      "no": 110,
+      "code": "Orya",
+      "name_ja": "オリヤ",
+      "blocks": [
+        {
+          "start": "0B00",
+          "end": "0B7F",
+          "unassigned": [
+            {
+              "start": "0B00",
+              "end": "0B00"
+            },
+            {
+              "start": "0B04",
+              "end": "0B04"
+            },
+            {
+              "start": "0B0D",
+              "end": "0B0E"
+            },
+            {
+              "start": "0B11",
+              "end": "0B12"
+            },
+            {
+              "start": "0B29",
+              "end": "0B29"
+            },
+            {
+              "start": "0B31",
+              "end": "0B31"
+            },
+            {
+              "start": "0B34",
+              "end": "0B34"
+            },
+            {
+              "start": "0B3A",
+              "end": "0B3B"
+            },
+            {
+              "start": "0B45",
+              "end": "0B46"
+            },
+            {
+              "start": "0B49",
+              "end": "0B4A"
+            },
+            {
+              "start": "0B4E",
+              "end": "0B52"
+            },
+            {
+              "start": "0B58",
+              "end": "0B5B"
+            },
+            {
+              "start": "0B5E",
+              "end": "0B5E"
+            },
+            {
+              "start": "0B64",
+              "end": "0B65"
+            },
+            {
+              "start": "0B78",
+              "end": "0B7F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 35
+    },
+    {
+      "no": 111,
+      "code": "Osge",
+      "name_ja": "オセージ",
+      "blocks": [
+        {
+          "start": "104B0",
+          "end": "104FF",
+          "unassigned": [
+            {
+              "start": "104D4",
+              "end": "104D7"
+            },
+            {
+              "start": "104FC",
+              "end": "104FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 112,
+      "code": "Osma",
+      "name_ja": "オスマニヤ",
+      "blocks": [
+        {
+          "start": "10480",
+          "end": "104AF",
+          "unassigned": [
+            {
+              "start": "1049E",
+              "end": "1049F"
+            },
+            {
+              "start": "104AA",
+              "end": "104AF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 113,
+      "code": "Ougr",
+      "name_ja": "古ウイグル",
+      "blocks": [
+        {
+          "start": "10F70",
+          "end": "10FAF",
+          "unassigned": [
+            {
+              "start": "10F8A",
+              "end": "10FAF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 38
+    },
+    {
+      "no": 114,
+      "code": "Palm",
+      "name_ja": "パルミラ",
+      "blocks": [
+        {
+          "start": "10860",
+          "end": "1087F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 115,
+      "code": "Pauc",
+      "name_ja": "パウ・チン・ハウ",
+      "blocks": [
+        {
+          "start": "11AC0",
+          "end": "11AFF",
+          "unassigned": [
+            {
+              "start": "11AF9",
+              "end": "11AFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 7
+    },
+    {
+      "no": 116,
+      "code": "Pcun",
+      "name_ja": "原楔形文字",
+      "blocks": [
+        {
+          "start": "12550",
+          "end": "1268F",
+          "unassigned": [
+            {
+              "start": "12687",
+              "end": "1268F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 117,
+      "code": "Perm",
+      "name_ja": "古ペルム",
+      "blocks": [
+        {
+          "start": "10350",
+          "end": "1037F",
+          "unassigned": [
+            {
+              "start": "1037B",
+              "end": "1037F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 118,
+      "code": "Phag",
+      "name_ja": "パスパ",
+      "blocks": [
+        {
+          "start": "A840",
+          "end": "A87F",
+          "unassigned": [
+            {
+              "start": "A878",
+              "end": "A87F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 119,
+      "code": "Phli",
+      "name_ja": "碑文パフラヴィー",
+      "blocks": [
+        {
+          "start": "10B60",
+          "end": "10B7F",
+          "unassigned": [
+            {
+              "start": "10B73",
+              "end": "10B77"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 120,
+      "code": "Phlp",
+      "name_ja": "詩篇パフラヴィー",
+      "blocks": [
+        {
+          "start": "10B80",
+          "end": "10BAF",
+          "unassigned": [
+            {
+              "start": "10B92",
+              "end": "10B98"
+            },
+            {
+              "start": "10B9D",
+              "end": "10BA8"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 19
+    },
+    {
+      "no": 121,
+      "code": "Phnx",
+      "name_ja": "フェニキア",
+      "blocks": [
+        {
+          "start": "10900",
+          "end": "1091F",
+          "unassigned": [
+            {
+              "start": "1091C",
+              "end": "1091E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 122,
+      "code": "Plrd",
+      "name_ja": "ミャオ",
+      "blocks": [
+        {
+          "start": "16F00",
+          "end": "16F9F",
+          "unassigned": [
+            {
+              "start": "16F4B",
+              "end": "16F4E"
+            },
+            {
+              "start": "16F88",
+              "end": "16F8E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 123,
+      "code": "Prti",
+      "name_ja": "碑文パルティア",
+      "blocks": [
+        {
+          "start": "10B40",
+          "end": "10B5F",
+          "unassigned": [
+            {
+              "start": "10B56",
+              "end": "10B57"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 2
+    },
+    {
+      "no": 124,
+      "code": "Rjng",
+      "name_ja": "レジャン",
+      "blocks": [
+        {
+          "start": "A930",
+          "end": "A95F",
+          "unassigned": [
+            {
+              "start": "A954",
+              "end": "A95E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 125,
+      "code": "Rohg",
+      "name_ja": "ハニーフィー・ロヒンギャ",
+      "blocks": [
+        {
+          "start": "10D00",
+          "end": "10D3F",
+          "unassigned": [
+            {
+              "start": "10D28",
+              "end": "10D2F"
+            },
+            {
+              "start": "10D3A",
+              "end": "10D3F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 126,
+      "code": "Runr",
+      "name_ja": "ルーン",
+      "blocks": [
+        {
+          "start": "16A0",
+          "end": "16FF",
+          "unassigned": [
+            {
+              "start": "16F9",
+              "end": "16FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 7
+    },
+    {
+      "no": 127,
+      "code": "Samr",
+      "name_ja": "サマリア",
+      "blocks": [
+        {
+          "start": "0800",
+          "end": "083F",
+          "unassigned": [
+            {
+              "start": "082E",
+              "end": "082F"
+            },
+            {
+              "start": "083F",
+              "end": "083F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 128,
+      "code": "Sarb",
+      "name_ja": "古代南アラビア",
+      "blocks": [
+        {
+          "start": "10A60",
+          "end": "10A7F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 129,
+      "code": "Saur",
+      "name_ja": "サウラーシュトラ",
+      "blocks": [
+        {
+          "start": "A880",
+          "end": "A8DF",
+          "unassigned": [
+            {
+              "start": "A8C6",
+              "end": "A8CD"
+            },
+            {
+              "start": "A8DA",
+              "end": "A8DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 130,
+      "code": "Seal",
+      "name_ja": "篆書・小篆",
+      "blocks": [
+        {
+          "start": "3D000",
+          "end": "3FC3F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 131,
+      "code": "Sgnw",
+      "name_ja": "サットン手話表記",
+      "blocks": [
+        {
+          "start": "1D800",
+          "end": "1DAAF",
+          "unassigned": [
+            {
+              "start": "1DA8C",
+              "end": "1DA9A"
+            },
+            {
+              "start": "1DAA0",
+              "end": "1DAA0"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 16
+    },
+    {
+      "no": 132,
+      "code": "Shaw",
+      "name_ja": "ショー",
+      "blocks": [
+        {
+          "start": "10450",
+          "end": "1047F",
+          "unassigned": []
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 0
+    },
+    {
+      "no": 133,
+      "code": "Shrd",
+      "name_ja": "シャーラダー",
+      "blocks": [
+        {
+          "start": "11180",
+          "end": "111DF",
+          "unassigned": []
+        },
+        {
+          "start": "11B60",
+          "end": "11B7F",
+          "unassigned": [
+            {
+              "start": "11B68",
+              "end": "11B7F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 24
+    },
+    {
+      "no": 134,
+      "code": "Sidd",
+      "name_ja": "悉曇",
+      "blocks": [
+        {
+          "start": "11580",
+          "end": "115FF",
+          "unassigned": [
+            {
+              "start": "115B6",
+              "end": "115B7"
+            },
+            {
+              "start": "115DE",
+              "end": "115FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 36
+    },
+    {
+      "no": 135,
+      "code": "Sidt",
+      "name_ja": "シデ",
+      "blocks": [
+        {
+          "start": "10940",
+          "end": "1095F",
+          "unassigned": [
+            {
+              "start": "1095A",
+              "end": "1095F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 6
+    },
+    {
+      "no": 136,
+      "code": "Sind",
+      "name_ja": "クダワディ",
+      "blocks": [
+        {
+          "start": "112B0",
+          "end": "112FF",
+          "unassigned": [
+            {
+              "start": "112EB",
+              "end": "112EF"
+            },
+            {
+              "start": "112FA",
+              "end": "112FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 11
+    },
+    {
+      "no": 137,
+      "code": "Sinh",
+      "name_ja": "シンハラ",
+      "blocks": [
+        {
+          "start": "0D80",
+          "end": "0DFF",
+          "unassigned": [
+            {
+              "start": "0D80",
+              "end": "0D80"
+            },
+            {
+              "start": "0D84",
+              "end": "0D84"
+            },
+            {
+              "start": "0D97",
+              "end": "0D99"
+            },
+            {
+              "start": "0DB2",
+              "end": "0DB2"
+            },
+            {
+              "start": "0DBC",
+              "end": "0DBC"
+            },
+            {
+              "start": "0DBE",
+              "end": "0DBF"
+            },
+            {
+              "start": "0DC7",
+              "end": "0DC9"
+            },
+            {
+              "start": "0DCB",
+              "end": "0DCE"
+            },
+            {
+              "start": "0DD5",
+              "end": "0DD5"
+            },
+            {
+              "start": "0DD7",
+              "end": "0DD7"
+            },
+            {
+              "start": "0DE0",
+              "end": "0DE5"
+            },
+            {
+              "start": "0DF0",
+              "end": "0DF1"
+            },
+            {
+              "start": "0DF5",
+              "end": "0DFF"
+            }
+          ]
+        },
+        {
+          "start": "111E0",
+          "end": "111FF",
+          "unassigned": [
+            {
+              "start": "111E0",
+              "end": "111E0"
+            },
+            {
+              "start": "111F5",
+              "end": "111FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 49
+    },
+    {
+      "no": 138,
+      "code": "Sogd",
+      "name_ja": "ソグド",
+      "blocks": [
+        {
+          "start": "10F30",
+          "end": "10F6F",
+          "unassigned": [
+            {
+              "start": "10F5A",
+              "end": "10F6F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 22
+    },
+    {
+      "no": 139,
+      "code": "Sogo",
+      "name_ja": "古ソグド",
+      "blocks": [
+        {
+          "start": "10F00",
+          "end": "10F2F",
+          "unassigned": [
+            {
+              "start": "10F28",
+              "end": "10F2F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 140,
+      "code": "Sora",
+      "name_ja": "ソラ・ソンペン",
+      "blocks": [
+        {
+          "start": "110D0",
+          "end": "110FF",
+          "unassigned": [
+            {
+              "start": "110E9",
+              "end": "110EF"
+            },
+            {
+              "start": "110FA",
+              "end": "110FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 141,
+      "code": "Soyo",
+      "name_ja": "ソヨンボ",
+      "blocks": [
+        {
+          "start": "11A50",
+          "end": "11AAF",
+          "unassigned": [
+            {
+              "start": "11AA3",
+              "end": "11AAF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 142,
+      "code": "Sund",
+      "name_ja": "スンダ",
+      "blocks": [
+        {
+          "start": "1B80",
+          "end": "1BBF",
+          "unassigned": []
+        },
+        {
+          "start": "1CC0",
+          "end": "1CCF",
+          "unassigned": [
+            {
+              "start": "1CC8",
+              "end": "1CCF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 143,
+      "code": "Sunu",
+      "name_ja": "スヌワール",
+      "blocks": [
+        {
+          "start": "11BC0",
+          "end": "11BFF",
+          "unassigned": [
+            {
+              "start": "11BE2",
+              "end": "11BEF"
+            },
+            {
+              "start": "11BFA",
+              "end": "11BFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 20
+    },
+    {
+      "no": 144,
+      "code": "Sylo",
+      "name_ja": "シロティ・ナグリ",
+      "blocks": [
+        {
+          "start": "A800",
+          "end": "A82F",
+          "unassigned": [
+            {
+              "start": "A82D",
+              "end": "A82F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 3
+    },
+    {
+      "no": 145,
+      "code": "Syrc",
+      "name_ja": "シリア",
+      "blocks": [
+        {
+          "start": "0700",
+          "end": "074F",
+          "unassigned": [
+            {
+              "start": "070E",
+              "end": "070E"
+            },
+            {
+              "start": "074B",
+              "end": "074C"
+            }
+          ]
+        },
+        {
+          "start": "0860",
+          "end": "086F",
+          "unassigned": [
+            {
+              "start": "086B",
+              "end": "086F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    },
+    {
+      "no": 146,
+      "code": "Tagb",
+      "name_ja": "タグバヌア",
+      "blocks": [
+        {
+          "start": "1760",
+          "end": "177F",
+          "unassigned": [
+            {
+              "start": "176D",
+              "end": "176D"
+            },
+            {
+              "start": "1771",
+              "end": "1771"
+            },
+            {
+              "start": "1774",
+              "end": "177F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 147,
+      "code": "Takr",
+      "name_ja": "タークリー",
+      "blocks": [
+        {
+          "start": "11680",
+          "end": "116CF",
+          "unassigned": [
+            {
+              "start": "116BA",
+              "end": "116BF"
+            },
+            {
+              "start": "116CA",
+              "end": "116CF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 148,
+      "code": "Tale",
+      "name_ja": "タイ・レー",
+      "blocks": [
+        {
+          "start": "1950",
+          "end": "197F",
+          "unassigned": [
+            {
+              "start": "196E",
+              "end": "196F"
+            },
+            {
+              "start": "1975",
+              "end": "197F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 149,
+      "code": "Talu",
+      "name_ja": "新タイ・ルー",
+      "blocks": [
+        {
+          "start": "1980",
+          "end": "19DF",
+          "unassigned": [
+            {
+              "start": "19AC",
+              "end": "19AF"
+            },
+            {
+              "start": "19CA",
+              "end": "19CF"
+            },
+            {
+              "start": "19DB",
+              "end": "19DD"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 13
+    },
+    {
+      "no": 150,
+      "code": "Taml",
+      "name_ja": "タミル",
+      "blocks": [
+        {
+          "start": "0B80",
+          "end": "0BFF",
+          "unassigned": [
+            {
+              "start": "0B80",
+              "end": "0B81"
+            },
+            {
+              "start": "0B84",
+              "end": "0B84"
+            },
+            {
+              "start": "0B8B",
+              "end": "0B8D"
+            },
+            {
+              "start": "0B91",
+              "end": "0B91"
+            },
+            {
+              "start": "0B96",
+              "end": "0B98"
+            },
+            {
+              "start": "0B9B",
+              "end": "0B9B"
+            },
+            {
+              "start": "0B9D",
+              "end": "0B9D"
+            },
+            {
+              "start": "0BA0",
+              "end": "0BA2"
+            },
+            {
+              "start": "0BA5",
+              "end": "0BA7"
+            },
+            {
+              "start": "0BAB",
+              "end": "0BAD"
+            },
+            {
+              "start": "0BBA",
+              "end": "0BBD"
+            },
+            {
+              "start": "0BC3",
+              "end": "0BC5"
+            },
+            {
+              "start": "0BC9",
+              "end": "0BC9"
+            },
+            {
+              "start": "0BCE",
+              "end": "0BCF"
+            },
+            {
+              "start": "0BD1",
+              "end": "0BD6"
+            },
+            {
+              "start": "0BD8",
+              "end": "0BE5"
+            },
+            {
+              "start": "0BFB",
+              "end": "0BFF"
+            }
+          ]
+        },
+        {
+          "start": "11FC0",
+          "end": "11FFF",
+          "unassigned": [
+            {
+              "start": "11FF2",
+              "end": "11FFE"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 69
+    },
+    {
+      "no": 151,
+      "code": "Tang",
+      "name_ja": "西夏",
+      "blocks": [
+        {
+          "start": "17000",
+          "end": "187FF",
+          "unassigned": []
+        },
+        {
+          "start": "18800",
+          "end": "18AFF",
+          "unassigned": []
+        },
+        {
+          "start": "18D00",
+          "end": "18D7F",
+          "unassigned": [
+            {
+              "start": "18D21",
+              "end": "18D7F"
+            }
+          ]
+        },
+        {
+          "start": "18D80",
+          "end": "18DFF",
+          "unassigned": [
+            {
+              "start": "18DF3",
+              "end": "18DFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 108
+    },
+    {
+      "no": 152,
+      "code": "Tavt",
+      "name_ja": "タイ・ヴィエト",
+      "blocks": [
+        {
+          "start": "AA80",
+          "end": "AADF",
+          "unassigned": [
+            {
+              "start": "AAC3",
+              "end": "AADA"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 24
+    },
+    {
+      "no": 153,
+      "code": "Tayo",
+      "name_ja": "タイ・ヨー",
+      "blocks": [
+        {
+          "start": "1E6C0",
+          "end": "1E6FF",
+          "unassigned": [
+            {
+              "start": "1E6DF",
+              "end": "1E6DF"
+            },
+            {
+              "start": "1E6F6",
+              "end": "1E6FD"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 154,
+      "code": "Telu",
+      "name_ja": "テルグ",
+      "blocks": [
+        {
+          "start": "0C00",
+          "end": "0C7F",
+          "unassigned": [
+            {
+              "start": "0C0D",
+              "end": "0C0D"
+            },
+            {
+              "start": "0C11",
+              "end": "0C11"
+            },
+            {
+              "start": "0C29",
+              "end": "0C29"
+            },
+            {
+              "start": "0C3A",
+              "end": "0C3B"
+            },
+            {
+              "start": "0C45",
+              "end": "0C45"
+            },
+            {
+              "start": "0C49",
+              "end": "0C49"
+            },
+            {
+              "start": "0C4E",
+              "end": "0C54"
+            },
+            {
+              "start": "0C57",
+              "end": "0C57"
+            },
+            {
+              "start": "0C5B",
+              "end": "0C5B"
+            },
+            {
+              "start": "0C5E",
+              "end": "0C5F"
+            },
+            {
+              "start": "0C64",
+              "end": "0C65"
+            },
+            {
+              "start": "0C70",
+              "end": "0C76"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 27
+    },
+    {
+      "no": 155,
+      "code": "Tfng",
+      "name_ja": "ティフィナグ",
+      "blocks": [
+        {
+          "start": "2D30",
+          "end": "2D7F",
+          "unassigned": [
+            {
+              "start": "2D68",
+              "end": "2D6E"
+            },
+            {
+              "start": "2D71",
+              "end": "2D7E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 21
+    },
+    {
+      "no": 156,
+      "code": "Tglg",
+      "name_ja": "タガログ",
+      "blocks": [
+        {
+          "start": "1700",
+          "end": "171F",
+          "unassigned": [
+            {
+              "start": "1716",
+              "end": "171E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 9
+    },
+    {
+      "no": 157,
+      "code": "Thaa",
+      "name_ja": "ターナ",
+      "blocks": [
+        {
+          "start": "0780",
+          "end": "07BF",
+          "unassigned": [
+            {
+              "start": "07B2",
+              "end": "07BF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 158,
+      "code": "Thai",
+      "name_ja": "タイ",
+      "blocks": [
+        {
+          "start": "0E00",
+          "end": "0E7F",
+          "unassigned": [
+            {
+              "start": "0E00",
+              "end": "0E00"
+            },
+            {
+              "start": "0E3B",
+              "end": "0E3E"
+            },
+            {
+              "start": "0E5C",
+              "end": "0E7F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 41
+    },
+    {
+      "no": 159,
+      "code": "Tibt",
+      "name_ja": "チベット",
+      "blocks": [
+        {
+          "start": "0F00",
+          "end": "0FFF",
+          "unassigned": [
+            {
+              "start": "0F48",
+              "end": "0F48"
+            },
+            {
+              "start": "0F6D",
+              "end": "0F70"
+            },
+            {
+              "start": "0F98",
+              "end": "0F98"
+            },
+            {
+              "start": "0FBD",
+              "end": "0FBD"
+            },
+            {
+              "start": "0FCD",
+              "end": "0FCD"
+            },
+            {
+              "start": "0FDB",
+              "end": "0FFF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 45
+    },
+    {
+      "no": 160,
+      "code": "Tirh",
+      "name_ja": "ティルフター",
+      "blocks": [
+        {
+          "start": "11480",
+          "end": "114DF",
+          "unassigned": [
+            {
+              "start": "114C8",
+              "end": "114CF"
+            },
+            {
+              "start": "114DA",
+              "end": "114DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 161,
+      "code": "Tnsa",
+      "name_ja": "タンサ",
+      "blocks": [
+        {
+          "start": "16A70",
+          "end": "16ACF",
+          "unassigned": [
+            {
+              "start": "16ABF",
+              "end": "16ABF"
+            },
+            {
+              "start": "16ACA",
+              "end": "16ACF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 7
+    },
+    {
+      "no": 162,
+      "code": "Todr",
+      "name_ja": "トドリ",
+      "blocks": [
+        {
+          "start": "105C0",
+          "end": "105FF",
+          "unassigned": [
+            {
+              "start": "105F4",
+              "end": "105FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 163,
+      "code": "Tols",
+      "name_ja": "トロン・シキ",
+      "blocks": [
+        {
+          "start": "11DB0",
+          "end": "11DEF",
+          "unassigned": [
+            {
+              "start": "11DDC",
+              "end": "11DDF"
+            },
+            {
+              "start": "11DEA",
+              "end": "11DEF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 164,
+      "code": "Toto",
+      "name_ja": "トト",
+      "blocks": [
+        {
+          "start": "1E290",
+          "end": "1E2BF",
+          "unassigned": [
+            {
+              "start": "1E2AF",
+              "end": "1E2BF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 165,
+      "code": "Tutg",
+      "name_ja": "トゥル・ティガラリ",
+      "blocks": [
+        {
+          "start": "11380",
+          "end": "113FF",
+          "unassigned": [
+            {
+              "start": "1138A",
+              "end": "1138A"
+            },
+            {
+              "start": "1138C",
+              "end": "1138D"
+            },
+            {
+              "start": "1138F",
+              "end": "1138F"
+            },
+            {
+              "start": "113B6",
+              "end": "113B6"
+            },
+            {
+              "start": "113C1",
+              "end": "113C1"
+            },
+            {
+              "start": "113C3",
+              "end": "113C4"
+            },
+            {
+              "start": "113C6",
+              "end": "113C6"
+            },
+            {
+              "start": "113CB",
+              "end": "113CB"
+            },
+            {
+              "start": "113D6",
+              "end": "113D6"
+            },
+            {
+              "start": "113D9",
+              "end": "113E0"
+            },
+            {
+              "start": "113E3",
+              "end": "113FF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 48
+    },
+    {
+      "no": 166,
+      "code": "Ugar",
+      "name_ja": "ウガリト",
+      "blocks": [
+        {
+          "start": "10380",
+          "end": "1039F",
+          "unassigned": [
+            {
+              "start": "1039E",
+              "end": "1039E"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 1
+    },
+    {
+      "no": 167,
+      "code": "Vaii",
+      "name_ja": "ヴァイ",
+      "blocks": [
+        {
+          "start": "A500",
+          "end": "A63F",
+          "unassigned": [
+            {
+              "start": "A62C",
+              "end": "A63F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 20
+    },
+    {
+      "no": 168,
+      "code": "Vith",
+      "name_ja": "ヴィトクチ",
+      "blocks": [
+        {
+          "start": "10570",
+          "end": "105BF",
+          "unassigned": [
+            {
+              "start": "1057B",
+              "end": "1057B"
+            },
+            {
+              "start": "1058B",
+              "end": "1058B"
+            },
+            {
+              "start": "10593",
+              "end": "10593"
+            },
+            {
+              "start": "10596",
+              "end": "10596"
+            },
+            {
+              "start": "105A2",
+              "end": "105A2"
+            },
+            {
+              "start": "105B2",
+              "end": "105B2"
+            },
+            {
+              "start": "105BA",
+              "end": "105BA"
+            },
+            {
+              "start": "105BD",
+              "end": "105BF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 10
+    },
+    {
+      "no": 169,
+      "code": "Wara",
+      "name_ja": "ワラン・チティ",
+      "blocks": [
+        {
+          "start": "118A0",
+          "end": "118FF",
+          "unassigned": [
+            {
+              "start": "118F3",
+              "end": "118FE"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 170,
+      "code": "Wcho",
+      "name_ja": "ワンチョ",
+      "blocks": [
+        {
+          "start": "1E2C0",
+          "end": "1E2FF",
+          "unassigned": [
+            {
+              "start": "1E2FA",
+              "end": "1E2FE"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 5
+    },
+    {
+      "no": 171,
+      "code": "Xpeo",
+      "name_ja": "古代ペルシア楔形",
+      "blocks": [
+        {
+          "start": "103A0",
+          "end": "103DF",
+          "unassigned": [
+            {
+              "start": "103C4",
+              "end": "103C7"
+            },
+            {
+              "start": "103D6",
+              "end": "103DF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 14
+    },
+    {
+      "no": 172,
+      "code": "Xsux",
+      "name_ja": "楔形文字",
+      "blocks": [
+        {
+          "start": "12000",
+          "end": "123FF",
+          "unassigned": [
+            {
+              "start": "1239A",
+              "end": "123FF"
+            }
+          ]
+        },
+        {
+          "start": "12400",
+          "end": "1247F",
+          "unassigned": []
+        },
+        {
+          "start": "12480",
+          "end": "1254F",
+          "unassigned": [
+            {
+              "start": "12544",
+              "end": "1254F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [
+        {
+          "start": "12550",
+          "end": "1268F"
+        }
+      ],
+      "unassigned_count": 114
+    },
+    {
+      "no": 173,
+      "code": "Yezi",
+      "name_ja": "ヤズィーディー",
+      "blocks": [
+        {
+          "start": "10E80",
+          "end": "10EBF",
+          "unassigned": [
+            {
+              "start": "10EAA",
+              "end": "10EAA"
+            },
+            {
+              "start": "10EAE",
+              "end": "10EAF"
+            },
+            {
+              "start": "10EB2",
+              "end": "10EBF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 17
+    },
+    {
+      "no": 174,
+      "code": "Yiii",
+      "name_ja": "イ",
+      "blocks": [
+        {
+          "start": "A000",
+          "end": "A48F",
+          "unassigned": [
+            {
+              "start": "A48D",
+              "end": "A48F"
+            }
+          ]
+        },
+        {
+          "start": "A490",
+          "end": "A4CF",
+          "unassigned": [
+            {
+              "start": "A4C7",
+              "end": "A4CF"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 12
+    },
+    {
+      "no": 175,
+      "code": "Zanb",
+      "name_ja": "ザナバザル・スクエア",
+      "blocks": [
+        {
+          "start": "11A00",
+          "end": "11A4F",
+          "unassigned": [
+            {
+              "start": "11A48",
+              "end": "11A4F"
+            }
+          ]
+        }
+      ],
+      "shared_blocks": [],
+      "unassigned_count": 8
+    }
+  ]
+}
