@@ -310,6 +310,18 @@ async function renderDailyFontFallback(
   );
 
 
+  // Native color emoji takes precedence over old monochrome font fallback.
+  if (typeof getNativeEmojiRenderPlan === "function") {
+    const nativeEmoji = await getNativeEmojiRenderPlan(codePoint, character);
+    if (nativeEmoji) {
+      dailyCharacter.className = "character native-color-emoji";
+      dailyCharacter.textContent = nativeEmoji.character;
+      if (nativeEmoji.displayVariation)
+        dailyCharacter.title = "U+" + codePoint.toString(16).toUpperCase() + "（絵文字表示用）";
+      return;
+    }
+  }
+
   await waitForCharacterFont(
     codePoint,
     character
@@ -449,6 +461,20 @@ function setDailyInlineGlyphFont(
       "Noto Sans Symbols 2 Local"
   };
 
+
+  // The inline character in today's description should also be colorful.
+  // Do not change the stored Unicode codepoint; FE0F is presentation only.
+  if (typeof getNativeEmojiRenderPlan === "function") {
+    const cp = parseInt(entry.codePoint, 16);
+    if (Number.isInteger(cp)) {
+      getNativeEmojiRenderPlan(cp, String.fromCodePoint(cp)).then(plan => {
+        if (!plan || !element.isConnected) return;
+        element.classList.add("native-color-emoji");
+        element.style.fontFamily = "";
+        element.textContent = plan.character;
+      }).catch(() => {});
+    }
+  }
 
   const family =
     families[
@@ -1146,6 +1172,19 @@ async function loadDailyCharacter() {
       daily.json にSVG輪郭があるなら
       フォントを一切使わずSVG表示。
     */
+
+    // The black monochrome daily SVG remains the normal fallback. For
+    // emoji, use the phone/PC native color renderer instead.
+    if (typeof getNativeEmojiRenderPlan === "function") {
+      const nativeEmoji = await getNativeEmojiRenderPlan(codePoint, character);
+      if (nativeEmoji) {
+        dailyCharacter.className = "character native-color-emoji";
+        dailyCharacter.textContent = nativeEmoji.character;
+        if (nativeEmoji.displayVariation)
+          dailyCharacter.title = "U+" + hex + "（カラー絵文字表示）";
+        return;
+      }
+    }
 
     if (
       isValidDailySvg(
