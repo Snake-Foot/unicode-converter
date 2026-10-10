@@ -1,0 +1,3479 @@
+{
+  "schema_version": 1,
+  "surveyed": "2026-10-10",
+  "scope": "font family directories in Noto Fonts hinted/ttf and unhinted/ttf main. Not necessarily a complete list of all Noto projects.",
+  "nature": "source_discovery_only",
+  "publisher": "Noto",
+  "totals": {
+    "unique_font_family_directories": 226,
+    "hinted_families": 225,
+    "unhinted_families": 226
+  },
+  "noto_font_families": [
+    {
+      "family_directory": "Arimo",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/Arimo",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/Arimo"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "Cousine",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/Cousine",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/Cousine"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoKufiArabic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoKufiArabic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoKufiArabic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoLoopedLao",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoLoopedLao",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoLoopedLao"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoLoopedLaoUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoLoopedLaoUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoLoopedLaoUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoLoopedThai",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoLoopedThai",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoLoopedThai"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoLoopedThaiUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoLoopedThaiUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoLoopedThaiUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoMusic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoMusic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoMusic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoNaskhArabic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoNaskhArabic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoNaskhArabic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoNaskhArabicUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoNaskhArabicUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoNaskhArabicUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoNastaliqUrdu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoNastaliqUrdu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoNastaliqUrdu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoRashiHebrew",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoRashiHebrew",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoRashiHebrew"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSans",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSans",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSans"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansAdlam",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAdlam",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansAdlam"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansAdlamUnjoined",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAdlamUnjoined",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansAdlamUnjoined"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansAnatolianHieroglyphs",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAnatolianHieroglyphs",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansAnatolianHieroglyphs"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansArabic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansArabic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansArabic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansArabicUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansArabicUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansArabicUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansArmenian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansArmenian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansArmenian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansAvestan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAvestan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansAvestan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBalinese",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBalinese",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBalinese"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBamum",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBamum",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBamum"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBassaVah",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBassaVah",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBassaVah"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBatak",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBatak",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBatak"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBengali",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBengali",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBengali"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBengaliUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBengaliUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBengaliUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBhaiksuki",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBhaiksuki",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBhaiksuki"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBrahmi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBrahmi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBrahmi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBuginese",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBuginese",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBuginese"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansBuhid",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBuhid",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansBuhid"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCanadianAboriginal",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCanadianAboriginal",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCanadianAboriginal"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCarian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCarian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCarian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCaucasianAlbanian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCaucasianAlbanian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCaucasianAlbanian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansChakma",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansChakma",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansChakma"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCham",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCham",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCham"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCherokee",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCherokee",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCherokee"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansChorasmian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansChorasmian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansChorasmian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCoptic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCoptic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCoptic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCuneiform",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCuneiform",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCuneiform"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCypriot",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCypriot",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCypriot"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansCyproMinoan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCyproMinoan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansCyproMinoan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansDeseret",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDeseret",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansDeseret"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansDevanagari",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDevanagari",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansDevanagari"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansDevanagariUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDevanagariUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansDevanagariUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansDisplay",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDisplay",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansDisplay"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansDuployan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDuployan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansDuployan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansEgyptianHieroglyphs",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansEgyptianHieroglyphs",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansEgyptianHieroglyphs"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansElbasan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansElbasan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansElbasan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansElymaic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansElymaic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansElymaic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansEthiopic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansEthiopic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansEthiopic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGeorgian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGeorgian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGeorgian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGlagolitic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGlagolitic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGlagolitic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGothic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGothic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGothic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGrantha",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGrantha",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGrantha"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGujarati",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGujarati",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGujarati"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGujaratiUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGujaratiUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGujaratiUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGunjalaGondi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGunjalaGondi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGunjalaGondi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGurmukhi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGurmukhi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGurmukhi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansGurmukhiUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGurmukhiUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansGurmukhiUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHanifiRohingya",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHanifiRohingya",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHanifiRohingya"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHanunoo",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHanunoo",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHanunoo"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHatran",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHatran",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHatran"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHebrew",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHebrew",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHebrew"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHebrewDroid",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHebrewDroid",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHebrewDroid"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansHebrewNew",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHebrewNew",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansHebrewNew"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansImperialAramaic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansImperialAramaic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansImperialAramaic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansIndicSiyaqNumbers",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansIndicSiyaqNumbers",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansIndicSiyaqNumbers"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansInscriptionalPahlavi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansInscriptionalPahlavi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansInscriptionalPahlavi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansInscriptionalParthian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansInscriptionalParthian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansInscriptionalParthian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansJavanese",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansJavanese",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansJavanese"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKaithi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKaithi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKaithi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKannada",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKannada",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKannada"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKannadaUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKannadaUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKannadaUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKayahLi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKayahLi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKayahLi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKharoshthi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKharoshthi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKharoshthi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKhmer",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhmer",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKhmer"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKhmerUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhmerUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKhmerUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKhojki",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhojki",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKhojki"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansKhudawadi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhudawadi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansKhudawadi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLao",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLao",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLao"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLaoUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLaoUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLaoUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLepcha",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLepcha",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLepcha"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLimbu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLimbu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLimbu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLinearA",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLinearA",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLinearA"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLinearB",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLinearB",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLinearB"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLisu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLisu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLisu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLycian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLycian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLycian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansLydian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLydian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansLydian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMahajani",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMahajani",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMahajani"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMalayalam",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMalayalam",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMalayalam"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMalayalamUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMalayalamUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMalayalamUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMandaic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMandaic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMandaic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansManichaean",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansManichaean",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansManichaean"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMarchen",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMarchen",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMarchen"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMasaramGondi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMasaramGondi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMasaramGondi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMath",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMath",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMath"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMayanNumerals",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMayanNumerals",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMayanNumerals"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMedefaidrin",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMedefaidrin",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMedefaidrin"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMeeteiMayek",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMeeteiMayek",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMeeteiMayek"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMendeKikakui",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMendeKikakui",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMendeKikakui"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMeroitic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMeroitic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMeroitic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMiao",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMiao",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMiao"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansModi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansModi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansModi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMongolian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMongolian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMongolian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMono",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMono",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMono"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMro",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMro",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMro"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMultani",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMultani",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMultani"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMyanmar",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMyanmar",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMyanmar"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansMyanmarUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMyanmarUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansMyanmarUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNabataean",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNabataean",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNabataean"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNandinagari",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNandinagari",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNandinagari"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNewa",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNewa",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNewa"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNewTaiLue",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNewTaiLue",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNewTaiLue"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNKo",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNKo",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNKo"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansNushu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNushu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansNushu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOgham",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOgham",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOgham"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOlChiki",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOlChiki",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOlChiki"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldHungarian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldHungarian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldHungarian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldItalic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldItalic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldItalic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldNorthArabian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldNorthArabian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldNorthArabian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldPermic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldPermic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldPermic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldPersian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldPersian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldPersian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldSogdian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldSogdian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldSogdian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldSouthArabian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldSouthArabian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldSouthArabian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOldTurkic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldTurkic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOldTurkic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOriya",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOriya",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOriya"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOriyaUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOriyaUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOriyaUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOsage",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOsage",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOsage"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansOsmanya",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOsmanya",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansOsmanya"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPahawhHmong",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPahawhHmong",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPahawhHmong"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPalmyrene",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPalmyrene",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPalmyrene"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPauCinHau",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPauCinHau",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPauCinHau"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPhagsPa",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPhagsPa",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPhagsPa"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPhoenician",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPhoenician",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPhoenician"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansPsalterPahlavi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPsalterPahlavi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansPsalterPahlavi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansRejang",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansRejang",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansRejang"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansRunic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansRunic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansRunic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSamaritan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSamaritan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSamaritan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSaurashtra",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSaurashtra",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSaurashtra"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSharada",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSharada",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSharada"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansShavian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansShavian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansShavian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSiddham",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSiddham",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSiddham"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSignWriting",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSignWriting",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSignWriting"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSinhala",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSinhala",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSinhala"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSinhalaUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSinhalaUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSinhalaUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSogdian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSogdian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSogdian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSoraSompeng",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSoraSompeng",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSoraSompeng"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSoyombo",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSoyombo",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSoyombo"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSundanese",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSundanese",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSundanese"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSylotiNagri",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSylotiNagri",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSylotiNagri"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSymbols",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSymbols",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSymbols"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSymbols2",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSymbols2",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSymbols2"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansSyriac",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSyriac",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansSyriac"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTagalog",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTagalog",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTagalog"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTagbanwa",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTagbanwa",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTagbanwa"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTaiLe",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiLe",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTaiLe"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTaiTham",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiTham",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTaiTham"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTaiViet",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiViet",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTaiViet"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTakri",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTakri",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTakri"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTamil",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTamil",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTamil"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTamilSupplement",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTamilSupplement",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTamilSupplement"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTamilUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTamilUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTamilUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTangsa",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTangsa",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTangsa"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTelugu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTelugu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTelugu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTeluguUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTeluguUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTeluguUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansThaana",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansThaana",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansThaana"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansThai",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansThai",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansThai"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansThaiUI",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansThaiUI",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansThaiUI"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinagh",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinagh",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinagh"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAdrar",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAdrar",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAdrar"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAgrawImazighen",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAgrawImazighen",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAgrawImazighen"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAhaggar",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAhaggar",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAhaggar"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAir",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAir",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAir"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAPT",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAPT",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAPT"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghAzawagh",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghAzawagh",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghAzawagh"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghGhat",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghGhat",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghGhat"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghHawad",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghHawad",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghHawad"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghRhissaIxa",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghRhissaIxa",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghRhissaIxa"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghSIL",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghSIL",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghSIL"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTifinaghTawellemmet",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinaghTawellemmet",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTifinaghTawellemmet"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansTirhuta",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTirhuta",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansTirhuta"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansUgaritic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansUgaritic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansUgaritic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansVai",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansVai",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansVai"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansVithkuqi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansVithkuqi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansVithkuqi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansWancho",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansWancho",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansWancho"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansWarangCiti",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansWarangCiti",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansWarangCiti"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansYi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansYi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansYi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSansZanabazarSquare",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansZanabazarSquare",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSansZanabazarSquare"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerif",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerif",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerif"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifAhom",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifAhom",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifAhom"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifArmenian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifArmenian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifArmenian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifBalinese",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifBalinese",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifBalinese"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifBengali",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifBengali",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifBengali"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifCJK",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifCJK"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifDevanagari",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDevanagari",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifDevanagari"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifDisplay",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDisplay",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifDisplay"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifDivesAkuru",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDivesAkuru",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifDivesAkuru"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifDogra",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDogra",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifDogra"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifEthiopic",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifEthiopic",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifEthiopic"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifGeorgian",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGeorgian",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifGeorgian"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifGrantha",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGrantha",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifGrantha"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifGujarati",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGujarati",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifGujarati"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifGurmukhi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGurmukhi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifGurmukhi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifHebrew",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifHebrew",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifHebrew"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifKannada",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKannada",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifKannada"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifKhmer",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKhmer",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifKhmer"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifKhojki",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKhojki",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifKhojki"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifLao",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifLao",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifLao"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifMakasar",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMakasar",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifMakasar"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifMalayalam",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMalayalam",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifMalayalam"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifMyanmar",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMyanmar",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifMyanmar"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifNyiakengPuachueHmong",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifNyiakengPuachueHmong",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifNyiakengPuachueHmong"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifOldUyghur",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifOldUyghur",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifOldUyghur"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifOriya",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifOriya",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifOriya"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifSinhala",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifSinhala",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifSinhala"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifTamil",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTamil",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifTamil"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifTamilSlanted",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTamilSlanted",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifTamilSlanted"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifTangut",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTangut",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifTangut"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifTelugu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTelugu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifTelugu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifThai",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifThai",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifThai"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifTibetan",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTibetan",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifTibetan"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifToto",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifToto",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifToto"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifVithkuqi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifVithkuqi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifVithkuqi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoSerifYezidi",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifYezidi",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoSerifYezidi"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "NotoTraditionalNushu",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoTraditionalNushu",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/NotoTraditionalNushu"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    },
+    {
+      "family_directory": "Tinos",
+      "publisher": "notofonts",
+      "source_repository": "notofonts/noto-fonts",
+      "available_build_flavors": [
+        "hinted",
+        "unhinted"
+      ],
+      "source_paths": [
+        "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/Tinos",
+        "https://github.com/notofonts/noto-fonts/tree/main/unhinted/ttf/Tinos"
+      ],
+      "license": "check individual font before distribution",
+      "cmap_verified": false
+    }
+  ],
+  "other_sources": [
+    {
+      "name": "Noto CJK",
+      "url": "https://github.com/notofonts/noto-cjk",
+      "status": "published font binaries for Japanese Korean Simplified Chinese Traditional Chinese and Hong Kong Chinese"
+    },
+    {
+      "name": "Noto Color Emoji",
+      "url": "https://github.com/googlefonts/noto-emoji",
+      "status": "emoji font and presentation source; current emoji sequence version and font format must be verified"
+    },
+    {
+      "name": "GNU Unifont 18.0.01",
+      "url": "https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/",
+      "status": "Unicode 18.0-targeted published general fallback binaries; exact coverage not verified here"
+    },
+    {
+      "name": "Kanchenjunga",
+      "url": "https://github.com/silnrsi/font-kanchenjunga",
+      "status": "SIL source project for Kirat Rai"
+    },
+    {
+      "name": "Kedebideri",
+      "url": "https://software.sil.org/kedebideri/release-3-000/",
+      "status": "SIL Unicode-encoded font for Beria Erfe"
+    },
+    {
+      "name": "Kaiyuan Small Seal",
+      "url": "https://github.com/pannous/hieros/tree/master/fonts/seal-scripts/kaiyuan/fonts",
+      "status": "TTF/WOFF2 available, partial vs 11328 Seal codepoints needs cmap audit"
+    },
+    {
+      "name": "LXGW Seal",
+      "url": "https://github.com/lxgw/LxgwSeal",
+      "status": "OFL font, early limited coverage (README says 75 Seal glyphs)"
+    },
+    {
+      "name": "Noto Sans Kawi",
+      "url": "https://github.com/notofonts/kawi",
+      "status": "individual project, compiled font not audited"
+    },
+    {
+      "name": "Noto Sans Nag Mundari",
+      "url": "https://github.com/notofonts/nag-mundari",
+      "status": "individual project, compiled font not audited"
+    },
+    {
+      "name": "Noto Sans Ol Onal",
+      "url": "https://github.com/notofonts/ol-onal",
+      "status": "individual archived project, compiled font not audited"
+    },
+    {
+      "name": "Noto Sans Gurung Khema",
+      "url": "https://github.com/notofonts/gurung-khema",
+      "status": "individual archived project, compiled font not audited"
+    },
+    {
+      "name": "Noto Todhri",
+      "url": "https://github.com/notofonts/todhri",
+      "status": "individual archived project, compiled font not audited"
+    },
+    {
+      "name": "Sunuwar",
+      "url": "https://github.com/notofonts/sunuwar",
+      "status": "individual project, compiled font not audited"
+    },
+    {
+      "name": "Noto Khitan Small Script",
+      "url": "https://github.com/notofonts/khitan-small-script",
+      "status": "individual project, compiled font not audited"
+    }
+  ],
+  "notes": [
+    "A directory name is NOT proof of Unicode 18.0 full coverage, glyph quality, or frontend loading.",
+    "Do not bundle all font binaries, do not auto-fetch from Google-hosted APIs without license/network review.",
+    "Source URL presence and cmap coverage must be stored as distinct facts."
+  ]
+}
