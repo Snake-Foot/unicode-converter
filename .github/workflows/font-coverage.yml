@@ -1,0 +1,87 @@
+name: Unicode 18 Font Coverage Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/font-coverage.yml"
+      - "scripts/audit-unicode18-fonts.js"
+      - "scripts/build-unicode18-font-index.js"
+      - "scripts/test-unicode18-font-index.js"
+      - "data/unicode18_all_ranges.json"
+      - "data/unicode18_font_candidates_175.json"
+      - "data/unicode18_font_audit_manifest.json"
+      - "fonts/**"
+      - "js/font-coverage.js"
+      - "js/converter.js"
+      - "js/fonts.js"
+      - "js/glyph-check.js"
+      - "index.html"
+      - "style.css"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-verify-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install font parsing dependencies
+        run: npm install --no-audit --no-fund --package-lock=false
+      - name: Check Javascript syntax
+        run: |
+          node --check scripts/audit-unicode18-fonts.js
+          node --check scripts/build-unicode18-font-index.js
+          node --check scripts/test-unicode18-font-index.js
+          node --check js/font-coverage.js
+          node --check js/converter.js
+          node --check js/fonts.js
+      - name: Inspect real on-site font cmap tables
+        run: node scripts/audit-unicode18-fonts.js
+      - name: Build compressed browser font-coverage lookup
+        run: node scripts/build-unicode18-font-index.js
+      - name: Validate font index and official Unicode boundaries
+        run: node scripts/test-unicode18-font-index.js
+      - name: Persist reproducible coverage data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/unicode18_font_cmap_audit.json data/unicode18_font_coverage_index.json
+          if git diff --cached --quiet; then
+            echo "Coverage output already current"
+          else
+            git commit -m "Regenerate verified Unicode 18.0 cmap coverage index"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Assemble GitHub Pages artifact without node_modules
+        run: |
+          mkdir -p _font_coverage_site
+          cp index.html style.css logo.png daily.json _font_coverage_site/
+          cp -R js fonts data _font_coverage_site/
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "_font_coverage_site"
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
