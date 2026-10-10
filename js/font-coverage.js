@@ -118,7 +118,11 @@ function testUnicodeGlyph(character,family){
  */
 async function selectUnicodeFont(codePoint,character){
   if(codePoint>=0x0020&&codePoint<=0x007E)return null;
-  const data=await Promise.race([getUnicodeCoverageIndex(),sleep(5000).then(()=>null)]);
+  // The eight audited specialist glyphs must not lose their font because
+  // the large coverage index took over five seconds to download on mobile.
+  const data=verifiedSpecialistGlyphFiles.has(codePoint)
+    ? await getUnicodeCoverageIndex()
+    : await Promise.race([getUnicodeCoverageIndex(),sleep(5000).then(()=>null)]);
   const checked=new Set();
   const tryLegacy=async(family,remote=false)=>{
     if(!family||checked.has(family))return null;
