@@ -75,7 +75,8 @@ function findRecord(records, codePoint) {
 }
 
 function resolveFonts(manifest, extraPaths) {
-  const definitions = [...manifest.fonts];
+  // Browser coverage indexes include only font files actually served by GitHub Pages.
+  const definitions = manifest.fonts.filter(item => item.site_served !== false);
   for (const p of extraPaths) {
     definitions.push({ family: path.basename(p), path: p });
   }
