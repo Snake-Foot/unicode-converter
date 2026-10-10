@@ -91,7 +91,7 @@ const specialCodeToName=new Map(candidateCatalog.scripts.map(s=>[
 ]));
 const lookupScript=new Map();
 for(const sr of JSON.parse(fs.readFileSync(
-path.join(root,"data/unicode18_all_ranges.json"),"utf8")).ranges)){
+path.join(root,"data/unicode18_all_ranges.json"),"utf8")).ranges){
   const start=parseInt(sr.start,16),end=parseInt(sr.end,16);
   for(let cp=start;cp<=end;cp++)if(uncovered.has(cp))lookupScript.set(cp,sr.script);
 }
