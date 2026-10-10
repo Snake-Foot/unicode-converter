@@ -190,95 +190,41 @@ const knownInvisible =
   ]);
 
 
-function isGoodDailyCharacter(
-  codePoint
-) {
-
-  if (
-    codePoint <
-      0
-    ||
-    codePoint >
-      0x10FFFF
-  ) {
-    return false;
+/*
+ * Node.js Unicode regex tables may be older than Unicode 18.0.
+ * Use the repository's pinned official UCD for all assigned-codepoint
+ * decisions, especially newly encoded Seal/Jurchen/Proto-Cuneiform.
+ */
+let dailyUnicode18Ranges = null;
+function getDailyUnicode18Record(codePoint) {
+  if (!dailyUnicode18Ranges) {
+    const file=path.join(ROOT,"data/unicode18_all_ranges.json");
+    dailyUnicode18Ranges=JSON.parse(fs.readFileSync(file,"utf8")).ranges;
   }
-
-
-  if (
-    codePoint >=
-      0xD800
-    &&
-    codePoint <=
-      0xDFFF
-  ) {
-    return false;
+  let low=0,high=dailyUnicode18Ranges.length-1;
+  while(low<=high){
+    const mid=(low+high)>>>1,r=dailyUnicode18Ranges[mid];
+    const start=parseInt(r.start,16),end=parseInt(r.end,16);
+    if(codePoint<start)high=mid-1;
+    else if(codePoint>end)low=mid+1;
+    else return r;
   }
-
-
-  if (
-    knownInvisible.has(
-      codePoint
-    )
-  ) {
-    return false;
-  }
-
-
-  const character =
-    String.fromCodePoint(
-      codePoint
-    );
-
-
-  /*
-    制御文字
-    書式文字
-    サロゲート
-    私用領域
-    未割当
-    結合文字
-    空白類
-    を除外
-  */
-
-  if (
-    /(?:\p{Cc}|\p{Cf}|\p{Cs}|\p{Co}|\p{Cn}|\p{M}|\p{Z})/u
-      .test(
-        character
-      )
-  ) {
-
-    return false;
-  }
-
-
-  try {
-
-    if (
-      /\p{Default_Ignorable_Code_Point}/u
-        .test(
-          character
-        )
-    ) {
-
-      return false;
-    }
-
-  } catch (
-    error
-  ) {
-
-    /*
-      Node側が未対応でも
-      上のGeneral Category判定は残る
-    */
-  }
-
-
+  return null;
+}
+function isGoodDailyCharacter(codePoint) {
+  if(!Number.isInteger(codePoint)||codePoint<0||codePoint>0x10FFFF ||
+    (codePoint>=0xD800&&codePoint<=0xDFFF) ||
+    knownInvisible.has(codePoint))return false;
+  const record=getDailyUnicode18Record(codePoint);
+  if(!record)return false;
+  const cat=record.category;
+  if(cat==="Cn"||cat==="Co"||cat==="Cs"||cat==="Cc"||cat==="Cf"||
+     cat==="Zl"||cat==="Zp"||cat==="Zs"||cat.startsWith("M"))return false;
+  try{
+    if(/\p{Default_Ignorable_Code_Point}/u.test(String.fromCodePoint(codePoint)))return false;
+  }catch(error){ /* Unicode 18 General_Category checks remain authoritative. */ }
   return true;
 }
-
 
 /* =========================================
    Daily categories
