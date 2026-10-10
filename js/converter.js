@@ -568,6 +568,16 @@ async function convertUnicode(
       "loading-character"
     );
 
+    // The exact font and the real, non-.notdef glyph outline of these eight
+    // characters were verified at build time. Do not replace them with a
+    // bitmap fallback because of device-dependent Canvas heuristics.
+    if (selectedFont &&
+        typeof isVerifiedSpecialistSelection === "function" &&
+        isVerifiedSpecialistSelection(codePoint, selectedFont)) {
+      wrapper.title = "U+" + hex + " · 検証済み専用フォント";
+      await yieldToBrowser();
+      continue;
+    }
 
     // Avoid false "unsupported" reports while a font is still downloading.
     if (document.fonts && document.fonts.status === "loading") {
