@@ -546,6 +546,8 @@ function enterSingleHexDigit(
     setBulkInputExpanded(
       false
     );
+    bulkRenderedValue = "";
+    updateBulkApplyUI();
 
 
     if (
@@ -971,6 +973,15 @@ function applyBulkUnicodeNow() {
   updateBulkApplyUI();
   convertUnicode();
 }
+let bulkInputComposing = false;
+unicodeInput.addEventListener("compositionstart", () => {
+  bulkInputComposing = true;
+  clearTimeout(unicodeInputTimer);
+});
+unicodeInput.addEventListener("compositionend", () => {
+  bulkInputComposing = false;
+  unicodeInput.dispatchEvent(new Event("input"));
+});
 unicodeInput.addEventListener("input", () => {
   unicodeRun++;
   clearTimeout(unicodeInputTimer);
@@ -986,7 +997,7 @@ unicodeInput.addEventListener("input", () => {
     updateBulkApplyUI();
     return;
   }
-  if (bulkUnicodeRequiresManualApply(unicodeInput.value)) return;
+  if (bulkInputComposing || bulkUnicodeRequiresManualApply(unicodeInput.value)) return;
   unicodeInputTimer = setTimeout(() => {
     if (bulkUnicodeRequiresManualApply(unicodeInput.value)) return;
     applyBulkUnicodeNow();
@@ -994,7 +1005,7 @@ unicodeInput.addEventListener("input", () => {
 });
 applyBulkUnicodeButton.addEventListener("click", applyBulkUnicodeNow);
 unicodeInput.addEventListener("keydown", event => {
-  if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+  if (!event.isComposing && event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
     event.preventDefault();
     applyBulkUnicodeNow();
   }
@@ -1215,6 +1226,8 @@ generateRandomButton.addEventListener(
       count,
       false
     );
+    bulkRenderedValue = unicodeInput.value;
+    updateBulkApplyUI();
 
 
     setBulkInputExpanded(
