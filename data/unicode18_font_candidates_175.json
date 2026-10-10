@@ -1,0 +1,5569 @@
+{
+  "schema_version": 1,
+  "title": "Unicode 18.0: 175 script font candidate research / NOT verified glyph coverage",
+  "unicode_version": "18.0.0",
+  "researched_on": "2026-10-10",
+  "verification_levels": {
+    "family_directory_identified": "Matching font family directory was found in Noto Fonts, but glyph cmap coverage was NOT checked.",
+    "cjk_font_repository_identified": "Published Noto CJK directories found; exact per-codepoint coverage NOT checked.",
+    "project_or_generic_candidate_only": "Individual Noto development project or generic fallback candidate found; actual compiled binaries and cmap NOT checked.",
+    "no_catalog_source_identified": "No suitable source identified in inspected catalogs; this does NOT prove there is no existing font."
+  },
+  "notes": [
+    "Font candidate is a research lead, NOT a verified per-codepoint mapping or a promise it can render every code point.",
+    "Unicode Script property and Unicode Blocks are different; related_unicode_blocks are informative only.",
+    "Script assigned counts exclude Cn, Co, Cs and Cc to match unicode18_all_ranges.json's encoded count; assigned Cf and combining marks may still be invisible or require context.",
+    "Color emoji and joining/shaping behavior are outside simple cmap coverage.",
+    "Noto source-repo listings are moving-main snapshots and need periodic rechecking.",
+    "Do not load all fonts in browsers; use server-side cmap audits and subsets."
+  ],
+  "sources": {
+    "unicode_scripts": "https://www.unicode.org/Public/18.0.0/ucd/Scripts.txt",
+    "unicode_aliases": "https://www.unicode.org/Public/18.0.0/ucd/PropertyValueAliases.txt",
+    "unicode_blocks": "https://www.unicode.org/Public/18.0.0/ucd/Blocks.txt",
+    "noto_main": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf",
+    "noto_cjk": "https://github.com/notofonts/noto-cjk",
+    "internal_partitions": "data/unicode18_all_ranges.json"
+  },
+  "summary": {
+    "script_count": 175,
+    "assigned_in_scripts": 162902,
+    "assigned_common": 9211,
+    "assigned_inherited": 695,
+    "total_official_encoded": 172808,
+    "with_catalog_candidate": 165,
+    "no_catalog_candidate": 10,
+    "without_candidate_scripts": [
+      {
+        "script": "Berf",
+        "name_en": "Beria Erfe",
+        "assigned_codepoints": 50
+      },
+      {
+        "script": "Gara",
+        "name_en": "Garay",
+        "assigned_codepoints": 69
+      },
+      {
+        "script": "Jurc",
+        "name_en": "Jurchen",
+        "assigned_codepoints": 965
+      },
+      {
+        "script": "Krai",
+        "name_en": "Kirat Rai",
+        "assigned_codepoints": 58
+      },
+      {
+        "script": "Pcun",
+        "name_en": "Proto Cuneiform",
+        "assigned_codepoints": 164
+      },
+      {
+        "script": "Seal",
+        "name_en": "Seal",
+        "assigned_codepoints": 11328
+      },
+      {
+        "script": "Sidt",
+        "name_en": "Sidetic",
+        "assigned_codepoints": 26
+      },
+      {
+        "script": "Tayo",
+        "name_en": "Tai Yo",
+        "assigned_codepoints": 55
+      },
+      {
+        "script": "Tols",
+        "name_en": "Tolong Siki",
+        "assigned_codepoints": 54
+      },
+      {
+        "script": "Tutg",
+        "name_en": "Tulu Tigalari",
+        "assigned_codepoints": 80
+      }
+    ],
+    "individual_project_sources": 7,
+    "noto_main_family_count": 226
+  },
+  "scripts": [
+    {
+      "no": 1,
+      "script": "Adlm",
+      "name_en": "Adlam",
+      "name_ja": "アドラム",
+      "assigned_codepoints": 88,
+      "related_unicode_blocks": [
+        {
+          "start": "1E900",
+          "end": "1E95F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Adlam",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Adlam",
+          "catalog_folder": "NotoSansAdlam",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAdlam",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 2,
+      "script": "Aghb",
+      "name_en": "Caucasian Albanian",
+      "name_ja": "カフカス・アルバニア",
+      "assigned_codepoints": 53,
+      "related_unicode_blocks": [
+        {
+          "start": "10530",
+          "end": "1056F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Caucasian Albanian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Caucasian Albanian",
+          "catalog_folder": "NotoSansCaucasianAlbanian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCaucasianAlbanian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 3,
+      "script": "Ahom",
+      "name_en": "Ahom",
+      "name_ja": "アホム",
+      "assigned_codepoints": 65,
+      "related_unicode_blocks": [
+        {
+          "start": "11700",
+          "end": "1174F"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Ahom",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Ahom",
+          "catalog_folder": "NotoSerifAhom",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifAhom",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 4,
+      "script": "Arab",
+      "name_en": "Arabic",
+      "name_ja": "アラビア",
+      "assigned_codepoints": 1452,
+      "related_unicode_blocks": [
+        {
+          "start": "0600",
+          "end": "06FF"
+        },
+        {
+          "start": "0750",
+          "end": "077F"
+        },
+        {
+          "start": "0870",
+          "end": "089F"
+        },
+        {
+          "start": "08A0",
+          "end": "08FF"
+        },
+        {
+          "start": "FB50",
+          "end": "FDFF"
+        },
+        {
+          "start": "FE70",
+          "end": "FEFF"
+        },
+        {
+          "start": "10E60",
+          "end": "10E7F"
+        },
+        {
+          "start": "10EC0",
+          "end": "10EFF"
+        },
+        {
+          "start": "1EE00",
+          "end": "1EEFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Arabic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Arabic",
+          "catalog_folder": "NotoSansArabic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansArabic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Naskh Arabic",
+          "catalog_folder": "NotoNaskhArabic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoNaskhArabic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 5,
+      "script": "Armi",
+      "name_en": "Imperial Aramaic",
+      "name_ja": "帝国アラム",
+      "assigned_codepoints": 31,
+      "related_unicode_blocks": [
+        {
+          "start": "10840",
+          "end": "1085F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Imperial Aramaic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Imperial Aramaic",
+          "catalog_folder": "NotoSansImperialAramaic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansImperialAramaic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 6,
+      "script": "Armn",
+      "name_en": "Armenian",
+      "name_ja": "アルメニア",
+      "assigned_codepoints": 99,
+      "related_unicode_blocks": [
+        {
+          "start": "0530",
+          "end": "058F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Armenian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Armenian",
+          "catalog_folder": "NotoSansArmenian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansArmenian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Armenian",
+          "catalog_folder": "NotoSerifArmenian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifArmenian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 7,
+      "script": "Avst",
+      "name_en": "Avestan",
+      "name_ja": "アヴェスター",
+      "assigned_codepoints": 61,
+      "related_unicode_blocks": [
+        {
+          "start": "10B00",
+          "end": "10B3F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Avestan",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Avestan",
+          "catalog_folder": "NotoSansAvestan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAvestan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 8,
+      "script": "Bali",
+      "name_en": "Balinese",
+      "name_ja": "バリ",
+      "assigned_codepoints": 127,
+      "related_unicode_blocks": [
+        {
+          "start": "1B00",
+          "end": "1B7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Balinese",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Balinese",
+          "catalog_folder": "NotoSansBalinese",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBalinese",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Balinese",
+          "catalog_folder": "NotoSerifBalinese",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifBalinese",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 9,
+      "script": "Bamu",
+      "name_en": "Bamum",
+      "name_ja": "バムン",
+      "assigned_codepoints": 657,
+      "related_unicode_blocks": [
+        {
+          "start": "A6A0",
+          "end": "A6FF"
+        },
+        {
+          "start": "16800",
+          "end": "16A3F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Bamum",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Bamum",
+          "catalog_folder": "NotoSansBamum",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBamum",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 10,
+      "script": "Bass",
+      "name_en": "Bassa Vah",
+      "name_ja": "バッサ・ヴァー",
+      "assigned_codepoints": 36,
+      "related_unicode_blocks": [
+        {
+          "start": "16AD0",
+          "end": "16AFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Bassa Vah",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Bassa Vah",
+          "catalog_folder": "NotoSansBassaVah",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBassaVah",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 11,
+      "script": "Batk",
+      "name_en": "Batak",
+      "name_ja": "バタク",
+      "assigned_codepoints": 56,
+      "related_unicode_blocks": [
+        {
+          "start": "1BC0",
+          "end": "1BFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Batak",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Batak",
+          "catalog_folder": "NotoSansBatak",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBatak",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 12,
+      "script": "Beng",
+      "name_en": "Bengali",
+      "name_ja": "ベンガル",
+      "assigned_codepoints": 98,
+      "related_unicode_blocks": [
+        {
+          "start": "0980",
+          "end": "09FF"
+        },
+        {
+          "start": "11DF0",
+          "end": "11DFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Bengali",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Bengali",
+          "catalog_folder": "NotoSansBengali",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBengali",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Bengali",
+          "catalog_folder": "NotoSerifBengali",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifBengali",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 13,
+      "script": "Berf",
+      "name_en": "Beria Erfe",
+      "name_ja": "ベリア・エルフェ",
+      "assigned_codepoints": 50,
+      "related_unicode_blocks": [
+        {
+          "start": "16EA0",
+          "end": "16EDF"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 14,
+      "script": "Bhks",
+      "name_en": "Bhaiksuki",
+      "name_ja": "バイクシュキー",
+      "assigned_codepoints": 97,
+      "related_unicode_blocks": [
+        {
+          "start": "11C00",
+          "end": "11C6F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Bhaiksuki",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Bhaiksuki",
+          "catalog_folder": "NotoSansBhaiksuki",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBhaiksuki",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 15,
+      "script": "Bopo",
+      "name_en": "Bopomofo",
+      "name_ja": "注音字母",
+      "assigned_codepoints": 77,
+      "related_unicode_blocks": [
+        {
+          "start": "3100",
+          "end": "312F"
+        },
+        {
+          "start": "31A0",
+          "end": "31BF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans CJK JP",
+      "font_candidates": [
+        {
+          "family": "Noto Sans CJK JP",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/Japanese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "cjk_font_repository_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 16,
+      "script": "Brah",
+      "name_en": "Brahmi",
+      "name_ja": "ブラーフミー",
+      "assigned_codepoints": 115,
+      "related_unicode_blocks": [
+        {
+          "start": "11000",
+          "end": "1107F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Brahmi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Brahmi",
+          "catalog_folder": "NotoSansBrahmi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBrahmi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 17,
+      "script": "Brai",
+      "name_en": "Braille",
+      "name_ja": "点字",
+      "assigned_codepoints": 256,
+      "related_unicode_blocks": [
+        {
+          "start": "2800",
+          "end": "28FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Symbols 2",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Symbols 2",
+          "catalog_folder": "NotoSansSymbols2",
+          "source_kind": "noto_generic_symbols_candidate",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSymbols2",
+          "evidence": "generic symbols font family exists; Braille coverage not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 18,
+      "script": "Bugi",
+      "name_en": "Buginese",
+      "name_ja": "ブギス",
+      "assigned_codepoints": 30,
+      "related_unicode_blocks": [
+        {
+          "start": "1A00",
+          "end": "1A1F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Buginese",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Buginese",
+          "catalog_folder": "NotoSansBuginese",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBuginese",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 19,
+      "script": "Buhd",
+      "name_en": "Buhid",
+      "name_ja": "ブヒッド",
+      "assigned_codepoints": 20,
+      "related_unicode_blocks": [
+        {
+          "start": "1740",
+          "end": "175F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Buhid",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Buhid",
+          "catalog_folder": "NotoSansBuhid",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansBuhid",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 20,
+      "script": "Cakm",
+      "name_en": "Chakma",
+      "name_ja": "チャクマ",
+      "assigned_codepoints": 71,
+      "related_unicode_blocks": [
+        {
+          "start": "11100",
+          "end": "1114F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Chakma",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Chakma",
+          "catalog_folder": "NotoSansChakma",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansChakma",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 21,
+      "script": "Cans",
+      "name_en": "Canadian Aboriginal",
+      "name_ja": "カナダ先住民音節文字",
+      "assigned_codepoints": 726,
+      "related_unicode_blocks": [
+        {
+          "start": "1400",
+          "end": "167F"
+        },
+        {
+          "start": "18B0",
+          "end": "18FF"
+        },
+        {
+          "start": "11AB0",
+          "end": "11ABF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Canadian Aboriginal",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Canadian Aboriginal",
+          "catalog_folder": "NotoSansCanadianAboriginal",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCanadianAboriginal",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 22,
+      "script": "Cari",
+      "name_en": "Carian",
+      "name_ja": "カリア",
+      "assigned_codepoints": 49,
+      "related_unicode_blocks": [
+        {
+          "start": "102A0",
+          "end": "102DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Carian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Carian",
+          "catalog_folder": "NotoSansCarian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCarian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 23,
+      "script": "Cham",
+      "name_en": "Cham",
+      "name_ja": "チャム",
+      "assigned_codepoints": 83,
+      "related_unicode_blocks": [
+        {
+          "start": "AA00",
+          "end": "AA5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Cham",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Cham",
+          "catalog_folder": "NotoSansCham",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCham",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 24,
+      "script": "Cher",
+      "name_en": "Cherokee",
+      "name_ja": "チェロキー",
+      "assigned_codepoints": 172,
+      "related_unicode_blocks": [
+        {
+          "start": "13A0",
+          "end": "13FF"
+        },
+        {
+          "start": "AB70",
+          "end": "ABBF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Cherokee",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Cherokee",
+          "catalog_folder": "NotoSansCherokee",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCherokee",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 25,
+      "script": "Chrs",
+      "name_en": "Chorasmian",
+      "name_ja": "ホラズム",
+      "assigned_codepoints": 28,
+      "related_unicode_blocks": [
+        {
+          "start": "10FB0",
+          "end": "10FDF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Chorasmian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Chorasmian",
+          "catalog_folder": "NotoSansChorasmian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansChorasmian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 26,
+      "script": "Copt",
+      "name_en": "Coptic",
+      "name_ja": "コプト",
+      "assigned_codepoints": 137,
+      "related_unicode_blocks": [
+        {
+          "start": "2C80",
+          "end": "2CFF"
+        },
+        {
+          "start": "102E0",
+          "end": "102FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Coptic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Coptic",
+          "catalog_folder": "NotoSansCoptic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCoptic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 27,
+      "script": "Cpmn",
+      "name_en": "Cypro Minoan",
+      "name_ja": "キプロ・ミノア",
+      "assigned_codepoints": 99,
+      "related_unicode_blocks": [
+        {
+          "start": "12F90",
+          "end": "12FFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Cypro Minoan",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Cypro Minoan",
+          "catalog_folder": "NotoSansCyproMinoan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCyproMinoan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 28,
+      "script": "Cprt",
+      "name_en": "Cypriot",
+      "name_ja": "キプロス音節文字",
+      "assigned_codepoints": 55,
+      "related_unicode_blocks": [
+        {
+          "start": "10800",
+          "end": "1083F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Cypriot",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Cypriot",
+          "catalog_folder": "NotoSansCypriot",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCypriot",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 29,
+      "script": "Cyrl",
+      "name_en": "Cyrillic",
+      "name_ja": "キリル",
+      "assigned_codepoints": 508,
+      "related_unicode_blocks": [
+        {
+          "start": "0400",
+          "end": "04FF"
+        },
+        {
+          "start": "0500",
+          "end": "052F"
+        },
+        {
+          "start": "1C80",
+          "end": "1C8F"
+        },
+        {
+          "start": "2DE0",
+          "end": "2DFF"
+        },
+        {
+          "start": "A640",
+          "end": "A69F"
+        },
+        {
+          "start": "1E030",
+          "end": "1E08F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans",
+      "font_candidates": [
+        {
+          "family": "Noto Sans",
+          "catalog_folder": "NotoSans",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSans",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif",
+          "catalog_folder": "NotoSerif",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerif",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 30,
+      "script": "Deva",
+      "name_en": "Devanagari",
+      "name_ja": "デーヴァナーガリー",
+      "assigned_codepoints": 165,
+      "related_unicode_blocks": [
+        {
+          "start": "0900",
+          "end": "097F"
+        },
+        {
+          "start": "A8E0",
+          "end": "A8FF"
+        },
+        {
+          "start": "11B00",
+          "end": "11B5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Devanagari",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Devanagari",
+          "catalog_folder": "NotoSansDevanagari",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDevanagari",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Devanagari",
+          "catalog_folder": "NotoSerifDevanagari",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDevanagari",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 31,
+      "script": "Diak",
+      "name_en": "Dives Akuru",
+      "name_ja": "ディヴェス・アクル",
+      "assigned_codepoints": 72,
+      "related_unicode_blocks": [
+        {
+          "start": "11900",
+          "end": "1195F"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Dives Akuru",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Dives Akuru",
+          "catalog_folder": "NotoSerifDivesAkuru",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDivesAkuru",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 32,
+      "script": "Dogr",
+      "name_en": "Dogra",
+      "name_ja": "ドーグラー",
+      "assigned_codepoints": 60,
+      "related_unicode_blocks": [
+        {
+          "start": "11800",
+          "end": "1184F"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Dogra",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Dogra",
+          "catalog_folder": "NotoSerifDogra",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifDogra",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 33,
+      "script": "Dsrt",
+      "name_en": "Deseret",
+      "name_ja": "デザレット",
+      "assigned_codepoints": 80,
+      "related_unicode_blocks": [
+        {
+          "start": "10400",
+          "end": "1044F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Deseret",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Deseret",
+          "catalog_folder": "NotoSansDeseret",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDeseret",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 34,
+      "script": "Dupl",
+      "name_en": "Duployan",
+      "name_ja": "デュプロワ式速記",
+      "assigned_codepoints": 143,
+      "related_unicode_blocks": [
+        {
+          "start": "1BC00",
+          "end": "1BC9F"
+        },
+        {
+          "start": "1BCA0",
+          "end": "1BCAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Duployan",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Duployan",
+          "catalog_folder": "NotoSansDuployan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansDuployan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 35,
+      "script": "Egyp",
+      "name_en": "Egyptian Hieroglyphs",
+      "name_ja": "エジプト聖刻文字",
+      "assigned_codepoints": 5105,
+      "related_unicode_blocks": [
+        {
+          "start": "13000",
+          "end": "1342F"
+        },
+        {
+          "start": "13430",
+          "end": "1345F"
+        },
+        {
+          "start": "13460",
+          "end": "143FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Egyptian Hieroglyphs",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Egyptian Hieroglyphs",
+          "catalog_folder": "NotoSansEgyptianHieroglyphs",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansEgyptianHieroglyphs",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "UniHieroglyphica",
+          "file": "fonts/UniHieroglyphica.ttf",
+          "note": "Site has preference for Egyptian Extended-A",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        },
+        {
+          "family": "Egyptology Extended",
+          "file": "fonts/EgyptologyExtended.woff2",
+          "note": "Site has as fallback for Egyptian Extended-A",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        }
+      ],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 36,
+      "script": "Elba",
+      "name_en": "Elbasan",
+      "name_ja": "エルバサン",
+      "assigned_codepoints": 40,
+      "related_unicode_blocks": [
+        {
+          "start": "10500",
+          "end": "1052F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Elbasan",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Elbasan",
+          "catalog_folder": "NotoSansElbasan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansElbasan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 37,
+      "script": "Elym",
+      "name_en": "Elymaic",
+      "name_ja": "エリマイス",
+      "assigned_codepoints": 23,
+      "related_unicode_blocks": [
+        {
+          "start": "10FE0",
+          "end": "10FFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Elymaic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Elymaic",
+          "catalog_folder": "NotoSansElymaic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansElymaic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 38,
+      "script": "Ethi",
+      "name_en": "Ethiopic",
+      "name_ja": "エチオピア",
+      "assigned_codepoints": 523,
+      "related_unicode_blocks": [
+        {
+          "start": "1200",
+          "end": "137F"
+        },
+        {
+          "start": "1380",
+          "end": "139F"
+        },
+        {
+          "start": "2D80",
+          "end": "2DDF"
+        },
+        {
+          "start": "AB00",
+          "end": "AB2F"
+        },
+        {
+          "start": "1E7E0",
+          "end": "1E7FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Ethiopic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Ethiopic",
+          "catalog_folder": "NotoSansEthiopic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansEthiopic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Ethiopic",
+          "catalog_folder": "NotoSerifEthiopic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifEthiopic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 39,
+      "script": "Gara",
+      "name_en": "Garay",
+      "name_ja": "ガライ",
+      "assigned_codepoints": 69,
+      "related_unicode_blocks": [
+        {
+          "start": "10D40",
+          "end": "10D8F"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 40,
+      "script": "Geor",
+      "name_en": "Georgian",
+      "name_ja": "ジョージア",
+      "assigned_codepoints": 173,
+      "related_unicode_blocks": [
+        {
+          "start": "10A0",
+          "end": "10FF"
+        },
+        {
+          "start": "1C90",
+          "end": "1CBF"
+        },
+        {
+          "start": "2D00",
+          "end": "2D2F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Georgian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Georgian",
+          "catalog_folder": "NotoSansGeorgian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGeorgian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Georgian",
+          "catalog_folder": "NotoSerifGeorgian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGeorgian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 41,
+      "script": "Glag",
+      "name_en": "Glagolitic",
+      "name_ja": "グラゴル",
+      "assigned_codepoints": 134,
+      "related_unicode_blocks": [
+        {
+          "start": "2C00",
+          "end": "2C5F"
+        },
+        {
+          "start": "1E000",
+          "end": "1E02F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Glagolitic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Glagolitic",
+          "catalog_folder": "NotoSansGlagolitic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGlagolitic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 42,
+      "script": "Gong",
+      "name_en": "Gunjala Gondi",
+      "name_ja": "グンジャラ・ゴーンディ",
+      "assigned_codepoints": 63,
+      "related_unicode_blocks": [
+        {
+          "start": "11D60",
+          "end": "11DAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Gunjala Gondi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Gunjala Gondi",
+          "catalog_folder": "NotoSansGunjalaGondi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGunjalaGondi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 43,
+      "script": "Gonm",
+      "name_en": "Masaram Gondi",
+      "name_ja": "マサラム・ゴーンディ",
+      "assigned_codepoints": 75,
+      "related_unicode_blocks": [
+        {
+          "start": "11D00",
+          "end": "11D5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Masaram Gondi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Masaram Gondi",
+          "catalog_folder": "NotoSansMasaramGondi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMasaramGondi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 44,
+      "script": "Goth",
+      "name_en": "Gothic",
+      "name_ja": "ゴート",
+      "assigned_codepoints": 27,
+      "related_unicode_blocks": [
+        {
+          "start": "10330",
+          "end": "1034F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Gothic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Gothic",
+          "catalog_folder": "NotoSansGothic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGothic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 45,
+      "script": "Gran",
+      "name_en": "Grantha",
+      "name_ja": "グランタ",
+      "assigned_codepoints": 85,
+      "related_unicode_blocks": [
+        {
+          "start": "11300",
+          "end": "1137F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Grantha",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Grantha",
+          "catalog_folder": "NotoSansGrantha",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGrantha",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Grantha",
+          "catalog_folder": "NotoSerifGrantha",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGrantha",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 46,
+      "script": "Grek",
+      "name_en": "Greek",
+      "name_ja": "ギリシャ",
+      "assigned_codepoints": 520,
+      "related_unicode_blocks": [
+        {
+          "start": "0370",
+          "end": "03FF"
+        },
+        {
+          "start": "1F00",
+          "end": "1FFF"
+        },
+        {
+          "start": "10140",
+          "end": "1018F"
+        },
+        {
+          "start": "1D200",
+          "end": "1D24F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans",
+      "font_candidates": [
+        {
+          "family": "Noto Sans",
+          "catalog_folder": "NotoSans",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSans",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif",
+          "catalog_folder": "NotoSerif",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerif",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 47,
+      "script": "Gujr",
+      "name_en": "Gujarati",
+      "name_ja": "グジャラート",
+      "assigned_codepoints": 91,
+      "related_unicode_blocks": [
+        {
+          "start": "0A80",
+          "end": "0AFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Gujarati",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Gujarati",
+          "catalog_folder": "NotoSansGujarati",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGujarati",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Gujarati",
+          "catalog_folder": "NotoSerifGujarati",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGujarati",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 48,
+      "script": "Gukh",
+      "name_en": "Gurung Khema",
+      "name_ja": "グルン・ケマ",
+      "assigned_codepoints": 58,
+      "related_unicode_blocks": [
+        {
+          "start": "16100",
+          "end": "1613F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Gurung Khema",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Gurung Khema",
+          "source_kind": "archived_source_repository",
+          "source_url": "https://github.com/notofonts/gurung-khema",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 49,
+      "script": "Guru",
+      "name_en": "Gurmukhi",
+      "name_ja": "グルムキー",
+      "assigned_codepoints": 80,
+      "related_unicode_blocks": [
+        {
+          "start": "0A00",
+          "end": "0A7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Gurmukhi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Gurmukhi",
+          "catalog_folder": "NotoSansGurmukhi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansGurmukhi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Gurmukhi",
+          "catalog_folder": "NotoSerifGurmukhi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifGurmukhi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 50,
+      "script": "Hang",
+      "name_en": "Hangul",
+      "name_ja": "ハングル",
+      "assigned_codepoints": 11739,
+      "related_unicode_blocks": [
+        {
+          "start": "1100",
+          "end": "11FF"
+        },
+        {
+          "start": "3130",
+          "end": "318F"
+        },
+        {
+          "start": "A960",
+          "end": "A97F"
+        },
+        {
+          "start": "AC00",
+          "end": "D7AF"
+        },
+        {
+          "start": "D7B0",
+          "end": "D7FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans CJK KR",
+      "font_candidates": [
+        {
+          "family": "Noto Sans CJK KR",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/Korean",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "cjk_font_repository_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 51,
+      "script": "Hani",
+      "name_en": "Han",
+      "name_ja": "漢字",
+      "assigned_codepoints": 103352,
+      "related_unicode_blocks": [
+        {
+          "start": "2E80",
+          "end": "2EFF"
+        },
+        {
+          "start": "2F00",
+          "end": "2FDF"
+        },
+        {
+          "start": "3400",
+          "end": "4DBF"
+        },
+        {
+          "start": "4E00",
+          "end": "9FFF"
+        },
+        {
+          "start": "F900",
+          "end": "FAFF"
+        },
+        {
+          "start": "16FE0",
+          "end": "16FFF"
+        },
+        {
+          "start": "20000",
+          "end": "2A6DF"
+        },
+        {
+          "start": "2A700",
+          "end": "2B73F"
+        },
+        {
+          "start": "2B740",
+          "end": "2B81F"
+        },
+        {
+          "start": "2B820",
+          "end": "2CEAF"
+        },
+        {
+          "start": "2CEB0",
+          "end": "2EBEF"
+        },
+        {
+          "start": "2EBF0",
+          "end": "2EE5F"
+        },
+        {
+          "start": "2F800",
+          "end": "2FA1F"
+        },
+        {
+          "start": "30000",
+          "end": "3134F"
+        },
+        {
+          "start": "31350",
+          "end": "323AF"
+        },
+        {
+          "start": "323B0",
+          "end": "3347F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans CJK JP",
+      "font_candidates": [
+        {
+          "family": "Noto Sans CJK JP",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/Japanese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Sans CJK SC",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/SimplifiedChinese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif CJK JP",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Serif/OTF/Japanese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "Plangothic P1",
+          "file": "fonts/PlangothicP1-Regular.woff2",
+          "note": "For extended Han; exact cmap not audited",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        },
+        {
+          "family": "Plangothic P2",
+          "file": "fonts/PlangothicP2-Regular.woff2",
+          "note": "For extended Han; exact cmap not audited",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        },
+        {
+          "family": "BabelStone Han",
+          "file": null,
+          "note": "External CSS font; exact cmap not audited",
+          "cmap_verified": false,
+          "source_kind": "site_external_web_font"
+        },
+        {
+          "family": "Noto Sans JP",
+          "file": "node_modules/@fontsource/noto-sans-jp/files",
+          "note": "Package dependency, not checked into static repository",
+          "cmap_verified": false,
+          "source_kind": "site_npm_dependency"
+        }
+      ],
+      "source_status": "cjk_font_repository_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 52,
+      "script": "Hano",
+      "name_en": "Hanunoo",
+      "name_ja": "ハヌノオ",
+      "assigned_codepoints": 21,
+      "related_unicode_blocks": [
+        {
+          "start": "1720",
+          "end": "173F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Hanunoo",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Hanunoo",
+          "catalog_folder": "NotoSansHanunoo",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHanunoo",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 53,
+      "script": "Hatr",
+      "name_en": "Hatran",
+      "name_ja": "ハトラ",
+      "assigned_codepoints": 26,
+      "related_unicode_blocks": [
+        {
+          "start": "108E0",
+          "end": "108FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Hatran",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Hatran",
+          "catalog_folder": "NotoSansHatran",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHatran",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 54,
+      "script": "Hebr",
+      "name_en": "Hebrew",
+      "name_ja": "ヘブライ",
+      "assigned_codepoints": 136,
+      "related_unicode_blocks": [
+        {
+          "start": "0590",
+          "end": "05FF"
+        },
+        {
+          "start": "FB00",
+          "end": "FB4F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Hebrew",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Hebrew",
+          "catalog_folder": "NotoSansHebrew",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHebrew",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Hebrew",
+          "catalog_folder": "NotoSerifHebrew",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifHebrew",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 55,
+      "script": "Hira",
+      "name_en": "Hiragana",
+      "name_ja": "ひらがな",
+      "assigned_codepoints": 382,
+      "related_unicode_blocks": [
+        {
+          "start": "3040",
+          "end": "309F"
+        },
+        {
+          "start": "1B000",
+          "end": "1B0FF"
+        },
+        {
+          "start": "1B100",
+          "end": "1B12F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans CJK JP",
+      "font_candidates": [
+        {
+          "family": "Noto Sans CJK JP",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/Japanese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "Noto Sans JP",
+          "file": "node_modules/@fontsource/noto-sans-jp/files",
+          "note": "NPM dependency; not committed as static font assets",
+          "cmap_verified": false,
+          "source_kind": "site_npm_dependency"
+        }
+      ],
+      "source_status": "cjk_font_repository_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 56,
+      "script": "Hluw",
+      "name_en": "Anatolian Hieroglyphs",
+      "name_ja": "アナトリア象形文字",
+      "assigned_codepoints": 583,
+      "related_unicode_blocks": [
+        {
+          "start": "14400",
+          "end": "1467F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Anatolian Hieroglyphs",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Anatolian Hieroglyphs",
+          "catalog_folder": "NotoSansAnatolianHieroglyphs",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansAnatolianHieroglyphs",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 57,
+      "script": "Hmng",
+      "name_en": "Pahawh Hmong",
+      "name_ja": "パハウ・フモン",
+      "assigned_codepoints": 127,
+      "related_unicode_blocks": [
+        {
+          "start": "16B00",
+          "end": "16B8F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Pahawh Hmong",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Pahawh Hmong",
+          "catalog_folder": "NotoSansPahawhHmong",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPahawhHmong",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 58,
+      "script": "Hmnp",
+      "name_en": "Nyiakeng Puachue Hmong",
+      "name_ja": "ニャケン・プアチュエ・フモン",
+      "assigned_codepoints": 71,
+      "related_unicode_blocks": [
+        {
+          "start": "1E100",
+          "end": "1E14F"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Nyiakeng Puachue Hmong",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Nyiakeng Puachue Hmong",
+          "catalog_folder": "NotoSerifNyiakengPuachueHmong",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifNyiakengPuachueHmong",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 59,
+      "script": "Hung",
+      "name_en": "Old Hungarian",
+      "name_ja": "古ハンガリー",
+      "assigned_codepoints": 108,
+      "related_unicode_blocks": [
+        {
+          "start": "10C80",
+          "end": "10CFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Hungarian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Hungarian",
+          "catalog_folder": "NotoSansOldHungarian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldHungarian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 60,
+      "script": "Ital",
+      "name_en": "Old Italic",
+      "name_ja": "古イタリア",
+      "assigned_codepoints": 39,
+      "related_unicode_blocks": [
+        {
+          "start": "10300",
+          "end": "1032F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Italic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Italic",
+          "catalog_folder": "NotoSansOldItalic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldItalic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 61,
+      "script": "Java",
+      "name_en": "Javanese",
+      "name_ja": "ジャワ",
+      "assigned_codepoints": 90,
+      "related_unicode_blocks": [
+        {
+          "start": "A980",
+          "end": "A9DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Javanese",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Javanese",
+          "catalog_folder": "NotoSansJavanese",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansJavanese",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 62,
+      "script": "Jurc",
+      "name_en": "Jurchen",
+      "name_ja": "女真",
+      "assigned_codepoints": 965,
+      "related_unicode_blocks": [
+        {
+          "start": "18E00",
+          "end": "1919F"
+        },
+        {
+          "start": "191A0",
+          "end": "191DF"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 63,
+      "script": "Kali",
+      "name_en": "Kayah Li",
+      "name_ja": "カヤー・リー",
+      "assigned_codepoints": 47,
+      "related_unicode_blocks": [
+        {
+          "start": "A900",
+          "end": "A92F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Kayah Li",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Kayah Li",
+          "catalog_folder": "NotoSansKayahLi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKayahLi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 64,
+      "script": "Kana",
+      "name_en": "Katakana",
+      "name_ja": "カタカナ",
+      "assigned_codepoints": 327,
+      "related_unicode_blocks": [
+        {
+          "start": "30A0",
+          "end": "30FF"
+        },
+        {
+          "start": "31F0",
+          "end": "31FF"
+        },
+        {
+          "start": "1AFF0",
+          "end": "1AFFF"
+        },
+        {
+          "start": "1B130",
+          "end": "1B16F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans CJK JP",
+      "font_candidates": [
+        {
+          "family": "Noto Sans CJK JP",
+          "source_kind": "noto_cjk_repository",
+          "source_url": "https://github.com/notofonts/noto-cjk/tree/main/Sans/OTF/Japanese",
+          "evidence": "font directory exists; does not imply all CJK extension ideographs are covered",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "Noto Sans JP",
+          "file": "node_modules/@fontsource/noto-sans-jp/files",
+          "note": "NPM dependency; not committed as static font assets",
+          "cmap_verified": false,
+          "source_kind": "site_npm_dependency"
+        }
+      ],
+      "source_status": "cjk_font_repository_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 65,
+      "script": "Kawi",
+      "name_en": "Kawi",
+      "name_ja": "カウィ",
+      "assigned_codepoints": 87,
+      "related_unicode_blocks": [
+        {
+          "start": "11F00",
+          "end": "11F5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Kawi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Kawi",
+          "source_kind": "repository_exists",
+          "source_url": "https://github.com/notofonts/kawi",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 66,
+      "script": "Khar",
+      "name_en": "Kharoshthi",
+      "name_ja": "カローシュティー",
+      "assigned_codepoints": 68,
+      "related_unicode_blocks": [
+        {
+          "start": "10A00",
+          "end": "10A5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Kharoshthi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Kharoshthi",
+          "catalog_folder": "NotoSansKharoshthi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKharoshthi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 67,
+      "script": "Khmr",
+      "name_en": "Khmer",
+      "name_ja": "クメール",
+      "assigned_codepoints": 146,
+      "related_unicode_blocks": [
+        {
+          "start": "1780",
+          "end": "17FF"
+        },
+        {
+          "start": "19E0",
+          "end": "19FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Khmer",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Khmer",
+          "catalog_folder": "NotoSansKhmer",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhmer",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Khmer",
+          "catalog_folder": "NotoSerifKhmer",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKhmer",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 68,
+      "script": "Khoj",
+      "name_en": "Khojki",
+      "name_ja": "コージキー",
+      "assigned_codepoints": 65,
+      "related_unicode_blocks": [
+        {
+          "start": "11200",
+          "end": "1124F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Khojki",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Khojki",
+          "catalog_folder": "NotoSansKhojki",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhojki",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Khojki",
+          "catalog_folder": "NotoSerifKhojki",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKhojki",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 69,
+      "script": "Kits",
+      "name_en": "Khitan Small Script",
+      "name_ja": "契丹小字",
+      "assigned_codepoints": 477,
+      "related_unicode_blocks": [
+        {
+          "start": "18B00",
+          "end": "18CFF"
+        }
+      ],
+      "preferred_candidate": "Noto Khitan Small Script",
+      "font_candidates": [
+        {
+          "family": "Noto Khitan Small Script",
+          "source_kind": "repository_exists",
+          "source_url": "https://github.com/notofonts/khitan-small-script",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 70,
+      "script": "Knda",
+      "name_en": "Kannada",
+      "name_ja": "カンナダ",
+      "assigned_codepoints": 92,
+      "related_unicode_blocks": [
+        {
+          "start": "0C80",
+          "end": "0CFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Kannada",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Kannada",
+          "catalog_folder": "NotoSansKannada",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKannada",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Kannada",
+          "catalog_folder": "NotoSerifKannada",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifKannada",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 71,
+      "script": "Krai",
+      "name_en": "Kirat Rai",
+      "name_ja": "キラット・ライ",
+      "assigned_codepoints": 58,
+      "related_unicode_blocks": [
+        {
+          "start": "16D40",
+          "end": "16D7F"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 72,
+      "script": "Kthi",
+      "name_en": "Kaithi",
+      "name_ja": "カイティー",
+      "assigned_codepoints": 68,
+      "related_unicode_blocks": [
+        {
+          "start": "11080",
+          "end": "110CF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Kaithi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Kaithi",
+          "catalog_folder": "NotoSansKaithi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKaithi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 73,
+      "script": "Lana",
+      "name_en": "Tai Tham",
+      "name_ja": "タイ・タム",
+      "assigned_codepoints": 127,
+      "related_unicode_blocks": [
+        {
+          "start": "1A20",
+          "end": "1AAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tai Tham",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tai Tham",
+          "catalog_folder": "NotoSansTaiTham",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiTham",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 74,
+      "script": "Laoo",
+      "name_en": "Lao",
+      "name_ja": "ラオ",
+      "assigned_codepoints": 83,
+      "related_unicode_blocks": [
+        {
+          "start": "0E80",
+          "end": "0EFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Lao",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Lao",
+          "catalog_folder": "NotoSansLao",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLao",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Lao",
+          "catalog_folder": "NotoSerifLao",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifLao",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 75,
+      "script": "Latn",
+      "name_en": "Latin",
+      "name_ja": "ラテン",
+      "assigned_codepoints": 1653,
+      "related_unicode_blocks": [
+        {
+          "start": "0000",
+          "end": "007F"
+        },
+        {
+          "start": "0080",
+          "end": "00FF"
+        },
+        {
+          "start": "0100",
+          "end": "017F"
+        },
+        {
+          "start": "0180",
+          "end": "024F"
+        },
+        {
+          "start": "0250",
+          "end": "02AF"
+        },
+        {
+          "start": "1D00",
+          "end": "1D7F"
+        },
+        {
+          "start": "1D80",
+          "end": "1DBF"
+        },
+        {
+          "start": "1E00",
+          "end": "1EFF"
+        },
+        {
+          "start": "2150",
+          "end": "218F"
+        },
+        {
+          "start": "2C60",
+          "end": "2C7F"
+        },
+        {
+          "start": "A720",
+          "end": "A7FF"
+        },
+        {
+          "start": "AB30",
+          "end": "AB6F"
+        },
+        {
+          "start": "10780",
+          "end": "107BF"
+        },
+        {
+          "start": "1DF00",
+          "end": "1DFFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans",
+      "font_candidates": [
+        {
+          "family": "Noto Sans",
+          "catalog_folder": "NotoSans",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSans",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif",
+          "catalog_folder": "NotoSerif",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerif",
+          "evidence": "multiscript generic family; exact per-script cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "Noto Sans Phonetics",
+          "file": "fonts/phonetics/NotoSans-Regular.ttf",
+          "note": "Site-specific phonetic and extended Latin coverage; audit cmap",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        }
+      ],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 76,
+      "script": "Lepc",
+      "name_en": "Lepcha",
+      "name_ja": "レプチャ",
+      "assigned_codepoints": 74,
+      "related_unicode_blocks": [
+        {
+          "start": "1C00",
+          "end": "1C4F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Lepcha",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Lepcha",
+          "catalog_folder": "NotoSansLepcha",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLepcha",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 77,
+      "script": "Limb",
+      "name_en": "Limbu",
+      "name_ja": "リンブ",
+      "assigned_codepoints": 68,
+      "related_unicode_blocks": [
+        {
+          "start": "1900",
+          "end": "194F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Limbu",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Limbu",
+          "catalog_folder": "NotoSansLimbu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLimbu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 78,
+      "script": "Lina",
+      "name_en": "Linear A",
+      "name_ja": "線文字A",
+      "assigned_codepoints": 341,
+      "related_unicode_blocks": [
+        {
+          "start": "10600",
+          "end": "1077F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Linear A",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Linear A",
+          "catalog_folder": "NotoSansLinearA",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLinearA",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 79,
+      "script": "Linb",
+      "name_en": "Linear B",
+      "name_ja": "線文字B",
+      "assigned_codepoints": 211,
+      "related_unicode_blocks": [
+        {
+          "start": "10000",
+          "end": "1007F"
+        },
+        {
+          "start": "10080",
+          "end": "100FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Linear B",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Linear B",
+          "catalog_folder": "NotoSansLinearB",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLinearB",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 80,
+      "script": "Lisu",
+      "name_en": "Lisu",
+      "name_ja": "リス",
+      "assigned_codepoints": 49,
+      "related_unicode_blocks": [
+        {
+          "start": "A4D0",
+          "end": "A4FF"
+        },
+        {
+          "start": "11FB0",
+          "end": "11FBF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Lisu",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Lisu",
+          "catalog_folder": "NotoSansLisu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLisu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 81,
+      "script": "Lyci",
+      "name_en": "Lycian",
+      "name_ja": "リュキア",
+      "assigned_codepoints": 29,
+      "related_unicode_blocks": [
+        {
+          "start": "10280",
+          "end": "1029F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Lycian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Lycian",
+          "catalog_folder": "NotoSansLycian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLycian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 82,
+      "script": "Lydi",
+      "name_en": "Lydian",
+      "name_ja": "リュディア",
+      "assigned_codepoints": 27,
+      "related_unicode_blocks": [
+        {
+          "start": "10920",
+          "end": "1093F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Lydian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Lydian",
+          "catalog_folder": "NotoSansLydian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansLydian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 83,
+      "script": "Mahj",
+      "name_en": "Mahajani",
+      "name_ja": "マハージャニー",
+      "assigned_codepoints": 39,
+      "related_unicode_blocks": [
+        {
+          "start": "11150",
+          "end": "1117F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Mahajani",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Mahajani",
+          "catalog_folder": "NotoSansMahajani",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMahajani",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 84,
+      "script": "Maka",
+      "name_en": "Makasar",
+      "name_ja": "マカッサル",
+      "assigned_codepoints": 25,
+      "related_unicode_blocks": [
+        {
+          "start": "11EE0",
+          "end": "11EFF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Makasar",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Makasar",
+          "catalog_folder": "NotoSerifMakasar",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMakasar",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 85,
+      "script": "Mand",
+      "name_en": "Mandaic",
+      "name_ja": "マンダ",
+      "assigned_codepoints": 29,
+      "related_unicode_blocks": [
+        {
+          "start": "0840",
+          "end": "085F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Mandaic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Mandaic",
+          "catalog_folder": "NotoSansMandaic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMandaic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 86,
+      "script": "Mani",
+      "name_en": "Manichaean",
+      "name_ja": "マニ",
+      "assigned_codepoints": 51,
+      "related_unicode_blocks": [
+        {
+          "start": "10AC0",
+          "end": "10AFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Manichaean",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Manichaean",
+          "catalog_folder": "NotoSansManichaean",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansManichaean",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 87,
+      "script": "Marc",
+      "name_en": "Marchen",
+      "name_ja": "マルチェン",
+      "assigned_codepoints": 68,
+      "related_unicode_blocks": [
+        {
+          "start": "11C70",
+          "end": "11CBF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Marchen",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Marchen",
+          "catalog_folder": "NotoSansMarchen",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMarchen",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 88,
+      "script": "Medf",
+      "name_en": "Medefaidrin",
+      "name_ja": "メデファイドリン",
+      "assigned_codepoints": 91,
+      "related_unicode_blocks": [
+        {
+          "start": "16E40",
+          "end": "16E9F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Medefaidrin",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Medefaidrin",
+          "catalog_folder": "NotoSansMedefaidrin",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMedefaidrin",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 89,
+      "script": "Mend",
+      "name_en": "Mende Kikakui",
+      "name_ja": "メンデ・キカクイ",
+      "assigned_codepoints": 213,
+      "related_unicode_blocks": [
+        {
+          "start": "1E800",
+          "end": "1E8DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Mende Kikakui",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Mende Kikakui",
+          "catalog_folder": "NotoSansMendeKikakui",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMendeKikakui",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 90,
+      "script": "Merc",
+      "name_en": "Meroitic Cursive",
+      "name_ja": "メロエ草書体",
+      "assigned_codepoints": 90,
+      "related_unicode_blocks": [
+        {
+          "start": "109A0",
+          "end": "109FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Meroitic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Meroitic",
+          "catalog_folder": "NotoSansMeroitic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMeroitic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 91,
+      "script": "Mero",
+      "name_en": "Meroitic Hieroglyphs",
+      "name_ja": "メロエ聖刻文字",
+      "assigned_codepoints": 32,
+      "related_unicode_blocks": [
+        {
+          "start": "10980",
+          "end": "1099F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Meroitic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Meroitic",
+          "catalog_folder": "NotoSansMeroitic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMeroitic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 92,
+      "script": "Mlym",
+      "name_en": "Malayalam",
+      "name_ja": "マラヤーラム",
+      "assigned_codepoints": 118,
+      "related_unicode_blocks": [
+        {
+          "start": "0D00",
+          "end": "0D7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Malayalam",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Malayalam",
+          "catalog_folder": "NotoSansMalayalam",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMalayalam",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Malayalam",
+          "catalog_folder": "NotoSerifMalayalam",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMalayalam",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 93,
+      "script": "Modi",
+      "name_en": "Modi",
+      "name_ja": "モーディー",
+      "assigned_codepoints": 79,
+      "related_unicode_blocks": [
+        {
+          "start": "11600",
+          "end": "1165F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Modi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Modi",
+          "catalog_folder": "NotoSansModi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansModi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 94,
+      "script": "Mong",
+      "name_en": "Mongolian",
+      "name_ja": "モンゴル",
+      "assigned_codepoints": 168,
+      "related_unicode_blocks": [
+        {
+          "start": "1800",
+          "end": "18AF"
+        },
+        {
+          "start": "11660",
+          "end": "1167F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Mongolian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Mongolian",
+          "catalog_folder": "NotoSansMongolian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMongolian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 95,
+      "script": "Mroo",
+      "name_en": "Mro",
+      "name_ja": "ムロ",
+      "assigned_codepoints": 43,
+      "related_unicode_blocks": [
+        {
+          "start": "16A40",
+          "end": "16A6F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Mro",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Mro",
+          "catalog_folder": "NotoSansMro",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMro",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 96,
+      "script": "Mtei",
+      "name_en": "Meetei Mayek",
+      "name_ja": "メイテイ・マイェク",
+      "assigned_codepoints": 79,
+      "related_unicode_blocks": [
+        {
+          "start": "AAE0",
+          "end": "AAFF"
+        },
+        {
+          "start": "ABC0",
+          "end": "ABFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Meetei Mayek",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Meetei Mayek",
+          "catalog_folder": "NotoSansMeeteiMayek",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMeeteiMayek",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 97,
+      "script": "Mult",
+      "name_en": "Multani",
+      "name_ja": "ムルターニー",
+      "assigned_codepoints": 38,
+      "related_unicode_blocks": [
+        {
+          "start": "11280",
+          "end": "112AF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Multani",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Multani",
+          "catalog_folder": "NotoSansMultani",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMultani",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 98,
+      "script": "Mymr",
+      "name_en": "Myanmar",
+      "name_ja": "ミャンマー",
+      "assigned_codepoints": 243,
+      "related_unicode_blocks": [
+        {
+          "start": "1000",
+          "end": "109F"
+        },
+        {
+          "start": "A9E0",
+          "end": "A9FF"
+        },
+        {
+          "start": "AA60",
+          "end": "AA7F"
+        },
+        {
+          "start": "116D0",
+          "end": "116FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Myanmar",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Myanmar",
+          "catalog_folder": "NotoSansMyanmar",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMyanmar",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Myanmar",
+          "catalog_folder": "NotoSerifMyanmar",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifMyanmar",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 99,
+      "script": "Nagm",
+      "name_en": "Nag Mundari",
+      "name_ja": "ナグ・ムンダリ",
+      "assigned_codepoints": 42,
+      "related_unicode_blocks": [
+        {
+          "start": "1E4D0",
+          "end": "1E4FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Nag Mundari",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Nag Mundari",
+          "source_kind": "repository_exists",
+          "source_url": "https://github.com/notofonts/nag-mundari",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 100,
+      "script": "Nand",
+      "name_en": "Nandinagari",
+      "name_ja": "ナンディナーガリー",
+      "assigned_codepoints": 65,
+      "related_unicode_blocks": [
+        {
+          "start": "119A0",
+          "end": "119FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Nandinagari",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Nandinagari",
+          "catalog_folder": "NotoSansNandinagari",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNandinagari",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 101,
+      "script": "Narb",
+      "name_en": "Old North Arabian",
+      "name_ja": "古代北アラビア",
+      "assigned_codepoints": 32,
+      "related_unicode_blocks": [
+        {
+          "start": "10A80",
+          "end": "10A9F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old North Arabian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old North Arabian",
+          "catalog_folder": "NotoSansOldNorthArabian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldNorthArabian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 102,
+      "script": "Nbat",
+      "name_en": "Nabataean",
+      "name_ja": "ナバテア",
+      "assigned_codepoints": 40,
+      "related_unicode_blocks": [
+        {
+          "start": "10880",
+          "end": "108AF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Nabataean",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Nabataean",
+          "catalog_folder": "NotoSansNabataean",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNabataean",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 103,
+      "script": "Newa",
+      "name_en": "Newa",
+      "name_ja": "ネワ",
+      "assigned_codepoints": 97,
+      "related_unicode_blocks": [
+        {
+          "start": "11400",
+          "end": "1147F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Newa",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Newa",
+          "catalog_folder": "NotoSansNewa",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNewa",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 104,
+      "script": "Nkoo",
+      "name_en": "Nko",
+      "name_ja": "ンコ",
+      "assigned_codepoints": 62,
+      "related_unicode_blocks": [
+        {
+          "start": "07C0",
+          "end": "07FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans NKo",
+      "font_candidates": [
+        {
+          "family": "Noto Sans NKo",
+          "catalog_folder": "NotoSansNKo",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNKo",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 105,
+      "script": "Nshu",
+      "name_en": "Nushu",
+      "name_ja": "女書",
+      "assigned_codepoints": 397,
+      "related_unicode_blocks": [
+        {
+          "start": "1B170",
+          "end": "1B2FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Nushu",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Nushu",
+          "catalog_folder": "NotoSansNushu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNushu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Traditional Nushu",
+          "catalog_folder": "NotoTraditionalNushu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoTraditionalNushu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 106,
+      "script": "Ogam",
+      "name_en": "Ogham",
+      "name_ja": "オガム",
+      "assigned_codepoints": 29,
+      "related_unicode_blocks": [
+        {
+          "start": "1680",
+          "end": "169F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Ogham",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Ogham",
+          "catalog_folder": "NotoSansOgham",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOgham",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 107,
+      "script": "Olck",
+      "name_en": "Ol Chiki",
+      "name_ja": "オル・チキ",
+      "assigned_codepoints": 48,
+      "related_unicode_blocks": [
+        {
+          "start": "1C50",
+          "end": "1C7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Ol Chiki",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Ol Chiki",
+          "catalog_folder": "NotoSansOlChiki",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOlChiki",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 108,
+      "script": "Onao",
+      "name_en": "Ol Onal",
+      "name_ja": "オル・オナル",
+      "assigned_codepoints": 44,
+      "related_unicode_blocks": [
+        {
+          "start": "1E5D0",
+          "end": "1E5FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Ol Onal",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Ol Onal",
+          "source_kind": "archived_source_repository",
+          "source_url": "https://github.com/notofonts/ol-onal",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 109,
+      "script": "Orkh",
+      "name_en": "Old Turkic",
+      "name_ja": "古代テュルク",
+      "assigned_codepoints": 73,
+      "related_unicode_blocks": [
+        {
+          "start": "10C00",
+          "end": "10C4F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Turkic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Turkic",
+          "catalog_folder": "NotoSansOldTurkic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldTurkic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 110,
+      "script": "Orya",
+      "name_en": "Oriya",
+      "name_ja": "オリヤ",
+      "assigned_codepoints": 93,
+      "related_unicode_blocks": [
+        {
+          "start": "0B00",
+          "end": "0B7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Oriya",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Oriya",
+          "catalog_folder": "NotoSansOriya",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOriya",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Oriya",
+          "catalog_folder": "NotoSerifOriya",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifOriya",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 111,
+      "script": "Osge",
+      "name_en": "Osage",
+      "name_ja": "オセージ",
+      "assigned_codepoints": 72,
+      "related_unicode_blocks": [
+        {
+          "start": "104B0",
+          "end": "104FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Osage",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Osage",
+          "catalog_folder": "NotoSansOsage",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOsage",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 112,
+      "script": "Osma",
+      "name_en": "Osmanya",
+      "name_ja": "オスマニヤ",
+      "assigned_codepoints": 40,
+      "related_unicode_blocks": [
+        {
+          "start": "10480",
+          "end": "104AF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Osmanya",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Osmanya",
+          "catalog_folder": "NotoSansOsmanya",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOsmanya",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 113,
+      "script": "Ougr",
+      "name_en": "Old Uyghur",
+      "name_ja": "古ウイグル",
+      "assigned_codepoints": 26,
+      "related_unicode_blocks": [
+        {
+          "start": "10F70",
+          "end": "10FAF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Old Uyghur",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Old Uyghur",
+          "catalog_folder": "NotoSerifOldUyghur",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifOldUyghur",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 114,
+      "script": "Palm",
+      "name_en": "Palmyrene",
+      "name_ja": "パルミラ",
+      "assigned_codepoints": 32,
+      "related_unicode_blocks": [
+        {
+          "start": "10860",
+          "end": "1087F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Palmyrene",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Palmyrene",
+          "catalog_folder": "NotoSansPalmyrene",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPalmyrene",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 115,
+      "script": "Pauc",
+      "name_en": "Pau Cin Hau",
+      "name_ja": "パウ・チン・ハウ",
+      "assigned_codepoints": 57,
+      "related_unicode_blocks": [
+        {
+          "start": "11AC0",
+          "end": "11AFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Pau Cin Hau",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Pau Cin Hau",
+          "catalog_folder": "NotoSansPauCinHau",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPauCinHau",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 116,
+      "script": "Pcun",
+      "name_en": "Proto Cuneiform",
+      "name_ja": "原楔形文字",
+      "assigned_codepoints": 164,
+      "related_unicode_blocks": [
+        {
+          "start": "12550",
+          "end": "1268F"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 117,
+      "script": "Perm",
+      "name_en": "Old Permic",
+      "name_ja": "古ペルム",
+      "assigned_codepoints": 43,
+      "related_unicode_blocks": [
+        {
+          "start": "10350",
+          "end": "1037F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Permic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Permic",
+          "catalog_folder": "NotoSansOldPermic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldPermic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 118,
+      "script": "Phag",
+      "name_en": "Phags Pa",
+      "name_ja": "パスパ",
+      "assigned_codepoints": 56,
+      "related_unicode_blocks": [
+        {
+          "start": "A840",
+          "end": "A87F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Phags Pa",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Phags Pa",
+          "catalog_folder": "NotoSansPhagsPa",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPhagsPa",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 119,
+      "script": "Phli",
+      "name_en": "Inscriptional Pahlavi",
+      "name_ja": "碑文パフラヴィー",
+      "assigned_codepoints": 27,
+      "related_unicode_blocks": [
+        {
+          "start": "10B60",
+          "end": "10B7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Inscriptional Pahlavi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Inscriptional Pahlavi",
+          "catalog_folder": "NotoSansInscriptionalPahlavi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansInscriptionalPahlavi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 120,
+      "script": "Phlp",
+      "name_en": "Psalter Pahlavi",
+      "name_ja": "詩篇パフラヴィー",
+      "assigned_codepoints": 29,
+      "related_unicode_blocks": [
+        {
+          "start": "10B80",
+          "end": "10BAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Psalter Pahlavi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Psalter Pahlavi",
+          "catalog_folder": "NotoSansPsalterPahlavi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPsalterPahlavi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 121,
+      "script": "Phnx",
+      "name_en": "Phoenician",
+      "name_ja": "フェニキア",
+      "assigned_codepoints": 29,
+      "related_unicode_blocks": [
+        {
+          "start": "10900",
+          "end": "1091F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Phoenician",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Phoenician",
+          "catalog_folder": "NotoSansPhoenician",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansPhoenician",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 122,
+      "script": "Plrd",
+      "name_en": "Miao",
+      "name_ja": "ミャオ",
+      "assigned_codepoints": 149,
+      "related_unicode_blocks": [
+        {
+          "start": "16F00",
+          "end": "16F9F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Miao",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Miao",
+          "catalog_folder": "NotoSansMiao",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansMiao",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 123,
+      "script": "Prti",
+      "name_en": "Inscriptional Parthian",
+      "name_ja": "碑文パルティア",
+      "assigned_codepoints": 30,
+      "related_unicode_blocks": [
+        {
+          "start": "10B40",
+          "end": "10B5F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Inscriptional Parthian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Inscriptional Parthian",
+          "catalog_folder": "NotoSansInscriptionalParthian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansInscriptionalParthian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 124,
+      "script": "Rjng",
+      "name_en": "Rejang",
+      "name_ja": "レジャン",
+      "assigned_codepoints": 37,
+      "related_unicode_blocks": [
+        {
+          "start": "A930",
+          "end": "A95F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Rejang",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Rejang",
+          "catalog_folder": "NotoSansRejang",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansRejang",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 125,
+      "script": "Rohg",
+      "name_en": "Hanifi Rohingya",
+      "name_ja": "ハニーフィー・ロヒンギャ",
+      "assigned_codepoints": 50,
+      "related_unicode_blocks": [
+        {
+          "start": "10D00",
+          "end": "10D3F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Hanifi Rohingya",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Hanifi Rohingya",
+          "catalog_folder": "NotoSansHanifiRohingya",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansHanifiRohingya",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 126,
+      "script": "Runr",
+      "name_en": "Runic",
+      "name_ja": "ルーン",
+      "assigned_codepoints": 86,
+      "related_unicode_blocks": [
+        {
+          "start": "16A0",
+          "end": "16FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Runic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Runic",
+          "catalog_folder": "NotoSansRunic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansRunic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 127,
+      "script": "Samr",
+      "name_en": "Samaritan",
+      "name_ja": "サマリア",
+      "assigned_codepoints": 61,
+      "related_unicode_blocks": [
+        {
+          "start": "0800",
+          "end": "083F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Samaritan",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Samaritan",
+          "catalog_folder": "NotoSansSamaritan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSamaritan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 128,
+      "script": "Sarb",
+      "name_en": "Old South Arabian",
+      "name_ja": "古代南アラビア",
+      "assigned_codepoints": 32,
+      "related_unicode_blocks": [
+        {
+          "start": "10A60",
+          "end": "10A7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old South Arabian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old South Arabian",
+          "catalog_folder": "NotoSansOldSouthArabian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldSouthArabian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 129,
+      "script": "Saur",
+      "name_en": "Saurashtra",
+      "name_ja": "サウラーシュトラ",
+      "assigned_codepoints": 82,
+      "related_unicode_blocks": [
+        {
+          "start": "A880",
+          "end": "A8DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Saurashtra",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Saurashtra",
+          "catalog_folder": "NotoSansSaurashtra",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSaurashtra",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 130,
+      "script": "Seal",
+      "name_en": "Seal",
+      "name_ja": "篆書・小篆",
+      "assigned_codepoints": 11328,
+      "related_unicode_blocks": [
+        {
+          "start": "3D000",
+          "end": "3FC3F"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 131,
+      "script": "Sgnw",
+      "name_en": "SignWriting",
+      "name_ja": "サットン手話表記",
+      "assigned_codepoints": 672,
+      "related_unicode_blocks": [
+        {
+          "start": "1D800",
+          "end": "1DAAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sign Writing",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sign Writing",
+          "catalog_folder": "NotoSansSignWriting",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSignWriting",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 132,
+      "script": "Shaw",
+      "name_en": "Shavian",
+      "name_ja": "ショー",
+      "assigned_codepoints": 48,
+      "related_unicode_blocks": [
+        {
+          "start": "10450",
+          "end": "1047F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Shavian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Shavian",
+          "catalog_folder": "NotoSansShavian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansShavian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 133,
+      "script": "Shrd",
+      "name_en": "Sharada",
+      "name_ja": "シャーラダー",
+      "assigned_codepoints": 104,
+      "related_unicode_blocks": [
+        {
+          "start": "11180",
+          "end": "111DF"
+        },
+        {
+          "start": "11B60",
+          "end": "11B7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sharada",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sharada",
+          "catalog_folder": "NotoSansSharada",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSharada",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 134,
+      "script": "Sidd",
+      "name_en": "Siddham",
+      "name_ja": "悉曇",
+      "assigned_codepoints": 92,
+      "related_unicode_blocks": [
+        {
+          "start": "11580",
+          "end": "115FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Siddham",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Siddham",
+          "catalog_folder": "NotoSansSiddham",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSiddham",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 135,
+      "script": "Sidt",
+      "name_en": "Sidetic",
+      "name_ja": "シデ",
+      "assigned_codepoints": 26,
+      "related_unicode_blocks": [
+        {
+          "start": "10940",
+          "end": "1095F"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 136,
+      "script": "Sind",
+      "name_en": "Khudawadi",
+      "name_ja": "クダワディ",
+      "assigned_codepoints": 69,
+      "related_unicode_blocks": [
+        {
+          "start": "112B0",
+          "end": "112FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Khudawadi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Khudawadi",
+          "catalog_folder": "NotoSansKhudawadi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansKhudawadi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 137,
+      "script": "Sinh",
+      "name_en": "Sinhala",
+      "name_ja": "シンハラ",
+      "assigned_codepoints": 111,
+      "related_unicode_blocks": [
+        {
+          "start": "0D80",
+          "end": "0DFF"
+        },
+        {
+          "start": "111E0",
+          "end": "111FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sinhala",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sinhala",
+          "catalog_folder": "NotoSansSinhala",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSinhala",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Sinhala",
+          "catalog_folder": "NotoSerifSinhala",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifSinhala",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 138,
+      "script": "Sogd",
+      "name_en": "Sogdian",
+      "name_ja": "ソグド",
+      "assigned_codepoints": 42,
+      "related_unicode_blocks": [
+        {
+          "start": "10F30",
+          "end": "10F6F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sogdian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sogdian",
+          "catalog_folder": "NotoSansSogdian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSogdian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 139,
+      "script": "Sogo",
+      "name_en": "Old Sogdian",
+      "name_ja": "古ソグド",
+      "assigned_codepoints": 40,
+      "related_unicode_blocks": [
+        {
+          "start": "10F00",
+          "end": "10F2F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Sogdian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Sogdian",
+          "catalog_folder": "NotoSansOldSogdian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldSogdian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 140,
+      "script": "Sora",
+      "name_en": "Sora Sompeng",
+      "name_ja": "ソラ・ソンペン",
+      "assigned_codepoints": 35,
+      "related_unicode_blocks": [
+        {
+          "start": "110D0",
+          "end": "110FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sora Sompeng",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sora Sompeng",
+          "catalog_folder": "NotoSansSoraSompeng",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSoraSompeng",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 141,
+      "script": "Soyo",
+      "name_en": "Soyombo",
+      "name_ja": "ソヨンボ",
+      "assigned_codepoints": 83,
+      "related_unicode_blocks": [
+        {
+          "start": "11A50",
+          "end": "11AAF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Soyombo",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Soyombo",
+          "catalog_folder": "NotoSansSoyombo",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSoyombo",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 142,
+      "script": "Sund",
+      "name_en": "Sundanese",
+      "name_ja": "スンダ",
+      "assigned_codepoints": 72,
+      "related_unicode_blocks": [
+        {
+          "start": "1B80",
+          "end": "1BBF"
+        },
+        {
+          "start": "1CC0",
+          "end": "1CCF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Sundanese",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Sundanese",
+          "catalog_folder": "NotoSansSundanese",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSundanese",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 143,
+      "script": "Sunu",
+      "name_en": "Sunuwar",
+      "name_ja": "スヌワール",
+      "assigned_codepoints": 44,
+      "related_unicode_blocks": [
+        {
+          "start": "11BC0",
+          "end": "11BFF"
+        }
+      ],
+      "preferred_candidate": "Sunuwar font project",
+      "font_candidates": [
+        {
+          "family": "Sunuwar font project",
+          "source_kind": "repository_exists",
+          "source_url": "https://github.com/notofonts/sunuwar",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 144,
+      "script": "Sylo",
+      "name_en": "Syloti Nagri",
+      "name_ja": "シロティ・ナグリ",
+      "assigned_codepoints": 45,
+      "related_unicode_blocks": [
+        {
+          "start": "A800",
+          "end": "A82F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Syloti Nagri",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Syloti Nagri",
+          "catalog_folder": "NotoSansSylotiNagri",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSylotiNagri",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 145,
+      "script": "Syrc",
+      "name_en": "Syriac",
+      "name_ja": "シリア",
+      "assigned_codepoints": 88,
+      "related_unicode_blocks": [
+        {
+          "start": "0700",
+          "end": "074F"
+        },
+        {
+          "start": "0860",
+          "end": "086F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Syriac",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Syriac",
+          "catalog_folder": "NotoSansSyriac",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansSyriac",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 146,
+      "script": "Tagb",
+      "name_en": "Tagbanwa",
+      "name_ja": "タグバヌア",
+      "assigned_codepoints": 18,
+      "related_unicode_blocks": [
+        {
+          "start": "1760",
+          "end": "177F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tagbanwa",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tagbanwa",
+          "catalog_folder": "NotoSansTagbanwa",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTagbanwa",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 147,
+      "script": "Takr",
+      "name_en": "Takri",
+      "name_ja": "タークリー",
+      "assigned_codepoints": 68,
+      "related_unicode_blocks": [
+        {
+          "start": "11680",
+          "end": "116CF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Takri",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Takri",
+          "catalog_folder": "NotoSansTakri",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTakri",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 148,
+      "script": "Tale",
+      "name_en": "Tai Le",
+      "name_ja": "タイ・レー",
+      "assigned_codepoints": 35,
+      "related_unicode_blocks": [
+        {
+          "start": "1950",
+          "end": "197F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tai Le",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tai Le",
+          "catalog_folder": "NotoSansTaiLe",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiLe",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 149,
+      "script": "Talu",
+      "name_en": "New Tai Lue",
+      "name_ja": "新タイ・ルー",
+      "assigned_codepoints": 83,
+      "related_unicode_blocks": [
+        {
+          "start": "1980",
+          "end": "19DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans New Tai Lue",
+      "font_candidates": [
+        {
+          "family": "Noto Sans New Tai Lue",
+          "catalog_folder": "NotoSansNewTaiLue",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansNewTaiLue",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 150,
+      "script": "Taml",
+      "name_en": "Tamil",
+      "name_ja": "タミル",
+      "assigned_codepoints": 123,
+      "related_unicode_blocks": [
+        {
+          "start": "0B80",
+          "end": "0BFF"
+        },
+        {
+          "start": "11FC0",
+          "end": "11FFF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tamil",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tamil",
+          "catalog_folder": "NotoSansTamil",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTamil",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Tamil",
+          "catalog_folder": "NotoSerifTamil",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTamil",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 151,
+      "script": "Tang",
+      "name_en": "Tangut",
+      "name_ja": "西夏",
+      "assigned_codepoints": 7061,
+      "related_unicode_blocks": [
+        {
+          "start": "17000",
+          "end": "187FF"
+        },
+        {
+          "start": "18800",
+          "end": "18AFF"
+        },
+        {
+          "start": "18D00",
+          "end": "18D7F"
+        },
+        {
+          "start": "18D80",
+          "end": "18DFF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Tangut",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Tangut",
+          "catalog_folder": "NotoSerifTangut",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTangut",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 152,
+      "script": "Tavt",
+      "name_en": "Tai Viet",
+      "name_ja": "タイ・ヴィエト",
+      "assigned_codepoints": 72,
+      "related_unicode_blocks": [
+        {
+          "start": "AA80",
+          "end": "AADF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tai Viet",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tai Viet",
+          "catalog_folder": "NotoSansTaiViet",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTaiViet",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 153,
+      "script": "Tayo",
+      "name_en": "Tai Yo",
+      "name_ja": "タイ・ヨー",
+      "assigned_codepoints": 55,
+      "related_unicode_blocks": [
+        {
+          "start": "1E6C0",
+          "end": "1E6FF"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 154,
+      "script": "Telu",
+      "name_en": "Telugu",
+      "name_ja": "テルグ",
+      "assigned_codepoints": 101,
+      "related_unicode_blocks": [
+        {
+          "start": "0C00",
+          "end": "0C7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Telugu",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Telugu",
+          "catalog_folder": "NotoSansTelugu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTelugu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Telugu",
+          "catalog_folder": "NotoSerifTelugu",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTelugu",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 155,
+      "script": "Tfng",
+      "name_en": "Tifinagh",
+      "name_ja": "ティフィナグ",
+      "assigned_codepoints": 59,
+      "related_unicode_blocks": [
+        {
+          "start": "2D30",
+          "end": "2D7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tifinagh",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tifinagh",
+          "catalog_folder": "NotoSansTifinagh",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTifinagh",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 156,
+      "script": "Tglg",
+      "name_en": "Tagalog",
+      "name_ja": "タガログ",
+      "assigned_codepoints": 23,
+      "related_unicode_blocks": [
+        {
+          "start": "1700",
+          "end": "171F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tagalog",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tagalog",
+          "catalog_folder": "NotoSansTagalog",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTagalog",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 157,
+      "script": "Thaa",
+      "name_en": "Thaana",
+      "name_ja": "ターナ",
+      "assigned_codepoints": 50,
+      "related_unicode_blocks": [
+        {
+          "start": "0780",
+          "end": "07BF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Thaana",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Thaana",
+          "catalog_folder": "NotoSansThaana",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansThaana",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 158,
+      "script": "Thai",
+      "name_en": "Thai",
+      "name_ja": "タイ",
+      "assigned_codepoints": 86,
+      "related_unicode_blocks": [
+        {
+          "start": "0E00",
+          "end": "0E7F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Thai",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Thai",
+          "catalog_folder": "NotoSansThai",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansThai",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Thai",
+          "catalog_folder": "NotoSerifThai",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifThai",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 159,
+      "script": "Tibt",
+      "name_en": "Tibetan",
+      "name_ja": "チベット",
+      "assigned_codepoints": 207,
+      "related_unicode_blocks": [
+        {
+          "start": "0F00",
+          "end": "0FFF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Tibetan",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Tibetan",
+          "catalog_folder": "NotoSerifTibetan",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifTibetan",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 160,
+      "script": "Tirh",
+      "name_en": "Tirhuta",
+      "name_ja": "ティルフター",
+      "assigned_codepoints": 82,
+      "related_unicode_blocks": [
+        {
+          "start": "11480",
+          "end": "114DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tirhuta",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tirhuta",
+          "catalog_folder": "NotoSansTirhuta",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTirhuta",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 161,
+      "script": "Tnsa",
+      "name_en": "Tangsa",
+      "name_ja": "タンサ",
+      "assigned_codepoints": 89,
+      "related_unicode_blocks": [
+        {
+          "start": "16A70",
+          "end": "16ACF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Tangsa",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Tangsa",
+          "catalog_folder": "NotoSansTangsa",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansTangsa",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 162,
+      "script": "Todr",
+      "name_en": "Todhri",
+      "name_ja": "トドリ",
+      "assigned_codepoints": 52,
+      "related_unicode_blocks": [
+        {
+          "start": "105C0",
+          "end": "105FF"
+        }
+      ],
+      "preferred_candidate": "Noto Todhri",
+      "font_candidates": [
+        {
+          "family": "Noto Todhri",
+          "source_kind": "archived_source_repository",
+          "source_url": "https://github.com/notofonts/todhri",
+          "evidence": "individual source repository exists; compiled font and cmap not verified",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "project_or_generic_candidate_only",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 163,
+      "script": "Tols",
+      "name_en": "Tolong Siki",
+      "name_ja": "トロン・シキ",
+      "assigned_codepoints": 54,
+      "related_unicode_blocks": [
+        {
+          "start": "11DB0",
+          "end": "11DEF"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 164,
+      "script": "Toto",
+      "name_en": "Toto",
+      "name_ja": "トト",
+      "assigned_codepoints": 31,
+      "related_unicode_blocks": [
+        {
+          "start": "1E290",
+          "end": "1E2BF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Toto",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Toto",
+          "catalog_folder": "NotoSerifToto",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifToto",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 165,
+      "script": "Tutg",
+      "name_en": "Tulu Tigalari",
+      "name_ja": "トゥル・ティガラリ",
+      "assigned_codepoints": 80,
+      "related_unicode_blocks": [
+        {
+          "start": "11380",
+          "end": "113FF"
+        }
+      ],
+      "preferred_candidate": null,
+      "font_candidates": [],
+      "existing_site_font_candidates": [],
+      "source_status": "no_catalog_source_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 166,
+      "script": "Ugar",
+      "name_en": "Ugaritic",
+      "name_ja": "ウガリト",
+      "assigned_codepoints": 31,
+      "related_unicode_blocks": [
+        {
+          "start": "10380",
+          "end": "1039F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Ugaritic",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Ugaritic",
+          "catalog_folder": "NotoSansUgaritic",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansUgaritic",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 167,
+      "script": "Vaii",
+      "name_en": "Vai",
+      "name_ja": "ヴァイ",
+      "assigned_codepoints": 300,
+      "related_unicode_blocks": [
+        {
+          "start": "A500",
+          "end": "A63F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Vai",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Vai",
+          "catalog_folder": "NotoSansVai",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansVai",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 168,
+      "script": "Vith",
+      "name_en": "Vithkuqi",
+      "name_ja": "ヴィトクチ",
+      "assigned_codepoints": 70,
+      "related_unicode_blocks": [
+        {
+          "start": "10570",
+          "end": "105BF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Vithkuqi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Vithkuqi",
+          "catalog_folder": "NotoSansVithkuqi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansVithkuqi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        },
+        {
+          "family": "Noto Serif Vithkuqi",
+          "catalog_folder": "NotoSerifVithkuqi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifVithkuqi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 169,
+      "script": "Wara",
+      "name_en": "Warang Citi",
+      "name_ja": "ワラン・チティ",
+      "assigned_codepoints": 84,
+      "related_unicode_blocks": [
+        {
+          "start": "118A0",
+          "end": "118FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Warang Citi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Warang Citi",
+          "catalog_folder": "NotoSansWarangCiti",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansWarangCiti",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 170,
+      "script": "Wcho",
+      "name_en": "Wancho",
+      "name_ja": "ワンチョ",
+      "assigned_codepoints": 59,
+      "related_unicode_blocks": [
+        {
+          "start": "1E2C0",
+          "end": "1E2FF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Wancho",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Wancho",
+          "catalog_folder": "NotoSansWancho",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansWancho",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 171,
+      "script": "Xpeo",
+      "name_en": "Old Persian",
+      "name_ja": "古代ペルシア楔形",
+      "assigned_codepoints": 50,
+      "related_unicode_blocks": [
+        {
+          "start": "103A0",
+          "end": "103DF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Old Persian",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Old Persian",
+          "catalog_folder": "NotoSansOldPersian",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansOldPersian",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 172,
+      "script": "Xsux",
+      "name_en": "Cuneiform",
+      "name_ja": "楔形文字",
+      "assigned_codepoints": 1393,
+      "related_unicode_blocks": [
+        {
+          "start": "12000",
+          "end": "123FF"
+        },
+        {
+          "start": "12400",
+          "end": "1247F"
+        },
+        {
+          "start": "12480",
+          "end": "1254F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Cuneiform",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Cuneiform",
+          "catalog_folder": "NotoSansCuneiform",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansCuneiform",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [
+        {
+          "family": "Noto Music",
+          "file": "fonts/music/NotoMusic-Regular.ttf",
+          "note": "Not recommended for regular cuneiform; do not use as primary",
+          "cmap_verified": false,
+          "source_kind": "site_static_asset"
+        }
+      ],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 173,
+      "script": "Yezi",
+      "name_en": "Yezidi",
+      "name_ja": "ヤズィーディー",
+      "assigned_codepoints": 47,
+      "related_unicode_blocks": [
+        {
+          "start": "10E80",
+          "end": "10EBF"
+        }
+      ],
+      "preferred_candidate": "Noto Serif Yezidi",
+      "font_candidates": [
+        {
+          "family": "Noto Serif Yezidi",
+          "catalog_folder": "NotoSerifYezidi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSerifYezidi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 174,
+      "script": "Yiii",
+      "name_en": "Yi",
+      "name_ja": "イ",
+      "assigned_codepoints": 1220,
+      "related_unicode_blocks": [
+        {
+          "start": "A000",
+          "end": "A48F"
+        },
+        {
+          "start": "A490",
+          "end": "A4CF"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Yi",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Yi",
+          "catalog_folder": "NotoSansYi",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansYi",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    },
+    {
+      "no": 175,
+      "script": "Zanb",
+      "name_en": "Zanabazar Square",
+      "name_ja": "ザナバザル・スクエア",
+      "assigned_codepoints": 72,
+      "related_unicode_blocks": [
+        {
+          "start": "11A00",
+          "end": "11A4F"
+        }
+      ],
+      "preferred_candidate": "Noto Sans Zanabazar Square",
+      "font_candidates": [
+        {
+          "family": "Noto Sans Zanabazar Square",
+          "catalog_folder": "NotoSansZanabazarSquare",
+          "source_kind": "noto_fonts_family_directory",
+          "source_url": "https://github.com/notofonts/noto-fonts/tree/main/hinted/ttf/NotoSansZanabazarSquare",
+          "evidence": "family_directory_exists; exact codepoint cmap not inspected",
+          "cmap_verified": false
+        }
+      ],
+      "existing_site_font_candidates": [],
+      "source_status": "family_directory_identified",
+      "verified_glyph_count": null,
+      "verified_font_coverage": null
+    }
+  ]
+}
