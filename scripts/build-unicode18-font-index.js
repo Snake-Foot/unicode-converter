@@ -70,6 +70,34 @@ for (let i = 0; i < ranges.length; i++) {
   }
   if (i && start <= ranges[i - 1][1]) throw new Error("Overlapping index ranges");
 }
+const classification = JSON.parse(fs.readFileSync(path.join(root, "data/unicode18_all_ranges.json"), "utf8"));
+const catalog = JSON.parse(fs.readFileSync(path.join(root, "data/unicode18_font_candidates_175.json"), "utf8"));
+if (classification.unicode_version !== "18.0.0" || catalog.unicode_version !== "18.0.0" || catalog.scripts.length !== 175) {
+  throw new Error("Unicode catalog mismatch");
+}
+const unencoded = new Set(["Cn", "Co", "Cs", "Cc"]);
+const scriptRanges = [];
+for (const r of classification.ranges) {
+  if (unencoded.has(r.category)) continue;
+  const start = parseInt(r.start, 16), end = parseInt(r.end, 16);
+  const previous = scriptRanges[scriptRanges.length - 1];
+  if (previous && previous[2] === r.script && previous[1] + 1 === start) {
+    previous[1] = end;
+  } else scriptRanges.push([start, end, r.script]);
+}
+const scriptGoogleCandidates = {};
+for (const s of catalog.scripts) {
+  const names = s.font_candidates.filter(candidate =>
+    candidate.source_kind === "noto_fonts_family_directory" ||
+    (candidate.source_kind === "repository_exists" && candidate.family.startsWith("Noto ")) ||
+    (candidate.source_kind === "archived_source_repository" && candidate.family.startsWith("Noto "))
+  ).map(candidate => candidate.family).filter(name => /^Noto (?:Sans|Serif) [\w \-]+$/.test(name));
+  if (s.script === "Hani" || s.script === "Hira" || s.script === "Kana" || s.script === "Bopo")
+    names.unshift("Noto Sans JP");
+  if (s.script === "Hang") names.unshift("Noto Sans KR");
+  if (names.length) scriptGoogleCandidates[s.script] = [...new Set(names)].slice(0, 3);
+}
+
 const result = {
   schema_version: 1,
   unicode_version: audit.unicode_version,
@@ -78,6 +106,8 @@ const result = {
   total_assigned_unicode18: 172808,
   covered_by_available_site_local_fonts: covered,
   font_families: fonts,
+  script_ranges: scriptRanges,
+  script_google_candidates: scriptGoogleCandidates,
   ranges
 };
 fs.writeFileSync(output, JSON.stringify(result) + "\n", "utf8");
