@@ -10,6 +10,7 @@ on:
       - "scripts/audit-unicode18-fonts.js"
       - "scripts/build-unicode18-font-index.js"
       - "scripts/test-unicode18-font-index.js"
+      - "scripts/test-extension-j-font.js"
       - "scripts/test-unicode18-emoji-display.js"
       - "data/unicode18_emoji_presentation.json"
       - "js/emoji-display.js"
@@ -55,6 +56,7 @@ jobs:
           node --check scripts/audit-unicode18-fonts.js
           node --check scripts/build-unicode18-font-index.js
           node --check scripts/test-unicode18-font-index.js
+          node --check scripts/test-extension-j-font.js
           node --check js/font-coverage.js
           node --check js/emoji-display.js
           node --check js/daily.js
@@ -68,6 +70,8 @@ jobs:
         run: node scripts/build-unicode18-font-index.js
       - name: Validate font index and official Unicode boundaries
         run: node scripts/test-unicode18-font-index.js
+      - name: Test CJK Extension J glyph outlines
+        run: node scripts/test-extension-j-font.js
       - name: Test Unicode 18 color emoji classification
         run: node scripts/test-unicode18-emoji-display.js
       - name: Check daily character font discovery
