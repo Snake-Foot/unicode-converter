@@ -32,17 +32,8 @@
 }
 
 
-/* Tangut Extended */
-
-@font-face {
-  font-family: "Tangut Extended";
-
-  src:
-    url("./tangut-extended.woff2")
-    format("woff2");
-
-  font-display: swap;
-}
+/* Tangut Extended: missing local binary removed; Noto Serif Tangut
+   remains available through its existing Google Fonts CSS link. */
 
 
 /* Plangothic */
