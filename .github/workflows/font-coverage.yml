@@ -10,6 +10,7 @@ on:
       - "scripts/audit-unicode18-fonts.js"
       - "scripts/build-unicode18-font-index.js"
       - "scripts/test-unicode18-font-index.js"
+      - "scripts/generate-daily.js"
       - "data/unicode18_all_ranges.json"
       - "data/unicode18_font_candidates_175.json"
       - "data/unicode18_font_audit_manifest.json"
@@ -53,12 +54,28 @@ jobs:
           node --check js/font-coverage.js
           node --check js/converter.js
           node --check js/fonts.js
+          node --check scripts/generate-daily.js
       - name: Inspect real on-site font cmap tables
         run: node scripts/audit-unicode18-fonts.js
       - name: Build compressed browser font-coverage lookup
         run: node scripts/build-unicode18-font-index.js
       - name: Validate font index and official Unicode boundaries
         run: node scripts/test-unicode18-font-index.js
+      - name: Check daily character font discovery
+        run: |
+          node - <<'NODE'
+          const {loadFonts}=require('./scripts/generate-daily.js');
+          const fonts=loadFonts();
+          const paths=new Set(fonts.map(f=>f.file));
+          if(fonts.length<25)throw Error('New fonts not discovered in daily generator');
+          for(const required of [
+            'fonts/han/PlangothicP1-Regular.woff2',
+            'fonts/seal/KaiyuanSmallSeal-Regular.woff2',
+            'fonts/scripts/NotoSansArabic-Regular.ttf',
+            'fonts/ancient/NotoSansCuneiform-Regular.ttf'
+          ])if(!paths.has(required))throw Error('Missing daily font: '+required);
+          console.log('Daily SVG font discovery passed:',fonts.length,'fonts');
+          NODE
       - name: Persist reproducible coverage data
         run: |
           git config user.name "github-actions[bot]"
