@@ -1,0 +1,21 @@
+"use strict";
+const assert=require("node:assert/strict");
+const vm=require("node:vm");
+const fs=require("node:fs");
+const script=fs.readFileSync("js/bulk-input-policy.js","utf8")+
+"\nglobalThis.policy={countBulkUnicodeTokens,bulkUnicodeRequiresManualApply,BULK_AUTO_RENDER_LIMIT,BULK_AUTO_RENDER_DELAY_MS};";
+const ctx={};
+vm.runInNewContext(script,ctx);
+const p=ctx.policy;
+assert.equal(p.countBulkUnicodeTokens("U+1F600 U+3042\nU+4E00,332D3"),4);
+assert.equal(p.countBulkUnicodeTokens(""),0);
+const items=Array.from({length:500},(_,i)=>"U+"+(0x30000+i).toString(16));
+assert.equal(p.countBulkUnicodeTokens(items.join(" ")),500);
+assert.equal(p.bulkUnicodeRequiresManualApply(items.join(" ")),true);
+assert.equal(p.bulkUnicodeRequiresManualApply(items.slice(0,30).join(" ")),false);
+assert.equal(p.bulkUnicodeRequiresManualApply(items.slice(0,31).join(" ")),true);
+const edit=items.join(" ").replaceAll("U+","");
+assert.equal(p.countBulkUnicodeTokens(edit),500);
+assert.equal(p.bulkUnicodeRequiresManualApply(edit),true);
+assert(p.BULK_AUTO_RENDER_DELAY_MS>=300);
+console.log("Bulk editor policy verified: up to 30 automatic, 31-500 manual");
