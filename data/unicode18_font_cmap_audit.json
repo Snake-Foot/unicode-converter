@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "unicode_version": "18.0.0",
-  "generated_at_utc": "2026-10-10T13:23:33.245Z",
+  "generated_at_utc": "2026-10-10T13:31:02.720Z",
   "meaning": "CMAP mappings in the locally inspected font binaries only; NOT tested browser rendering or correct glyph shapes.",
   "method": "Read actual fontkit characterSet from each binary, intersect with assigned Unicode 18.0 Script + General_Category, union by Script.",
   "excluded_categories": [
@@ -919,7 +919,7 @@
     {
       "id": 2,
       "family": "Noto Sans Symbols 2 Local",
-      "file": "fonts/NotoSansSymbols2-Regular.ttf",
+      "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
       "file_sha256": "c4a0a80f0041ce4be81e2478faad22776d23edb98ae3f0d19bd37044820ecf9d",
       "file_bytes": 671568,
       "cmap_characters_within_unicode18": 2638,
@@ -1650,7 +1650,7 @@
     {
       "id": 3,
       "family": "Plangothic P1",
-      "file": "fonts/PlangothicP1-Regular.woff2",
+      "file": "fonts/han/PlangothicP1-Regular.woff2",
       "file_sha256": "073fb3aeb6e5b5f03252281a41699e8cbf702be4e83e09eb1646979782aaf27b",
       "file_bytes": 8494436,
       "cmap_characters_within_unicode18": 63882,
@@ -6303,7 +6303,7 @@
     {
       "id": 4,
       "family": "Plangothic P2",
-      "file": "fonts/PlangothicP2-Regular.woff2",
+      "file": "fonts/han/PlangothicP2-Regular.woff2",
       "file_sha256": "168f0055c771f10a8bff636139abc02d3f06fe696b0725fbc17a50c7b4879863",
       "file_bytes": 4188280,
       "cmap_characters_within_unicode18": 41976,
@@ -10054,7 +10054,7 @@
     {
       "id": 5,
       "family": "UniHieroglyphica",
-      "file": "fonts/UniHieroglyphica.ttf",
+      "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
       "file_sha256": "ad60bb2f469697837b556388d47b500a21d866370a49a8be770b206108aaf664",
       "file_bytes": 17455560,
       "cmap_characters_within_unicode18": 5285,
@@ -10275,7 +10275,7 @@
     {
       "id": 6,
       "family": "Egyptology Extended",
-      "file": "fonts/EgyptologyExtended.woff2",
+      "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
       "file_sha256": "713264e326e43da66de0a73b4ffeb2ba7a692bc1ed5e3161cd5d49f4d5fd9802",
       "file_bytes": 416660,
       "cmap_characters_within_unicode18": 2924,
@@ -13158,7 +13158,7 @@
     {
       "id": 7,
       "family": "BabelStone Pseudographica",
-      "file": "fonts/BabelStonePseudographica.woff2",
+      "file": "fonts/symbols/BabelStonePseudographica.woff2",
       "file_sha256": "c361fbb6e199efeaff5877bdad4020ba0b7187551d27420ad57a7e78462b1f64",
       "file_bytes": 126868,
       "cmap_characters_within_unicode18": 2702,
@@ -13783,7 +13783,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 53
         }
       ]
@@ -13812,7 +13812,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 8
         }
       ]
@@ -13989,13 +13989,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 385
         },
         {
           "font_id": 2,
           "family": "Noto Sans Symbols 2 Local",
-          "file": "fonts/NotoSansSymbols2-Regular.ttf",
+          "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 31
         }
       ]
@@ -14050,13 +14050,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -14099,7 +14099,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 6
         }
       ]
@@ -14239,7 +14239,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 50
         }
       ]
@@ -14290,13 +14290,13 @@
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
@@ -14327,7 +14327,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 7
         }
       ]
@@ -14343,13 +14343,13 @@
         {
           "font_id": 2,
           "family": "Noto Sans Symbols 2 Local",
-          "file": "fonts/NotoSansSymbols2-Regular.ttf",
+          "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 256
         },
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 256
         }
       ]
@@ -14406,7 +14406,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -14506,7 +14506,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 28
         }
       ]
@@ -14544,7 +14544,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 99
         }
       ]
@@ -14600,19 +14600,19 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 83
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -14639,7 +14639,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 13
         }
       ]
@@ -14655,7 +14655,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 72
         }
       ]
@@ -14699,7 +14699,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 143
         }
       ]
@@ -14715,19 +14715,19 @@
         {
           "font_id": 5,
           "family": "UniHieroglyphica",
-          "file": "fonts/UniHieroglyphica.ttf",
+          "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 5105
         },
         {
           "font_id": 6,
           "family": "Egyptology Extended",
-          "file": "fonts/EgyptologyExtended.woff2",
+          "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
           "cmap_codepoints": 2924
         },
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 39
         }
       ]
@@ -14757,7 +14757,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 23
         }
       ]
@@ -14902,7 +14902,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 28
         }
       ]
@@ -14935,7 +14935,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 9
         }
       ]
@@ -15010,7 +15010,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 40
         }
       ]
@@ -15188,7 +15188,7 @@
         {
           "font_id": 2,
           "family": "Noto Sans Symbols 2 Local",
-          "file": "fonts/NotoSansSymbols2-Regular.ttf",
+          "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 80
         },
         {
@@ -15200,13 +15200,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 24
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 15
         }
       ]
@@ -15279,7 +15279,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 6
         }
       ]
@@ -15295,7 +15295,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 58
         }
       ]
@@ -15390,13 +15390,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 11737
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -19753,13 +19753,13 @@
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 63471
         },
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 14122
         }
       ]
@@ -19848,7 +19848,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -19881,7 +19881,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 291
         }
       ]
@@ -19967,7 +19967,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 108
         }
       ]
@@ -19996,7 +19996,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -20187,13 +20187,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 86
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 39
         }
       ]
@@ -20272,7 +20272,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 25
         }
       ]
@@ -20288,7 +20288,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 87
         }
       ]
@@ -20337,7 +20337,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -20374,7 +20374,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -20399,7 +20399,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -20420,13 +20420,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 472
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 28
         }
       ]
@@ -20495,7 +20495,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -20511,7 +20511,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 58
         }
       ]
@@ -20532,7 +20532,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -20651,7 +20651,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 16
         }
       ]
@@ -20682,7 +20682,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 469
         },
         {
@@ -20694,19 +20694,19 @@
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 168
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 133
         },
         {
           "font_id": 5,
           "family": "UniHieroglyphica",
-          "file": "fonts/UniHieroglyphica.ttf",
+          "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 81
         }
       ]
@@ -20765,7 +20765,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -20846,7 +20846,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -20894,7 +20894,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 39
         }
       ]
@@ -20910,7 +20910,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 25
         }
       ]
@@ -20998,7 +20998,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 213
         }
       ]
@@ -21088,7 +21088,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 79
         }
       ]
@@ -21129,7 +21129,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 15
         }
       ]
@@ -21236,7 +21236,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 21
         }
       ]
@@ -21252,7 +21252,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 42
         }
       ]
@@ -21268,7 +21268,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 65
         }
       ]
@@ -21329,7 +21329,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 5
         }
       ]
@@ -21350,7 +21350,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -21366,7 +21366,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 397
         }
       ]
@@ -21410,7 +21410,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 44
         }
       ]
@@ -21435,7 +21435,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -21508,7 +21508,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
         }
       ]
@@ -21560,7 +21560,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 26
         }
       ]
@@ -21604,7 +21604,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 164
         }
       ]
@@ -21666,7 +21666,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 29
         }
       ]
@@ -21785,7 +21785,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 8
         }
       ]
@@ -21842,7 +21842,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -21872,7 +21872,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 672
         }
       ]
@@ -21911,7 +21911,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 10
         }
       ]
@@ -21927,7 +21927,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 92
         }
       ]
@@ -21943,7 +21943,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 26
         }
       ]
@@ -21959,7 +21959,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 69
         }
       ]
@@ -22037,7 +22037,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 42
         }
       ]
@@ -22053,7 +22053,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 40
         }
       ]
@@ -22119,7 +22119,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 44
         }
       ]
@@ -22140,7 +22140,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -22169,7 +22169,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 11
         }
       ]
@@ -22216,7 +22216,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         }
       ]
@@ -22341,7 +22341,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 51
         }
       ]
@@ -22362,13 +22362,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 7060
         },
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 5
         }
       ]
@@ -22402,7 +22402,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 55
         }
       ]
@@ -22467,7 +22467,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -22514,7 +22514,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -22615,13 +22615,13 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 64
         },
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 11
         }
       ]
@@ -22637,7 +22637,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 82
         }
       ]
@@ -22653,7 +22653,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 89
         }
       ]
@@ -22669,7 +22669,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 52
         }
       ]
@@ -22685,7 +22685,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 54
         }
       ]
@@ -22701,7 +22701,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 31
         }
       ]
@@ -22803,7 +22803,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 70
         }
       ]
@@ -22886,7 +22886,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 411
         }
       ]
@@ -22947,7 +22947,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 71
         }
       ]
@@ -23004,7 +23004,7 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 395
         },
         {
@@ -23022,13 +23022,13 @@
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 33
         },
         {
           "font_id": 2,
           "family": "Noto Sans Symbols 2 Local",
-          "file": "fonts/NotoSansSymbols2-Regular.ttf",
+          "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 4
         }
       ]
@@ -24001,19 +24001,19 @@
         {
           "font_id": 4,
           "family": "Plangothic P2",
-          "file": "fonts/PlangothicP2-Regular.woff2",
+          "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2626
         },
         {
           "font_id": 2,
           "family": "Noto Sans Symbols 2 Local",
-          "file": "fonts/NotoSansSymbols2-Regular.ttf",
+          "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 2267
         },
         {
           "font_id": 7,
           "family": "BabelStone Pseudographica",
-          "file": "fonts/BabelStonePseudographica.woff2",
+          "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 2233
         },
         {
@@ -24031,13 +24031,13 @@
         {
           "font_id": 3,
           "family": "Plangothic P1",
-          "file": "fonts/PlangothicP1-Regular.woff2",
+          "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 181
         },
         {
           "font_id": 5,
           "family": "UniHieroglyphica",
-          "file": "fonts/UniHieroglyphica.ttf",
+          "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 99
         }
       ]
