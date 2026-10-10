@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "unicode_version": "18.0.0",
-  "generated_at_utc": "2026-10-10T15:59:55.688Z",
+  "generated_at_utc": "2026-10-10T16:04:30.404Z",
   "meaning": "CMAP mappings in the locally inspected font binaries only; NOT tested browser rendering or correct glyph shapes.",
   "method": "Read actual fontkit characterSet from each binary, intersect with assigned Unicode 18.0 Script + General_Category, union by Script.",
   "excluded_categories": [
@@ -21,7 +21,7 @@
     "unicode18_assigned_codepoints": 172808,
     "cmap_covered_union": 168730,
     "cmap_uncovered_union": 4078,
-    "fonts_inspected": 46,
+    "fonts_inspected": 45,
     "source_issues": 0
   },
   "font_sources": [
@@ -73611,45 +73611,6 @@
     },
     {
       "id": 10,
-      "family": "YKT Smooth Han B",
-      "file": "fonts/han/YKTSmoothHanB.woff2",
-      "file_sha256": "a3911e1586a4f5c44cdb7da3b0f5ecf63a8b12ee4c6a42d40966d0b28a0f4ab7",
-      "file_bytes": 3448,
-      "cmap_characters_within_unicode18": 6,
-      "per_script": {
-        "Hani": {
-          "count": 6,
-          "codepoint_ranges": [
-            {
-              "start": "20478",
-              "end": "20478"
-            },
-            {
-              "start": "2076F",
-              "end": "2076F"
-            },
-            {
-              "start": "207B8",
-              "end": "207B8"
-            },
-            {
-              "start": "27971",
-              "end": "27971"
-            },
-            {
-              "start": "29C09",
-              "end": "29C09"
-            },
-            {
-              "start": "29D27",
-              "end": "29D27"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 11,
       "family": "GNU Unifont Upper",
       "file": "fonts/han/unifont_upper-18.0.01.otf",
       "file_sha256": "472201e45a050bff4c7658208b8c73e34ebce3764b287a5a46c7774038ef9391",
@@ -81680,7 +81641,7 @@
       }
     },
     {
-      "id": 12,
+      "id": 11,
       "family": "Egyptology Extended",
       "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
       "file_sha256": "713264e326e43da66de0a73b4ffeb2ba7a692bc1ed5e3161cd5d49f4d5fd9802",
@@ -84563,7 +84524,7 @@
       }
     },
     {
-      "id": 13,
+      "id": 12,
       "family": "UniHieroglyphica",
       "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
       "file_sha256": "ad60bb2f469697837b556388d47b500a21d866370a49a8be770b206108aaf664",
@@ -84784,7 +84745,7 @@
       }
     },
     {
-      "id": 14,
+      "id": 13,
       "family": "Noto Music",
       "file": "fonts/music/NotoMusic-Regular.ttf",
       "file_sha256": "e913be269fe16723d1dea0afc3c31a28be6958f6a7f0e6d5be6e98506c4022bd",
@@ -85098,7 +85059,7 @@
       }
     },
     {
-      "id": 15,
+      "id": 14,
       "family": "Noto Znamenny Musical Notation",
       "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
       "file_sha256": "38b7bd32372d35f7601e8cc485c5b04d0a023c75ecebe9543a7916e3c0626c32",
@@ -85367,7 +85328,7 @@
       }
     },
     {
-      "id": 16,
+      "id": 15,
       "family": "Noto Sans Phonetics",
       "file": "fonts/phonetics/NotoSans-Regular.ttf",
       "file_sha256": "fe8c022f48d8dd29f17b744d16f9346f4357e16f7d4f7be58b000ae7c291b614",
@@ -85944,7 +85905,7 @@
       }
     },
     {
-      "id": 17,
+      "id": 16,
       "family": "Noto Sans Arabic",
       "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
       "file_sha256": "ceea25b464a656dc3b26849bab9356740401af62aedf1bfa8b7f0d9b75925b1b",
@@ -86149,7 +86110,7 @@
       }
     },
     {
-      "id": 18,
+      "id": 17,
       "family": "Noto Sans Balinese",
       "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
       "file_sha256": "9b82c9de4890d39d9ef09e7b09158ede558ddbaf8c85384461a10f492d489577",
@@ -86206,7 +86167,7 @@
       }
     },
     {
-      "id": 19,
+      "id": 18,
       "family": "Noto Sans Bamum",
       "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
       "file_sha256": "7215685b39f19cbd142d73e4f4f81f4a2586cdeed0d6c0de43f84b7ef060fe6c",
@@ -86242,7 +86203,7 @@
       }
     },
     {
-      "id": 20,
+      "id": 19,
       "family": "Noto Sans Canadian Aboriginal",
       "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
       "file_sha256": "70735441641a0a90f9f1baa45c7340deea77f19c5829fc71162bb443acad2ca7",
@@ -86312,7 +86273,7 @@
       }
     },
     {
-      "id": 21,
+      "id": 20,
       "family": "Noto Sans Cherokee",
       "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
       "file_sha256": "b1fc4e947c0647dc79e88a6583c3b50d81d533732cd9be821d4d4999def842cd",
@@ -86377,7 +86338,7 @@
       }
     },
     {
-      "id": 22,
+      "id": 21,
       "family": "Noto Sans Deseret",
       "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
       "file_sha256": "62a7ba0fe4d060fb9c3d73ca9fceb12dfac5137991cecbdad3ab65606e764264",
@@ -86409,7 +86370,7 @@
       }
     },
     {
-      "id": 23,
+      "id": 22,
       "family": "Noto Sans Ethiopic",
       "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
       "file_sha256": "e3a81ca66eb6d6b1a50a287c1dba18195541f69e0986f8b49a42658aa592ff0d",
@@ -86594,7 +86555,7 @@
       }
     },
     {
-      "id": 24,
+      "id": 23,
       "family": "Noto Sans Georgian",
       "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
       "file_sha256": "b36ab61cbdd820ffd32f957f704f5bf0c53655e820b7a64001091058919a11a6",
@@ -86704,7 +86665,7 @@
       }
     },
     {
-      "id": 25,
+      "id": 24,
       "family": "Noto Sans Gunjala Gondi",
       "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
       "file_sha256": "2c5fe49c356c5ec81081e01d62efa63fc486610a5914a9652a988257df71cdaf",
@@ -86809,7 +86770,7 @@
       }
     },
     {
-      "id": 26,
+      "id": 25,
       "family": "Noto Sans Hebrew",
       "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
       "file_sha256": "a7fa16fffb27bedb060a0866267c29e9859aeb9c21cc33f5b3aaf6eb062eca85",
@@ -86898,7 +86859,7 @@
       }
     },
     {
-      "id": 27,
+      "id": 26,
       "family": "Noto Sans Kaithi",
       "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
       "file_sha256": "481b743138f771102969950e287dadf607f6a798c559d48a712777efe4108156",
@@ -86972,7 +86933,7 @@
       }
     },
     {
-      "id": 28,
+      "id": 27,
       "family": "Noto Sans Khmer",
       "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
       "file_sha256": "5c1ec068352f1e1fe8e7a3218230360d054e104d377ef40c0423b17c34c3c259",
@@ -87077,7 +87038,7 @@
       }
     },
     {
-      "id": 29,
+      "id": 28,
       "family": "Noto Sans Miao",
       "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
       "file_sha256": "11ef13cc9cc00ed188f0174e39eefe4d73f748319563836ac9f81feafd744653",
@@ -87121,7 +87082,7 @@
       }
     },
     {
-      "id": 30,
+      "id": 29,
       "family": "Noto Sans Mongolian",
       "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
       "file_sha256": "f82ad19e5653e710e0c30a031eebac2fc9d108a0406ca8bbc458559ef26136d4",
@@ -87246,7 +87207,7 @@
       }
     },
     {
-      "id": 31,
+      "id": 30,
       "family": "Noto Sans Mro",
       "file": "fonts/scripts/NotoSansMro-Regular.ttf",
       "file_sha256": "36cc0318ecb39d06dc0ad06b2165b5b48b09deea5232825df4e397a407eaa304",
@@ -87286,7 +87247,7 @@
       }
     },
     {
-      "id": 32,
+      "id": 31,
       "family": "Noto Sans Myanmar",
       "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
       "file_sha256": "9dd2bc76a822a974efce803a4b07302d14d01d5c1fa9e33a258d15a9cb513a7d",
@@ -87367,7 +87328,7 @@
       }
     },
     {
-      "id": 33,
+      "id": 32,
       "family": "Noto Sans Newa",
       "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
       "file_sha256": "d3642459efc0b3cc92c3274a53daa3de5c22e98d65bd7c45d908d3d18141f459",
@@ -87424,7 +87385,7 @@
       }
     },
     {
-      "id": 34,
+      "id": 33,
       "family": "Noto Sans Nushu",
       "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
       "file_sha256": "d4181f1cdf281d518190760155c83d2bb5603fe3762eebe6da0246b5df400708",
@@ -87460,7 +87421,7 @@
       }
     },
     {
-      "id": 35,
+      "id": 34,
       "family": "Noto Sans SignWriting",
       "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
       "file_sha256": "1ca2d2efc74bbe80dcfd987ad441c2f226040dff1c3e584946996ae01af5f7f0",
@@ -87517,7 +87478,7 @@
       }
     },
     {
-      "id": 36,
+      "id": 35,
       "family": "Noto Sans Vai",
       "file": "fonts/scripts/NotoSansVai-Regular.ttf",
       "file_sha256": "856da71a5593f62298fac5cdeb3bd8b3332ceebd8cca3cfd590250602dcb706b",
@@ -87549,7 +87510,7 @@
       }
     },
     {
-      "id": 37,
+      "id": 36,
       "family": "Noto Sans Yi",
       "file": "fonts/scripts/NotoSansYi-Regular.ttf",
       "file_sha256": "6cf1952d73528dd20f1238184054e0f2c36e039941d46400dc9ca865b73a1cb4",
@@ -87605,7 +87566,7 @@
       }
     },
     {
-      "id": 38,
+      "id": 37,
       "family": "Noto Serif Hentaigana",
       "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
       "file_sha256": "2acae0b61cb2a059d14b9eae555dd1b39e3d9568cff41834820b983f5d512207",
@@ -87659,7 +87620,7 @@
       }
     },
     {
-      "id": 39,
+      "id": 38,
       "family": "Noto Serif Sinhala",
       "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
       "file_sha256": "3f5436fa46dd8c31f676021296d448059bea40621aa8a671fcc20beefd812cb0",
@@ -87808,7 +87769,7 @@
       }
     },
     {
-      "id": 40,
+      "id": 39,
       "family": "Noto Serif Todhri",
       "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
       "file_sha256": "d2c1afe671b637345e7045fcd0b4a4dca35c55811a7811de486b77f1b035008f",
@@ -88086,7 +88047,7 @@
       }
     },
     {
-      "id": 41,
+      "id": 40,
       "family": "Kaiyuan Small Seal",
       "file": "fonts/seal/KaiyuanSmallSeal-Regular.woff2",
       "file_sha256": "42b12441d1469c9bf61310bb727a014027b09a9ca4265708fb1dcaa3dd2e8d5f",
@@ -88105,7 +88066,7 @@
       }
     },
     {
-      "id": 42,
+      "id": 41,
       "family": "BabelStone Pseudographica",
       "file": "fonts/symbols/BabelStonePseudographica.woff2",
       "file_sha256": "c361fbb6e199efeaff5877bdad4020ba0b7187551d27420ad57a7e78462b1f64",
@@ -88697,7 +88658,7 @@
       }
     },
     {
-      "id": 43,
+      "id": 42,
       "family": "Noto Sans Math",
       "file": "fonts/symbols/NotoSansMath-Regular.ttf",
       "file_sha256": "80b61fd613d3519197e64fff6f7e71fdc7f3e6526440ea4115b554ef7fd59af7",
@@ -89232,7 +89193,7 @@
       }
     },
     {
-      "id": 44,
+      "id": 43,
       "family": "Noto Sans Symbols",
       "file": "fonts/symbols/NotoSansSymbols-Regular.ttf",
       "file_sha256": "8f02f31959bbdf6061547a188248e13f84dc5fdd940326ec494675f453f072bb",
@@ -89453,7 +89414,7 @@
       }
     },
     {
-      "id": 45,
+      "id": 44,
       "family": "Noto Sans Symbols 2 Local",
       "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
       "file_sha256": "c4a0a80f0041ce4be81e2478faad22776d23edb98ae3f0d19bd37044820ecf9d",
@@ -90195,7 +90156,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 88
@@ -90217,7 +90178,7 @@
           "cmap_codepoints": 53
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 53
@@ -90233,7 +90194,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
@@ -90264,7 +90225,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 17,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 1108
@@ -90276,19 +90237,19 @@
           "cmap_codepoints": 385
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 234
         },
         {
-          "font_id": 43,
+          "font_id": 42,
           "family": "Noto Sans Math",
           "file": "fonts/symbols/NotoSansMath-Regular.ttf",
           "cmap_codepoints": 143
         },
         {
-          "font_id": 45,
+          "font_id": 44,
           "family": "Noto Sans Symbols 2 Local",
           "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 31
@@ -90304,7 +90265,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -90357,7 +90318,7 @@
           "cmap_codepoints": 1
         },
         {
-          "font_id": 24,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 1
@@ -90373,7 +90334,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 61
@@ -90389,7 +90350,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 18,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 121
@@ -90411,7 +90372,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 19,
+          "font_id": 18,
           "family": "Noto Sans Bamum",
           "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
           "cmap_codepoints": 657
@@ -90427,7 +90388,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 36
@@ -90518,7 +90479,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 2
@@ -90540,7 +90501,7 @@
           "cmap_codepoints": 50
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -90556,7 +90517,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 97
@@ -90596,7 +90557,7 @@
           "cmap_codepoints": 4
         },
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 2
@@ -90612,7 +90573,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 115
@@ -90634,13 +90595,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 256
         },
         {
-          "font_id": 45,
+          "font_id": 44,
           "family": "Noto Sans Symbols 2 Local",
           "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 256
@@ -90688,7 +90649,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 71
@@ -90710,13 +90671,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 726
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 16
@@ -90732,7 +90693,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 49
@@ -90774,7 +90735,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 172
@@ -90796,7 +90757,7 @@
           "cmap_codepoints": 28
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
@@ -90840,7 +90801,7 @@
           "cmap_codepoints": 99
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 99
@@ -90862,7 +90823,7 @@
           "cmap_codepoints": 55
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 55
@@ -90878,7 +90839,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 443
@@ -90896,7 +90857,7 @@
           "cmap_codepoints": 66
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 63
@@ -90908,7 +90869,7 @@
           "cmap_codepoints": 4
         },
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 1
@@ -90929,7 +90890,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 123
@@ -90941,13 +90902,13 @@
           "cmap_codepoints": 13
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 11
         },
         {
-          "font_id": 27,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
           "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 10
@@ -90969,7 +90930,7 @@
           "cmap_codepoints": 72
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
@@ -90985,7 +90946,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 60
@@ -91001,13 +90962,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 80
         },
         {
-          "font_id": 22,
+          "font_id": 21,
           "family": "Noto Sans Deseret",
           "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
           "cmap_codepoints": 80
@@ -91029,7 +90990,7 @@
           "cmap_codepoints": 143
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 143
@@ -91045,13 +91006,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 13,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 5105
         },
         {
-          "font_id": 12,
+          "font_id": 11,
           "family": "Egyptology Extended",
           "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
           "cmap_codepoints": 2924
@@ -91063,7 +91024,7 @@
           "cmap_codepoints": 39
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
@@ -91079,7 +91040,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -91101,7 +91062,7 @@
           "cmap_codepoints": 23
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 23
@@ -91117,7 +91078,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 23,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 495
@@ -91129,7 +91090,7 @@
           "cmap_codepoints": 28
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
@@ -91145,7 +91106,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 69
@@ -91167,7 +91128,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 24,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 173
@@ -91198,7 +91159,7 @@
           "cmap_codepoints": 40
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 38
@@ -91214,13 +91175,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 63
         },
         {
-          "font_id": 25,
+          "font_id": 24,
           "family": "Noto Sans Gunjala Gondi",
           "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
           "cmap_codepoints": 63
@@ -91236,7 +91197,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 75
@@ -91252,7 +91213,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -91268,7 +91229,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 85
@@ -91284,31 +91245,31 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 368
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 150
         },
         {
-          "font_id": 45,
+          "font_id": 44,
           "family": "Noto Sans Symbols 2 Local",
           "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 80
         },
         {
-          "font_id": 14,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 70
         },
         {
-          "font_id": 43,
+          "font_id": 42,
           "family": "Noto Sans Math",
           "file": "fonts/symbols/NotoSansMath-Regular.ttf",
           "cmap_codepoints": 56
@@ -91421,7 +91382,7 @@
           "cmap_codepoints": 58
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 58
@@ -91569,16 +91530,10 @@
           "cmap_codepoints": 14122
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 7705
-        },
-        {
-          "font_id": 10,
-          "family": "YKT Smooth Han B",
-          "file": "fonts/han/YKTSmoothHanB.woff2",
-          "cmap_codepoints": 6
         }
       ]
     },
@@ -91605,7 +91560,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -91626,7 +91581,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 26,
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 133
@@ -91654,7 +91609,7 @@
           "cmap_codepoints": 381
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 293
@@ -91666,7 +91621,7 @@
           "cmap_codepoints": 291
         },
         {
-          "font_id": 38,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
           "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 286
@@ -91704,7 +91659,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 127
@@ -91720,7 +91675,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 71
@@ -91742,7 +91697,7 @@
           "cmap_codepoints": 108
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 108
@@ -91758,7 +91713,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
@@ -92007,7 +91962,7 @@
           "cmap_codepoints": 220
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
@@ -92019,7 +91974,7 @@
           "cmap_codepoints": 25
         },
         {
-          "font_id": 38,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
           "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 4
@@ -92041,7 +91996,7 @@
           "cmap_codepoints": 87
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 87
@@ -92057,7 +92012,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
@@ -92079,7 +92034,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 28,
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 146
@@ -92101,7 +92056,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
@@ -92123,7 +92078,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 477
@@ -92226,7 +92181,7 @@
           "cmap_codepoints": 58
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 58
@@ -92242,13 +92197,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
         },
         {
-          "font_id": 27,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
           "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 67
@@ -92389,7 +92344,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 1384
@@ -92413,31 +92368,31 @@
           "cmap_codepoints": 233
         },
         {
-          "font_id": 14,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 229
         },
         {
-          "font_id": 15,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
           "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 227
         },
         {
-          "font_id": 40,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
           "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 219
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 199
         },
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 168
@@ -92449,25 +92404,25 @@
           "cmap_codepoints": 133
         },
         {
-          "font_id": 44,
+          "font_id": 43,
           "family": "Noto Sans Symbols",
           "file": "fonts/symbols/NotoSansSymbols-Regular.ttf",
           "cmap_codepoints": 92
         },
         {
-          "font_id": 13,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 81
         },
         {
-          "font_id": 43,
+          "font_id": 42,
           "family": "Noto Sans Math",
           "file": "fonts/symbols/NotoSansMath-Regular.ttf",
           "cmap_codepoints": 52
         },
         {
-          "font_id": 20,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 1
@@ -92548,7 +92503,7 @@
           "cmap_codepoints": 341
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 341
@@ -92570,7 +92525,7 @@
           "cmap_codepoints": 211
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 211
@@ -92597,7 +92552,7 @@
           "cmap_codepoints": 1
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 1
@@ -92613,7 +92568,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -92629,7 +92584,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -92651,7 +92606,7 @@
           "cmap_codepoints": 39
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
@@ -92673,7 +92628,7 @@
           "cmap_codepoints": 25
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 25
@@ -92707,7 +92662,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 51
@@ -92723,7 +92678,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
@@ -92739,7 +92694,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 91
@@ -92761,7 +92716,7 @@
           "cmap_codepoints": 213
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 213
@@ -92783,7 +92738,7 @@
           "cmap_codepoints": 90
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 90
@@ -92805,7 +92760,7 @@
           "cmap_codepoints": 32
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -92865,7 +92820,7 @@
           "cmap_codepoints": 79
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 79
@@ -92881,7 +92836,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 30,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 167
@@ -92893,7 +92848,7 @@
           "cmap_codepoints": 15
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 13
@@ -92909,13 +92864,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 43
         },
         {
-          "font_id": 31,
+          "font_id": 30,
           "family": "Noto Sans Mro",
           "file": "fonts/scripts/NotoSansMro-Regular.ttf",
           "cmap_codepoints": 43
@@ -92953,7 +92908,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 38
@@ -92969,7 +92924,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 32,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 223
@@ -92981,7 +92936,7 @@
           "cmap_codepoints": 21
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 20
@@ -93003,7 +92958,7 @@
           "cmap_codepoints": 42
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 42
@@ -93025,7 +92980,7 @@
           "cmap_codepoints": 65
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
@@ -93041,7 +92996,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93057,7 +93012,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93073,13 +93028,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 97
         },
         {
-          "font_id": 33,
+          "font_id": 32,
           "family": "Noto Sans Newa",
           "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
           "cmap_codepoints": 97
@@ -93128,13 +93083,13 @@
           "cmap_codepoints": 397
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 397
         },
         {
-          "font_id": 34,
+          "font_id": 33,
           "family": "Noto Sans Nushu",
           "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
           "cmap_codepoints": 397
@@ -93184,7 +93139,7 @@
           "cmap_codepoints": 44
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 44
@@ -93200,7 +93155,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 73
@@ -93295,7 +93250,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
@@ -93311,7 +93266,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93333,7 +93288,7 @@
           "cmap_codepoints": 26
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -93349,7 +93304,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93365,7 +93320,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 57
@@ -93397,7 +93352,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 43
@@ -93427,7 +93382,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -93449,7 +93404,7 @@
           "cmap_codepoints": 29
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -93465,7 +93420,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -93481,13 +93436,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 149
         },
         {
-          "font_id": 29,
+          "font_id": 28,
           "family": "Noto Sans Miao",
           "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
           "cmap_codepoints": 149
@@ -93503,7 +93458,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 30
@@ -93537,7 +93492,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -93596,7 +93551,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93637,7 +93592,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 41,
+          "font_id": 40,
           "family": "Kaiyuan Small Seal",
           "file": "fonts/seal/KaiyuanSmallSeal-Regular.woff2",
           "cmap_codepoints": 11328
@@ -93659,13 +93614,13 @@
           "cmap_codepoints": 672
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 672
         },
         {
-          "font_id": 35,
+          "font_id": 34,
           "family": "Noto Sans SignWriting",
           "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 672
@@ -93681,7 +93636,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 48
@@ -93697,7 +93652,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 104
@@ -93725,7 +93680,7 @@
           "cmap_codepoints": 92
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 92
@@ -93747,7 +93702,7 @@
           "cmap_codepoints": 26
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -93769,7 +93724,7 @@
           "cmap_codepoints": 69
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 69
@@ -93785,13 +93740,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 39,
+          "font_id": 38,
           "family": "Noto Serif Sinhala",
           "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
           "cmap_codepoints": 111
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 20
@@ -93813,7 +93768,7 @@
           "cmap_codepoints": 42
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 42
@@ -93835,7 +93790,7 @@
           "cmap_codepoints": 40
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93851,7 +93806,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 35
@@ -93867,7 +93822,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 83
@@ -93907,7 +93862,7 @@
           "cmap_codepoints": 44
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 44
@@ -93995,7 +93950,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
@@ -94132,7 +94087,7 @@
           "cmap_codepoints": 51
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 51
@@ -94154,7 +94109,7 @@
           "cmap_codepoints": 7060
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 257
@@ -94200,7 +94155,7 @@
           "cmap_codepoints": 55
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 55
@@ -94419,7 +94374,7 @@
           "cmap_codepoints": 64
         },
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 11
@@ -94447,7 +94402,7 @@
           "cmap_codepoints": 82
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 82
@@ -94469,7 +94424,7 @@
           "cmap_codepoints": 89
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 89
@@ -94491,13 +94446,13 @@
           "cmap_codepoints": 52
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 52
         },
         {
-          "font_id": 40,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
           "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 52
@@ -94519,7 +94474,7 @@
           "cmap_codepoints": 54
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 54
@@ -94541,7 +94496,7 @@
           "cmap_codepoints": 31
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -94557,7 +94512,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 80
@@ -94573,7 +94528,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -94589,7 +94544,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 36,
+          "font_id": 35,
           "family": "Noto Sans Vai",
           "file": "fonts/scripts/NotoSansVai-Regular.ttf",
           "cmap_codepoints": 300
@@ -94611,7 +94566,7 @@
           "cmap_codepoints": 70
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 70
@@ -94627,7 +94582,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 84
@@ -94643,7 +94598,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 59
@@ -94659,7 +94614,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -94687,7 +94642,7 @@
           "cmap_codepoints": 411
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 12
@@ -94703,7 +94658,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 47
@@ -94719,7 +94674,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 37,
+          "font_id": 36,
           "family": "Noto Sans Yi",
           "file": "fonts/scripts/NotoSansYi-Regular.ttf",
           "cmap_codepoints": 1220
@@ -94735,7 +94690,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
@@ -94794,49 +94749,49 @@
           "cmap_codepoints": 286
         },
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 225
         },
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 98
         },
         {
-          "font_id": 15,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
           "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 84
         },
         {
-          "font_id": 14,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 37
         },
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 33
         },
         {
-          "font_id": 43,
+          "font_id": 42,
           "family": "Noto Sans Math",
           "file": "fonts/symbols/NotoSansMath-Regular.ttf",
           "cmap_codepoints": 31
         },
         {
-          "font_id": 40,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
           "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 19
         },
         {
-          "font_id": 17,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 15
@@ -94848,103 +94803,103 @@
           "cmap_codepoints": 13
         },
         {
-          "font_id": 21,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 10
         },
         {
-          "font_id": 44,
+          "font_id": 43,
           "family": "Noto Sans Symbols",
           "file": "fonts/symbols/NotoSansSymbols-Regular.ttf",
           "cmap_codepoints": 7
         },
         {
-          "font_id": 24,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 45,
+          "font_id": 44,
           "family": "Noto Sans Symbols 2 Local",
           "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 32,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 3
         },
         {
-          "font_id": 33,
+          "font_id": 32,
           "family": "Noto Sans Newa",
           "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
           "cmap_codepoints": 3
         },
         {
-          "font_id": 18,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 23,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 25,
+          "font_id": 24,
           "family": "Noto Sans Gunjala Gondi",
           "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 26,
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 27,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
           "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 28,
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 30,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 38,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
           "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 39,
+          "font_id": 38,
           "family": "Noto Serif Sinhala",
           "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 20,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 1
         },
         {
-          "font_id": 35,
+          "font_id": 34,
           "family": "Noto Sans SignWriting",
           "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 1
@@ -95037,7 +94992,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 5602
@@ -95049,19 +95004,19 @@
           "cmap_codepoints": 2626
         },
         {
-          "font_id": 45,
+          "font_id": 44,
           "family": "Noto Sans Symbols 2 Local",
           "file": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
           "cmap_codepoints": 2267
         },
         {
-          "font_id": 42,
+          "font_id": 41,
           "family": "BabelStone Pseudographica",
           "file": "fonts/symbols/BabelStonePseudographica.woff2",
           "cmap_codepoints": 2233
         },
         {
-          "font_id": 43,
+          "font_id": 42,
           "family": "Noto Sans Math",
           "file": "fonts/symbols/NotoSansMath-Regular.ttf",
           "cmap_codepoints": 2188
@@ -95079,25 +95034,25 @@
           "cmap_codepoints": 1503
         },
         {
-          "font_id": 44,
+          "font_id": 43,
           "family": "Noto Sans Symbols",
           "file": "fonts/symbols/NotoSansSymbols-Regular.ttf",
           "cmap_codepoints": 739
         },
         {
-          "font_id": 14,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 552
         },
         {
-          "font_id": 16,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 547
         },
         {
-          "font_id": 15,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
           "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 204
@@ -95109,13 +95064,13 @@
           "cmap_codepoints": 181
         },
         {
-          "font_id": 13,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 99
         },
         {
-          "font_id": 40,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
           "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 88
@@ -95127,73 +95082,73 @@
           "cmap_codepoints": 59
         },
         {
-          "font_id": 39,
+          "font_id": 38,
           "family": "Noto Serif Sinhala",
           "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
           "cmap_codepoints": 55
         },
         {
-          "font_id": 30,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 53
         },
         {
-          "font_id": 17,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 36
         },
         {
-          "font_id": 37,
+          "font_id": 36,
           "family": "Noto Sans Yi",
           "file": "fonts/scripts/NotoSansYi-Regular.ttf",
           "cmap_codepoints": 28
         },
         {
-          "font_id": 25,
+          "font_id": 24,
           "family": "Noto Sans Gunjala Gondi",
           "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
           "cmap_codepoints": 27
         },
         {
-          "font_id": 28,
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 25
         },
         {
-          "font_id": 27,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
           "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 16
         },
         {
-          "font_id": 32,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 11
         },
         {
-          "font_id": 20,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 8
         },
         {
-          "font_id": 26,
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 8
         },
         {
-          "font_id": 23,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 6
         },
         {
-          "font_id": 24,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 6
@@ -95205,19 +95160,19 @@
           "cmap_codepoints": 5
         },
         {
-          "font_id": 18,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 5
         },
         {
-          "font_id": 33,
+          "font_id": 32,
           "family": "Noto Sans Newa",
           "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 35,
+          "font_id": 34,
           "family": "Noto Sans SignWriting",
           "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 4
@@ -95229,7 +95184,7 @@
           "cmap_codepoints": 3
         },
         {
-          "font_id": 29,
+          "font_id": 28,
           "family": "Noto Sans Miao",
           "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
           "cmap_codepoints": 3
@@ -95253,43 +95208,43 @@
           "cmap_codepoints": 2
         },
         {
-          "font_id": 19,
+          "font_id": 18,
           "family": "Noto Sans Bamum",
           "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 21,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 22,
+          "font_id": 21,
           "family": "Noto Sans Deseret",
           "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 31,
+          "font_id": 30,
           "family": "Noto Sans Mro",
           "file": "fonts/scripts/NotoSansMro-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 34,
+          "font_id": 33,
           "family": "Noto Sans Nushu",
           "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 36,
+          "font_id": 35,
           "family": "Noto Sans Vai",
           "file": "fonts/scripts/NotoSansVai-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 38,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
           "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 2
