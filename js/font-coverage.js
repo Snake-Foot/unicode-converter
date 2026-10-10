@@ -97,6 +97,8 @@ async function selectUnicodeFont(codePoint, character) {
     sleep(3200).then(() => null)
   ]);
   const legacy = getWebFontNames(codePoint);
+  // Basic Latin should keep the user's native UI typeface and render instantly.
+  if (codePoint >= 0x0020 && codePoint <= 0x007E) return null;
   const tried = new Set();
   const checkFamily = async (family, dynamic = false) => {
     if (!family || tried.has(family)) return null;
@@ -106,6 +108,14 @@ async function selectUnicodeFont(codePoint, character) {
     if (!looksLikeAvailableUnicodeGlyph(character, family)) return null;
     return family;
   };
+
+  // Keep the prior Noto Sans JP appearance for common Japanese ideographs;
+  // only fall back to Plangothic when the Japanese web font lacks a glyph.
+  if ((codePoint >= 0x3400 && codePoint <= 0x4DBF) ||
+      (codePoint >= 0x4E00 && codePoint <= 0x9FFF)) {
+    const japanese = await checkFamily("Noto Sans JP");
+    if (japanese) return japanese;
+  }
 
   if (data) {
     const mapped = unicodeRangeLookup(data.ranges, codePoint);
