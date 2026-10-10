@@ -201,7 +201,8 @@ function restoreUnicodeHistoryState(
 
 
   renderUnicodeDigitBoxes();
-
+  bulkRenderedValue = unicodeInput.value;
+  updateBulkApplyUI();
 
   if (
     lastUnicodeOutputSource ===
@@ -945,41 +946,59 @@ toggleUnicodeView.addEventListener(
 );
 
 
-unicodeInput.addEventListener(
-  "input",
-  () => {
+const applyBulkUnicodeButton = document.getElementById("applyBulkUnicode");
+const bulkUnicodeUpdateStatus = document.getElementById("bulkUnicodeUpdateStatus");
+let bulkRenderedValue = "";
 
-    unicodeRun++;
-
-
-    clearTimeout(
-      unicodeInputTimer
-    );
-
-
-    hideUnicodeScope();
-
-
-    resizeExpandedTextarea(
-      unicodeInput
-    );
-
-
-    unicodeInputTimer =
-      setTimeout(
-        () => {
-
-          lastUnicodeOutputSource =
-            "bulk";
-
-
-          convertUnicode();
-        },
-        220
-      );
+function updateBulkApplyUI() {
+  const raw = unicodeInput.value;
+  const dirty = raw !== bulkRenderedValue;
+  const tokenCount = countBulkUnicodeTokens(raw);
+  const manual = bulkUnicodeRequiresManualApply(raw);
+  const waiting = dirty && raw.trim().length > 0;
+  applyBulkUnicodeButton.hidden = !waiting;
+  applyBulkUnicodeButton.disabled = !waiting;
+  bulkUnicodeUpdateStatus.hidden = !waiting;
+  bulkUnicodeUpdateStatus.textContent = manual
+    ? tokenCount + "件：編集中は再生成しません。編集後に「表示を更新」を押してください。"
+    : "入力が止まったら表示を更新します。";
+}
+function applyBulkUnicodeNow() {
+  clearTimeout(unicodeInputTimer);
+  unicodeRun++;
+  bulkRenderedValue = unicodeInput.value;
+  lastUnicodeOutputSource = "bulk";
+  updateBulkApplyUI();
+  convertUnicode();
+}
+unicodeInput.addEventListener("input", () => {
+  unicodeRun++;
+  clearTimeout(unicodeInputTimer);
+  hideUnicodeScope();
+  resizeExpandedTextarea(unicodeInput);
+  updateBulkApplyUI();
+  if (!unicodeInput.value.trim()) {
+    if (lastUnicodeOutputSource === "bulk") {
+      charOutput.textContent = "";
+      lastUnicodeOutputSource = null;
+    }
+    bulkRenderedValue = "";
+    updateBulkApplyUI();
+    return;
   }
-);
-
+  if (bulkUnicodeRequiresManualApply(unicodeInput.value)) return;
+  unicodeInputTimer = setTimeout(() => {
+    if (bulkUnicodeRequiresManualApply(unicodeInput.value)) return;
+    applyBulkUnicodeNow();
+  }, BULK_AUTO_RENDER_DELAY_MS);
+});
+applyBulkUnicodeButton.addEventListener("click", applyBulkUnicodeNow);
+unicodeInput.addEventListener("keydown", event => {
+  if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+    event.preventDefault();
+    applyBulkUnicodeNow();
+  }
+});
 
 /* =========================================
    Random controls
@@ -1307,7 +1326,7 @@ window.addEventListener(
 setBulkInputExpanded(
   false
 );
-
+updateBulkApplyUI();
 
 syncRandomCustomVisibility();
 
