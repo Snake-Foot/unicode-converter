@@ -17,21 +17,30 @@ const read = (intervals, codePoint) => {
   }
   return null;
 };
+assert.strictEqual(index.schema_version, 2);
 assert.strictEqual(index.unicode_version, "18.0.0");
 assert.strictEqual(index.total_assigned_unicode18, 172808);
 assert.strictEqual(all.counts.encoded_characters, 172808);
 assert(index.font_families.length > 0, "No published fonts");
-const valid = new Set(manifest.fonts.filter(f => f.site_served !== false).map(f => f.family));
-for (const font of index.font_families) {
-  assert(valid.has(font.family), "Unexpected non-published font: " + font.family);
-  assert(font.sha256 && /^[0-9a-f]{64}$/.test(font.sha256));
+const {combinations, font_families:fonts}=index;
+assert(Array.isArray(combinations) && Array.isArray(fonts) && fonts.length>0);
+assert.deepStrictEqual(combinations[0],[]);
+for(const font of fonts){
+ assert(font.file.startsWith("fonts/"),"Missing served font path");
+ assert(font.sha256 && /^[0-9a-f]{64}$/.test(font.sha256));
 }
-for (const [name, intervals] of [["cmap", index.ranges], ["script", index.script_ranges]]) {
-  for (let i = 0; i < intervals.length; i++) {
-    const r = intervals[i];
-    assert(Number.isInteger(r[0]) && Number.isInteger(r[1]) && r[0] <= r[1]);
-    if (i) assert(intervals[i-1][1] < r[0], name + " range overlap");
-  }
+for(const list of combinations){
+ assert(Array.isArray(list));
+ assert.strictEqual(new Set(list).size,list.length);
+ for(const id of list)assert(Number.isInteger(id)&&id>=0&&id<fonts.length);
+}
+for(const [name, intervals] of [["cmap",index.ranges],["script",index.script_ranges]]){
+ for(let n=0;n<intervals.length;n++){
+  const rg=intervals[n];
+  assert(Number.isInteger(rg[0])&&Number.isInteger(rg[1])&&rg[0]<=rg[1]);
+  if(n)assert(intervals[n-1][1]<rg[0],name+" overlap");
+  if(name==="cmap")assert(Number.isInteger(rg[2])&&rg[2]>0&&rg[2]<combinations.length);
+ }
 }
 assert.strictEqual(read(index.script_ranges, 0x0041)[2], "Latn");
 assert.strictEqual(read(index.script_ranges, 0x4E00)[2], "Hani");
@@ -39,12 +48,10 @@ assert.strictEqual(read(index.script_ranges, 0x1E900)[2], "Adlm");
 assert.strictEqual(read(index.script_ranges, 0x3D000)[2], "Seal");
 assert.strictEqual(read(index.script_ranges, 0x0378), null);
 assert.strictEqual(read(index.ranges, 0x0378), null);
-const samples = [0x0041,0x3042,0x4E00,0x1D0DF,0x1E900,0x3D000,0x10FFFF];
-for (const cp of samples) {
-  const matching = read(index.ranges, cp);
-  if (!matching) continue;
-  let mask = matching[2];
-  assert(Number.isSafeInteger(mask) && mask > 0 && mask < 2 ** index.font_families.length);
+const samples=[0x0041,0x3042,0x4E00,0x1D0DF,0x1E900,0x3D000,0x10FFFF];
+for(const cp of samples){
+ const rg=read(index.ranges,cp);
+ if(rg)assert(combinations[rg[2]].length>0);
 }
 let count = 0;
 for (const r of index.ranges) count += (r[1]-r[0]+1);
