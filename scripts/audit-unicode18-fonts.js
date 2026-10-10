@@ -84,6 +84,8 @@ function inferFamily(filename) {
   if (/^unifont(-|_)/i.test(stem)) return "GNU Unifont";
   if (/^KaiyuanSmallSeal$/i.test(stem)) return "Kaiyuan Small Seal";
   if (/^LXGWSeal$/i.test(stem)) return "LXGW Seal";
+  if (/^BabelStoneHan$/i.test(stem)) return "BabelStone Han";
+  if (/^NotoZnamennyMusicalNotation$/i.test(stem)) return "Noto Znamenny Musical Notation";
   if (/^NotoSans/.test(stem)) {
     const tail = stem.slice("NotoSans".length)
       .replace(/([a-z])([A-Z])/g, "$1 $2")

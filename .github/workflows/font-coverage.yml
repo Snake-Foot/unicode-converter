@@ -10,6 +10,7 @@ on:
       - "scripts/audit-unicode18-fonts.js"
       - "scripts/build-unicode18-font-index.js"
       - "scripts/test-unicode18-font-index.js"
+      - "scripts/test-font-assignment.js"
       - "scripts/test-extension-j-font.js"
       - "js/extension-j-fallback.js"
       - "scripts/test-unicode18-emoji-display.js"
@@ -60,6 +61,7 @@ jobs:
           node --check scripts/audit-unicode18-fonts.js
           node --check scripts/build-unicode18-font-index.js
           node --check scripts/test-unicode18-font-index.js
+          node --check scripts/test-font-assignment.js
           node --check scripts/test-extension-j-font.js
           node --check js/extension-j-fallback.js
           node --check js/font-coverage.js
@@ -78,6 +80,8 @@ jobs:
         run: node scripts/build-unicode18-font-index.js
       - name: Validate font index and official Unicode boundaries
         run: node scripts/test-unicode18-font-index.js
+      - name: Verify new font assignments for reported Unicode characters
+        run: node scripts/test-font-assignment.js
       - name: Test bulk Unicode input performance policy
         run: node scripts/test-bulk-input-policy.js
       - name: Test CJK Extension J glyph outlines

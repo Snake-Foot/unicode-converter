@@ -24,6 +24,12 @@ The Unicode 18 font coverage builder recursively scans all supported files in `f
 
 A font can cover several scripts, so **assignment is by exact character codepoint, not folder name**. When multiple verified files cover one character, an ordered fallback list is generated automatically. The web client loads only a matching font when requested using the `FontFace` API, rather than requesting all font files when the page opens.
 
+## Quality-first selections for uploaded fonts
+
+The latest 14 uploaded font binaries were moved from `fonts/` into `han/`, `ancient/`, `scripts/`, and `music/` without changing their bytes. The build-time ranker in `../scripts/build-unicode18-font-index.js` prefers **BabelStone Han for supplementary Han characters if its cmap contains the code point**, **Noto Serif Hentaigana** for Hentaigana, and the matching Noto specialist for other scripts (including Noto Znamenny Musical Notation and SignWriting). Unifont Upper stays last as a coverage fallback. It never assumes a font supports an entire Script property: ranking operates only on real cmap matches.
+
+The site's existing Unicode 18 index is regenerated automatically by GitHub Actions when these files move. Source-level raster/outline, OpenType shaping, and Windows/iPhone browser rendering can still vary.
+
 ## Existing assets are preserved
 
 All formerly root-level font binaries were moved without changing blob contents. The original `music/` and `phonetics/` folders, including their licenses, were preserved.

@@ -52,8 +52,31 @@ for (let fontId=0; fontId<actual.length; fontId++) {
   }
 }
 
+/*
+ * Quality-first ranking for fonts that are actually mapped in cmap.
+ * Never assign a font just from its script name: candidate enumeration is
+ * already limited to the glyphs present in the corresponding binary.
+ *
+ * Locally installed specialist fonts outrank GNU Unifont's pixelated glyphs.
+ * CJK and Hentaigana need extra codepoint-specific rules because generic
+ * "Hani" and "Hira" include many different typographic subrepertoires.
+ */
+const specializedByScript = {
+  Cprt: "Noto Sans Cypriot",
+  Dsrt: "Noto Sans Deseret",
+  Gong: "Noto Sans Gunjala Gondi",
+  Kthi: "Noto Sans Kaithi",
+  Merc: "Noto Sans Meroitic",
+  Mero: "Noto Sans Meroitic",
+  Mroo: "Noto Sans Mro",
+  Newa: "Noto Sans Newa",
+  Nshu: "Noto Sans Nushu",
+  Sgnw: "Noto Sans SignWriting",
+  Sinh: "Noto Serif Sinhala",
+  Todr: "Noto Serif Todhri"
+};
 const explicitPreferred = {
- Hani:["Noto Sans CJK JP","Plangothic P1","Plangothic P2","GNU Unifont Upper"],
+ Hani:["Noto Sans CJK JP","BabelStone Han","Plangothic P1","Plangothic P2","GNU Unifont Upper"],
  Seal:["Kaiyuan Small Seal","LXGW Seal"],
  Egyp:["UniHieroglyphica","Egyptology Extended"],
  Xsux:["Noto Sans Cuneiform"],
@@ -64,24 +87,35 @@ const explicitPreferred = {
  Zinh:["Noto Sans Phonetics","Noto Sans Symbols 2 Local"],
  Latn:["Noto Sans Phonetics"],
  Tang:["Plangothic P2"],
- Kits:["Plangothic P2"],
- Sgnw:["Plangothic P2"]
+ Kits:["Plangothic P2"]
 };
-function rankId(id,script,cp){
- const f=fonts[id], family=f.family, name=family.toLowerCase();
+function rankId(id, script, cp) {
+ const f=fonts[id], family=f.family;
+ // A specialist contour font beats the bitmap-like GNU Unifont fallback.
+ if (script==="Hani" && cp>=0x20000) {
+   if (family==="BabelStone Han") return -30;
+   if (family==="Noto Sans CJK JP") return -20;
+   if (family==="Plangothic P1") return -10;
+   if (family==="Plangothic P2") return -9;
+ }
+ if (cp>=0x1B000 && cp<=0x1B12F && family==="Noto Serif Hentaigana")
+   return -50;
+ if (cp>=0x1CF00 && cp<=0x1CFCF &&
+     family==="Noto Znamenny Musical Notation") return -50;
+ if (specializedByScript[script]===family) return -40;
  const fixed=explicitPreferred[script]||[];
  const index=fixed.indexOf(family);
  if(index>=0) return index;
- if(script==="Hani" && cp>=0x20000 && /plangothic/i.test(family)) return 3;
- const scriptSpecific = specialCodeToName.get(script);
- if(scriptSpecific && scriptSpecific.some(v=>v===family)) return 9;
- if(/Unifont/i.test(family)) return 990;
- if(/Noto Sans CJK/i.test(family)) return 110;
- if(/Plangothic/i.test(family)) return 350;
- if(/Noto Sans Symbols 2/i.test(family)) return 450;
- if(/Noto Sans Symbols/i.test(family)) return 480;
- if(/Phonetics|Noto Music/i.test(family)) return 520;
- if(/fonts\/scripts\/|fonts\/ancient\/|fonts\/seal\//.test(f.file)) return 25;
+ const scriptSpecific=specialCodeToName.get(script);
+ if(scriptSpecific && scriptSpecific.includes(family)) return 9;
+ if (/Unifont/i.test(family)) return 990;
+ if (/Noto Sans CJK/i.test(family)) return 110;
+ if (/Plangothic/i.test(family)) return 350;
+ if (/Noto Sans Symbols 2/i.test(family)) return 450;
+ if (/Noto Sans Symbols/i.test(family)) return 480;
+ if (/Phonetics|Noto Music/i.test(family)) return 520;
+ if (/fonts\/scripts\/|fonts\/ancient\/|fonts\/seal\/|fonts\/music\//.test(f.file))
+   return 25;
  return 600;
 }
 const candidateCatalog=JSON.parse(fs.readFileSync(
