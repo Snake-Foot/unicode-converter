@@ -129,7 +129,7 @@
 
   <link
     rel="stylesheet"
-    href="./style.css?v=20261010-7"
+    href="./style.css?v=20261010-8"
   >
 
 
@@ -147,7 +147,8 @@
 <script src="./js/random.js?v=20261009-1" defer></script>
 <script src="./js/daily.js?v=20261010-2" defer></script>
 <script src="./js/scope.js?v=20261009-2" defer></script>
-<script src="./js/main.js?v=20261010-1" defer></script>
+<script src="./js/bulk-input-policy.js?v=20261010-1" defer></script>
+<script src="./js/main.js?v=20261010-2" defer></script>
 
 </head>
 
@@ -536,6 +537,10 @@
       spellcheck="false"
     ></textarea>
 
+    <div class="bulk-update-controls">
+      <span id="bulkUnicodeUpdateStatus" class="bulk-update-status" role="status" aria-live="polite" hidden></span>
+      <button type="button" id="applyBulkUnicode" class="bulk-update-button" hidden>表示を更新</button>
+    </div>
     <div class="input-view-control">
       <button
         id="toggleUnicodeView"
