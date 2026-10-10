@@ -7,6 +7,7 @@
  * Run: npm install
  *      node scripts/audit-unicode18-fonts.js
  *      node scripts/audit-unicode18-fonts.js /path/to/extra-font.ttf
+ * Automatically includes every supported font file recursively in fonts/.
  *
  * WARNING: cmap coverage != legible glyph, shaping support, color emoji,
  *          variation sequence support, or compatibility on all browsers.
@@ -74,45 +75,69 @@ function findRecord(records, codePoint) {
   throw new Error("Unknown codepoint: " + hex(codePoint));
 }
 
+/* Find newly uploaded site fonts automatically; no manifest edit required. */
+function inferFamily(filename) {
+  const stem = filename.replace(FONT_EXTENSION, "").replace(/-(Regular|Medium|Bold|Light|Black|Thin|SemiBold|ExtraBold)$/i, "");
+  if (/^NotoSansCJKjp$/i.test(stem)) return "Noto Sans CJK JP";
+  if (/^NotoSansCJKkr$/i.test(stem)) return "Noto Sans CJK KR";
+  if (/^unifont_upper/i.test(stem)) return "GNU Unifont Upper";
+  if (/^unifont(-|_)/i.test(stem)) return "GNU Unifont";
+  if (/^KaiyuanSmallSeal$/i.test(stem)) return "Kaiyuan Small Seal";
+  if (/^LXGWSeal$/i.test(stem)) return "LXGW Seal";
+  if (/^NotoSans/.test(stem)) {
+    const tail = stem.slice("NotoSans".length)
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2")
+      .replace(/([A-Za-z])(\d+)/g, "$1 $2")
+      .replace(/([A-Za-z])([0-9]+)/g, "$1 $2")
+      .replace(/\bjp\b/ig, "JP").replace(/\bkr\b/ig, "KR");
+    return "Noto Sans " + tail;
+  }
+  if (/^NotoSerif/.test(stem)) {
+    return "Noto Serif " + stem.slice("NotoSerif".length)
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
+  }
+  return stem.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[_-]/g, " ");
+}
+function walkFontFiles(folder) {
+  if (!fs.existsSync(folder)) return [];
+  const result = [];
+  for (const ent of fs.readdirSync(folder, {withFileTypes:true})) {
+    const target = path.join(folder, ent.name);
+    if (ent.isDirectory()) result.push(...walkFontFiles(target));
+    else if (ent.isFile() && FONT_EXTENSION.test(ent.name)) result.push(target);
+  }
+  return result.sort();
+}
 function resolveFonts(manifest, extraPaths) {
-  // Browser coverage indexes include only font files actually served by GitHub Pages.
-  const definitions = manifest.fonts.filter(item => item.site_served !== false);
-  for (const p of extraPaths) {
-    definitions.push({ family: path.basename(p), path: p });
+  const issues = [], sources = [];
+  const named = new Map(manifest.fonts
+    .filter(item => item.site_served !== false && item.path)
+    .map(item => [item.path.replace(/\\/g, "/"), item.family]));
+  const seen = new Set();
+  // Every real font under fonts/ is considered. Missing manifest entries
+  // cannot prevent user-uploaded fonts from being analyzed.
+  const allFiles = walkFontFiles(path.join(ROOT, "fonts"));
+  for (const item of extraPaths) {
+    const full = path.resolve(ROOT, item);
+    if (fs.existsSync(full) && fs.statSync(full).isDirectory()) allFiles.push(...walkFontFiles(full));
+    else if (fs.existsSync(full) && fs.statSync(full).isFile() && FONT_EXTENSION.test(full)) allFiles.push(full);
+    else issues.push({location:item,error:"extra_font_path_missing"});
   }
-  const sources = [];
-  const issues = [];
-  for (const item of definitions) {
-    const base = path.resolve(ROOT, item.path || item.directory);
-    let files = [];
-    if (item.directory) {
-      if (!fs.existsSync(base)) {
-        issues.push({ family: item.family, location: item.directory, error: "directory_missing" });
-        continue;
-      }
-      files = fs.readdirSync(base).filter(name =>
-        (!item.suffix || name.endsWith(item.suffix)) &&
-        FONT_EXTENSION.test(name) && fs.statSync(path.join(base, name)).isFile()
-      ).map(name => path.join(base, name));
-    } else if (fs.existsSync(base) && fs.statSync(base).isDirectory()) {
-      files = fs.readdirSync(base).filter(name =>
-        FONT_EXTENSION.test(name) && fs.statSync(path.join(base, name)).isFile()
-      ).map(name => path.join(base, name));
-    } else if (fs.existsSync(base) && fs.statSync(base).isFile()) {
-      files = [base];
-    } else {
-      issues.push({ family: item.family, location: item.path, error: "file_missing" });
-      continue;
-    }
-    if (!files.length) {
-      issues.push({ family: item.family, location: item.directory || item.path, error: "no_font_files_found" });
-    }
-    for (const file of files) {
-      const label = path.relative(ROOT, file);
-      sources.push({ family: item.family, path: label, absolute: file });
-    }
+  for (const absolute of allFiles) {
+    const rel = path.relative(ROOT, absolute).split(path.sep).join("/");
+    if (seen.has(rel)) continue;
+    seen.add(rel);
+    const family = named.get(rel) || inferFamily(path.basename(absolute));
+    sources.push({family, path:rel, absolute});
   }
-  return { sources, issues };
+  for (const item of manifest.fonts) {
+    if (item.site_served === false || !item.path || seen.has(item.path)) continue;
+    issues.push({family:item.family,location:item.path,error:"manifest_font_missing"});
+  }
+  if (sources.length === 0) issues.push({error:"no_valid_fonts_in_fonts_directory"});
+  return {sources,issues};
 }
 
 function main() {
