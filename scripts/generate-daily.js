@@ -1471,6 +1471,42 @@ function loadFonts() {
   }
 
 
+  /*
+   * Keep the historic FONT_FILES entries first (and their names unchanged).
+   * Pick up any newly uploaded font in fonts/** automatically.
+   * The Unicode 18 cmap audit uses exactly the same folder.
+   */
+  const knownFiles = new Set(fontItems.map(item =>
+    item.file.split(path.sep).join("/")
+  ));
+  const scannedFamilies = new Map();
+  try {
+    const index = JSON.parse(fs.readFileSync(
+      path.join(ROOT,"data/unicode18_font_coverage_index.json"),"utf8"
+    ));
+    for (const entry of index.font_families || []) {
+      scannedFamilies.set(entry.file,entry.family);
+    }
+  } catch(error) {
+    console.warn("Audited font index unavailable; scanning the font files anyway.");
+  }
+  function scanFontFolder(folder) {
+    if(!fs.existsSync(folder))return;
+    for(const entry of fs.readdirSync(folder,{withFileTypes:true})){
+      const full=path.join(folder,entry.name);
+      if(entry.isDirectory())scanFontFolder(full);
+      else if(entry.isFile() && /\.(?:ttf|otf|woff2?)$/i.test(entry.name)) {
+        const file=path.relative(ROOT,full).split(path.sep).join("/");
+        if(knownFiles.has(file))continue;
+        knownFiles.add(file);
+        const fallback=entry.name.replace(/\.(?:ttf|otf|woff2?)$/i,"")
+          .replace(/-Regular$/i,"").replace(/([a-z])([A-Z])/g,"$1 $2");
+        fontItems.push({name:scannedFamilies.get(file)||fallback,file});
+      }
+    }
+  }
+  scanFontFolder(path.join(ROOT,"fonts"));
+
   for (
     const item
     of fontItems
@@ -2150,81 +2186,61 @@ function getLocalFontRecordsByDisplayName(
   );
 }
 
-function resolveDisplaySvg(
-  fonts,
-  codePoint
-) {
-
-  const priority =
-    getDisplayFontPriority(
-      codePoint
-    );
-
-
-  if (
-    priority.length ===
-      0
-  ) {
-
-    return null;
+/*
+ * Resolve daily SVG from exactly the same audited font order used by the
+ * web converter. Keep legacy priorities first to preserve earlier styling.
+ * Only fonts with a genuine outline survive makeSvgGlyph().
+ */
+let dailyCoverageIndex = null;
+let dailyCoverageRead = false;
+function getDailyCoverageIndex() {
+  if (dailyCoverageRead) return dailyCoverageIndex;
+  dailyCoverageRead = true;
+  try {
+    const raw = JSON.parse(fs.readFileSync(
+      path.join(ROOT,"data/unicode18_font_coverage_index.json"),"utf8"
+    ));
+    if(raw.schema_version===2&&Array.isArray(raw.ranges)&&
+       Array.isArray(raw.combinations))dailyCoverageIndex=raw;
+  } catch(error) { /* old release: use original priorities */ }
+  return dailyCoverageIndex;
+}
+function findDailyFontRange(ranges, cp) {
+  let lo=0,hi=ranges.length-1;
+  while(lo<=hi){
+    const mid=(lo+hi)>>>1, r=ranges[mid];
+    if(cp<r[0])hi=mid-1;
+    else if(cp>r[1])lo=mid+1;
+    else return r;
   }
-
-
-  const firstRecords =
-    getLocalFontRecordsByDisplayName(
-      fonts,
-      priority[
-        0
-      ]
-    );
-
-
-  if (
-    firstRecords.length ===
-      0
-  ) {
-
-    return null;
-  }
-
-
-  for (
-    const displayName
-    of priority
-  ) {
-
-    const fontRecords =
-      getLocalFontRecordsByDisplayName(
-        fonts,
-        displayName
-      );
-
-
-    for (
-      const fontRecord
-      of fontRecords
-    ) {
-
-      const svg =
-        makeSvgGlyph(
-          fontRecord,
-          codePoint
-        );
-
-
-      if (
-        svg
-      ) {
-
-        return {
-          fontRecord,
-          svg
-        };
-      }
+  return null;
+}
+function resolveDisplaySvg(fonts,codePoint){
+  const tried = new Set();
+  const attempts = [];
+  const add=(record)=>{
+    if(record&&!tried.has(record.file)){
+      tried.add(record.file);
+      attempts.push(record);
+    }
+  };
+  for(const family of getDisplayFontPriority(codePoint))
+    for(const record of getLocalFontRecordsByDisplayName(fonts,family))add(record);
+  const index=getDailyCoverageIndex();
+  if(index){
+    const rg=findDailyFontRange(index.ranges,codePoint);
+    for(const id of rg ? index.combinations[rg[2]]||[] : []){
+      const found=index.font_families[id];
+      if(found)for(const record of fonts)if(record.file===found.file)add(record);
     }
   }
-
-
+  // Fallback also covers newly uploaded files before their first audit run.
+  for(const record of fonts)
+    if(record.font.hasGlyphForCodePoint(codePoint))add(record);
+  for(const record of attempts){
+    const svg=makeSvgGlyph(record,codePoint);
+    if(svg)return {fontRecord:record,svg};
+  }
   return null;
 }
 
