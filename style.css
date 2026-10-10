@@ -1213,6 +1213,15 @@ button:disabled {
 }
 
 
+/* Device-specific font rendering disclaimer below Unicode → character */
+.unicode-display-note {
+  margin: 7px 2px 0;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: left;
+}
+
 /* =========================================
    Font credit
 ========================================= */
