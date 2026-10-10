@@ -2879,3 +2879,27 @@ button:disabled {
   }
 
 }
+
+/* Bulk input: expensive conversions run only on explicit confirmation. */
+.bulk-update-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 7px;
+}
+.bulk-update-status { color: #6e6e73; font-size: 12px; line-height: 1.5; }
+.bulk-update-button {
+  border: 0;
+  background: #007aff;
+  color: white;
+  border-radius: 8px;
+  padding: 7px 13px;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.bulk-update-button:hover { background: #0066d6; }
+.bulk-update-button:active { transform: scale(0.98); }
+.bulk-update-button[hidden], .bulk-update-status[hidden] { display: none !important; }
