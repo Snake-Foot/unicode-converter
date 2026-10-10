@@ -47,7 +47,7 @@ const FONT_FILES = [
       "Plangothic P1",
 
     file:
-      "fonts/PlangothicP1-Regular.woff2"
+      "fonts/han/PlangothicP1-Regular.woff2"
   },
 
   {
@@ -55,7 +55,7 @@ const FONT_FILES = [
       "Plangothic P2",
 
     file:
-      "fonts/PlangothicP2-Regular.woff2"
+      "fonts/han/PlangothicP2-Regular.woff2"
   },
 
   {
@@ -63,7 +63,7 @@ const FONT_FILES = [
       "Egyptology Extended",
 
     file:
-      "fonts/EgyptologyExtended.woff2"
+      "fonts/hieroglyphs/EgyptologyExtended.woff2"
   },
 
   {
@@ -71,7 +71,7 @@ const FONT_FILES = [
       "UniHieroglyphica",
 
     file:
-      "fonts/UniHieroglyphica.ttf"
+      "fonts/hieroglyphs/UniHieroglyphica.ttf"
   },
 
   {
@@ -79,7 +79,7 @@ const FONT_FILES = [
       "BabelStone Pseudographica",
 
     file:
-      "fonts/BabelStonePseudographica.woff2"
+      "fonts/symbols/BabelStonePseudographica.woff2"
   },
 
   {
@@ -87,7 +87,7 @@ const FONT_FILES = [
       "Noto Sans Symbols 2",
 
     file:
-      "fonts/NotoSansSymbols2-Regular.ttf"
+      "fonts/symbols/NotoSansSymbols2-Regular.ttf"
   },
 
   {

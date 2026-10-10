@@ -19,32 +19,32 @@
     },
     {
       "family": "Noto Sans Symbols 2 Local",
-      "path": "fonts/NotoSansSymbols2-Regular.ttf",
+      "path": "fonts/symbols/NotoSansSymbols2-Regular.ttf",
       "site_served": true
     },
     {
       "family": "Plangothic P1",
-      "path": "fonts/PlangothicP1-Regular.woff2",
+      "path": "fonts/han/PlangothicP1-Regular.woff2",
       "site_served": true
     },
     {
       "family": "Plangothic P2",
-      "path": "fonts/PlangothicP2-Regular.woff2",
+      "path": "fonts/han/PlangothicP2-Regular.woff2",
       "site_served": true
     },
     {
       "family": "UniHieroglyphica",
-      "path": "fonts/UniHieroglyphica.ttf",
+      "path": "fonts/hieroglyphs/UniHieroglyphica.ttf",
       "site_served": true
     },
     {
       "family": "Egyptology Extended",
-      "path": "fonts/EgyptologyExtended.woff2",
+      "path": "fonts/hieroglyphs/EgyptologyExtended.woff2",
       "site_served": true
     },
     {
       "family": "BabelStone Pseudographica",
-      "path": "fonts/BabelStonePseudographica.woff2",
+      "path": "fonts/symbols/BabelStonePseudographica.woff2",
       "site_served": true
     },
     {

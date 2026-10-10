@@ -42,7 +42,7 @@
   font-family: "Plangothic P1";
 
   src:
-    url("./fonts/PlangothicP1-Regular.woff2")
+    url("./fonts/han/PlangothicP1-Regular.woff2")
     format("woff2");
 
   font-display: swap;
@@ -53,7 +53,7 @@
   font-family: "Plangothic P2";
 
   src:
-    url("./fonts/PlangothicP2-Regular.woff2")
+    url("./fonts/han/PlangothicP2-Regular.woff2")
     format("woff2");
 
   font-display: swap;
@@ -66,7 +66,7 @@
   font-family: "Egyptology Extended";
 
   src:
-    url("./fonts/EgyptologyExtended.woff2")
+    url("./fonts/hieroglyphs/EgyptologyExtended.woff2")
     format("woff2");
 
   font-display: swap;
@@ -82,7 +82,7 @@
   font-family: "UniHieroglyphica";
 
   src:
-    url("./fonts/UniHieroglyphica.ttf")
+    url("./fonts/hieroglyphs/UniHieroglyphica.ttf")
     format("truetype");
 
   font-display: swap;
@@ -98,7 +98,7 @@
   font-family: "BabelStone Pseudographica";
 
   src:
-    url("./fonts/BabelStonePseudographica.woff2")
+    url("./fonts/symbols/BabelStonePseudographica.woff2")
     format("woff2");
 
   font-display: swap;
@@ -113,7 +113,7 @@
   font-family: "Noto Sans Symbols 2 Local";
 
   src:
-    url("./fonts/NotoSansSymbols2-Regular.ttf")
+    url("./fonts/symbols/NotoSansSymbols2-Regular.ttf")
     format("truetype");
 
   font-display: swap;
