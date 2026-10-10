@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "unicode_version": "18.0.0",
-  "generated_at_utc": "2026-10-10T15:23:45.898Z",
+  "generated_at_utc": "2026-10-10T15:31:06.907Z",
   "meaning": "CMAP mappings in the locally inspected font binaries only; NOT tested browser rendering or correct glyph shapes.",
   "method": "Read actual fontkit characterSet from each binary, intersect with assigned Unicode 18.0 Script + General_Category, union by Script.",
   "excluded_categories": [
@@ -27,8 +27,309 @@
   "font_sources": [
     {
       "id": 0,
-      "family": "Babel Stone Han",
-      "file": "fonts/BabelStoneHan.woff2",
+      "family": "Noto Sans Anatolian Hieroglyphs",
+      "file": "fonts/ancient/NotoSansAnatolianHieroglyphs-Regular.ttf",
+      "file_sha256": "20d36b66aba1d71b6c79fffdb537f53f5519262ee989293f8b4bade252a4f791",
+      "file_bytes": 228424,
+      "cmap_characters_within_unicode18": 586,
+      "per_script": {
+        "Zyyy": {
+          "count": 3,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "200B",
+              "end": "200B"
+            }
+          ]
+        },
+        "Hluw": {
+          "count": 583,
+          "codepoint_ranges": [
+            {
+              "start": "14400",
+              "end": "14646"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 1,
+      "family": "Noto Sans Cuneiform",
+      "file": "fonts/ancient/NotoSansCuneiform-Regular.ttf",
+      "file_sha256": "6c9b57503e0dc9e81e30a52011b64764515afc2a77ea7e77dae53c7e04291c18",
+      "file_bytes": 820248,
+      "cmap_characters_within_unicode18": 1236,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Xsux": {
+          "count": 1234,
+          "codepoint_ranges": [
+            {
+              "start": "12000",
+              "end": "12399"
+            },
+            {
+              "start": "12400",
+              "end": "1246E"
+            },
+            {
+              "start": "12470",
+              "end": "12474"
+            },
+            {
+              "start": "12480",
+              "end": "12543"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "family": "Noto Sans Cypriot",
+      "file": "fonts/ancient/NotoSansCypriot-Regular.ttf",
+      "file_sha256": "35f5b9cbc90f435e02ed2aa082416f7fe1faf4f09bdb08e8c59211d746b99d8a",
+      "file_bytes": 15088,
+      "cmap_characters_within_unicode18": 57,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Cprt": {
+          "count": 55,
+          "codepoint_ranges": [
+            {
+              "start": "10800",
+              "end": "10805"
+            },
+            {
+              "start": "10808",
+              "end": "10808"
+            },
+            {
+              "start": "1080A",
+              "end": "10835"
+            },
+            {
+              "start": "10837",
+              "end": "10838"
+            },
+            {
+              "start": "1083C",
+              "end": "1083C"
+            },
+            {
+              "start": "1083F",
+              "end": "1083F"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "family": "Noto Sans Linear A",
+      "file": "fonts/ancient/NotoSansLinearA-Regular.ttf",
+      "file_sha256": "b88a62037e59305be275d8c636de4fb70f4e5bd2bf4f258c0b9173a648e074e6",
+      "file_bytes": 58168,
+      "cmap_characters_within_unicode18": 343,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Lina": {
+          "count": 341,
+          "codepoint_ranges": [
+            {
+              "start": "10600",
+              "end": "10736"
+            },
+            {
+              "start": "10740",
+              "end": "10755"
+            },
+            {
+              "start": "10760",
+              "end": "10767"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "family": "Noto Sans Linear B",
+      "file": "fonts/ancient/NotoSansLinearB-Regular.ttf",
+      "file_sha256": "d3e24611bcaa0e5b5510d4039a0f9ea7c653dd846827e03f72ee5cc06a6affd4",
+      "file_bytes": 62892,
+      "cmap_characters_within_unicode18": 270,
+      "per_script": {
+        "Zyyy": {
+          "count": 59,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "10100",
+              "end": "10102"
+            },
+            {
+              "start": "10107",
+              "end": "10133"
+            },
+            {
+              "start": "10137",
+              "end": "1013F"
+            }
+          ]
+        },
+        "Linb": {
+          "count": 211,
+          "codepoint_ranges": [
+            {
+              "start": "10000",
+              "end": "1000B"
+            },
+            {
+              "start": "1000D",
+              "end": "10026"
+            },
+            {
+              "start": "10028",
+              "end": "1003A"
+            },
+            {
+              "start": "1003C",
+              "end": "1003D"
+            },
+            {
+              "start": "1003F",
+              "end": "1004D"
+            },
+            {
+              "start": "10050",
+              "end": "1005D"
+            },
+            {
+              "start": "10080",
+              "end": "100FA"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 5,
+      "family": "Noto Sans Meroitic",
+      "file": "fonts/ancient/NotoSansMeroitic-Regular.ttf",
+      "file_sha256": "f86e213d3a76f9178ebc412d3784f8b4d96f79a6086fad83fd38fa870be6a8a6",
+      "file_bytes": 33688,
+      "cmap_characters_within_unicode18": 127,
+      "per_script": {
+        "Zyyy": {
+          "count": 5,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "003A",
+              "end": "003A"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "2026",
+              "end": "2026"
+            },
+            {
+              "start": "205D",
+              "end": "205D"
+            }
+          ]
+        },
+        "Mero": {
+          "count": 32,
+          "codepoint_ranges": [
+            {
+              "start": "10980",
+              "end": "1099F"
+            }
+          ]
+        },
+        "Merc": {
+          "count": 90,
+          "codepoint_ranges": [
+            {
+              "start": "109A0",
+              "end": "109B7"
+            },
+            {
+              "start": "109BC",
+              "end": "109CF"
+            },
+            {
+              "start": "109D2",
+              "end": "109FF"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 6,
+      "family": "BabelStone Han",
+      "file": "fonts/han/BabelStoneHan.woff2",
       "file_sha256": "4cedbfe15ece57ea2f85cfec331cf1a37ad9005cb44b1eb13e962030a27a7fa1",
       "file_bytes": 7438036,
       "cmap_characters_within_unicode18": 64671,
@@ -56521,1459 +56822,7 @@
       }
     },
     {
-      "id": 1,
-      "family": "Noto Sans Cypriot",
-      "file": "fonts/NotoSansCypriot-Regular.ttf",
-      "file_sha256": "35f5b9cbc90f435e02ed2aa082416f7fe1faf4f09bdb08e8c59211d746b99d8a",
-      "file_bytes": 15088,
-      "cmap_characters_within_unicode18": 57,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Cprt": {
-          "count": 55,
-          "codepoint_ranges": [
-            {
-              "start": "10800",
-              "end": "10805"
-            },
-            {
-              "start": "10808",
-              "end": "10808"
-            },
-            {
-              "start": "1080A",
-              "end": "10835"
-            },
-            {
-              "start": "10837",
-              "end": "10838"
-            },
-            {
-              "start": "1083C",
-              "end": "1083C"
-            },
-            {
-              "start": "1083F",
-              "end": "1083F"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 2,
-      "family": "Noto Sans Deseret",
-      "file": "fonts/NotoSansDeseret-Regular.ttf",
-      "file_sha256": "62a7ba0fe4d060fb9c3d73ca9fceb12dfac5137991cecbdad3ab65606e764264",
-      "file_bytes": 19936,
-      "cmap_characters_within_unicode18": 82,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Dsrt": {
-          "count": 80,
-          "codepoint_ranges": [
-            {
-              "start": "10400",
-              "end": "1044F"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 3,
-      "family": "Noto Sans Gunjala Gondi",
-      "file": "fonts/NotoSansGunjalaGondi-Regular.ttf",
-      "file_sha256": "2c5fe49c356c5ec81081e01d62efa63fc486610a5914a9652a988257df71cdaf",
-      "file_bytes": 70180,
-      "cmap_characters_within_unicode18": 92,
-      "per_script": {
-        "Zyyy": {
-          "count": 27,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0021"
-            },
-            {
-              "start": "0025",
-              "end": "0025"
-            },
-            {
-              "start": "0027",
-              "end": "002F"
-            },
-            {
-              "start": "003A",
-              "end": "003A"
-            },
-            {
-              "start": "003C",
-              "end": "003F"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "00D7",
-              "end": "00D7"
-            },
-            {
-              "start": "00F7",
-              "end": "00F7"
-            },
-            {
-              "start": "2018",
-              "end": "2019"
-            },
-            {
-              "start": "201C",
-              "end": "201D"
-            },
-            {
-              "start": "2026",
-              "end": "2026"
-            },
-            {
-              "start": "2212",
-              "end": "2212"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "200C",
-              "end": "200D"
-            }
-          ]
-        },
-        "Gong": {
-          "count": 63,
-          "codepoint_ranges": [
-            {
-              "start": "11D60",
-              "end": "11D65"
-            },
-            {
-              "start": "11D67",
-              "end": "11D68"
-            },
-            {
-              "start": "11D6A",
-              "end": "11D8E"
-            },
-            {
-              "start": "11D90",
-              "end": "11D91"
-            },
-            {
-              "start": "11D93",
-              "end": "11D98"
-            },
-            {
-              "start": "11DA0",
-              "end": "11DA9"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 4,
-      "family": "Noto Sans Kaithi",
-      "file": "fonts/NotoSansKaithi-Regular.ttf",
-      "file_sha256": "481b743138f771102969950e287dadf607f6a798c559d48a712777efe4108156",
-      "file_bytes": 91284,
-      "cmap_characters_within_unicode18": 95,
-      "per_script": {
-        "Zyyy": {
-          "count": 16,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "002D",
-              "end": "002D"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "200B",
-              "end": "200B"
-            },
-            {
-              "start": "2010",
-              "end": "2010"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            },
-            {
-              "start": "A830",
-              "end": "A839"
-            }
-          ]
-        },
-        "Deva": {
-          "count": 10,
-          "codepoint_ranges": [
-            {
-              "start": "0966",
-              "end": "096F"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "200C",
-              "end": "200D"
-            }
-          ]
-        },
-        "Kthi": {
-          "count": 67,
-          "codepoint_ranges": [
-            {
-              "start": "11080",
-              "end": "110C1"
-            },
-            {
-              "start": "110CD",
-              "end": "110CD"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 5,
-      "family": "Noto Sans Meroitic",
-      "file": "fonts/NotoSansMeroitic-Regular.ttf",
-      "file_sha256": "f86e213d3a76f9178ebc412d3784f8b4d96f79a6086fad83fd38fa870be6a8a6",
-      "file_bytes": 33688,
-      "cmap_characters_within_unicode18": 127,
-      "per_script": {
-        "Zyyy": {
-          "count": 5,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "003A",
-              "end": "003A"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "2026",
-              "end": "2026"
-            },
-            {
-              "start": "205D",
-              "end": "205D"
-            }
-          ]
-        },
-        "Mero": {
-          "count": 32,
-          "codepoint_ranges": [
-            {
-              "start": "10980",
-              "end": "1099F"
-            }
-          ]
-        },
-        "Merc": {
-          "count": 90,
-          "codepoint_ranges": [
-            {
-              "start": "109A0",
-              "end": "109B7"
-            },
-            {
-              "start": "109BC",
-              "end": "109CF"
-            },
-            {
-              "start": "109D2",
-              "end": "109FF"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 6,
-      "family": "Noto Sans Mro",
-      "file": "fonts/NotoSansMro-Regular.ttf",
-      "file_sha256": "36cc0318ecb39d06dc0ad06b2165b5b48b09deea5232825df4e397a407eaa304",
-      "file_bytes": 6920,
-      "cmap_characters_within_unicode18": 45,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Mroo": {
-          "count": 43,
-          "codepoint_ranges": [
-            {
-              "start": "16A40",
-              "end": "16A5E"
-            },
-            {
-              "start": "16A60",
-              "end": "16A69"
-            },
-            {
-              "start": "16A6E",
-              "end": "16A6F"
-            }
-          ]
-        }
-      }
-    },
-    {
       "id": 7,
-      "family": "Noto Sans Newa",
-      "file": "fonts/NotoSansNewa-Regular.ttf",
-      "file_sha256": "d3642459efc0b3cc92c3274a53daa3de5c22e98d65bd7c45d908d3d18141f459",
-      "file_bytes": 151720,
-      "cmap_characters_within_unicode18": 104,
-      "per_script": {
-        "Zyyy": {
-          "count": 4,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "00B7",
-              "end": "00B7"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 3,
-          "codepoint_ranges": [
-            {
-              "start": "1DFB",
-              "end": "1DFB"
-            },
-            {
-              "start": "200C",
-              "end": "200D"
-            }
-          ]
-        },
-        "Newa": {
-          "count": 97,
-          "codepoint_ranges": [
-            {
-              "start": "11400",
-              "end": "1145B"
-            },
-            {
-              "start": "1145D",
-              "end": "11461"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 8,
-      "family": "Noto Sans Nushu",
-      "file": "fonts/NotoSansNushu-Regular.ttf",
-      "file_sha256": "d4181f1cdf281d518190760155c83d2bb5603fe3762eebe6da0246b5df400708",
-      "file_bytes": 116564,
-      "cmap_characters_within_unicode18": 399,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Nshu": {
-          "count": 397,
-          "codepoint_ranges": [
-            {
-              "start": "16FE1",
-              "end": "16FE1"
-            },
-            {
-              "start": "1B170",
-              "end": "1B2FB"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 9,
-      "family": "Noto Sans Sign Writing",
-      "file": "fonts/NotoSansSignWriting-Regular.ttf",
-      "file_sha256": "1ca2d2efc74bbe80dcfd987ad441c2f226040dff1c3e584946996ae01af5f7f0",
-      "file_bytes": 5216448,
-      "cmap_characters_within_unicode18": 677,
-      "per_script": {
-        "Zyyy": {
-          "count": 4,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "200B",
-              "end": "200B"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 1,
-          "codepoint_ranges": [
-            {
-              "start": "200C",
-              "end": "200C"
-            }
-          ]
-        },
-        "Sgnw": {
-          "count": 672,
-          "codepoint_ranges": [
-            {
-              "start": "1D800",
-              "end": "1DA8B"
-            },
-            {
-              "start": "1DA9B",
-              "end": "1DA9F"
-            },
-            {
-              "start": "1DAA1",
-              "end": "1DAAF"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 10,
-      "family": "Noto Serif Hentaigana",
-      "file": "fonts/NotoSerifHentaigana-Regular.ttf",
-      "file_sha256": "2acae0b61cb2a059d14b9eae555dd1b39e3d9568cff41834820b983f5d512207",
-      "file_bytes": 150320,
-      "cmap_characters_within_unicode18": 294,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "3099",
-              "end": "309A"
-            }
-          ]
-        },
-        "Kana": {
-          "count": 4,
-          "codepoint_ranges": [
-            {
-              "start": "1B000",
-              "end": "1B000"
-            },
-            {
-              "start": "1B120",
-              "end": "1B122"
-            }
-          ]
-        },
-        "Hira": {
-          "count": 286,
-          "codepoint_ranges": [
-            {
-              "start": "1B001",
-              "end": "1B11E"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 11,
-      "family": "Noto Serif Sinhala",
-      "file": "fonts/NotoSerifSinhala-Regular.ttf",
-      "file_sha256": "3f5436fa46dd8c31f676021296d448059bea40621aa8a671fcc20beefd812cb0",
-      "file_bytes": 322840,
-      "cmap_characters_within_unicode18": 168,
-      "per_script": {
-        "Zyyy": {
-          "count": 55,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0023"
-            },
-            {
-              "start": "0025",
-              "end": "0025"
-            },
-            {
-              "start": "0027",
-              "end": "003F"
-            },
-            {
-              "start": "005B",
-              "end": "005F"
-            },
-            {
-              "start": "007B",
-              "end": "007E"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "00AD",
-              "end": "00AD"
-            },
-            {
-              "start": "00D7",
-              "end": "00D7"
-            },
-            {
-              "start": "00F7",
-              "end": "00F7"
-            },
-            {
-              "start": "0964",
-              "end": "0965"
-            },
-            {
-              "start": "200B",
-              "end": "200B"
-            },
-            {
-              "start": "2013",
-              "end": "2014"
-            },
-            {
-              "start": "2018",
-              "end": "2019"
-            },
-            {
-              "start": "201C",
-              "end": "201D"
-            },
-            {
-              "start": "2026",
-              "end": "2026"
-            },
-            {
-              "start": "2212",
-              "end": "2212"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            }
-          ]
-        },
-        "Sinh": {
-          "count": 111,
-          "codepoint_ranges": [
-            {
-              "start": "0D81",
-              "end": "0D83"
-            },
-            {
-              "start": "0D85",
-              "end": "0D96"
-            },
-            {
-              "start": "0D9A",
-              "end": "0DB1"
-            },
-            {
-              "start": "0DB3",
-              "end": "0DBB"
-            },
-            {
-              "start": "0DBD",
-              "end": "0DBD"
-            },
-            {
-              "start": "0DC0",
-              "end": "0DC6"
-            },
-            {
-              "start": "0DCA",
-              "end": "0DCA"
-            },
-            {
-              "start": "0DCF",
-              "end": "0DD4"
-            },
-            {
-              "start": "0DD6",
-              "end": "0DD6"
-            },
-            {
-              "start": "0DD8",
-              "end": "0DDF"
-            },
-            {
-              "start": "0DE6",
-              "end": "0DEF"
-            },
-            {
-              "start": "0DF2",
-              "end": "0DF4"
-            },
-            {
-              "start": "111E1",
-              "end": "111F4"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "200C",
-              "end": "200D"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 12,
-      "family": "Noto Serif Todhri",
-      "file": "fonts/NotoSerifTodhri-Regular.ttf",
-      "file_sha256": "d2c1afe671b637345e7045fcd0b4a4dca35c55811a7811de486b77f1b035008f",
-      "file_bytes": 66440,
-      "cmap_characters_within_unicode18": 378,
-      "per_script": {
-        "Zyyy": {
-          "count": 88,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0040"
-            },
-            {
-              "start": "005B",
-              "end": "0060"
-            },
-            {
-              "start": "007B",
-              "end": "007E"
-            },
-            {
-              "start": "00A0",
-              "end": "00A3"
-            },
-            {
-              "start": "00A5",
-              "end": "00A5"
-            },
-            {
-              "start": "00A7",
-              "end": "00A9"
-            },
-            {
-              "start": "00AB",
-              "end": "00AB"
-            },
-            {
-              "start": "00AE",
-              "end": "00B0"
-            },
-            {
-              "start": "00B4",
-              "end": "00B4"
-            },
-            {
-              "start": "00B6",
-              "end": "00B8"
-            },
-            {
-              "start": "00BB",
-              "end": "00BB"
-            },
-            {
-              "start": "00BF",
-              "end": "00BF"
-            },
-            {
-              "start": "00D7",
-              "end": "00D7"
-            },
-            {
-              "start": "00F7",
-              "end": "00F7"
-            },
-            {
-              "start": "02C6",
-              "end": "02C7"
-            },
-            {
-              "start": "02C9",
-              "end": "02C9"
-            },
-            {
-              "start": "02D8",
-              "end": "02DD"
-            },
-            {
-              "start": "2013",
-              "end": "2014"
-            },
-            {
-              "start": "2018",
-              "end": "201A"
-            },
-            {
-              "start": "201C",
-              "end": "201E"
-            },
-            {
-              "start": "2022",
-              "end": "2022"
-            },
-            {
-              "start": "2026",
-              "end": "2026"
-            },
-            {
-              "start": "2039",
-              "end": "203A"
-            },
-            {
-              "start": "20AC",
-              "end": "20AC"
-            },
-            {
-              "start": "2122",
-              "end": "2122"
-            },
-            {
-              "start": "2212",
-              "end": "2212"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            }
-          ]
-        },
-        "Latn": {
-          "count": 219,
-          "codepoint_ranges": [
-            {
-              "start": "0041",
-              "end": "005A"
-            },
-            {
-              "start": "0061",
-              "end": "007A"
-            },
-            {
-              "start": "00AA",
-              "end": "00AA"
-            },
-            {
-              "start": "00BA",
-              "end": "00BA"
-            },
-            {
-              "start": "00C0",
-              "end": "00D6"
-            },
-            {
-              "start": "00D8",
-              "end": "00F6"
-            },
-            {
-              "start": "00F8",
-              "end": "0107"
-            },
-            {
-              "start": "010A",
-              "end": "0113"
-            },
-            {
-              "start": "0116",
-              "end": "011B"
-            },
-            {
-              "start": "011E",
-              "end": "0123"
-            },
-            {
-              "start": "0126",
-              "end": "0127"
-            },
-            {
-              "start": "012A",
-              "end": "012B"
-            },
-            {
-              "start": "012E",
-              "end": "0131"
-            },
-            {
-              "start": "0136",
-              "end": "0137"
-            },
-            {
-              "start": "0139",
-              "end": "013E"
-            },
-            {
-              "start": "0141",
-              "end": "0148"
-            },
-            {
-              "start": "0150",
-              "end": "0155"
-            },
-            {
-              "start": "0158",
-              "end": "015B"
-            },
-            {
-              "start": "015E",
-              "end": "0161"
-            },
-            {
-              "start": "0164",
-              "end": "0165"
-            },
-            {
-              "start": "016A",
-              "end": "016B"
-            },
-            {
-              "start": "016E",
-              "end": "017E"
-            },
-            {
-              "start": "0218",
-              "end": "021B"
-            },
-            {
-              "start": "0237",
-              "end": "0237"
-            },
-            {
-              "start": "1E80",
-              "end": "1E85"
-            },
-            {
-              "start": "1E9E",
-              "end": "1E9E"
-            },
-            {
-              "start": "1EF2",
-              "end": "1EF3"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 19,
-          "codepoint_ranges": [
-            {
-              "start": "0300",
-              "end": "0308"
-            },
-            {
-              "start": "030A",
-              "end": "030C"
-            },
-            {
-              "start": "0311",
-              "end": "0311"
-            },
-            {
-              "start": "0323",
-              "end": "0323"
-            },
-            {
-              "start": "0326",
-              "end": "0328"
-            },
-            {
-              "start": "035E",
-              "end": "035E"
-            },
-            {
-              "start": "0361",
-              "end": "0361"
-            }
-          ]
-        },
-        "Todr": {
-          "count": 52,
-          "codepoint_ranges": [
-            {
-              "start": "105C0",
-              "end": "105F3"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 13,
-      "family": "Noto Znamenny Musical Notation",
-      "file": "fonts/NotoZnamennyMusicalNotation-Regular.ttf",
-      "file_sha256": "38b7bd32372d35f7601e8cc485c5b04d0a023c75ecebe9543a7916e3c0626c32",
-      "file_bytes": 104040,
-      "cmap_characters_within_unicode18": 515,
-      "per_script": {
-        "Zyyy": {
-          "count": 204,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0040"
-            },
-            {
-              "start": "005B",
-              "end": "0060"
-            },
-            {
-              "start": "007B",
-              "end": "007E"
-            },
-            {
-              "start": "00A0",
-              "end": "00A3"
-            },
-            {
-              "start": "00A5",
-              "end": "00A5"
-            },
-            {
-              "start": "00A7",
-              "end": "00A9"
-            },
-            {
-              "start": "00AB",
-              "end": "00AB"
-            },
-            {
-              "start": "00AE",
-              "end": "00B0"
-            },
-            {
-              "start": "00B4",
-              "end": "00B4"
-            },
-            {
-              "start": "00B6",
-              "end": "00B8"
-            },
-            {
-              "start": "00BB",
-              "end": "00BB"
-            },
-            {
-              "start": "00BF",
-              "end": "00BF"
-            },
-            {
-              "start": "00D7",
-              "end": "00D7"
-            },
-            {
-              "start": "00F7",
-              "end": "00F7"
-            },
-            {
-              "start": "02C6",
-              "end": "02C7"
-            },
-            {
-              "start": "02C9",
-              "end": "02C9"
-            },
-            {
-              "start": "02D8",
-              "end": "02DD"
-            },
-            {
-              "start": "2013",
-              "end": "2014"
-            },
-            {
-              "start": "2018",
-              "end": "201A"
-            },
-            {
-              "start": "201C",
-              "end": "201E"
-            },
-            {
-              "start": "2022",
-              "end": "2022"
-            },
-            {
-              "start": "2026",
-              "end": "2026"
-            },
-            {
-              "start": "2039",
-              "end": "203A"
-            },
-            {
-              "start": "20AC",
-              "end": "20AC"
-            },
-            {
-              "start": "2122",
-              "end": "2122"
-            },
-            {
-              "start": "2212",
-              "end": "2212"
-            },
-            {
-              "start": "25CC",
-              "end": "25CC"
-            },
-            {
-              "start": "1CF50",
-              "end": "1CFC3"
-            }
-          ]
-        },
-        "Latn": {
-          "count": 227,
-          "codepoint_ranges": [
-            {
-              "start": "0041",
-              "end": "005A"
-            },
-            {
-              "start": "0061",
-              "end": "007A"
-            },
-            {
-              "start": "00AA",
-              "end": "00AA"
-            },
-            {
-              "start": "00BA",
-              "end": "00BA"
-            },
-            {
-              "start": "00C0",
-              "end": "00D6"
-            },
-            {
-              "start": "00D8",
-              "end": "00F6"
-            },
-            {
-              "start": "00F8",
-              "end": "0107"
-            },
-            {
-              "start": "010A",
-              "end": "0113"
-            },
-            {
-              "start": "0116",
-              "end": "011B"
-            },
-            {
-              "start": "011E",
-              "end": "0123"
-            },
-            {
-              "start": "0126",
-              "end": "0127"
-            },
-            {
-              "start": "012A",
-              "end": "012B"
-            },
-            {
-              "start": "012E",
-              "end": "0131"
-            },
-            {
-              "start": "0136",
-              "end": "0137"
-            },
-            {
-              "start": "0139",
-              "end": "013E"
-            },
-            {
-              "start": "0141",
-              "end": "0148"
-            },
-            {
-              "start": "014A",
-              "end": "014D"
-            },
-            {
-              "start": "0150",
-              "end": "015B"
-            },
-            {
-              "start": "015E",
-              "end": "0161"
-            },
-            {
-              "start": "0164",
-              "end": "0165"
-            },
-            {
-              "start": "016A",
-              "end": "017E"
-            },
-            {
-              "start": "0218",
-              "end": "021B"
-            },
-            {
-              "start": "0237",
-              "end": "0237"
-            },
-            {
-              "start": "1E80",
-              "end": "1E85"
-            },
-            {
-              "start": "1E9E",
-              "end": "1E9E"
-            },
-            {
-              "start": "1EF2",
-              "end": "1EF3"
-            }
-          ]
-        },
-        "Zinh": {
-          "count": 84,
-          "codepoint_ranges": [
-            {
-              "start": "0300",
-              "end": "0304"
-            },
-            {
-              "start": "0306",
-              "end": "0308"
-            },
-            {
-              "start": "030A",
-              "end": "030C"
-            },
-            {
-              "start": "0312",
-              "end": "0312"
-            },
-            {
-              "start": "0326",
-              "end": "0328"
-            },
-            {
-              "start": "1CF00",
-              "end": "1CF2D"
-            },
-            {
-              "start": "1CF30",
-              "end": "1CF46"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 14,
-      "family": "Noto Sans Anatolian Hieroglyphs",
-      "file": "fonts/ancient/NotoSansAnatolianHieroglyphs-Regular.ttf",
-      "file_sha256": "20d36b66aba1d71b6c79fffdb537f53f5519262ee989293f8b4bade252a4f791",
-      "file_bytes": 228424,
-      "cmap_characters_within_unicode18": 586,
-      "per_script": {
-        "Zyyy": {
-          "count": 3,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "200B",
-              "end": "200B"
-            }
-          ]
-        },
-        "Hluw": {
-          "count": 583,
-          "codepoint_ranges": [
-            {
-              "start": "14400",
-              "end": "14646"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 15,
-      "family": "Noto Sans Cuneiform",
-      "file": "fonts/ancient/NotoSansCuneiform-Regular.ttf",
-      "file_sha256": "6c9b57503e0dc9e81e30a52011b64764515afc2a77ea7e77dae53c7e04291c18",
-      "file_bytes": 820248,
-      "cmap_characters_within_unicode18": 1236,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Xsux": {
-          "count": 1234,
-          "codepoint_ranges": [
-            {
-              "start": "12000",
-              "end": "12399"
-            },
-            {
-              "start": "12400",
-              "end": "1246E"
-            },
-            {
-              "start": "12470",
-              "end": "12474"
-            },
-            {
-              "start": "12480",
-              "end": "12543"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 16,
-      "family": "Noto Sans Linear A",
-      "file": "fonts/ancient/NotoSansLinearA-Regular.ttf",
-      "file_sha256": "b88a62037e59305be275d8c636de4fb70f4e5bd2bf4f258c0b9173a648e074e6",
-      "file_bytes": 58168,
-      "cmap_characters_within_unicode18": 343,
-      "per_script": {
-        "Zyyy": {
-          "count": 2,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            }
-          ]
-        },
-        "Lina": {
-          "count": 341,
-          "codepoint_ranges": [
-            {
-              "start": "10600",
-              "end": "10736"
-            },
-            {
-              "start": "10740",
-              "end": "10755"
-            },
-            {
-              "start": "10760",
-              "end": "10767"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 17,
-      "family": "Noto Sans Linear B",
-      "file": "fonts/ancient/NotoSansLinearB-Regular.ttf",
-      "file_sha256": "d3e24611bcaa0e5b5510d4039a0f9ea7c653dd846827e03f72ee5cc06a6affd4",
-      "file_bytes": 62892,
-      "cmap_characters_within_unicode18": 270,
-      "per_script": {
-        "Zyyy": {
-          "count": 59,
-          "codepoint_ranges": [
-            {
-              "start": "0020",
-              "end": "0020"
-            },
-            {
-              "start": "00A0",
-              "end": "00A0"
-            },
-            {
-              "start": "10100",
-              "end": "10102"
-            },
-            {
-              "start": "10107",
-              "end": "10133"
-            },
-            {
-              "start": "10137",
-              "end": "1013F"
-            }
-          ]
-        },
-        "Linb": {
-          "count": 211,
-          "codepoint_ranges": [
-            {
-              "start": "10000",
-              "end": "1000B"
-            },
-            {
-              "start": "1000D",
-              "end": "10026"
-            },
-            {
-              "start": "10028",
-              "end": "1003A"
-            },
-            {
-              "start": "1003C",
-              "end": "1003D"
-            },
-            {
-              "start": "1003F",
-              "end": "1004D"
-            },
-            {
-              "start": "10050",
-              "end": "1005D"
-            },
-            {
-              "start": "10080",
-              "end": "100FA"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": 18,
       "family": "Noto Sans CJK JP",
       "file": "fonts/han/NotoSansCJKjp-Regular.otf",
       "file_sha256": "68a3fc98800b2a27b371f2fb79991daf3633bd89309d4ffaa6946fd587f375b5",
@@ -66357,7 +65206,7 @@
       }
     },
     {
-      "id": 19,
+      "id": 8,
       "family": "Plangothic P1",
       "file": "fonts/han/PlangothicP1-Regular.woff2",
       "file_sha256": "073fb3aeb6e5b5f03252281a41699e8cbf702be4e83e09eb1646979782aaf27b",
@@ -71010,7 +69859,7 @@
       }
     },
     {
-      "id": 20,
+      "id": 9,
       "family": "Plangothic P2",
       "file": "fonts/han/PlangothicP2-Regular.woff2",
       "file_sha256": "168f0055c771f10a8bff636139abc02d3f06fe696b0725fbc17a50c7b4879863",
@@ -74761,7 +73610,7 @@
       }
     },
     {
-      "id": 21,
+      "id": 10,
       "family": "GNU Unifont Upper",
       "file": "fonts/han/unifont_upper-18.0.01.otf",
       "file_sha256": "472201e45a050bff4c7658208b8c73e34ebce3764b287a5a46c7774038ef9391",
@@ -82792,7 +81641,7 @@
       }
     },
     {
-      "id": 22,
+      "id": 11,
       "family": "Egyptology Extended",
       "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
       "file_sha256": "713264e326e43da66de0a73b4ffeb2ba7a692bc1ed5e3161cd5d49f4d5fd9802",
@@ -85675,7 +84524,7 @@
       }
     },
     {
-      "id": 23,
+      "id": 12,
       "family": "UniHieroglyphica",
       "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
       "file_sha256": "ad60bb2f469697837b556388d47b500a21d866370a49a8be770b206108aaf664",
@@ -85896,7 +84745,7 @@
       }
     },
     {
-      "id": 24,
+      "id": 13,
       "family": "Noto Music",
       "file": "fonts/music/NotoMusic-Regular.ttf",
       "file_sha256": "e913be269fe16723d1dea0afc3c31a28be6958f6a7f0e6d5be6e98506c4022bd",
@@ -86210,7 +85059,276 @@
       }
     },
     {
-      "id": 25,
+      "id": 14,
+      "family": "Noto Znamenny Musical Notation",
+      "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
+      "file_sha256": "38b7bd32372d35f7601e8cc485c5b04d0a023c75ecebe9543a7916e3c0626c32",
+      "file_bytes": 104040,
+      "cmap_characters_within_unicode18": 515,
+      "per_script": {
+        "Zyyy": {
+          "count": 204,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0040"
+            },
+            {
+              "start": "005B",
+              "end": "0060"
+            },
+            {
+              "start": "007B",
+              "end": "007E"
+            },
+            {
+              "start": "00A0",
+              "end": "00A3"
+            },
+            {
+              "start": "00A5",
+              "end": "00A5"
+            },
+            {
+              "start": "00A7",
+              "end": "00A9"
+            },
+            {
+              "start": "00AB",
+              "end": "00AB"
+            },
+            {
+              "start": "00AE",
+              "end": "00B0"
+            },
+            {
+              "start": "00B4",
+              "end": "00B4"
+            },
+            {
+              "start": "00B6",
+              "end": "00B8"
+            },
+            {
+              "start": "00BB",
+              "end": "00BB"
+            },
+            {
+              "start": "00BF",
+              "end": "00BF"
+            },
+            {
+              "start": "00D7",
+              "end": "00D7"
+            },
+            {
+              "start": "00F7",
+              "end": "00F7"
+            },
+            {
+              "start": "02C6",
+              "end": "02C7"
+            },
+            {
+              "start": "02C9",
+              "end": "02C9"
+            },
+            {
+              "start": "02D8",
+              "end": "02DD"
+            },
+            {
+              "start": "2013",
+              "end": "2014"
+            },
+            {
+              "start": "2018",
+              "end": "201A"
+            },
+            {
+              "start": "201C",
+              "end": "201E"
+            },
+            {
+              "start": "2022",
+              "end": "2022"
+            },
+            {
+              "start": "2026",
+              "end": "2026"
+            },
+            {
+              "start": "2039",
+              "end": "203A"
+            },
+            {
+              "start": "20AC",
+              "end": "20AC"
+            },
+            {
+              "start": "2122",
+              "end": "2122"
+            },
+            {
+              "start": "2212",
+              "end": "2212"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            },
+            {
+              "start": "1CF50",
+              "end": "1CFC3"
+            }
+          ]
+        },
+        "Latn": {
+          "count": 227,
+          "codepoint_ranges": [
+            {
+              "start": "0041",
+              "end": "005A"
+            },
+            {
+              "start": "0061",
+              "end": "007A"
+            },
+            {
+              "start": "00AA",
+              "end": "00AA"
+            },
+            {
+              "start": "00BA",
+              "end": "00BA"
+            },
+            {
+              "start": "00C0",
+              "end": "00D6"
+            },
+            {
+              "start": "00D8",
+              "end": "00F6"
+            },
+            {
+              "start": "00F8",
+              "end": "0107"
+            },
+            {
+              "start": "010A",
+              "end": "0113"
+            },
+            {
+              "start": "0116",
+              "end": "011B"
+            },
+            {
+              "start": "011E",
+              "end": "0123"
+            },
+            {
+              "start": "0126",
+              "end": "0127"
+            },
+            {
+              "start": "012A",
+              "end": "012B"
+            },
+            {
+              "start": "012E",
+              "end": "0131"
+            },
+            {
+              "start": "0136",
+              "end": "0137"
+            },
+            {
+              "start": "0139",
+              "end": "013E"
+            },
+            {
+              "start": "0141",
+              "end": "0148"
+            },
+            {
+              "start": "014A",
+              "end": "014D"
+            },
+            {
+              "start": "0150",
+              "end": "015B"
+            },
+            {
+              "start": "015E",
+              "end": "0161"
+            },
+            {
+              "start": "0164",
+              "end": "0165"
+            },
+            {
+              "start": "016A",
+              "end": "017E"
+            },
+            {
+              "start": "0218",
+              "end": "021B"
+            },
+            {
+              "start": "0237",
+              "end": "0237"
+            },
+            {
+              "start": "1E80",
+              "end": "1E85"
+            },
+            {
+              "start": "1E9E",
+              "end": "1E9E"
+            },
+            {
+              "start": "1EF2",
+              "end": "1EF3"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 84,
+          "codepoint_ranges": [
+            {
+              "start": "0300",
+              "end": "0304"
+            },
+            {
+              "start": "0306",
+              "end": "0308"
+            },
+            {
+              "start": "030A",
+              "end": "030C"
+            },
+            {
+              "start": "0312",
+              "end": "0312"
+            },
+            {
+              "start": "0326",
+              "end": "0328"
+            },
+            {
+              "start": "1CF00",
+              "end": "1CF2D"
+            },
+            {
+              "start": "1CF30",
+              "end": "1CF46"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 15,
       "family": "Noto Sans Phonetics",
       "file": "fonts/phonetics/NotoSans-Regular.ttf",
       "file_sha256": "fe8c022f48d8dd29f17b744d16f9346f4357e16f7d4f7be58b000ae7c291b614",
@@ -86787,7 +85905,7 @@
       }
     },
     {
-      "id": 26,
+      "id": 16,
       "family": "Noto Sans Arabic",
       "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
       "file_sha256": "ceea25b464a656dc3b26849bab9356740401af62aedf1bfa8b7f0d9b75925b1b",
@@ -86992,7 +86110,7 @@
       }
     },
     {
-      "id": 27,
+      "id": 17,
       "family": "Noto Sans Balinese",
       "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
       "file_sha256": "9b82c9de4890d39d9ef09e7b09158ede558ddbaf8c85384461a10f492d489577",
@@ -87049,7 +86167,7 @@
       }
     },
     {
-      "id": 28,
+      "id": 18,
       "family": "Noto Sans Bamum",
       "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
       "file_sha256": "7215685b39f19cbd142d73e4f4f81f4a2586cdeed0d6c0de43f84b7ef060fe6c",
@@ -87085,7 +86203,7 @@
       }
     },
     {
-      "id": 29,
+      "id": 19,
       "family": "Noto Sans Canadian Aboriginal",
       "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
       "file_sha256": "70735441641a0a90f9f1baa45c7340deea77f19c5829fc71162bb443acad2ca7",
@@ -87155,7 +86273,7 @@
       }
     },
     {
-      "id": 30,
+      "id": 20,
       "family": "Noto Sans Cherokee",
       "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
       "file_sha256": "b1fc4e947c0647dc79e88a6583c3b50d81d533732cd9be821d4d4999def842cd",
@@ -87220,7 +86338,39 @@
       }
     },
     {
-      "id": 31,
+      "id": 21,
+      "family": "Noto Sans Deseret",
+      "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
+      "file_sha256": "62a7ba0fe4d060fb9c3d73ca9fceb12dfac5137991cecbdad3ab65606e764264",
+      "file_bytes": 19936,
+      "cmap_characters_within_unicode18": 82,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Dsrt": {
+          "count": 80,
+          "codepoint_ranges": [
+            {
+              "start": "10400",
+              "end": "1044F"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 22,
       "family": "Noto Sans Ethiopic",
       "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
       "file_sha256": "e3a81ca66eb6d6b1a50a287c1dba18195541f69e0986f8b49a42658aa592ff0d",
@@ -87405,7 +86555,7 @@
       }
     },
     {
-      "id": 32,
+      "id": 23,
       "family": "Noto Sans Georgian",
       "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
       "file_sha256": "b36ab61cbdd820ffd32f957f704f5bf0c53655e820b7a64001091058919a11a6",
@@ -87515,7 +86665,112 @@
       }
     },
     {
-      "id": 33,
+      "id": 24,
+      "family": "Noto Sans Gunjala Gondi",
+      "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
+      "file_sha256": "2c5fe49c356c5ec81081e01d62efa63fc486610a5914a9652a988257df71cdaf",
+      "file_bytes": 70180,
+      "cmap_characters_within_unicode18": 92,
+      "per_script": {
+        "Zyyy": {
+          "count": 27,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0021"
+            },
+            {
+              "start": "0025",
+              "end": "0025"
+            },
+            {
+              "start": "0027",
+              "end": "002F"
+            },
+            {
+              "start": "003A",
+              "end": "003A"
+            },
+            {
+              "start": "003C",
+              "end": "003F"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "00D7",
+              "end": "00D7"
+            },
+            {
+              "start": "00F7",
+              "end": "00F7"
+            },
+            {
+              "start": "2018",
+              "end": "2019"
+            },
+            {
+              "start": "201C",
+              "end": "201D"
+            },
+            {
+              "start": "2026",
+              "end": "2026"
+            },
+            {
+              "start": "2212",
+              "end": "2212"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "200C",
+              "end": "200D"
+            }
+          ]
+        },
+        "Gong": {
+          "count": 63,
+          "codepoint_ranges": [
+            {
+              "start": "11D60",
+              "end": "11D65"
+            },
+            {
+              "start": "11D67",
+              "end": "11D68"
+            },
+            {
+              "start": "11D6A",
+              "end": "11D8E"
+            },
+            {
+              "start": "11D90",
+              "end": "11D91"
+            },
+            {
+              "start": "11D93",
+              "end": "11D98"
+            },
+            {
+              "start": "11DA0",
+              "end": "11DA9"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 25,
       "family": "Noto Sans Hebrew",
       "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
       "file_sha256": "a7fa16fffb27bedb060a0866267c29e9859aeb9c21cc33f5b3aaf6eb062eca85",
@@ -87604,7 +86859,81 @@
       }
     },
     {
-      "id": 34,
+      "id": 26,
+      "family": "Noto Sans Kaithi",
+      "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
+      "file_sha256": "481b743138f771102969950e287dadf607f6a798c559d48a712777efe4108156",
+      "file_bytes": 91284,
+      "cmap_characters_within_unicode18": 95,
+      "per_script": {
+        "Zyyy": {
+          "count": 16,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "002D",
+              "end": "002D"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "200B",
+              "end": "200B"
+            },
+            {
+              "start": "2010",
+              "end": "2010"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            },
+            {
+              "start": "A830",
+              "end": "A839"
+            }
+          ]
+        },
+        "Deva": {
+          "count": 10,
+          "codepoint_ranges": [
+            {
+              "start": "0966",
+              "end": "096F"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "200C",
+              "end": "200D"
+            }
+          ]
+        },
+        "Kthi": {
+          "count": 67,
+          "codepoint_ranges": [
+            {
+              "start": "11080",
+              "end": "110C1"
+            },
+            {
+              "start": "110CD",
+              "end": "110CD"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 27,
       "family": "Noto Sans Khmer",
       "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
       "file_sha256": "5c1ec068352f1e1fe8e7a3218230360d054e104d377ef40c0423b17c34c3c259",
@@ -87709,7 +87038,7 @@
       }
     },
     {
-      "id": 35,
+      "id": 28,
       "family": "Noto Sans Miao",
       "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
       "file_sha256": "11ef13cc9cc00ed188f0174e39eefe4d73f748319563836ac9f81feafd744653",
@@ -87753,7 +87082,7 @@
       }
     },
     {
-      "id": 36,
+      "id": 29,
       "family": "Noto Sans Mongolian",
       "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
       "file_sha256": "f82ad19e5653e710e0c30a031eebac2fc9d108a0406ca8bbc458559ef26136d4",
@@ -87878,7 +87207,47 @@
       }
     },
     {
-      "id": 37,
+      "id": 30,
+      "family": "Noto Sans Mro",
+      "file": "fonts/scripts/NotoSansMro-Regular.ttf",
+      "file_sha256": "36cc0318ecb39d06dc0ad06b2165b5b48b09deea5232825df4e397a407eaa304",
+      "file_bytes": 6920,
+      "cmap_characters_within_unicode18": 45,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Mroo": {
+          "count": 43,
+          "codepoint_ranges": [
+            {
+              "start": "16A40",
+              "end": "16A5E"
+            },
+            {
+              "start": "16A60",
+              "end": "16A69"
+            },
+            {
+              "start": "16A6E",
+              "end": "16A6F"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 31,
       "family": "Noto Sans Myanmar",
       "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
       "file_sha256": "9dd2bc76a822a974efce803a4b07302d14d01d5c1fa9e33a258d15a9cb513a7d",
@@ -87959,7 +87328,157 @@
       }
     },
     {
-      "id": 38,
+      "id": 32,
+      "family": "Noto Sans Newa",
+      "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
+      "file_sha256": "d3642459efc0b3cc92c3274a53daa3de5c22e98d65bd7c45d908d3d18141f459",
+      "file_bytes": 151720,
+      "cmap_characters_within_unicode18": 104,
+      "per_script": {
+        "Zyyy": {
+          "count": 4,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "00B7",
+              "end": "00B7"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 3,
+          "codepoint_ranges": [
+            {
+              "start": "1DFB",
+              "end": "1DFB"
+            },
+            {
+              "start": "200C",
+              "end": "200D"
+            }
+          ]
+        },
+        "Newa": {
+          "count": 97,
+          "codepoint_ranges": [
+            {
+              "start": "11400",
+              "end": "1145B"
+            },
+            {
+              "start": "1145D",
+              "end": "11461"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 33,
+      "family": "Noto Sans Nushu",
+      "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
+      "file_sha256": "d4181f1cdf281d518190760155c83d2bb5603fe3762eebe6da0246b5df400708",
+      "file_bytes": 116564,
+      "cmap_characters_within_unicode18": 399,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Nshu": {
+          "count": 397,
+          "codepoint_ranges": [
+            {
+              "start": "16FE1",
+              "end": "16FE1"
+            },
+            {
+              "start": "1B170",
+              "end": "1B2FB"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 34,
+      "family": "Noto Sans SignWriting",
+      "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
+      "file_sha256": "1ca2d2efc74bbe80dcfd987ad441c2f226040dff1c3e584946996ae01af5f7f0",
+      "file_bytes": 5216448,
+      "cmap_characters_within_unicode18": 677,
+      "per_script": {
+        "Zyyy": {
+          "count": 4,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "200B",
+              "end": "200B"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 1,
+          "codepoint_ranges": [
+            {
+              "start": "200C",
+              "end": "200C"
+            }
+          ]
+        },
+        "Sgnw": {
+          "count": 672,
+          "codepoint_ranges": [
+            {
+              "start": "1D800",
+              "end": "1DA8B"
+            },
+            {
+              "start": "1DA9B",
+              "end": "1DA9F"
+            },
+            {
+              "start": "1DAA1",
+              "end": "1DAAF"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 35,
       "family": "Noto Sans Vai",
       "file": "fonts/scripts/NotoSansVai-Regular.ttf",
       "file_sha256": "856da71a5593f62298fac5cdeb3bd8b3332ceebd8cca3cfd590250602dcb706b",
@@ -87991,7 +87510,7 @@
       }
     },
     {
-      "id": 39,
+      "id": 36,
       "family": "Noto Sans Yi",
       "file": "fonts/scripts/NotoSansYi-Regular.ttf",
       "file_sha256": "6cf1952d73528dd20f1238184054e0f2c36e039941d46400dc9ca865b73a1cb4",
@@ -88041,6 +87560,487 @@
             {
               "start": "A490",
               "end": "A4C6"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 37,
+      "family": "Noto Serif Hentaigana",
+      "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
+      "file_sha256": "2acae0b61cb2a059d14b9eae555dd1b39e3d9568cff41834820b983f5d512207",
+      "file_bytes": 150320,
+      "cmap_characters_within_unicode18": 294,
+      "per_script": {
+        "Zyyy": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0020"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "3099",
+              "end": "309A"
+            }
+          ]
+        },
+        "Kana": {
+          "count": 4,
+          "codepoint_ranges": [
+            {
+              "start": "1B000",
+              "end": "1B000"
+            },
+            {
+              "start": "1B120",
+              "end": "1B122"
+            }
+          ]
+        },
+        "Hira": {
+          "count": 286,
+          "codepoint_ranges": [
+            {
+              "start": "1B001",
+              "end": "1B11E"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 38,
+      "family": "Noto Serif Sinhala",
+      "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
+      "file_sha256": "3f5436fa46dd8c31f676021296d448059bea40621aa8a671fcc20beefd812cb0",
+      "file_bytes": 322840,
+      "cmap_characters_within_unicode18": 168,
+      "per_script": {
+        "Zyyy": {
+          "count": 55,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0023"
+            },
+            {
+              "start": "0025",
+              "end": "0025"
+            },
+            {
+              "start": "0027",
+              "end": "003F"
+            },
+            {
+              "start": "005B",
+              "end": "005F"
+            },
+            {
+              "start": "007B",
+              "end": "007E"
+            },
+            {
+              "start": "00A0",
+              "end": "00A0"
+            },
+            {
+              "start": "00AD",
+              "end": "00AD"
+            },
+            {
+              "start": "00D7",
+              "end": "00D7"
+            },
+            {
+              "start": "00F7",
+              "end": "00F7"
+            },
+            {
+              "start": "0964",
+              "end": "0965"
+            },
+            {
+              "start": "200B",
+              "end": "200B"
+            },
+            {
+              "start": "2013",
+              "end": "2014"
+            },
+            {
+              "start": "2018",
+              "end": "2019"
+            },
+            {
+              "start": "201C",
+              "end": "201D"
+            },
+            {
+              "start": "2026",
+              "end": "2026"
+            },
+            {
+              "start": "2212",
+              "end": "2212"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            }
+          ]
+        },
+        "Sinh": {
+          "count": 111,
+          "codepoint_ranges": [
+            {
+              "start": "0D81",
+              "end": "0D83"
+            },
+            {
+              "start": "0D85",
+              "end": "0D96"
+            },
+            {
+              "start": "0D9A",
+              "end": "0DB1"
+            },
+            {
+              "start": "0DB3",
+              "end": "0DBB"
+            },
+            {
+              "start": "0DBD",
+              "end": "0DBD"
+            },
+            {
+              "start": "0DC0",
+              "end": "0DC6"
+            },
+            {
+              "start": "0DCA",
+              "end": "0DCA"
+            },
+            {
+              "start": "0DCF",
+              "end": "0DD4"
+            },
+            {
+              "start": "0DD6",
+              "end": "0DD6"
+            },
+            {
+              "start": "0DD8",
+              "end": "0DDF"
+            },
+            {
+              "start": "0DE6",
+              "end": "0DEF"
+            },
+            {
+              "start": "0DF2",
+              "end": "0DF4"
+            },
+            {
+              "start": "111E1",
+              "end": "111F4"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 2,
+          "codepoint_ranges": [
+            {
+              "start": "200C",
+              "end": "200D"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 39,
+      "family": "Noto Serif Todhri",
+      "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
+      "file_sha256": "d2c1afe671b637345e7045fcd0b4a4dca35c55811a7811de486b77f1b035008f",
+      "file_bytes": 66440,
+      "cmap_characters_within_unicode18": 378,
+      "per_script": {
+        "Zyyy": {
+          "count": 88,
+          "codepoint_ranges": [
+            {
+              "start": "0020",
+              "end": "0040"
+            },
+            {
+              "start": "005B",
+              "end": "0060"
+            },
+            {
+              "start": "007B",
+              "end": "007E"
+            },
+            {
+              "start": "00A0",
+              "end": "00A3"
+            },
+            {
+              "start": "00A5",
+              "end": "00A5"
+            },
+            {
+              "start": "00A7",
+              "end": "00A9"
+            },
+            {
+              "start": "00AB",
+              "end": "00AB"
+            },
+            {
+              "start": "00AE",
+              "end": "00B0"
+            },
+            {
+              "start": "00B4",
+              "end": "00B4"
+            },
+            {
+              "start": "00B6",
+              "end": "00B8"
+            },
+            {
+              "start": "00BB",
+              "end": "00BB"
+            },
+            {
+              "start": "00BF",
+              "end": "00BF"
+            },
+            {
+              "start": "00D7",
+              "end": "00D7"
+            },
+            {
+              "start": "00F7",
+              "end": "00F7"
+            },
+            {
+              "start": "02C6",
+              "end": "02C7"
+            },
+            {
+              "start": "02C9",
+              "end": "02C9"
+            },
+            {
+              "start": "02D8",
+              "end": "02DD"
+            },
+            {
+              "start": "2013",
+              "end": "2014"
+            },
+            {
+              "start": "2018",
+              "end": "201A"
+            },
+            {
+              "start": "201C",
+              "end": "201E"
+            },
+            {
+              "start": "2022",
+              "end": "2022"
+            },
+            {
+              "start": "2026",
+              "end": "2026"
+            },
+            {
+              "start": "2039",
+              "end": "203A"
+            },
+            {
+              "start": "20AC",
+              "end": "20AC"
+            },
+            {
+              "start": "2122",
+              "end": "2122"
+            },
+            {
+              "start": "2212",
+              "end": "2212"
+            },
+            {
+              "start": "25CC",
+              "end": "25CC"
+            }
+          ]
+        },
+        "Latn": {
+          "count": 219,
+          "codepoint_ranges": [
+            {
+              "start": "0041",
+              "end": "005A"
+            },
+            {
+              "start": "0061",
+              "end": "007A"
+            },
+            {
+              "start": "00AA",
+              "end": "00AA"
+            },
+            {
+              "start": "00BA",
+              "end": "00BA"
+            },
+            {
+              "start": "00C0",
+              "end": "00D6"
+            },
+            {
+              "start": "00D8",
+              "end": "00F6"
+            },
+            {
+              "start": "00F8",
+              "end": "0107"
+            },
+            {
+              "start": "010A",
+              "end": "0113"
+            },
+            {
+              "start": "0116",
+              "end": "011B"
+            },
+            {
+              "start": "011E",
+              "end": "0123"
+            },
+            {
+              "start": "0126",
+              "end": "0127"
+            },
+            {
+              "start": "012A",
+              "end": "012B"
+            },
+            {
+              "start": "012E",
+              "end": "0131"
+            },
+            {
+              "start": "0136",
+              "end": "0137"
+            },
+            {
+              "start": "0139",
+              "end": "013E"
+            },
+            {
+              "start": "0141",
+              "end": "0148"
+            },
+            {
+              "start": "0150",
+              "end": "0155"
+            },
+            {
+              "start": "0158",
+              "end": "015B"
+            },
+            {
+              "start": "015E",
+              "end": "0161"
+            },
+            {
+              "start": "0164",
+              "end": "0165"
+            },
+            {
+              "start": "016A",
+              "end": "016B"
+            },
+            {
+              "start": "016E",
+              "end": "017E"
+            },
+            {
+              "start": "0218",
+              "end": "021B"
+            },
+            {
+              "start": "0237",
+              "end": "0237"
+            },
+            {
+              "start": "1E80",
+              "end": "1E85"
+            },
+            {
+              "start": "1E9E",
+              "end": "1E9E"
+            },
+            {
+              "start": "1EF2",
+              "end": "1EF3"
+            }
+          ]
+        },
+        "Zinh": {
+          "count": 19,
+          "codepoint_ranges": [
+            {
+              "start": "0300",
+              "end": "0308"
+            },
+            {
+              "start": "030A",
+              "end": "030C"
+            },
+            {
+              "start": "0311",
+              "end": "0311"
+            },
+            {
+              "start": "0323",
+              "end": "0323"
+            },
+            {
+              "start": "0326",
+              "end": "0328"
+            },
+            {
+              "start": "035E",
+              "end": "035E"
+            },
+            {
+              "start": "0361",
+              "end": "0361"
+            }
+          ]
+        },
+        "Todr": {
+          "count": 52,
+          "codepoint_ranges": [
+            {
+              "start": "105C0",
+              "end": "105F3"
             }
           ]
         }
@@ -90156,7 +90156,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 88
@@ -90172,13 +90172,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 53
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 53
@@ -90194,13 +90194,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 8
@@ -90225,19 +90225,19 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 26,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 1108
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 385
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 234
@@ -90265,7 +90265,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -90306,19 +90306,19 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 1
         },
         {
-          "font_id": 32,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 1
@@ -90334,7 +90334,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 61
@@ -90350,13 +90350,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 27,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 121
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 6
@@ -90372,7 +90372,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 28,
+          "font_id": 18,
           "family": "Noto Sans Bamum",
           "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
           "cmap_codepoints": 657
@@ -90388,7 +90388,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 36
@@ -90479,7 +90479,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 2
@@ -90495,13 +90495,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 50
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -90517,7 +90517,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 97
@@ -90533,31 +90533,31 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 77
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 73
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 2
@@ -90573,13 +90573,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 115
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 7
@@ -90649,13 +90649,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 71
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -90671,13 +90671,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 29,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 726
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 16
@@ -90693,7 +90693,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 49
@@ -90735,7 +90735,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 30,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 172
@@ -90751,13 +90751,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 28
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
@@ -90795,13 +90795,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 99
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 99
@@ -90817,13 +90817,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 1,
+          "font_id": 2,
           "family": "Noto Sans Cypriot",
-          "file": "fonts/NotoSansCypriot-Regular.ttf",
+          "file": "fonts/ancient/NotoSansCypriot-Regular.ttf",
           "cmap_codepoints": 55
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 55
@@ -90839,31 +90839,31 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 443
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 83
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 66
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 63
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 4
@@ -90890,27 +90890,27 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 123
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 13
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 11
         },
         {
-          "font_id": 4,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
-          "file": "fonts/NotoSansKaithi-Regular.ttf",
+          "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 10
         }
       ]
@@ -90924,13 +90924,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 72
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
@@ -90946,7 +90946,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 60
@@ -90962,15 +90962,15 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 2,
-          "family": "Noto Sans Deseret",
-          "file": "fonts/NotoSansDeseret-Regular.ttf",
+          "font_id": 10,
+          "family": "GNU Unifont Upper",
+          "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 80
         },
         {
           "font_id": 21,
-          "family": "GNU Unifont Upper",
-          "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "family": "Noto Sans Deseret",
+          "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
           "cmap_codepoints": 80
         }
       ]
@@ -90984,13 +90984,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 143
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 143
@@ -91006,25 +91006,25 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 23,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 5105
         },
         {
-          "font_id": 22,
+          "font_id": 11,
           "family": "Egyptology Extended",
           "file": "fonts/hieroglyphs/EgyptologyExtended.woff2",
           "cmap_codepoints": 2924
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 39
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
@@ -91040,7 +91040,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -91056,13 +91056,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 23
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 23
@@ -91078,19 +91078,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 31,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 495
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 28
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
@@ -91106,13 +91106,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 69
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 9
@@ -91128,7 +91128,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 32,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 173
@@ -91153,13 +91153,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 40
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 38
@@ -91175,15 +91175,15 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 3,
-          "family": "Noto Sans Gunjala Gondi",
-          "file": "fonts/NotoSansGunjalaGondi-Regular.ttf",
+          "font_id": 10,
+          "family": "GNU Unifont Upper",
+          "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 63
         },
         {
-          "font_id": 21,
-          "family": "GNU Unifont Upper",
-          "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "font_id": 24,
+          "family": "Noto Sans Gunjala Gondi",
+          "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
           "cmap_codepoints": 63
         }
       ]
@@ -91197,7 +91197,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 75
@@ -91213,7 +91213,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -91229,7 +91229,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 85
@@ -91245,13 +91245,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 368
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 150
@@ -91263,7 +91263,7 @@
           "cmap_codepoints": 80
         },
         {
-          "font_id": 24,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 70
@@ -91275,19 +91275,19 @@
           "cmap_codepoints": 56
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 50
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 24
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 15
@@ -91360,7 +91360,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 6
@@ -91376,13 +91376,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 58
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 58
@@ -91472,25 +91472,25 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 11739
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 11737
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 1
@@ -91506,31 +91506,31 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 63471
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 61397
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 30633
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 14122
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 7705
@@ -91560,7 +91560,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -91581,13 +91581,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 33,
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 133
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -91603,31 +91603,31 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 381
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 293
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 291
         },
         {
-          "font_id": 10,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
-          "file": "fonts/NotoSerifHentaigana-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 286
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 90
@@ -91643,7 +91643,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 14,
+          "font_id": 0,
           "family": "Noto Sans Anatolian Hieroglyphs",
           "file": "fonts/ancient/NotoSansAnatolianHieroglyphs-Regular.ttf",
           "cmap_codepoints": 583
@@ -91659,7 +91659,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 127
@@ -91675,7 +91675,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 71
@@ -91691,13 +91691,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 108
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 108
@@ -91713,13 +91713,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -91910,13 +91910,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 86
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 39
@@ -91950,33 +91950,33 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 298
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 220
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 28
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 25
         },
         {
-          "font_id": 10,
+          "font_id": 37,
           "family": "Noto Serif Hentaigana",
-          "file": "fonts/NotoSerifHentaigana-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 4
         }
       ]
@@ -91990,13 +91990,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 87
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 87
@@ -92012,13 +92012,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
@@ -92034,13 +92034,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 34,
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 146
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -92056,13 +92056,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
@@ -92078,19 +92078,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 477
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 472
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 28
@@ -92159,7 +92159,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -92175,13 +92175,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 58
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 58
@@ -92197,19 +92197,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
         },
         {
-          "font_id": 4,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
-          "file": "fonts/NotoSansKaithi-Regular.ttf",
+          "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 67
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -92328,7 +92328,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 16
@@ -92344,49 +92344,49 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 1384
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 469
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 345
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 233
         },
         {
-          "font_id": 24,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 229
         },
         {
-          "font_id": 13,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
-          "file": "fonts/NotoZnamennyMusicalNotation-Regular.ttf",
+          "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 227
         },
         {
-          "font_id": 12,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
-          "file": "fonts/NotoSerifTodhri-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 219
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 199
@@ -92398,7 +92398,7 @@
           "cmap_codepoints": 168
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 133
@@ -92410,7 +92410,7 @@
           "cmap_codepoints": 92
         },
         {
-          "font_id": 23,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 81
@@ -92422,7 +92422,7 @@
           "cmap_codepoints": 52
         },
         {
-          "font_id": 29,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 1
@@ -92481,7 +92481,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -92497,13 +92497,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 16,
+          "font_id": 3,
           "family": "Noto Sans Linear A",
           "file": "fonts/ancient/NotoSansLinearA-Regular.ttf",
           "cmap_codepoints": 341
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 341
@@ -92519,13 +92519,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 17,
+          "font_id": 4,
           "family": "Noto Sans Linear B",
           "file": "fonts/ancient/NotoSansLinearB-Regular.ttf",
           "cmap_codepoints": 211
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 211
@@ -92546,13 +92546,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 1
@@ -92568,7 +92568,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -92584,7 +92584,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -92600,13 +92600,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 39
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 39
@@ -92622,13 +92622,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 25
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 25
@@ -92662,7 +92662,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 51
@@ -92678,7 +92678,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
@@ -92694,7 +92694,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 91
@@ -92710,13 +92710,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 213
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 213
@@ -92734,11 +92734,11 @@
         {
           "font_id": 5,
           "family": "Noto Sans Meroitic",
-          "file": "fonts/NotoSansMeroitic-Regular.ttf",
+          "file": "fonts/ancient/NotoSansMeroitic-Regular.ttf",
           "cmap_codepoints": 90
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 90
@@ -92756,11 +92756,11 @@
         {
           "font_id": 5,
           "family": "Noto Sans Meroitic",
-          "file": "fonts/NotoSansMeroitic-Regular.ttf",
+          "file": "fonts/ancient/NotoSansMeroitic-Regular.ttf",
           "cmap_codepoints": 32
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -92814,13 +92814,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 79
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 79
@@ -92836,19 +92836,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 36,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 167
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 15
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 13
@@ -92864,15 +92864,15 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 6,
-          "family": "Noto Sans Mro",
-          "file": "fonts/NotoSansMro-Regular.ttf",
+          "font_id": 10,
+          "family": "GNU Unifont Upper",
+          "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 43
         },
         {
-          "font_id": 21,
-          "family": "GNU Unifont Upper",
-          "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "font_id": 30,
+          "family": "Noto Sans Mro",
+          "file": "fonts/scripts/NotoSansMro-Regular.ttf",
           "cmap_codepoints": 43
         }
       ]
@@ -92908,7 +92908,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 38
@@ -92924,19 +92924,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 37,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 223
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 21
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 20
@@ -92952,13 +92952,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 42
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 42
@@ -92974,13 +92974,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 65
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 65
@@ -92996,7 +92996,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93012,7 +93012,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93028,19 +93028,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 7,
-          "family": "Noto Sans Newa",
-          "file": "fonts/NotoSansNewa-Regular.ttf",
-          "cmap_codepoints": 97
-        },
-        {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 97
         },
         {
-          "font_id": 20,
+          "font_id": 32,
+          "family": "Noto Sans Newa",
+          "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
+          "cmap_codepoints": 97
+        },
+        {
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 5
@@ -93061,7 +93061,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
@@ -93077,21 +93077,21 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 8,
-          "family": "Noto Sans Nushu",
-          "file": "fonts/NotoSansNushu-Regular.ttf",
-          "cmap_codepoints": 397
-        },
-        {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 397
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "cmap_codepoints": 397
+        },
+        {
+          "font_id": 33,
+          "family": "Noto Sans Nushu",
+          "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
           "cmap_codepoints": 397
         }
       ]
@@ -93133,13 +93133,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 44
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 44
@@ -93155,13 +93155,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 73
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -93234,7 +93234,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2
@@ -93250,7 +93250,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
@@ -93266,7 +93266,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93282,13 +93282,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 26
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -93304,7 +93304,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93320,7 +93320,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 57
@@ -93336,7 +93336,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 164
@@ -93352,7 +93352,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 43
@@ -93382,7 +93382,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 27
@@ -93398,13 +93398,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 29
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -93420,7 +93420,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 29
@@ -93436,13 +93436,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 149
         },
         {
-          "font_id": 35,
+          "font_id": 28,
           "family": "Noto Sans Miao",
           "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
           "cmap_codepoints": 149
@@ -93458,7 +93458,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 30
@@ -93492,7 +93492,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -93517,7 +93517,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 8
@@ -93551,7 +93551,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 32
@@ -93576,7 +93576,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -93609,20 +93609,20 @@
       "font_rank_by_cmap_count": [
         {
           "font_id": 9,
-          "family": "Noto Sans Sign Writing",
-          "file": "fonts/NotoSansSignWriting-Regular.ttf",
-          "cmap_codepoints": 672
-        },
-        {
-          "font_id": 20,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 672
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "cmap_codepoints": 672
+        },
+        {
+          "font_id": 34,
+          "family": "Noto Sans SignWriting",
+          "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 672
         }
       ]
@@ -93636,7 +93636,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 48
@@ -93652,13 +93652,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 104
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 10
@@ -93674,13 +93674,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 92
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 92
@@ -93696,13 +93696,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 26
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 26
@@ -93718,13 +93718,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 69
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 69
@@ -93740,13 +93740,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 11,
+          "font_id": 38,
           "family": "Noto Serif Sinhala",
-          "file": "fonts/NotoSerifSinhala-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
           "cmap_codepoints": 111
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 20
@@ -93762,13 +93762,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 42
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 42
@@ -93784,13 +93784,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 40
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 40
@@ -93806,7 +93806,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 35
@@ -93822,7 +93822,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 83
@@ -93856,13 +93856,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 44
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 44
@@ -93883,7 +93883,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -93912,7 +93912,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 11
@@ -93950,13 +93950,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 68
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 1
@@ -94081,13 +94081,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 51
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 51
@@ -94103,19 +94103,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 7060
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 257
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 5
@@ -94149,13 +94149,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 55
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 55
@@ -94220,7 +94220,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
@@ -94267,7 +94267,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 3
@@ -94368,7 +94368,7 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 64
@@ -94380,9 +94380,9 @@
           "cmap_codepoints": 11
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 3
         }
       ]
@@ -94396,13 +94396,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 82
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 82
@@ -94418,13 +94418,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 89
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 89
@@ -94440,21 +94440,21 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 12,
-          "family": "Noto Serif Todhri",
-          "file": "fonts/NotoSerifTodhri-Regular.ttf",
-          "cmap_codepoints": 52
-        },
-        {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 52
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
+          "cmap_codepoints": 52
+        },
+        {
+          "font_id": 39,
+          "family": "Noto Serif Todhri",
+          "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 52
         }
       ]
@@ -94468,13 +94468,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 54
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 54
@@ -94490,13 +94490,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 31
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -94512,7 +94512,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 80
@@ -94528,7 +94528,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 31
@@ -94544,7 +94544,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 38,
+          "font_id": 35,
           "family": "Noto Sans Vai",
           "file": "fonts/scripts/NotoSansVai-Regular.ttf",
           "cmap_codepoints": 300
@@ -94560,13 +94560,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 70
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 70
@@ -94582,7 +94582,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 84
@@ -94598,7 +94598,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 59
@@ -94614,7 +94614,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 50
@@ -94630,19 +94630,19 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 15,
+          "font_id": 1,
           "family": "Noto Sans Cuneiform",
           "file": "fonts/ancient/NotoSansCuneiform-Regular.ttf",
           "cmap_codepoints": 1234
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 411
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 12
@@ -94658,7 +94658,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 47
@@ -94674,7 +94674,7 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 39,
+          "font_id": 36,
           "family": "Noto Sans Yi",
           "file": "fonts/scripts/NotoSansYi-Regular.ttf",
           "cmap_codepoints": 1220
@@ -94690,13 +94690,13 @@
       "missing_ranges": [],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 72
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 71
@@ -94737,37 +94737,37 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 395
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 286
         },
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 225
         },
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 98
         },
         {
-          "font_id": 13,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
-          "file": "fonts/NotoZnamennyMusicalNotation-Regular.ttf",
+          "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 84
         },
         {
-          "font_id": 24,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 37
@@ -94785,25 +94785,25 @@
           "cmap_codepoints": 31
         },
         {
-          "font_id": 12,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
-          "file": "fonts/NotoSerifTodhri-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 19
         },
         {
-          "font_id": 26,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 15
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 13
         },
         {
-          "font_id": 30,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 10
@@ -94815,7 +94815,7 @@
           "cmap_codepoints": 7
         },
         {
-          "font_id": 32,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 4
@@ -94827,81 +94827,81 @@
           "cmap_codepoints": 4
         },
         {
-          "font_id": 7,
-          "family": "Noto Sans Newa",
-          "file": "fonts/NotoSansNewa-Regular.ttf",
-          "cmap_codepoints": 3
-        },
-        {
-          "font_id": 37,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 3
         },
         {
-          "font_id": 3,
-          "family": "Noto Sans Gunjala Gondi",
-          "file": "fonts/NotoSansGunjalaGondi-Regular.ttf",
-          "cmap_codepoints": 2
+          "font_id": 32,
+          "family": "Noto Sans Newa",
+          "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
+          "cmap_codepoints": 3
         },
         {
-          "font_id": 4,
-          "family": "Noto Sans Kaithi",
-          "file": "fonts/NotoSansKaithi-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 10,
-          "family": "Noto Serif Hentaigana",
-          "file": "fonts/NotoSerifHentaigana-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 11,
-          "family": "Noto Serif Sinhala",
-          "file": "fonts/NotoSerifSinhala-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 27,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 31,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 33,
+          "font_id": 24,
+          "family": "Noto Sans Gunjala Gondi",
+          "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 34,
+          "font_id": 26,
+          "family": "Noto Sans Kaithi",
+          "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 36,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 9,
-          "family": "Noto Sans Sign Writing",
-          "file": "fonts/NotoSansSignWriting-Regular.ttf",
+          "font_id": 37,
+          "family": "Noto Serif Hentaigana",
+          "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 38,
+          "family": "Noto Serif Sinhala",
+          "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 19,
+          "family": "Noto Sans Canadian Aboriginal",
+          "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 1
         },
         {
-          "font_id": 29,
-          "family": "Noto Sans Canadian Aboriginal",
-          "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
+          "font_id": 34,
+          "family": "Noto Sans SignWriting",
+          "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 1
         }
       ]
@@ -94992,13 +94992,13 @@
       ],
       "font_rank_by_cmap_count": [
         {
-          "font_id": 21,
+          "font_id": 10,
           "family": "GNU Unifont Upper",
           "file": "fonts/han/unifont_upper-18.0.01.otf",
           "cmap_codepoints": 5602
         },
         {
-          "font_id": 20,
+          "font_id": 9,
           "family": "Plangothic P2",
           "file": "fonts/han/PlangothicP2-Regular.woff2",
           "cmap_codepoints": 2626
@@ -95022,13 +95022,13 @@
           "cmap_codepoints": 2188
         },
         {
-          "font_id": 0,
-          "family": "Babel Stone Han",
-          "file": "fonts/BabelStoneHan.woff2",
+          "font_id": 6,
+          "family": "BabelStone Han",
+          "file": "fonts/han/BabelStoneHan.woff2",
           "cmap_codepoints": 2072
         },
         {
-          "font_id": 18,
+          "font_id": 7,
           "family": "Noto Sans CJK JP",
           "file": "fonts/han/NotoSansCJKjp-Regular.otf",
           "cmap_codepoints": 1503
@@ -95040,115 +95040,115 @@
           "cmap_codepoints": 739
         },
         {
-          "font_id": 24,
+          "font_id": 13,
           "family": "Noto Music",
           "file": "fonts/music/NotoMusic-Regular.ttf",
           "cmap_codepoints": 552
         },
         {
-          "font_id": 25,
+          "font_id": 15,
           "family": "Noto Sans Phonetics",
           "file": "fonts/phonetics/NotoSans-Regular.ttf",
           "cmap_codepoints": 547
         },
         {
-          "font_id": 13,
+          "font_id": 14,
           "family": "Noto Znamenny Musical Notation",
-          "file": "fonts/NotoZnamennyMusicalNotation-Regular.ttf",
+          "file": "fonts/music/NotoZnamennyMusicalNotation-Regular.ttf",
           "cmap_codepoints": 204
         },
         {
-          "font_id": 19,
+          "font_id": 8,
           "family": "Plangothic P1",
           "file": "fonts/han/PlangothicP1-Regular.woff2",
           "cmap_codepoints": 181
         },
         {
-          "font_id": 23,
+          "font_id": 12,
           "family": "UniHieroglyphica",
           "file": "fonts/hieroglyphs/UniHieroglyphica.ttf",
           "cmap_codepoints": 99
         },
         {
-          "font_id": 12,
+          "font_id": 39,
           "family": "Noto Serif Todhri",
-          "file": "fonts/NotoSerifTodhri-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifTodhri-Regular.ttf",
           "cmap_codepoints": 88
         },
         {
-          "font_id": 17,
+          "font_id": 4,
           "family": "Noto Sans Linear B",
           "file": "fonts/ancient/NotoSansLinearB-Regular.ttf",
           "cmap_codepoints": 59
         },
         {
-          "font_id": 11,
+          "font_id": 38,
           "family": "Noto Serif Sinhala",
-          "file": "fonts/NotoSerifSinhala-Regular.ttf",
+          "file": "fonts/scripts/NotoSerifSinhala-Regular.ttf",
           "cmap_codepoints": 55
         },
         {
-          "font_id": 36,
+          "font_id": 29,
           "family": "Noto Sans Mongolian",
           "file": "fonts/scripts/NotoSansMongolian-Regular.ttf",
           "cmap_codepoints": 53
         },
         {
-          "font_id": 26,
+          "font_id": 16,
           "family": "Noto Sans Arabic",
           "file": "fonts/scripts/NotoSansArabic-Regular.ttf",
           "cmap_codepoints": 36
         },
         {
-          "font_id": 39,
+          "font_id": 36,
           "family": "Noto Sans Yi",
           "file": "fonts/scripts/NotoSansYi-Regular.ttf",
           "cmap_codepoints": 28
         },
         {
-          "font_id": 3,
+          "font_id": 24,
           "family": "Noto Sans Gunjala Gondi",
-          "file": "fonts/NotoSansGunjalaGondi-Regular.ttf",
+          "file": "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf",
           "cmap_codepoints": 27
         },
         {
-          "font_id": 34,
+          "font_id": 27,
           "family": "Noto Sans Khmer",
           "file": "fonts/scripts/NotoSansKhmer-Regular.ttf",
           "cmap_codepoints": 25
         },
         {
-          "font_id": 4,
+          "font_id": 26,
           "family": "Noto Sans Kaithi",
-          "file": "fonts/NotoSansKaithi-Regular.ttf",
+          "file": "fonts/scripts/NotoSansKaithi-Regular.ttf",
           "cmap_codepoints": 16
         },
         {
-          "font_id": 37,
+          "font_id": 31,
           "family": "Noto Sans Myanmar",
           "file": "fonts/scripts/NotoSansMyanmar-Regular.ttf",
           "cmap_codepoints": 11
         },
         {
-          "font_id": 29,
+          "font_id": 19,
           "family": "Noto Sans Canadian Aboriginal",
           "file": "fonts/scripts/NotoSansCanadianAboriginal-Regular.ttf",
           "cmap_codepoints": 8
         },
         {
-          "font_id": 33,
+          "font_id": 25,
           "family": "Noto Sans Hebrew",
           "file": "fonts/scripts/NotoSansHebrew-Regular.ttf",
           "cmap_codepoints": 8
         },
         {
-          "font_id": 31,
+          "font_id": 22,
           "family": "Noto Sans Ethiopic",
           "file": "fonts/scripts/NotoSansEthiopic-Regular.ttf",
           "cmap_codepoints": 6
         },
         {
-          "font_id": 32,
+          "font_id": 23,
           "family": "Noto Sans Georgian",
           "file": "fonts/scripts/NotoSansGeorgian-Regular.ttf",
           "cmap_codepoints": 6
@@ -95156,97 +95156,97 @@
         {
           "font_id": 5,
           "family": "Noto Sans Meroitic",
-          "file": "fonts/NotoSansMeroitic-Regular.ttf",
+          "file": "fonts/ancient/NotoSansMeroitic-Regular.ttf",
           "cmap_codepoints": 5
         },
         {
-          "font_id": 27,
+          "font_id": 17,
           "family": "Noto Sans Balinese",
           "file": "fonts/scripts/NotoSansBalinese-Regular.ttf",
           "cmap_codepoints": 5
         },
         {
-          "font_id": 7,
+          "font_id": 32,
           "family": "Noto Sans Newa",
-          "file": "fonts/NotoSansNewa-Regular.ttf",
+          "file": "fonts/scripts/NotoSansNewa-Regular.ttf",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 9,
-          "family": "Noto Sans Sign Writing",
-          "file": "fonts/NotoSansSignWriting-Regular.ttf",
+          "font_id": 34,
+          "family": "Noto Sans SignWriting",
+          "file": "fonts/scripts/NotoSansSignWriting-Regular.ttf",
           "cmap_codepoints": 4
         },
         {
-          "font_id": 14,
+          "font_id": 0,
           "family": "Noto Sans Anatolian Hieroglyphs",
           "file": "fonts/ancient/NotoSansAnatolianHieroglyphs-Regular.ttf",
           "cmap_codepoints": 3
         },
         {
-          "font_id": 35,
+          "font_id": 28,
           "family": "Noto Sans Miao",
           "file": "fonts/scripts/NotoSansMiao-Regular.ttf",
           "cmap_codepoints": 3
         },
         {
           "font_id": 1,
-          "family": "Noto Sans Cypriot",
-          "file": "fonts/NotoSansCypriot-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 2,
-          "family": "Noto Sans Deseret",
-          "file": "fonts/NotoSansDeseret-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 6,
-          "family": "Noto Sans Mro",
-          "file": "fonts/NotoSansMro-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 8,
-          "family": "Noto Sans Nushu",
-          "file": "fonts/NotoSansNushu-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 10,
-          "family": "Noto Serif Hentaigana",
-          "file": "fonts/NotoSerifHentaigana-Regular.ttf",
-          "cmap_codepoints": 2
-        },
-        {
-          "font_id": 15,
           "family": "Noto Sans Cuneiform",
           "file": "fonts/ancient/NotoSansCuneiform-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 16,
+          "font_id": 2,
+          "family": "Noto Sans Cypriot",
+          "file": "fonts/ancient/NotoSansCypriot-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 3,
           "family": "Noto Sans Linear A",
           "file": "fonts/ancient/NotoSansLinearA-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 28,
+          "font_id": 18,
           "family": "Noto Sans Bamum",
           "file": "fonts/scripts/NotoSansBamum-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 30,
+          "font_id": 20,
           "family": "Noto Sans Cherokee",
           "file": "fonts/scripts/NotoSansCherokee-Regular.ttf",
           "cmap_codepoints": 2
         },
         {
-          "font_id": 38,
+          "font_id": 21,
+          "family": "Noto Sans Deseret",
+          "file": "fonts/scripts/NotoSansDeseret-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 30,
+          "family": "Noto Sans Mro",
+          "file": "fonts/scripts/NotoSansMro-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 33,
+          "family": "Noto Sans Nushu",
+          "file": "fonts/scripts/NotoSansNushu-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 35,
           "family": "Noto Sans Vai",
           "file": "fonts/scripts/NotoSansVai-Regular.ttf",
+          "cmap_codepoints": 2
+        },
+        {
+          "font_id": 37,
+          "family": "Noto Serif Hentaigana",
+          "file": "fonts/scripts/NotoSerifHentaigana-Regular.ttf",
           "cmap_codepoints": 2
         }
       ]
