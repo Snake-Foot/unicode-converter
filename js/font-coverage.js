@@ -1,155 +1,148 @@
-/* Unicode 18.0: audited local font coverage + lazy specialist fonts.
- * No font is marked as verified merely because it exists in a catalog.
+/*
+ * Unicode 18.0 verified-codepoint font selector.
+ *
+ * The index is produced by fontkit on GitHub Actions from actual font files.
+ * Exact cmap membership is checked BEFORE fetching a font. FontFace keeps
+ * downloads lazy and works without installed fonts on Windows, iOS, etc.
+ *
+ * Each source file has its own private CSS family to avoid collisions.
  */
-const unicodeCoverageState = {
-  promise: null,
-  data: null,
-  familyLoads: new Map(),
-  stylesheets: new Map()
+const unicodeCoverageState={
+  promise:null,
+  data:null,
+  loads:new Map(),
+  remoteStyles:new Map()
 };
-
-function getUnicodeCoverageIndex() {
-  if (!unicodeCoverageState.promise) {
-    unicodeCoverageState.promise = fetch("./data/unicode18_font_coverage_index.json", {cache: "no-cache"})
-      .then(response => {
-        if (!response.ok) throw new Error("No published font coverage index");
-        return response.json();
+function getUnicodeCoverageIndex(){
+  if(!unicodeCoverageState.promise){
+    unicodeCoverageState.promise=fetch("./data/unicode18_font_coverage_index.json",{cache:"no-cache"})
+      .then(r=>{
+        if(!r.ok)throw Error("Unicode cmap index not found");
+        return r.json();
       })
-      .then(data => {
-        if (data.schema_version !== 1 ||
-            data.unicode_version !== "18.0.0" ||
-            !Array.isArray(data.ranges) ||
-            !Array.isArray(data.font_families) ||
-            !Array.isArray(data.script_ranges)) {
-          throw new Error("Invalid font coverage index");
-        }
-        unicodeCoverageState.data = data;
+      .then(data=>{
+        if(data.schema_version!==2||data.unicode_version!=="18.0.0"||
+          !Array.isArray(data.font_families)||!Array.isArray(data.combinations)||
+          !Array.isArray(data.ranges)||!Array.isArray(data.script_ranges))
+          throw Error("Unsupported Unicode font index version");
+        unicodeCoverageState.data=data;
         return data;
       })
-      .catch(error => {
-        console.warn("Font coverage index unavailable; using existing font fallback.", error);
+      .catch(error=>{
+        console.warn("Using original fonts because coverage index unavailable:",error);
         return null;
       });
   }
   return unicodeCoverageState.promise;
 }
-
-function unicodeRangeLookup(ranges, codePoint) {
-  let low = 0, high = ranges.length - 1;
-  while (low <= high) {
-    const i = (low + high) >>> 1;
-    const r = ranges[i];
-    if (codePoint < r[0]) high = i - 1;
-    else if (codePoint > r[1]) low = i + 1;
+function unicodeRangeLookup(ranges,cp){
+  let lo=0,hi=ranges.length-1;
+  while(lo<=hi){
+    const m=(lo+hi)>>>1,r=ranges[m];
+    if(cp<r[0])hi=m-1;
+    else if(cp>r[1])lo=m+1;
     else return r;
   }
   return null;
 }
-
-async function loadDeclaredUnicodeFont(family, character) {
-  if (!document.fonts || !family) return false;
-  // A separate promise is required for each glyph: a font may be Unicode-subsetted.
-  try {
-    const matches = await document.fonts.load('100px "' + family.replace(/"/g, "") + '"', character);
-    if (matches.length === 0) return false;
-    if (typeof glyphAnalysisCache !== "undefined") glyphAnalysisCache.clear();
-    return true;
-  } catch (error) {
-    console.warn("Font load error for " + family, error);
-    return false;
-  }
+/* Single shared fetch per file, even when hundreds of input characters
+   use the same new Unicode script font. */
+function loadAuditedUnicodeFont(id,entry){
+  if(unicodeCoverageState.loads.has(id))return unicodeCoverageState.loads.get(id);
+  const request=(async()=>{
+    if(!document.fonts||typeof FontFace!=="function"||
+       !entry||!/^fonts\/[a-zA-Z0-9_./-]+\.(?:ttf|otf|woff2?)$/i.test(entry.file))return null;
+    const name="Unicode Site "+id;
+    const url=new URL("./"+entry.file,document.baseURI).href;
+    const font=new FontFace(name,'url("'+url+'")',{style:"normal",weight:"400"});
+    try{
+      await font.load();
+      document.fonts.add(font);
+      if(typeof glyphAnalysisCache!=="undefined")glyphAnalysisCache.clear();
+      return name;
+    }catch(error){
+      console.warn("Site font unavailable:",entry.file,error);
+      return null;
+    }
+  })();
+  unicodeCoverageState.loads.set(id,request);
+  return request;
 }
-
-async function ensureUnicodeGoogleFont(family) {
-  if (!/^Noto (?:Sans|Serif) [\w \-]+$/.test(family)) return false;
-  let ready = unicodeCoverageState.stylesheets.get(family);
-  if (!ready) {
-    ready = new Promise(resolve => {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = "https://fonts.googleapis.com/css2?family=" +
-        encodeURIComponent(family).replace(/%20/g, "+") + "&display=swap";
-      link.onload = () => resolve(true);
-      link.onerror = () => resolve(false);
-      document.head.appendChild(link);
+async function ensureUnicodeGoogleFont(family){
+  if(!/^Noto (?:Sans|Serif) [\w \-]+$/.test(family))return false;
+  let p=unicodeCoverageState.remoteStyles.get(family);
+  if(!p){
+    p=new Promise(resolve=>{
+      const el=document.createElement("link");
+      el.rel="stylesheet";
+      el.href="https://fonts.googleapis.com/css2?family="+encodeURIComponent(family).replace(/%20/g,"+")+"&display=swap";
+      el.onload=()=>resolve(true);
+      el.onerror=()=>resolve(false);
+      document.head.appendChild(el);
     });
-    unicodeCoverageState.stylesheets.set(family, ready);
+    unicodeCoverageState.remoteStyles.set(family,p);
   }
-  // A network problem should not stall a conversion forever.
-  return Promise.race([ready, sleep(5000).then(() => false)]);
+  return Promise.race([p,sleep(6500).then(()=>false)]);
 }
-
-function looksLikeAvailableUnicodeGlyph(character, family) {
-  const cssFamily = '"' + family.replace(/"/g, "") + '", sans-serif';
-  return !isRenderedBlank(character, cssFamily) &&
-         !looksLikeMissingGlyph(character, cssFamily);
+function testUnicodeGlyph(character,family){
+  const name='"'+family.replace(/"/g,"")+'", sans-serif';
+  return !isRenderedBlank(character,name) && !looksLikeMissingGlyph(character,name);
 }
-
 /*
- * Returns an explicitly loaded family or null. First test cmap-verified,
- * site-hosted fonts; then older font choices; finally optional remote
- * Noto candidates discovered via Unicode Script.
- * Font coverage is a hint until the actual browser passes a glyph test.
+ * The candidate list is ranked by Unicode Script and local font
+ * specialization at build time. Try only fonts whose real cmap includes cp.
+ *
+ * For common Japanese characters, preserve web Noto Sans JP's original
+ * appearance; avoid downloading a 16 MB CJK font unnecessarily.
  */
-async function selectUnicodeFont(codePoint, character) {
-  const data = await Promise.race([
-    getUnicodeCoverageIndex(),
-    sleep(3200).then(() => null)
-  ]);
-  const legacy = getWebFontNames(codePoint);
-  // Basic Latin should keep the user's native UI typeface and render instantly.
-  if (codePoint >= 0x0020 && codePoint <= 0x007E) return null;
-  const tried = new Set();
-  const checkFamily = async (family, dynamic = false) => {
-    if (!family || tried.has(family)) return null;
-    tried.add(family);
-    if (dynamic && !(await ensureUnicodeGoogleFont(family))) return null;
-    if (!(await loadDeclaredUnicodeFont(family, character))) return null;
-    if (!looksLikeAvailableUnicodeGlyph(character, family)) return null;
-    return family;
+async function selectUnicodeFont(codePoint,character){
+  if(codePoint>=0x0020&&codePoint<=0x007E)return null;
+  const data=await Promise.race([getUnicodeCoverageIndex(),sleep(5000).then(()=>null)]);
+  const checked=new Set();
+  const tryLegacy=async(family,remote=false)=>{
+    if(!family||checked.has(family))return null;
+    checked.add(family);
+    if(remote&&!(await ensureUnicodeGoogleFont(family)))return null;
+    if(!document.fonts)return null;
+    try{
+      const faces=await document.fonts.load('100px "'+family.replace(/"/g,"")+'"',character);
+      if(!faces.length)return null;
+      if(typeof glyphAnalysisCache!=="undefined")glyphAnalysisCache.clear();
+      return testUnicodeGlyph(character,family)?family:null;
+    }catch(error){console.warn("Font fallback failed",family,error);return null}
   };
-
-  // Keep the prior Noto Sans JP appearance for common Japanese ideographs;
-  // only fall back to Plangothic when the Japanese web font lacks a glyph.
-  if ((codePoint >= 0x3400 && codePoint <= 0x4DBF) ||
-      (codePoint >= 0x4E00 && codePoint <= 0x9FFF)) {
-    const japanese = await checkFamily("Noto Sans JP");
-    if (japanese) return japanese;
+  const cpJapanese=(codePoint>=0x3040&&codePoint<=0x30FF)||
+    (codePoint>=0x3400&&codePoint<=0x9FFF);
+  if(cpJapanese){
+    const japanese=await tryLegacy("Noto Sans JP");
+    if(japanese)return japanese;
   }
-
-  if (data) {
-    const mapped = unicodeRangeLookup(data.ranges, codePoint);
-    if (mapped) {
-      const present = data.font_families.filter((font, index) =>
-        ((mapped[2] >>> index) & 1) !== 0).map(font => font.family);
-      const priority = [...present].sort((a,b) => {
-        const ai = legacy.indexOf(a), bi = legacy.indexOf(b);
-        return (ai < 0 ? 100 : ai) - (bi < 0 ? 100 : bi);
-      });
-      for (const name of priority) {
-        const got = await checkFamily(name);
-        if (got) return got;
+  if(data){
+    const entry=unicodeRangeLookup(data.ranges,codePoint);
+    if(entry){
+      const ids=data.combinations[entry[2]]||[];
+      for(const id of ids){
+        const face=await loadAuditedUnicodeFont(id,data.font_families[id]);
+        if(face&&testUnicodeGlyph(character,face))return face;
       }
     }
   }
-  // Legacy CSS includes locally defined and prelinked Google font families.
-  for (const name of legacy) {
-    const got = await checkFamily(name);
-    if (got) return got;
+  // Preexisting CSS/web-font fallback remains available for older glyphs.
+  for(const family of getWebFontNames(codePoint)){
+    const face=await tryLegacy(family);
+    if(face)return face;
   }
-  if (data) {
-    const sr = unicodeRangeLookup(data.script_ranges, codePoint);
-    if (sr && sr[2] !== "Zyyy" && sr[2] !== "Zinh" && sr[2] !== "Zzzz") {
-      const candidates = data.script_google_candidates[sr[2]] || [];
-      for (const name of candidates.slice(0, 2)) {
-        const got = await checkFamily(name, true);
-        if (got) return got;
+  // Unicode 18 Script -> publicly hosted Noto project lookup is secondary.
+  // Source directories are leads only, not verified cmap coverage.
+  if(data){
+    const sr=unicodeRangeLookup(data.script_ranges,codePoint);
+    if(sr&&sr[2]!=="Zyyy"&&sr[2]!=="Zinh"&&sr[2]!=="Zzzz"){
+      for(const family of (data.script_google_candidates[sr[2]]||[]).slice(0,2)){
+        const face=await tryLegacy(family,true);
+        if(face)return face;
       }
     }
   }
   return null;
 }
-
-// Warm the index without blocking initial page paint. If not generated,
-// the legacy font selection continues to work.
 getUnicodeCoverageIndex();
