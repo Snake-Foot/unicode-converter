@@ -85,7 +85,6 @@ function inferFamily(filename) {
   if (/^KaiyuanSmallSeal$/i.test(stem)) return "Kaiyuan Small Seal";
   if (/^LXGWSeal$/i.test(stem)) return "LXGW Seal";
   if (/^BabelStoneHan$/i.test(stem)) return "BabelStone Han";
-  if (/^YKTSmoothHanB$/i.test(stem)) return "YKT Smooth Han B";
   if (/^NotoSansSignWriting$/i.test(stem)) return "Noto Sans SignWriting";
   if (/^NotoZnamennyMusicalNotation$/i.test(stem)) return "Noto Znamenny Musical Notation";
   if (/^NotoSans/.test(stem)) {

@@ -75,11 +75,6 @@ const specializedByScript = {
   Sinh: "Noto Serif Sinhala",
   Todr: "Noto Serif Todhri"
 };
-// Six PC-reported CJK Extension B glyphs receive an exact, OFL-licensed
-// outline subset. Do not expand this ranking to all CJK characters.
-const smoothHanCodepoints = new Set([
-  0x29C09,0x20478,0x2076F,0x207B8,0x29D27,0x27971
-]);
 const explicitPreferred = {
  Hani:["Noto Sans CJK JP","BabelStone Han","Plangothic P1","Plangothic P2","GNU Unifont Upper"],
  Seal:["Kaiyuan Small Seal","LXGW Seal"],
@@ -96,7 +91,6 @@ const explicitPreferred = {
 };
 function rankId(id, script, cp) {
  const f=fonts[id], family=f.family;
- if (smoothHanCodepoints.has(cp) && family==="YKT Smooth Han B") return -80;
  // A specialist contour font beats the bitmap-like GNU Unifont fallback.
  if (script==="Hani" && cp>=0x20000) {
    if (family==="BabelStone Han") return -30;
