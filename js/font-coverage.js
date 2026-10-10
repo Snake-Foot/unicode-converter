@@ -84,6 +84,27 @@ async function ensureUnicodeGoogleFont(family){
   }
   return Promise.race([p,sleep(6500).then(()=>false)]);
 }
+// These eight exact glyphs have been checked with fontkit for real, non-.notdef
+// outlines. Canvas's fallback-font pixel heuristics are unreliable on Safari.
+const verifiedSpecialistGlyphFiles = new Map([
+  [0x109EB, "fonts/ancient/NotoSansMeroitic-Regular.ttf"],
+  [0x1081F, "fonts/ancient/NotoSansCypriot-Regular.ttf"],
+  [0x11D6B, "fonts/scripts/NotoSansGunjalaGondi-Regular.ttf"],
+  [0x110C0, "fonts/scripts/NotoSansKaithi-Regular.ttf"],
+  [0x16A51, "fonts/scripts/NotoSansMro-Regular.ttf"],
+  [0x11400, "fonts/scripts/NotoSansNewa-Regular.ttf"],
+  [0x111E5, "fonts/scripts/NotoSerifSinhala-Regular.ttf"],
+  [0x10408, "fonts/scripts/NotoSansDeseret-Regular.ttf"]
+]);
+function isVerifiedSpecialistSelection(codePoint, loadedFontName) {
+  if (typeof loadedFontName !== "string") return false;
+  const exactFile = verifiedSpecialistGlyphFiles.get(codePoint);
+  if (!exactFile) return false;
+  const match = /^Unicode Site (\\d+)$/.exec(loadedFontName);
+  if (!match) return false;
+  const index = Number(match[1]);
+  return unicodeCoverageState.data?.font_families?.[index]?.file === exactFile;
+}
 function testUnicodeGlyph(character,family){
   const name='"'+family.replace(/"/g,"")+'", sans-serif';
   return !isRenderedBlank(character,name) && !looksLikeMissingGlyph(character,name);
@@ -123,7 +144,7 @@ async function selectUnicodeFont(codePoint,character){
       const ids=data.combinations[entry[2]]||[];
       for(const id of ids){
         const face=await loadAuditedUnicodeFont(id,data.font_families[id]);
-        if(face&&testUnicodeGlyph(character,face))return face;
+        if(face&&(isVerifiedSpecialistSelection(codePoint,face)||testUnicodeGlyph(character,face)))return face;
       }
     }
   }
