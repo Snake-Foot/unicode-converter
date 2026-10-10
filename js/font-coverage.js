@@ -100,7 +100,7 @@ function isVerifiedSpecialistSelection(codePoint, loadedFontName) {
   if (typeof loadedFontName !== "string") return false;
   const exactFile = verifiedSpecialistGlyphFiles.get(codePoint);
   if (!exactFile) return false;
-  const match = /^Unicode Site (\\d+)$/.exec(loadedFontName);
+  const match = /^Unicode Site ([0-9]+)$/.exec(loadedFontName);
   if (!match) return false;
   const index = Number(match[1]);
   return unicodeCoverageState.data?.font_families?.[index]?.file === exactFile;
