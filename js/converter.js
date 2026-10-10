@@ -505,6 +505,27 @@ async function convertUnicode(
     }
 
 
+    // Preserve full-color native emoji instead of letting Unicode cmap
+    // fallback fonts (Noto Symbols / Unifont) force monochrome glyphs.
+    // This runs before the specialized black-and-white font selection.
+    let emojiPlan = null;
+    if (typeof getNativeEmojiRenderPlan === "function") {
+      emojiPlan = await getNativeEmojiRenderPlan(codePoint, character);
+    }
+    if (currentRun !== unicodeRun) return;
+    if (emojiPlan) {
+      wrapper.classList.remove("loading-character");
+      wrapper.classList.add("native-color-emoji");
+      inner.textContent = emojiPlan.character;
+      inner.dataset.codePoint = hex;
+      inner.setAttribute("aria-label", "U+" + hex);
+      if (emojiPlan.displayVariation) {
+        wrapper.title = "U+" + hex + "（カラー表示用の U+FE0F を追加）";
+      }
+      await yieldToBrowser();
+      continue;
+    }
+
     // The audited cmap index chooses a concrete font for this code point.
     // The old path remains available if this optional script fails to load.
     let selectedFont = null;
